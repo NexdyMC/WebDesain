@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IsyaratOk - Belajar Bahasa Isyarat</title>
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: {
+            50: '#fff7ed',
+            100: '#ffedd5',
+            200: '#fed7aa',
+            300: '#fdba74',
+            400: '#fb923c',
+            500: '#f97316',
+            600: '#ea580c',
+            700: '#c2410c',
+            800: '#9a3412',
+            900: '#7c2d12',
+          }
+        },
+        fontFamily: {
+          sans: ['Poppins', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" rel="stylesheet">
+
+<style>
+  body { font-family: 'Poppins', sans-serif; }
+  .placeholder-img {
+    background-color: #d1d5db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+<!-- ============ NAVBAR ============ -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-orange-100">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-20">
+    <a href="#" class="flex items-center gap-1 text-xl md:text-2xl font-extrabold">
+      <span class="text-gray-900">Isyarat</span><span class="text-primary-500">OK</span>
+      <span class="ml-1 text-primary-500">✌️</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-500">
+      <a href="#beranda" class="text-primary-500">BERANDA</a>
+      <a href="#edukasi" class="hover:text-primary-500 transition">EDUKASI</a>
+      <a href="#kamus" class="hover:text-primary-500 transition">KAMUS</a>
+      <a href="#quiz" class="hover:text-primary-500 transition">QUIZ</a>
+      <a href="#komunitas" class="hover:text-primary-500 transition">KOMUNITAS</a>
+    </nav>
+
+    <button class="hidden md:inline-flex bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition">
+      Mulai Belajar
+    </button>
+
+    <!-- Mobile menu button -->
+    <button id="menuBtn" class="md:hidden text-gray-700">
+      <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="iconClose" class="hidden h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <nav id="mobileMenu" class="hidden md:hidden flex flex-col gap-1 px-5 pb-5 text-sm font-semibold text-gray-600">
+    <a href="#beranda" class="py-2 text-primary-500">BERANDA</a>
+    <a href="#edukasi" class="py-2">EDUKASI</a>
+    <a href="#kamus" class="py-2">KAMUS</a>
+    <a href="#quiz" class="py-2">QUIZ</a>
+    <a href="#komunitas" class="py-2">KOMUNITAS</a>
+    <button class="mt-2 bg-primary-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full">
+      Mulai Belajar
+    </button>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="beranda" class="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-50">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 pt-10 md:pt-16 pb-16 md:pb-24">
+    <div class="relative bg-gradient-to-br from-primary-500 to-primary-600 rounded-[2rem] md:rounded-[2.5rem] px-6 py-10 md:px-14 md:py-16 overflow-hidden">
+
+      <!-- decorative dots -->
+      <div class="absolute inset-0 opacity-20 pointer-events-none" aria-hidden="true">
+        <div class="grid grid-cols-8 gap-4 p-8">
+          <template x-if="false"></template>
+        </div>
+      </div>
+
+      <div class="relative grid md:grid-cols-2 gap-10 items-center">
+        <div data-aos="fade-right">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
+            Belajar Isyarat &amp; Bangun Koneksi
+          </h1>
+          <p class="text-primary-50/90 text-sm md:text-base mb-8 max-w-md leading-relaxed">
+            Setiap orang bicara dengan caranya sendiri. Jutaan orang di dunia berkomunikasi lewat gerak tangan, ekspresi wajah, dan bahasa tubuh. Yuk mulai belajar bahasa isyarat hari ini. Satu kata, satu langkah lebih dekat untuk saling mengerti.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <button class="bg-white text-primary-600 font-semibold text-sm px-6 py-3 rounded-full hover:bg-primary-50 transition">
+              Mulai Belajar Gratis
+            </button>
+            <button class="border-2 border-white/80 text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-white/10 transition">
+              Kenali Bahasa Isyarat
+            </button>
+          </div>
+        </div>
+
+        <div class="flex justify-center md:justify-end" data-aos="fade-left" data-aos-delay="150">
+          <div class="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full border-4 border-white/30 overflow-hidden placeholder-img">
+            500x500
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS / PARTNER BAR ============ -->
+<section class="bg-gray-50 border-y border-gray-100">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 py-8">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center" data-aos="fade-up">
+      <div>
+        <p class="text-2xl md:text-3xl font-extrabold text-primary-500">1.000+</p>
+        <p class="text-xs md:text-sm text-gray-500 mt-1">Kosakata Isyarat</p>
+      </div>
+      <div>
+        <p class="text-2xl md:text-3xl font-extrabold text-primary-500">50+</p>
+        <p class="text-xs md:text-sm text-gray-500 mt-1">Modul Belajar</p>
+      </div>
+      <div>
+        <p class="text-2xl md:text-3xl font-extrabold text-primary-500">10.000+</p>
+        <p class="text-xs md:text-sm text-gray-500 mt-1">Pengguna Aktif</p>
+      </div>
+      <div>
+        <p class="text-2xl md:text-3xl font-extrabold text-primary-500">100%</p>
+        <p class="text-xs md:text-sm text-gray-500 mt-1">Gratis Digunakan</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUKASI INTERAKTIF ============ -->
+<section id="edukasi" class="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10" data-aos="fade-up">
+    <div>
+      <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-3">Edukasi Interaktif</h2>
+      <p class="text-gray-500 text-sm md:text-base max-w-lg">
+        Modul pembelajaran terstruktur dari dasar hingga mahir, dirancang untuk berbagai gaya belajar.
+      </p>
+    </div>
+    <button class="hidden md:inline-flex items-center gap-2 border border-gray-300 text-gray-700 text-sm font-semibold px-5 py-2.5 rounded-full hover:border-primary-500 hover:text-primary-500 transition whitespace-nowrap">
+      Lihat Semua Modul
+    </button>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+    <!-- Card 1 -->
+    <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="0">
+      <div class="relative rounded-2xl overflow-hidden aspect-[3/4] placeholder-img">
+        <span class="absolute inset-0 flex items-center justify-center">300x400</span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-4">
+          <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Level 1</span>
+          <p class="text-white font-bold text-sm md:text-base">Alfabet (A-Z)</p>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+      <div class="relative rounded-2xl overflow-hidden aspect-[3/4] placeholder-img">
+        <span class="absolute inset-0 flex items-center justify-center">300x400</span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-4">
+          <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Level 2</span>
+          <p class="text-white font-bold text-sm md:text-base">Ungkapan Harian</p>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+      <div class="relative rounded-2xl overflow-hidden aspect-[3/4] placeholder-img">
+        <span class="absolute inset-0 flex items-center justify-center">300x400</span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-4">
+          <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Level 3</span>
+          <p class="text-white font-bold text-sm md:text-base">Percakapan Umum</p>
+        </div>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+      <div class="relative rounded-2xl overflow-hidden aspect-[3/4] placeholder-img">
+        <span class="absolute inset-0 flex items-center justify-center">300x400</span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-4">
+          <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Khusus</span>
+          <p class="text-white font-bold text-sm md:text-base">Kategori Anak</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="md:hidden mt-6 w-full border border-gray-300 text-gray-700 text-sm font-semibold px-5 py-3 rounded-full">
+    Lihat Semua Modul
+  </button>
+</section>
+
+<!-- ============ KAMUS ISYARAT VIRTUAL ============ -->
+<section id="kamus" class="bg-gray-50 py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10" data-aos="fade-up">
+      <div>
+        <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-3">Kamus Isyarat Virtual</h2>
+        <p class="text-gray-500 text-sm md:text-base max-w-lg">
+          Cari dan temukan ribuan kosakata isyarat dalam bentuk video dan gambar interaktif.
+        </p>
+      </div>
+      <div class="flex gap-2 w-full lg:w-auto">
+        <input type="text" placeholder="Cari kata (misal: Halo, Terima Kasih)"
+          class="flex-1 lg:w-80 border border-gray-300 rounded-full px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400">
+        <button class="bg-primary-500 hover:bg-primary-600 text-white font-semibold text-sm px-6 py-3 rounded-full transition whitespace-nowrap">
+          Cari
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-4 md:gap-5">
+      <!-- item -->
+      <div class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition" data-aos="zoom-in" data-aos-delay="0">
+        <div class="aspect-square rounded-xl placeholder-img mb-3">120x120</div>
+        <p class="text-sm font-semibold text-gray-800">Halo</p>
+      </div>
+      <div class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition" data-aos="zoom-in" data-aos-delay="50">
+        <div class="aspect-square rounded-xl placeholder-img mb-3">120x120</div>
+        <p class="text-sm font-semibold text-gray-800">Terima Kasih</p>
+      </div>
+      <div class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition" data-aos="zoom-in" data-aos-delay="100">
+        <div class="aspect-square rounded-xl placeholder-img mb-3">120x120</div>
+        <p class="text-sm font-semibold text-gray-800">Maaf</p>
+      </div>
+      <div class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition" data-aos="zoom-in" data-aos-delay="150">
+        <div class="aspect-square rounded-xl placeholder-img mb-3">120x120</div>
+        <p class="text-sm font-semibold text-gray-800">Tolong</p>
+      </div>
+      <div class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition" data-aos="zoom-in" data-aos-delay="200">
+        <div class="aspect-square rounded-xl placeholder-img mb-3">120x120</div>
+        <p class="text-sm font-semibold text-gray-800">Sayang</p>
+      </div>
+      <div class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition" data-aos="zoom-in" data-aos-delay="250">
+        <div class="aspect-square rounded-xl placeholder-img mb-3">120x120</div>
+        <p class="text-sm font-semibold text-gray-800">Teman</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUIZ CTA ============ -->
+<section id="quiz" class="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+  <div class="relative bg-gray-900 rounded-[2rem] overflow-hidden" data-aos="fade-up">
+    <div class="grid md:grid-cols-2 gap-8 items-center p-8 md:p-14">
+      <div>
+        <h2 class="text-2xl md:text-4xl font-extrabold text-white leading-snug mb-4">
+          Uji Pengetahuanmu tentang Budaya Tuli
+        </h2>
+        <p class="text-gray-400 text-sm md:text-base mb-8 max-w-md leading-relaxed">
+          Seberapa jauh kamu mengenal teman tuli? Ikuti quiz singkat untuk menguji pemahamanmu tentang etika berkomunikasi dan budaya isyarat.
+        </p>
+        <button class="bg-primary-500 hover:bg-primary-600 text-white font-semibold text-sm px-6 py-3 rounded-full transition">
+          Mulai Quiz Sekarang
+        </button>
+      </div>
+      <div class="flex justify-center md:justify-end">
+        <div class="w-full max-w-sm aspect-video rounded-2xl placeholder-img bg-gray-700 text-gray-300">
+          400x250
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RUANG TEMAN TULI (TESTIMONIALS) ============ -->
+<section id="komunitas" class="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+  <div class="mb-10" data-aos="fade-up">
+    <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-3">Ruang Teman Tuli</h2>
+    <p class="text-gray-500 text-sm md:text-base max-w-lg">
+      Cerita, dukungan, dan advokasi dari komunitas kami yang terus berkembang.
+    </p>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Testimonial 1 -->
+    <div class="rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="0">
+      <div class="aspect-[4/5] placeholder-img">400x500</div>
+      <div class="flex items-center gap-3 mt-4">
+        <div class="w-9 h-9 rounded-full placeholder-img text-[10px] shrink-0">40x40</div>
+        <div>
+          <p class="text-sm font-bold text-gray-900">Sari Dewi</p>
+          <p class="text-xs text-gray-500 leading-snug">"IsyaratOK membantu saya berkomunikasi dengan keluarga."</p>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial 2 -->
+    <div class="rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+      <div class="aspect-[4/5] placeholder-img">400x500</div>
+      <div class="flex items-center gap-3 mt-4">
+        <div class="w-9 h-9 rounded-full placeholder-img text-[10px] shrink-0">40x40</div>
+        <div>
+          <p class="text-sm font-bold text-gray-900">Budi Santoso</p>
+          <p class="text-xs text-gray-500 leading-snug">"Platform ini membuka pintu baru bagi kami di tempat kerja."</p>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial 3 -->
+    <div class="rounded-2xl overflow-hidden group sm:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="200">
+      <div class="aspect-[4/5] placeholder-img">400x500</div>
+      <div class="flex items-center gap-3 mt-4">
+        <div class="w-9 h-9 rounded-full placeholder-img text-[10px] shrink-0">40x40</div>
+        <div>
+          <p class="text-sm font-bold text-gray-900">Rina Anjani</p>
+          <p class="text-xs text-gray-500 leading-snug">"Belajar jadi seru berkat modul interaktifnya."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-gray-900 text-gray-400 pt-16 pb-8 mt-10">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <h2 class="text-center text-4xl md:text-6xl font-extrabold text-white mb-14 tracking-tight">
+      ISYARAT<span class="text-primary-500">OK</span>
+    </h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm mb-12">
+      <div>
+        <p class="text-white font-semibold mb-4 tracking-wide">NAVIGASI</p>
+        <ul class="space-y-2">
+          <li><a href="#beranda" class="hover:text-primary-400 transition">Beranda</a></li>
+          <li><a href="#edukasi" class="hover:text-primary-400 transition">Edukasi</a></li>
+          <li><a href="#kamus" class="hover:text-primary-400 transition">Kamus</a></li>
+          <li><a href="#quiz" class="hover:text-primary-400 transition">Quiz</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-4 tracking-wide">LEGAL</p>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-primary-400 transition">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-primary-400 transition">Terms of Service</a></li>
+          <li><a href="#" class="hover:text-primary-400 transition">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-4 tracking-wide">SOSIAL</p>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-primary-400 transition">Instagram</a></li>
+          <li><a href="#" class="hover:text-primary-400 transition">Facebook</a></li>
+          <li><a href="#" class="hover:text-primary-400 transition">Twitter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-4 tracking-wide">KONTAK</p>
+        <ul class="space-y-2">
+          <li><a href="mailto:hello@isyaratok.id" class="hover:text-primary-400 transition">hello@isyaratok.id</a></li>
+          <li>Jakarta, Indonesia</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+      <p>© 2026 ISYARATOK. All rights reserved.</p>
+      <p class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-primary-500 inline-block"></span>
+        ONLINE LEARNING ACTIVE
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- AOS JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 700,
+    once: true,
+    offset: 60,
+  });
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconOpen = document.getElementById('iconOpen');
+  const iconClose = document.getElementById('iconClose');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    iconOpen.classList.toggle('hidden');
+    iconClose.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    });
+  });
+</script>
+
+</body>
+</html>
