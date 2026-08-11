@@ -34,11 +34,11 @@
 
       <!-- Desktop Navigasi -->
       <nav class="hidden md:flex items-center gap-6 text-md font-semibold text-gray-500">
-        <a href="#beranda" class="py-2 text-primary-500 border-b-2">Beranda</a>
-        <a href="edukasi.html" class="py-2 border-b-2 border-white hover:text-primary-400 hover:border-primary-400 transition">Edukasi</a>
-        <a href="#kamus" class="py-2 border-b-2 border-white hover:text-primary-400 hover:border-primary-400 transition">Kamus</a>
-        <a href="#quiz"  class="py-2 border-b-2 border-white hover:text-primary-400 hover:border-primary-400 transition">Quiz Game</a>
-        <a href="#komunitas" class="py-2 border-b-2 border-white hover:text-primary-400 hover:border-primary-400 transition">Komunitas</a>
+        <a href="#beranda" class="py-2 text-primary-500 border-b-2 border-primary-500">Beranda</a>
+        <a href="edukasi.html" class="py-2 border-b-2 border-white hover:text-primary-300 hover:border-primary-300 transition">Edukasi</a>
+        <a href="#kamus" class="py-2 border-b-2 border-white hover:text-primary-300 hover:border-primary-300 transition">Kamus</a>
+        <a href="#quiz"  class="py-2 border-b-2 border-white hover:text-primary-300 hover:border-primary-300 transition">Quiz Game</a>
+        <a href="#komunitas" class="py-2 border-b-2 border-white hover:text-primary-300 hover:border-primary-300 transition">Komunitas</a>
       </nav>
 
       <!-- Mobile menu button -->
@@ -56,7 +56,7 @@
     </div>
 
     <!-- Mobile Nav -->
-    <nav id="mobileMenu" class="md:hidden flex flex-col gap-1 px-6 pb-6 text-sm font-semibold text-gray-600 rounded-2xl">
+    <nav id="mobileMenu" class="hidden flex-col gap-1 px-6 pb-6 text-sm font-semibold text-gray-600 rounded-2xl">
       <a href="#beranda" class="py-2 text-primary-500">Beranda</a>
       <a href="edukasi.html" class="py-2 hover:text-primary-400 transition">Edukasi</a>
       <a href="#kamus" class="py-2 hover:text-primary-400 transition">Kamus</a>
@@ -111,73 +111,57 @@
     </div>
   </section>
 
-  <!-- ============ STATS / PARTNER BAR ============ -->
-  <section class="bg-cream font-sans antialiased text-orange-500 p-10 md:p-20">
-    <h2 class="text-4xl font-bold pb-2 text-center">Isyarat dalam angka</h2>
-    <p class="text-lg text-center pb-2">Data menarik tentang belajar isyarat di Indonesia
-
-</p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto py-8">
+  <!-- ============ STATISTICS ============ -->
+  <section class="bg-cream font-sans antialiased text-orange-500 py-20 px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="text-3xl md:text-4xl font-bold text-orange-600 mb-4">
+        Isyarat dalam angka
+      </h2>
+      <p class="text-lg text-orange-500">
+        Data menarik tentang belajar isyarat di Indonesia
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto py-8">
 
       <!-- Card 1: Kosa Kata -->
-      <div class="text-center">
-        <div class="relative w-20 h-20 mx-auto mb-8 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20">
-          <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418">
-            </path>
-          </svg>
+      <div class="text-center fade-in">
+        <div class="relative w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20">
+          <i class="fa-solid fa-globe text-cream text-3xl"></i>
         </div>
-        <p class="text-4xl font-bold text-orange-500 mb-2 leading-none">800+</p>
-        <p class="text-lg font-bold text-orange-500">Kosa Kata Dasar Isyarat</p>
-        <p class="text-base text-orange-500 opacity-80 mt-1">Panduan Digital Pemula</p>
+        <p class="text-3xl font-bold text-orange-500 mb-2 leading-none">800+</p>
+        <p class="text-md font-medium text-orange-500">Kosa Kata Dasar</p>
+        <p class="text-sm text-orange-500 opacity-80 mt-1">Panduan Digital Pemula</p>
       </div>
 
       <!-- Card 2: Sejarah -->
-      <div class="text-center">
-        <div class="relative w-20 h-20 mx-auto mb-8 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20">
-          <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
+      <div class="text-center fade-in">
+        <div class="relative w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20">
+          <i class="fa-solid fa-scroll text-cream text-3xl"></i>
         </div>
-        <p class="text-4xl font-bold text-orange-500 mb-2 leading-none">100+</p>
-        <p class="text-lg font-bold text-orange-500">Tahun Sejarah Komunitas Tuli</p>
-        <p class="text-base text-orange-500 opacity-80 mt-1">Melestarikan Budaya dan Hak</p>
+        <p class="text-3xl font-bold text-orange-500 mb-2 leading-none">100+</p>
+        <p class="text-md font-medium text-orange-500">Tahun Sejarah</p>
+        <p class="text-sm text-orange-500 opacity-80 mt-1">Melestarikan Budaya dan Hak</p>
       </div>
 
       <!-- Card 3: Interpreter -->
-      <div class="text-center">
-        <div class="relative w-20 h-20 mx-auto mb-8 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20">
-          <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-            </path>
-          </svg>
+      <div class="text-center fade-in">
+        <div class="relative w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20">
+          <i class="fa-solid fa-shield-halved text-cream text-3xl"></i>
         </div>
-        <p class="text-4xl font-bold text-orange-500 mb-2 leading-none">300+</p>
-        <p class="text-lg font-bold text-orange-500">Interpreter Bahasa Isyarat Bersertifikat</p>
-        <p class="text-base text-orange-500 opacity-80 mt-1">Mendukung Akses Komunikasi</p>
+        <p class="text-3xl font-bold text-orange-500 mb-2 leading-none">300+</p>
+        <p class="text-md font-medium text-orange-500">Interpreter</p>
+        <p class="text-sm text-orange-500 opacity-80 mt-1">Mendukung Akses Komunikasi</p>
       </div>
 
       <!-- Card 4: Cabang Komunitas -->
-      <div class="text-center">
-        <div class="relative w-20 h-20 mx-auto mb-8 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20">
-          <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z">
-            </path>
-          </svg>
+      <div class="text-center fade-in">
+        <div class="relative w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20">
+          <i class="fa-solid fa-location-dot text-cream text-3xl"></i>
         </div>
-        <p class="text-4xl font-bold text-orange-500 mb-2 leading-none">38</p>
-        <p class="text-lg font-bold text-orange-500">Cabang Komunitas Regional Terjangkau</p>
-        <p class="text-base text-orange-500 opacity-80 mt-1">Hadir dari Sabang sampai Merauke</p>
+        <p class="text-3xl font-bold text-orange-500 mb-2 leading-none">38</p>
+        <p class="text-md font-medium text-orange-500">Cabang Komunitas Regional Terjangkau</p>
+        <p class="text-sm text-orange-500 opacity-80 mt-1">Hadir dari Sabang sampai Merauke</p>
       </div>
     </div>
   </section>
@@ -186,7 +170,7 @@
   <section id="edukasi" class="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
       <div>
-        <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-3">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
           Edukasi Interaktif
         </h2>
         <p class="text-gray-500 text-sm md:text-base max-w-lg">
@@ -266,7 +250,7 @@
     <div class="max-w-7xl mx-auto px-5 md:px-8">
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
         <div>
-          <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-3">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
             Kamus Isyarat Virtual
           </h2>
           <p class="text-gray-500 text-sm md:text-base max-w-lg">
@@ -331,7 +315,7 @@
     <div class="relative bg-gray-900 rounded-[2rem] overflow-hidden">
       <div class="grid md:grid-cols-2 gap-8 items-center p-8 md:p-14">
         <div>
-          <h2 class="text-2xl md:text-4xl font-extrabold text-white leading-snug mb-4">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white leading-snug mb-4">
             Uji Pengetahuanmu tentang Budaya Tuli
           </h2>
           <p class="text-gray-400 text-sm md:text-base mb-8 max-w-md leading-relaxed">
@@ -356,7 +340,7 @@
   <!-- ============ RUANG TEMAN TULI (TESTIMONIALS) ============ -->
   <section id="komunitas" class="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
     <div class="mb-10">
-      <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-3">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
         Ruang Teman Tuli
       </h2>
       <p class="text-gray-500 text-sm md:text-base max-w-lg">
@@ -417,7 +401,7 @@
   <!-- ============ FOOTER ============ -->
   <footer class="bg-gray-900 text-gray-400 pt-16 pb-8 mt-10">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
-      <h2 class="text-center text-4xl md:text-6xl font-extrabold text-white mb-14 tracking-tight">
+      <h2 class="text-center text-3xl md:text-6xl font-extrabold text-white mb-14 tracking-tight">
         ISYARAT<span class="text-primary-500">OK</span>
       </h2>
 
