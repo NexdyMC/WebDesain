@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beranda - IsyaratOk</title>
+  <title>Home Page - IsyaratOk</title>
   <meta property="og:title" content="NexdyMC/WebDesain" />
   <meta property="og:description" />
   <meta property="og:image" content="https://isyarat-ok.netlify.app/assets/images/banner.png" />
@@ -16,82 +16,50 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: {
-              50: "#fff7ed",
-              100: "#ffedd5",
-              200: "#fed7aa",
-              300: "#fdba74",
-              400: "#fb923c",
-              500: "#f97316",
-              600: "#ea580c",
-              700: "#c2410c",
-              800: "#9a3412",
-              900: "#7c2d12",
-            },
-          },
-          fontFamily: {
-            sans: ["Poppins", "sans-serif"],
-          },
-        },
-      },
-    };
-  </script>
+  <!-- Tailwind CSS v4 -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      /* Menambahkan custom colors */
+      --color-primary-50: #fff7ed;
+      --color-primary-100: #ffedd5;
+      --color-primary-200: #fed7aa;
+      --color-primary-300: #fdba74;
+      --color-primary-400: #fb923c;
+      --color-primary-500: #f97316;
+      --color-primary-600: #ea580c;
+      --color-primary-700: #c2410c;
+      --color-primary-800: #9a3412;
+      --color-primary-900: #7c2d12;
 
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-    }
-
-    .placeholder-img {
-      background-color: #d1d5db;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #6b7280;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-
-    html {
-      scroll-behavior: smooth;
+      /* Menimpa (override) font default sans */
+      --font-sans: "Poppins", sans-serif;
     }
   </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
   
   <!-- ============ NAVBAR ============ -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-orange-100">
-    <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-20">
+  <header class="sticky top-0 z-50 backdrop-blur border-b border-orange-100 bg-white/90">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-18">
       
       <!-- Judul Website  -->
-      <a href="#" class="flex items-center gap-1 text-xl md:text-2xl font-extrabold">
+      <a href="#" class="flex items-center text-xl md:text-2xl font-extrabold">
         <span class="text-gray-900">Isyarat</span><span class="text-primary-500">OK</span>
       </a>
 
       <!-- Desktop Navigasi -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-500">
-        <a href="#beranda" class="text-primary-500">BERANDA</a>
-        <a href="edukasi.html" class="hover:text-primary-500 transition">EDUKASI</a>
-        <a href="#kamus" class="hover:text-primary-500 transition">KAMUS</a>
-        <a href="#quiz" class="hover:text-primary-500 transition">QUIZ</a>
-        <a href="#komunitas" class="hover:text-primary-500 transition">KOMUNITAS</a>
+      <nav class="hidden md:flex items-center gap-6 text-md font-semibold text-gray-500">
+        <a href="#beranda" class="py-2 text-primary-500 border-b-2">Beranda</a>
+        <a href="edukasi.html" class="py-2 border-b-2 border-white hover:text-primary-400 hover:border-primary-400 transition">Edukasi</a>
+        <a href="#kamus" class="py-2 border-b-2 border-white hover:text-primary-400 hover:border-primary-400 transition">Kamus</a>
+        <a href="#quiz"  class="py-2 border-b-2 border-white hover:text-primary-400 hover:border-primary-400 transition">Quiz Game</a>
+        <a href="#komunitas" class="py-2 border-b-2 border-white hover:text-primary-400 hover:border-primary-400 transition">Komunitas</a>
       </nav>
 
-      <button
-        class="hidden md:inline-flex bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition">
-        Mulai Belajar
-      </button>
-
       <!-- Mobile menu button -->
-      <button id="menuBtn" class="md:hidden text-gray-700">
-        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+      <button id="menuBtn" class="md:hidden text-orange-700 cursor-pointer">
+        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
           stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -100,23 +68,21 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
+
     </div>
 
     <!-- Mobile Nav -->
-    <nav id="mobileMenu" class="hidden md:hidden flex flex-col gap-1 px-5 pb-5 text-sm font-semibold text-gray-600">
-      <a href="#beranda" class="py-2 text-primary-500">BERANDA</a>
-      <a href="#edukasi" class="py-2">EDUKASI</a>
-      <a href="#kamus" class="py-2">KAMUS</a>
-      <a href="#quiz" class="py-2">QUIZ</a>
-      <a href="#komunitas" class="py-2">KOMUNITAS</a>
-      <button class="mt-2 bg-primary-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full">
-        Mulai Belajar
-      </button>
+    <nav id="mobileMenu" class="hidden md:hidden flex flex-col gap-1 px-6 pb-6 text-sm font-semibold text-gray-600 rounded-2xl">
+      <a href="#beranda" class="py-2 text-primary-500">Beranda</a>
+      <a href="edukasi.html" class="py-2 hover:text-primary-400 transition">Edukasi</a>
+      <a href="#kamus" class="py-2 hover:text-primary-400 transition">Kamus</a>
+      <a href="#quiz"  class="py-2 hover:text-primary-400 transition">Quiz Game</a>
+      <a href="#komunitas" class="py-2 hover:text-primary-400 transition">Komunitas</a>
     </nav>
   </header>
 
   <!-- ============ HERO ============ -->
-  <section id="beranda" class="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-50">
+  <section id="beranda" class="relative bg-[url(assets/images/bg_hero.jpeg)] bg-no-repeat bg-cover overflow-hidden min-h-screen bg-linear-to-r from-cyan-500 to-blue-500">
     <div class="max-w-7xl mx-auto px-5 md:px-8 pt-10 md:pt-16 pb-16 md:pb-24">
       <div
         class="relative bg-gradient-to-br from-primary-500 to-primary-600 rounded-[2rem] md:rounded-[2.5rem] px-6 py-10 md:px-14 md:py-16 overflow-hidden">
