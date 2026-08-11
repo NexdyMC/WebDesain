@@ -1,17 +1,11 @@
-febri {
-  this is a code
-  i have a program computer
-}
-
-
-febri {
-  this is a code
-  i have a program computer
-}
+adit  {
+  this is a code by adit
+  i have a program computer by adit
+}by adit
 
 
 
-febri {
-
-  this is a code 
-}
+adit  {
+  by adit
+  this is a code  by adit
+}by adit
