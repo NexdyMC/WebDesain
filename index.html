@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home Page - IsyaratOk</title>
+
+  <!-- Config Website -->
   <meta property="og:title" content="NexdyMC/WebDesain" />
   <meta property="og:description" />
-  <meta property="og:image" content="https://isyarat-ok.netlify.app/assets/images/banner.png" />
+  <meta property="og:image" content="https://isyarat-ok.netlify.app/assets/images/banner.png"/>
   <meta property="og:image:width" />
   <meta property="og:image:height" />
   <meta property="og:url" content="https://isyarat-ok.netlify.app/" />
@@ -14,63 +16,56 @@
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <!-- Tailwind CSS v3 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
-
 </head>
-<body class="bg-white text-gray-800 antialiased">
+
+<body class="bg-white text-gray-800">
   
-  <!-- ============ NAVBAR ============ -->
-  <header class="sticky top-0 z-50 backdrop-blur border-b border-orange-100 bg-white/90">
-    <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-18">
+  <!-- Navbar  -->
+  <header class="sticky top-0 z-50 backdrop-blur border-b border-orange-100 bg-white/90" >
+    <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-18" >
       
       <!-- Judul Website  -->
-      <a href="#" class="flex items-center text-xl md:text-2xl font-extrabold">
+      <a href="#" class="flex items-center text-xl md:text-2xl font-extrabold" >
         <span class="text-gray-900">Isyarat</span><span class="text-primary-500">OK</span>
       </a>
 
       <!-- Desktop Navigasi -->
-      <nav class="hidden md:flex items-center gap-6 text-md font-semibold text-gray-500">
-        <a href="#beranda" class="py-2 text-primary-500 border-b-2 border-primary-500">Beranda</a>
-        <a href="edukasi.html" class="py-2 border-b-2 border-white hover:text-primary-300 hover:border-primary-300 transition">Edukasi</a>
-        <a href="#kamus" class="py-2 border-b-2 border-white hover:text-primary-300 hover:border-primary-300 transition">Kamus</a>
-        <a href="#quiz"  class="py-2 border-b-2 border-white hover:text-primary-300 hover:border-primary-300 transition">Quiz Game</a>
-        <a href="#komunitas" class="py-2 border-b-2 border-white hover:text-primary-300 hover:border-primary-300 transition">Komunitas</a>
+      <nav class="hidden md:flex items-center gap-6 text-md font-semibold text-gray-500" >
+        <a href="#beranda" class="py-2 text-primary-500 border-b-2 border-primary-500" >Beranda</a>
+        <a href="edukasi.html" class="py-2 border-b-2 border-white hover:text-primary-300 hover:border-primary-300 transition" >Edukasi</a>
+        <a href="#kamus" class="py-2 border-b-2 border-white hover:text-primary-300 hover:border-primary-300 transition" >Kamus</a>
+        <a href="#quiz" class="py-2 border-b-2 border-white hover:text-primary-300 hover:border-primary-300 transition" >Quiz</a>
+        <a href="#komunitas" class="py-2 border-b-2 border-white hover:text-primary-300 hover:border-primary-300 transition" >Asisten AI</a>
       </nav>
 
       <!-- Mobile menu button -->
       <button id="menuBtn" class="md:hidden text-orange-700 cursor-pointer">
-        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg id="iconClose" class="hidden h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
-
     </div>
 
     <!-- Mobile Nav -->
-    <nav id="mobileMenu" class="hidden flex-col gap-1 px-6 pb-6 text-sm font-semibold text-gray-600 rounded-2xl">
+    <nav id="mobileMenu" class="hidden grid gap-1 px-6 pb-6 text-sm font-semibold text-gray-600 rounded-2xl">
       <a href="#beranda" class="py-2 text-primary-500">Beranda</a>
       <a href="edukasi.html" class="py-2 hover:text-primary-400 transition">Edukasi</a>
       <a href="#kamus" class="py-2 hover:text-primary-400 transition">Kamus</a>
-      <a href="#quiz"  class="py-2 hover:text-primary-400 transition">Quiz Game</a>
-      <a href="#komunitas" class="py-2 hover:text-primary-400 transition">Komunitas</a>
+      <a href="#quiz" class="py-2 hover:text-primary-400 transition">Quiz</a>
+      <a href="#komunitas" class="py-2 hover:text-primary-400 transition">Asisten AI</a>
     </nav>
   </header>
 
-  <!-- ============ HERO ============ -->
-  <section id="beranda" class="relative bg-[url(assets/images/bg_hero.jpeg)] bg-no-repeat bg-cover overflow-hidden min-h-screen bg-linear-to-r from-cyan-500 to-blue-500">
+  <!-- Hero Section -->
+  <section id="beranda" class="relative bg-[url(assets/images/bg_hero.jpeg)] bg-center bg-cover overflow-hidden min-h-screen bg-linear-to-r from-cyan-500 to-blue-500" >
     <div class="max-w-7xl mx-auto px-5 md:px-8 pt-10 md:pt-16 pb-16 md:pb-24">
-      <div
-        class="relative bg-gradient-to-br from-primary-500 to-primary-600 rounded-[2rem] md:rounded-[2.5rem] px-6 py-10 md:px-14 md:py-16 overflow-hidden">
-        <!-- decorative dots -->
+      <div class="relative bg-gradient-to-br from-primary-500 to-primary-600 rounded-[2rem] md:rounded-[2.5rem] px-6 py-10 md:px-14 md:py-16 overflow-hidden" >
         <div class="absolute inset-0 opacity-20 pointer-events-none" aria-hidden="true">
           <div class="grid grid-cols-8 gap-4 p-8">
             <template x-if="false"></template>
@@ -78,8 +73,9 @@
         </div>
 
         <div class="relative grid md:grid-cols-2 gap-10 items-center">
+          
           <div>
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4" >
               Belajar Isyarat &amp; Bangun Koneksi
             </h1>
             <p class="text-primary-50/90 text-sm md:text-base mb-8 max-w-md leading-relaxed">
@@ -89,21 +85,17 @@
               kata, satu langkah lebih dekat untuk saling mengerti.
             </p>
             <div class="flex flex-wrap gap-3">
-              <button
-                class="bg-white text-primary-600 font-semibold text-sm px-6 py-3 rounded-full hover:bg-primary-50 transition">
+              <button class="bg-white text-primary-600 font-semibold text-sm px-6 py-3 rounded-full hover:bg-primary-50 transition">
                 Mulai Belajar Gratis
               </button>
-              <button
-                class="border-2 border-white/80 text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-white/10 transition">
+              <button class="border-2 border-white/80 text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-white/10 transition" >
                 Kenali Bahasa Isyarat
               </button>
             </div>
           </div>
 
           <div class="flex justify-center md:justify-end">
-            <div
-              class="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full border-4 border-white/30 overflow-hidden placeholder-img">
-              500x500
+            <div class="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full border-4 border-white/30 overflow-hidden placeholder-img">500x500
             </div>
           </div>
         </div>
@@ -111,8 +103,8 @@
     </div>
   </section>
 
-  <!-- ============ STATISTICS ============ -->
-  <section class="bg-cream font-sans antialiased text-orange-500 py-20 px-4 sm:px-6 lg:px-8">
+  <!-- Statis Section-->
+  <section class="bg-cream font-sans antialiased text-orange-500 py-20 px-4 sm:px-6 lg:px-8" >
     <div class="text-center mb-16 fade-in">
       <h2 class="text-3xl md:text-4xl font-bold text-orange-600 mb-4">
         Isyarat dalam angka
@@ -121,54 +113,81 @@
         Data menarik tentang belajar isyarat di Indonesia
       </p>
     </div>
-    
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto py-8">
 
+    <div
+      class="grid grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto py-8"
+    >
       <!-- Card 1: Kosa Kata -->
       <div class="text-center fade-in">
-        <div class="relative w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20">
+        <div
+          class="relative w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20"
+        >
           <i class="fa-solid fa-globe text-cream text-3xl"></i>
         </div>
-        <p class="text-3xl font-bold text-orange-500 mb-2 leading-none">800+</p>
+        <p class="text-3xl font-bold text-orange-500 mb-2 leading-none">
+          800+
+        </p>
         <p class="text-md font-medium text-orange-500">Kosa Kata Dasar</p>
-        <p class="text-sm text-orange-500 opacity-80 mt-1">Panduan Digital Pemula</p>
+        <p class="text-sm text-orange-500 opacity-80 mt-1">
+          Panduan Digital Pemula
+        </p>
       </div>
 
       <!-- Card 2: Sejarah -->
       <div class="text-center fade-in">
-        <div class="relative w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20">
+        <div
+          class="relative w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20"
+        >
           <i class="fa-solid fa-scroll text-cream text-3xl"></i>
         </div>
-        <p class="text-3xl font-bold text-orange-500 mb-2 leading-none">100+</p>
+        <p class="text-3xl font-bold text-orange-500 mb-2 leading-none">
+          100+
+        </p>
         <p class="text-md font-medium text-orange-500">Tahun Sejarah</p>
-        <p class="text-sm text-orange-500 opacity-80 mt-1">Melestarikan Budaya dan Hak</p>
+        <p class="text-sm text-orange-500 opacity-80 mt-1">
+          Melestarikan Budaya dan Hak
+        </p>
       </div>
 
       <!-- Card 3: Interpreter -->
       <div class="text-center fade-in">
-        <div class="relative w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20">
+        <div
+          class="relative w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20"
+        >
           <i class="fa-solid fa-shield-halved text-cream text-3xl"></i>
         </div>
-        <p class="text-3xl font-bold text-orange-500 mb-2 leading-none">300+</p>
+        <p class="text-3xl font-bold text-orange-500 mb-2 leading-none">
+          300+
+        </p>
         <p class="text-md font-medium text-orange-500">Interpreter</p>
-        <p class="text-sm text-orange-500 opacity-80 mt-1">Mendukung Akses Komunikasi</p>
+        <p class="text-sm text-orange-500 opacity-80 mt-1">
+          Mendukung Akses Komunikasi
+        </p>
       </div>
 
       <!-- Card 4: Cabang Komunitas -->
       <div class="text-center fade-in">
-        <div class="relative w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20">
+        <div
+          class="relative w-20 h-20 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center border-4 border-orange-500 shadow-xl shadow-orange-500/20"
+        >
           <i class="fa-solid fa-location-dot text-cream text-3xl"></i>
         </div>
         <p class="text-3xl font-bold text-orange-500 mb-2 leading-none">38</p>
-        <p class="text-md font-medium text-orange-500">Cabang Komunitas Regional Terjangkau</p>
-        <p class="text-sm text-orange-500 opacity-80 mt-1">Hadir dari Sabang sampai Merauke</p>
+        <p class="text-md font-medium text-orange-500">
+          Cabang Komunitas Regional Terjangkau
+        </p>
+        <p class="text-sm text-orange-500 opacity-80 mt-1">
+          Hadir dari Sabang sampai Merauke
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ============ EDUKASI INTERAKTIF ============ -->
+  <!-- -->
   <section id="edukasi" class="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+    <div
+      class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10"
+    >
       <div>
         <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
           Edukasi Interaktif
@@ -179,7 +198,8 @@
         </p>
       </div>
       <button
-        class="hidden md:inline-flex items-center gap-2 border border-gray-300 text-gray-700 text-sm font-semibold px-5 py-2.5 rounded-full hover:border-primary-500 hover:text-primary-500 transition whitespace-nowrap">
+        class="hidden md:inline-flex items-center gap-2 border border-gray-300 text-gray-700 text-sm font-semibold px-5 py-2.5 rounded-full hover:border-primary-500 hover:text-primary-500 transition whitespace-nowrap"
+      >
         <a href="edukasi.html">Lihat Semua Modul</a>
       </button>
     </div>
@@ -187,11 +207,20 @@
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
       <!-- Card 1 -->
       <div class="group cursor-pointer">
-        <div class="relative rounded-2xl overflow-hidden aspect-[3/4] placeholder-img">
-          <span class="absolute inset-0 flex items-center justify-center">300x400</span>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div
+          class="relative rounded-2xl overflow-hidden aspect-[3/4] placeholder-img"
+        >
+          <span class="absolute inset-0 flex items-center justify-center"
+            >300x400</span
+          >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
+          ></div>
           <div class="absolute bottom-0 left-0 p-4">
-            <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Level 1</span>
+            <span
+              class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase"
+              >Level 1</span
+            >
             <p class="text-white font-bold text-sm md:text-base">
               Alfabet (A-Z)
             </p>
@@ -200,11 +229,20 @@
       </div>
       <!-- Card 2 -->
       <div class="group cursor-pointer">
-        <div class="relative rounded-2xl overflow-hidden aspect-[3/4] placeholder-img">
-          <span class="absolute inset-0 flex items-center justify-center">300x400</span>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div
+          class="relative rounded-2xl overflow-hidden aspect-[3/4] placeholder-img"
+        >
+          <span class="absolute inset-0 flex items-center justify-center"
+            >300x400</span
+          >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
+          ></div>
           <div class="absolute bottom-0 left-0 p-4">
-            <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Level 2</span>
+            <span
+              class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase"
+              >Level 2</span
+            >
             <p class="text-white font-bold text-sm md:text-base">
               Ungkapan Harian
             </p>
@@ -213,11 +251,20 @@
       </div>
       <!-- Card 3 -->
       <div class="group cursor-pointer">
-        <div class="relative rounded-2xl overflow-hidden aspect-[3/4] placeholder-img">
-          <span class="absolute inset-0 flex items-center justify-center">300x400</span>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div
+          class="relative rounded-2xl overflow-hidden aspect-[3/4] placeholder-img"
+        >
+          <span class="absolute inset-0 flex items-center justify-center"
+            >300x400</span
+          >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
+          ></div>
           <div class="absolute bottom-0 left-0 p-4">
-            <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Level 3</span>
+            <span
+              class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase"
+              >Level 3</span
+            >
             <p class="text-white font-bold text-sm md:text-base">
               Percakapan Umum
             </p>
@@ -226,11 +273,20 @@
       </div>
       <!-- Card 4 -->
       <div class="group cursor-pointer">
-        <div class="relative rounded-2xl overflow-hidden aspect-[3/4] placeholder-img">
-          <span class="absolute inset-0 flex items-center justify-center">300x400</span>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div
+          class="relative rounded-2xl overflow-hidden aspect-[3/4] placeholder-img"
+        >
+          <span class="absolute inset-0 flex items-center justify-center"
+            >300x400</span
+          >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
+          ></div>
           <div class="absolute bottom-0 left-0 p-4">
-            <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Khusus</span>
+            <span
+              class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase"
+              >Khusus</span
+            >
             <p class="text-white font-bold text-sm md:text-base">
               Kategori Anak
             </p>
@@ -240,15 +296,18 @@
     </div>
 
     <button
-      class="md:hidden mt-6 w-full border border-gray-300 text-gray-700 text-sm font-semibold px-5 py-3 rounded-full">
+      class="md:hidden mt-6 w-full border border-gray-300 text-gray-700 text-sm font-semibold px-5 py-3 rounded-full"
+    >
       Lihat Semua Modul
     </button>
   </section>
 
-  <!-- ============ KAMUS ISYARAT VIRTUAL ============ -->
+  <!-- KAMUS ISYARAT VIRTUAL -->
   <section id="kamus" class="bg-gray-50 py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
-      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+      <div
+        class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10"
+      >
         <div>
           <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
             Kamus Isyarat Virtual
@@ -259,48 +318,66 @@
           </p>
         </div>
         <div class="flex gap-2 w-full lg:w-auto">
-          <input type="text" placeholder="Cari kata (misal: Halo, Terima Kasih)"
-            class="flex-1 lg:w-80 border border-gray-300 rounded-full px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400" />
+          <input
+            type="text"
+            placeholder="Cari kata (misal: Halo, Terima Kasih)"
+            class="flex-1 lg:w-80 border border-gray-300 rounded-full px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400"
+          />
           <button
-            class="bg-primary-500 hover:bg-primary-600 text-white font-semibold text-sm px-6 py-3 rounded-full transition whitespace-nowrap">
+            class="bg-primary-500 hover:bg-primary-600 text-white font-semibold text-sm px-6 py-3 rounded-full transition whitespace-nowrap"
+          >
             Cari
           </button>
         </div>
       </div>
 
-      <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-4 md:gap-5">
+      <div
+        class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-4 md:gap-5"
+      >
         <!-- item -->
-        <div class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition">
+        <div
+          class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition"
+        >
           <div class="aspect-square rounded-xl placeholder-img mb-3">
             120x120
           </div>
           <p class="text-sm font-semibold text-gray-800">Halo</p>
         </div>
-        <div class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition">
+        <div
+          class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition"
+        >
           <div class="aspect-square rounded-xl placeholder-img mb-3">
             120x120
           </div>
           <p class="text-sm font-semibold text-gray-800">Terima Kasih</p>
         </div>
-        <div class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition">
+        <div
+          class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition"
+        >
           <div class="aspect-square rounded-xl placeholder-img mb-3">
             120x120
           </div>
           <p class="text-sm font-semibold text-gray-800">Maaf</p>
         </div>
-        <div class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition">
+        <div
+          class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition"
+        >
           <div class="aspect-square rounded-xl placeholder-img mb-3">
             120x120
           </div>
           <p class="text-sm font-semibold text-gray-800">Tolong</p>
         </div>
-        <div class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition">
+        <div
+          class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition"
+        >
           <div class="aspect-square rounded-xl placeholder-img mb-3">
             120x120
           </div>
           <p class="text-sm font-semibold text-gray-800">Sayang</p>
         </div>
-        <div class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition">
+        <div
+          class="bg-white rounded-2xl p-3 text-center shadow-sm hover:shadow-md transition"
+        >
           <div class="aspect-square rounded-xl placeholder-img mb-3">
             120x120
           </div>
@@ -310,26 +387,33 @@
     </div>
   </section>
 
-  <!-- ============ QUIZ CTA ============ -->
+  <!-- QUIZ CTA -->
   <section id="quiz" class="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
     <div class="relative bg-gray-900 rounded-[2rem] overflow-hidden">
       <div class="grid md:grid-cols-2 gap-8 items-center p-8 md:p-14">
         <div>
-          <h2 class="text-2xl md:text-3xl font-extrabold text-white leading-snug mb-4">
+          <h2
+            class="text-2xl md:text-3xl font-extrabold text-white leading-snug mb-4"
+          >
             Uji Pengetahuanmu tentang Budaya Tuli
           </h2>
-          <p class="text-gray-400 text-sm md:text-base mb-8 max-w-md leading-relaxed">
+          <p
+            class="text-gray-400 text-sm md:text-base mb-8 max-w-md leading-relaxed"
+          >
             Seberapa jauh kamu mengenal teman tuli? Ikuti quiz singkat untuk
             menguji pemahamanmu tentang etika berkomunikasi dan budaya
             isyarat.
           </p>
           <button
-            class="bg-primary-500 hover:bg-primary-600 text-white font-semibold text-sm px-6 py-3 rounded-full transition">
+            class="bg-primary-500 hover:bg-primary-600 text-white font-semibold text-sm px-6 py-3 rounded-full transition"
+          >
             Mulai Quiz Sekarang
           </button>
         </div>
         <div class="flex justify-center md:justify-end">
-          <div class="w-full max-w-sm aspect-video rounded-2xl placeholder-img bg-gray-700 text-gray-300">
+          <div
+            class="w-full max-w-sm aspect-video rounded-2xl placeholder-img bg-gray-700 text-gray-300"
+          >
             400x250
           </div>
         </div>
@@ -337,8 +421,11 @@
     </div>
   </section>
 
-  <!-- ============ RUANG TEMAN TULI (TESTIMONIALS) ============ -->
-  <section id="komunitas" class="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+  <!-- RUANG TEMAN TULI (TESTIMONIALS) -->
+  <section
+    id="komunitas"
+    class="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24"
+  >
     <div class="mb-10">
       <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
         Ruang Teman Tuli
@@ -354,7 +441,9 @@
       <div class="rounded-2xl overflow-hidden group">
         <div class="aspect-[4/5] placeholder-img">400x500</div>
         <div class="flex items-center gap-3 mt-4">
-          <div class="w-9 h-9 rounded-full placeholder-img text-[10px] shrink-0">
+          <div
+            class="w-9 h-9 rounded-full placeholder-img text-[10px] shrink-0"
+          >
             40x40
           </div>
           <div>
@@ -369,7 +458,9 @@
       <div class="rounded-2xl overflow-hidden group">
         <div class="aspect-[4/5] placeholder-img">400x500</div>
         <div class="flex items-center gap-3 mt-4">
-          <div class="w-9 h-9 rounded-full placeholder-img text-[10px] shrink-0">
+          <div
+            class="w-9 h-9 rounded-full placeholder-img text-[10px] shrink-0"
+          >
             40x40
           </div>
           <div>
@@ -381,10 +472,14 @@
         </div>
       </div>
       <!-- Testimonial 3 -->
-      <div class="rounded-2xl overflow-hidden group sm:col-span-2 lg:col-span-1">
+      <div
+        class="rounded-2xl overflow-hidden group sm:col-span-2 lg:col-span-1"
+      >
         <div class="aspect-[4/5] placeholder-img">400x500</div>
         <div class="flex items-center gap-3 mt-4">
-          <div class="w-9 h-9 rounded-full placeholder-img text-[10px] shrink-0">
+          <div
+            class="w-9 h-9 rounded-full placeholder-img text-[10px] shrink-0"
+          >
             40x40
           </div>
           <div>
@@ -398,93 +493,87 @@
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="bg-gray-900 text-gray-400 pt-16 pb-8 mt-10">
-    <div class="max-w-7xl mx-auto px-5 md:px-8">
-      <h2 class="text-center text-3xl md:text-6xl font-extrabold text-white mb-14 tracking-tight">
-        ISYARAT<span class="text-primary-500">OK</span>
-      </h2>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm mb-12">
-        <div>
-          <p class="text-white font-semibold mb-4 tracking-wide">NAVIGASI</p>
-          <ul class="space-y-2">
-            <li>
-              <a href="#beranda" class="hover:text-primary-400 transition">Beranda</a>
-            </li>
-            <li>
-              <a href="#edukasi" class="hover:text-primary-400 transition">Edukasi</a>
-            </li>
-            <li>
-              <a href="#kamus" class="hover:text-primary-400 transition">Kamus</a>
-            </li>
-            <li>
-              <a href="#quiz" class="hover:text-primary-400 transition">Quiz</a>
-            </li>
+        <!-- Brand Section -->
+        <div class="col-span-1">
+          <div class="flex items-center space-x-2 mb-4">
+            <span class="font-bold">
+              <!-- <img src="assets/images" alt="IsyaratOK" class="w-10 h-10 object-contain"> -->
+              <i class="fas fa-leaf text-2xl text-white"></i>
+            </span>
+            <a href="index.html" class="flex items-center text-2xl md:text-2xl font-extrabold" >
+              <span class="text-white">Isyarat</span><span class="text-primary-500">OK</span>
+            </a>
+          </div>
+          <p class="text-gray-400 mb-6 leading-relaxed">
+            Platform edukasi interaktif bahasa isyarat yang dirancang ramah untuk anak dan remaja. Mari ciptakan ruang belajar yang inklusif, seru, dan menyenangkan!
+          </p>
+          <div class="flex space-x-4">
+            <a href="#"
+              class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600/40 transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600/40 transition-colors">
+              <i class="fab fa-pinterest"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600/40 transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="col-span-1">
+          <h3 class="text-lg font-semibold mb-4">Navigasi</h3>
+          <ul class="space-y-3 text-gray-400 text-md">
+            <li><a href="#home" class="hover:text-white transition-colors">Beranda</a></li>
+            <li><a class='hover:text-white transition-colors' href='/sejarah'>Edukasi</a></li>
+            <li><a class='hover:text-white transition-colors' href='/katalog'>Kamus</a></li>
+            <li><a class='hover:text-white transition-colors' href='/pageai'>Quiz</a></li>
+            <li><a class='hover:text-white transition-colors' href='/pageai'>Asisten AI</a></li>
           </ul>
         </div>
-        <div>
-          <p class="text-white font-semibold mb-4 tracking-wide">LEGAL</p>
-          <ul class="space-y-2">
-            <li>
-              <a href="#" class="hover:text-primary-400 transition">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-primary-400 transition">Terms of Service</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-primary-400 transition">Cookie Policy</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <p class="text-white font-semibold mb-4 tracking-wide">SOSIAL</p>
-          <ul class="space-y-2">
-            <li>
-              <a href="#" class="hover:text-primary-400 transition">Instagram</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-primary-400 transition">Facebook</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-primary-400 transition">Twitter</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <p class="text-white font-semibold mb-4 tracking-wide">KONTAK</p>
-          <ul class="space-y-2">
-            <li>
-              <a href="mailto:hello@isyaratok.id" class="hover:text-primary-400 transition">hello@isyaratok.id</a>
-            </li>
-            <li>Jakarta, Indonesia</li>
-          </ul>
+
+        <!-- Contact Info -->
+        <div class="col-span-1" id="contact">
+          <h3 class="text-lg font-semibold mb-4">Kontak</h3>
+          <div class="space-y-3 text-gray-400 text-md">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-location-dot fa-xl"></i>
+              <span>Indonesia</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fas fa-envelope"></i>
+              <span>info@isyaratok.id</span>
+            </div>
+            <div class="mt-4">
+              <p class="text-md text-gray-400">
+                Website edukasi untuk mewujudkan generasi muda Indonesia dalam berkomunikasi.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-        <p>© 2026 ISYARATOK. All rights reserved.</p>
-        <p class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-primary-500 inline-block"></span>
-          ONLINE LEARNING ACTIVE
-        </p>
+      <!-- Copyright -->
+      <div class="border-t border-gray-800 pt-8">
+        <div class="flex items-center">
+          <p class="text-gray-400 mb-4 md:mb-0 text-md">
+            © 2026 IsyaratOK
+          </p>  
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script>
-    $("#menuBtn").on("click", function () {
-      $("#mobileMenu").toggleClass("hidden");
-      $("#iconOpen").toggleClass("hidden");
-      $("#iconClose").toggleClass("hidden");
-    })
-    $("#mobileMenu a").on("click", function () {
-      $("#mobileMenu").toggleClass("hidden");
-      $("#iconOpen").removeClass("hidden");
-      $("#iconClose").toggleClass("hidden");
-    });
-  </script>
+  <!-- Script jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" ></script>
+  <script src="assets/js/script.js"></script>
 </body>
-
 </html>
