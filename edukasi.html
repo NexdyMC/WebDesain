@@ -1,289 +1,210 @@
 ﻿<!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IsyaratOk - Belajar Bahasa Isyarat</title>
-    <meta property="og:title" content="NexdyMC/WebDesain" />
-    <meta property="og:title" />
-    <meta property="og:description" />
-    <meta
-      property="og:image"
-      content="https://isyarat-ok.netlify.app/assets/images/banner.png"
-    />
-    <meta property="og:image:width" />
-    <meta property="og:image:height" />
-    <meta property="og:url" content="https://isyarat-ok.netlify.app/" />
-    <meta property="og:type" />
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      src="https://code.jquery.com/jquery-4.0.0.js"
-      integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: {
-                50: "#fff7ed",
-                100: "#ffedd5",
-                200: "#fed7aa",
-                300: "#fdba74",
-                400: "#fb923c",
-                500: "#f97316",
-                600: "#ea580c",
-                700: "#c2410c",
-                800: "#9a3412",
-                900: "#7c2d12",
-              },
-            },
-            fontFamily: {
-              sans: ["Poppins", "sans-serif"],
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IsyaratOk - Belajar Bahasa Isyarat</title>
+  <meta property="og:title" content="NexdyMC/WebDesain" />
+  <meta property="og:title" />
+  <meta property="og:description" />
+  <meta property="og:image" content="https://isyarat-ok.netlify.app/assets/images/banner.png" />
+  <meta property="og:image:width" />
+  <meta property="og:image:height" />
+  <meta property="og:url" content="https://isyarat-ok.netlify.app/" />
+  <meta property="og:type" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/edukasi.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: "#fff7ed",
+              100: "#ffedd5",
+              200: "#fed7aa",
+              300: "#fdba74",
+              400: "#fb923c",
+              500: "#f97316",
+              600: "#ea580c",
+              700: "#c2410c",
+              800: "#9a3412",
+              900: "#7c2d12",
             },
           },
+          fontFamily: {
+            sans: ["Poppins", "sans-serif"],
+          },
         },
-      };
-    </script>
+      },
+    };
+  </script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
-    <style>
-      body {
-        font-family: "Poppins", sans-serif;
-      }
-      .placeholder-img {
-        background-color: #d1d5db;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #6b7280;
-        font-size: 0.875rem;
-        font-weight: 500;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
-  </head>
-  <body class="antialiased text-gray-800 bg-white">
-    <!-- ============ NAVBAR ============ -->
-    <header
-      class="sticky top-0 z-50 border-b border-orange-100 bg-white/95 backdrop-blur"
-    >
-      <div
-        class="flex items-center justify-between h-16 px-5 mx-auto max-w-7xl md:px-8 md:h-20"
-      >
-        <a
-          href="index.html"
-          class="flex items-center gap-1 text-xl font-extrabold md:text-2xl"
-        >
-          <span class="text-gray-900">Isyarat</span
-          ><span class="text-primary-500">OK</span>
-          <span class="ml-1 text-primary-500">TesDoang</span>
-        </a>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+    }
 
-        <!-- Desktop Nav -->
-        <nav
-          class="items-center hidden gap-8 text-sm font-semibold text-gray-500 md:flex"
-        >
-          <a href="index.html" class="transition hover:text-primary-500"
-            >BERANDA</a
-          >
-          <a href="#edukasi" class="text-primary-500">EDUKASI</a>
-          <a href="#kamus" class="transition hover:text-primary-500">KAMUS</a>
-          <a href="#quiz" class="transition hover:text-primary-500">QUIZ</a>
-          <a href="#komunitas" class="transition hover:text-primary-500"
-            >KOMUNITAS</a
-          >
-        </nav>
+    .placeholder-img {
+      background-color: #d1d5db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
 
-        <button
-          class="hidden md:inline-flex bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition"
-        >
-          Mulai Belajar
-        </button>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
 
-        <!-- Mobile menu button -->
-        <button id="menuBtn" class="text-gray-700 md:hidden">
-          <svg
-            id="iconOpen"
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-7 w-7"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-          <svg
-            id="iconClose"
-            class="hidden h-7 w-7"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-      </div>
+<body class="antialiased text-gray-800 bg-white">
+  <!-- ============ NAVBAR ============ -->
+  <header class="sticky top-0 z-50 border-b border-orange-100 bg-white/95 backdrop-blur">
+    <div class="flex items-center justify-between h-16 px-5 mx-auto max-w-7xl md:px-8 md:h-20">
+      <a href="index.html" class="flex items-center gap-1 text-xl font-extrabold md:text-2xl">
+        <span class="text-gray-900">Isyarat</span><span class="text-primary-500">OK</span>
+        <span class="ml-1 text-primary-500">TesDoang</span>
+      </a>
 
-      <!-- Mobile Nav -->
-      <nav
-        id="mobileMenu"
-        class="flex flex-col hidden gap-1 px-5 pb-5 text-sm font-semibold text-gray-600 md:hidden"
-      >
-        <a href="index.html" class="py-2 transition hover:text-primary-500"
-          >BERANDA</a
-        >
-        <a href="#edukasi" class="py-2 text-primary-500">EDUKASI</a>
-        <a href="#kamus" class="py-2 transition hover:text-primary-500"
-          >KAMUS</a
-        >
-        <a href="#quiz" class="py-2 transition hover:text-primary-500">QUIZ</a>
-        <a href="#komunitas" class="py-2 transition hover:text-primary-500"
-          >KOMUNITAS</a
-        >
-        <button
-          class="mt-2 bg-primary-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full"
-        >
-          Mulai Belajar
-        </button>
+      <!-- Desktop Nav -->
+      <nav class="items-center hidden gap-8 text-sm font-semibold text-gray-500 md:flex">
+        <a href="index.html" class="transition hover:text-primary-500">BERANDA</a>
+        <a href="#edukasi" class="text-primary-500">EDUKASI</a>
+        <a href="#kamus" class="transition hover:text-primary-500">KAMUS</a>
+        <a href="#quiz" class="transition hover:text-primary-500">QUIZ</a>
+        <a href="#komunitas" class="transition hover:text-primary-500">KOMUNITAS</a>
       </nav>
-    </header>
 
-    <!-- ============ HERO EDUKASI ============ -->
-    <section
-      id="edukasi"
-      class="relative py-16 overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 md:py-24"
-    >
-      <div class="px-5 mx-auto max-w-7xl md:px-8">
-        <div class="grid items-center gap-10 lg:grid-cols-2">
-          <div>
-            <span
-              class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary-600 mb-4"
-            >
-              <span class="h-1.5 w-1.5 rounded-full bg-primary-500"></span>
-              Katalog Edukasi
-            </span>
-            <h1
-              class="mb-5 text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl md:text-5xl"
-            >
-              Katalog Belajar Bahasa Isyarat untuk Semua Usia
-            </h1>
-            <p
-              class="max-w-xl mb-8 text-base leading-relaxed text-gray-600 md:text-lg"
-            >
-              Temukan modul belajar yang disusun dari dasar hingga mahir. Pilih
-              kategori, lihat rekomendasi, dan mulai perjalananmu dengan materi
-              yang mudah dipahami.
-            </p>
-            <div class="flex flex-wrap gap-3">
-              <a
-                href="#koleksi"
-                class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white transition rounded-full bg-primary-500 hover:bg-primary-600"
-              >
-                Lihat Modul
-              </a>
-              <a
-                href="#rekomendasi"
-                class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-gray-700 transition border border-gray-300 rounded-full hover:border-primary-500 hover:text-primary-500"
-              >
-                Rekomendasi untukmu
-              </a>
-            </div>
+      <button
+        class="hidden md:inline-flex bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition">
+        Mulai Belajar
+      </button>
+
+      <!-- Mobile menu button -->
+      <button id="menuBtn" class="text-gray-700 md:hidden">
+        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="iconClose" class="hidden h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav id="mobileMenu" class="flex flex-col hidden gap-1 px-5 pb-5 text-sm font-semibold text-gray-600 md:hidden">
+      <a href="index.html" class="py-2 transition hover:text-primary-500">BERANDA</a>
+      <a href="#edukasi" class="py-2 text-primary-500">EDUKASI</a>
+      <a href="#kamus" class="py-2 transition hover:text-primary-500">KAMUS</a>
+      <a href="#quiz" class="py-2 transition hover:text-primary-500">QUIZ</a>
+      <a href="#komunitas" class="py-2 transition hover:text-primary-500">KOMUNITAS</a>
+      <button class="mt-2 bg-primary-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full">
+        Mulai Belajar
+      </button>
+    </nav>
+  </header>
+
+  <!-- ============ HERO EDUKASI ============ -->
+  <section id="edukasi"
+    class="relative py-16 overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 md:py-24">
+    <div class="px-5 mx-auto max-w-7xl md:px-8">
+      <div class="grid items-center gap-10 lg:grid-cols-2">
+        <div>
+          <span
+            class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary-600 mb-4">
+            <span class="h-1.5 w-1.5 rounded-full bg-primary-500"></span>
+            Katalog Edukasi
+          </span>
+          <h1 class="mb-5 text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
+            Katalog Belajar Bahasa Isyarat untuk Semua Usia
+          </h1>
+          <p class="max-w-xl mb-8 text-base leading-relaxed text-gray-600 md:text-lg">
+            Temukan modul belajar yang disusun dari dasar hingga mahir. Pilih
+            kategori, lihat rekomendasi, dan mulai perjalananmu dengan materi
+            yang mudah dipahami.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#koleksi"
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white transition rounded-full bg-primary-500 hover:bg-primary-600">
+              Lihat Modul
+            </a>
+            <a href="#rekomendasi"
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-gray-700 transition border border-gray-300 rounded-full hover:border-primary-500 hover:text-primary-500">
+              Rekomendasi untukmu
+            </a>
           </div>
+        </div>
 
-          <div class="relative">
-            <div
-              class="rounded-[2rem] bg-white shadow-2xl p-8 md:p-10 border border-gray-200"
-            >
-              <div class="flex flex-col gap-5">
-                <div class="p-5 bg-primary-50 rounded-3xl">
-                  <p class="mb-3 text-sm font-semibold text-primary-700">
-                    Mulai dari sini
-                  </p>
-                  <div class="flex items-center justify-between gap-4">
-                    <div>
-                      <p class="text-2xl font-bold text-gray-900">8 Modul</p>
-                      <p class="text-sm text-gray-500">
-                        Dari pemula hingga mahir
-                      </p>
-                    </div>
-                    <div
-                      class="px-4 py-2 text-xs font-semibold bg-white border rounded-full border-primary-100 text-primary-600"
-                    >
-                      Gratis
-                    </div>
+        <div class="relative">
+          <div class="rounded-[2rem] bg-white shadow-2xl p-8 md:p-10 border border-gray-200">
+            <div class="flex flex-col gap-5">
+              <div class="p-5 bg-primary-50 rounded-3xl">
+                <p class="mb-3 text-sm font-semibold text-primary-700">
+                  Mulai dari sini
+                </p>
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <p class="text-2xl font-bold text-gray-900">8 Modul</p>
+                    <p class="text-sm text-gray-500">
+                      Dari pemula hingga mahir
+                    </p>
+                  </div>
+                  <div
+                    class="px-4 py-2 text-xs font-semibold bg-white border rounded-full border-primary-100 text-primary-600">
+                    Gratis
                   </div>
                 </div>
+              </div>
 
-                <div class="grid gap-4">
-                  <div
-                    class="flex items-center gap-4 p-4 bg-gray-50 rounded-3xl"
-                  >
-                    <div
-                      class="grid w-12 h-12 font-bold rounded-3xl bg-primary-100 text-primary-700 place-items-center"
-                    >
-                      01
-                    </div>
-                    <div>
-                      <p class="text-sm font-semibold text-gray-900">
-                        Alfabet A-Z
-                      </p>
-                      <p class="text-xs text-gray-500">Dasar gerakan tangan</p>
-                    </div>
+              <div class="grid gap-4">
+                <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-3xl">
+                  <div class="grid w-12 h-12 font-bold rounded-3xl bg-primary-100 text-primary-700 place-items-center">
+                    01
                   </div>
-                  <div
-                    class="flex items-center gap-4 p-4 bg-gray-50 rounded-3xl"
-                  >
-                    <div
-                      class="grid w-12 h-12 font-bold rounded-3xl bg-primary-100 text-primary-700 place-items-center"
-                    >
-                      02
-                    </div>
-                    <div>
-                      <p class="text-sm font-semibold text-gray-900">
-                        Ungkapan Harian
-                      </p>
-                      <p class="text-xs text-gray-500">
-                        Salam, terima kasih, maaf
-                      </p>
-                    </div>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-900">
+                      Alfabet A-Z
+                    </p>
+                    <p class="text-xs text-gray-500">Dasar gerakan tangan</p>
                   </div>
-                  <div
-                    class="flex items-center gap-4 p-4 bg-gray-50 rounded-3xl"
-                  >
-                    <div
-                      class="grid w-12 h-12 font-bold rounded-3xl bg-primary-100 text-primary-700 place-items-center"
-                    >
-                      03
-                    </div>
-                    <div>
-                      <p class="text-sm font-semibold text-gray-900">
-                        Percakapan Ringan
-                      </p>
-                      <p class="text-xs text-gray-500">Dialog sehari-hari</p>
-                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-3xl">
+                  <div class="grid w-12 h-12 font-bold rounded-3xl bg-primary-100 text-primary-700 place-items-center">
+                    02
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-900">
+                      Ungkapan Harian
+                    </p>
+                    <p class="text-xs text-gray-500">
+                      Salam, terima kasih, maaf
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-3xl">
+                  <div class="grid w-12 h-12 font-bold rounded-3xl bg-primary-100 text-primary-700 place-items-center">
+                    03
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-900">
+                      Percakapan Ringan
+                    </p>
+                    <p class="text-xs text-gray-500">Dialog sehari-hari</p>
                   </div>
                 </div>
               </div>
@@ -291,215 +212,217 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ============ PENCARIAN & FILTER ============ -->
-    <section class="px-5 py-10 mx-auto max-w-7xl md:px-8 md:py-14">
-      <div class="grid gap-6 lg:grid-cols-[1.6fr_1fr] items-center">
+  <!--Pencarian  -->
+  <section class="px-5 py-10 mx-auto max-w-7xl md:px-8 md:py-14">
+    <div class="grid gap-6 lg:grid-cols-[1.6fr_1fr] items-center">
+      <div class="rounded-[2rem] bg-white shadow-lg border border-gray-200 p-6 md:p-8">
+        <div class="flex flex-col gap-4 mb-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p class="text-xs uppercase tracking-[0.24em] text-primary-600 font-semibold mb-2">
+              Cari Modul
+            </p>
+            <h2 class="text-2xl font-extrabold text-gray-900 md:text-3xl">
+              Temukan materi yang cocok untukmu
+            </h2>
+          </div>
+          <button
+            class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold transition border rounded-full bg-primary-50 text-primary-700 border-primary-100 hover:bg-primary-100">
+            Semua Kategori
+          </button>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <input type="search" placeholder="Cari modul, materi, atau kata kunci..."
+            class="flex-1 px-5 py-3 text-sm border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary-300" />
+          <button
+            class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white transition rounded-full bg-primary-500 hover:bg-primary-600">
+            Cari
+          </button>
+        </div>
+      </div>
+
+      <div class="tab-menu rounded-[2rem] bg-primary-50 border border-primary-100 p-6 md:p-8 shadow-sm">
+        <p class="text-sm font-semibold text-primary-700 uppercase tracking-[0.2em] mb-4">
+          Filter Cepat
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <!-- Tombol Aktif / Default (Semua) -->
+          <button
+            class="tab-btn active px-4 py-2 text-sm font-semibold text-white bg-primary-500 rounded-full transition-colors"
+            data-filter="semua">
+            Semua
+          </button>
+
+          <button
+            class="tab-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 rounded-full transition-colors"
+            data-filter="dasar">
+            Dasar
+          </button>
+
+          <button
+            class="tab-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 rounded-full transition-colors"
+            data-filter="ungkapan">
+            Ungkapan
+          </button>
+
+          <button
+            class="tab-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 rounded-full transition-colors"
+            data-filter="anak">
+            Anak
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <!-- Daftar Item -->
+     <div class=" grid grid-cols-2 gap-4 md:grid-cols-4 m-8 md:gap-6">
+      <!-- karut 1-->
+      <div class="item cursor-pointer group" data-category="dasar">
         <div
-          class="rounded-[2rem] bg-white shadow-lg border border-gray-200 p-6 md:p-8"
+          class="relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img"
         >
+          <span class="absolute inset-0 flex items-center justify-center"
+            >300x400</span
+          >
           <div
-            class="flex flex-col gap-4 mb-6 sm:flex-row sm:items-center sm:justify-between"
-          >
-            <div>
-              <p
-                class="text-xs uppercase tracking-[0.24em] text-primary-600 font-semibold mb-2"
-              >
-                Cari Modul
-              </p>
-              <h2 class="text-2xl font-extrabold text-gray-900 md:text-3xl">
-                Temukan materi yang cocok untukmu
-              </h2>
-            </div>
-            <button
-              class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold transition border rounded-full bg-primary-50 text-primary-700 border-primary-100 hover:bg-primary-100"
-            >
-              Semua Kategori
-            </button>
-          </div>
-          <div class="flex flex-col gap-3 sm:flex-row">
-            <input
-              type="search"
-              placeholder="Cari modul, materi, atau kata kunci..."
-              class="flex-1 px-5 py-3 text-sm border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary-300"
-            />
-            <button
-              class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white transition rounded-full bg-primary-500 hover:bg-primary-600"
-            >
-              Cari
-            </button>
-          </div>
-        </div>
-
-        <div
-          class="tab-menu rounded-[2rem] bg-primary-50 border border-primary-100 p-6 md:p-8 shadow-sm"
-        >
-          <p
-            class="text-sm font-semibold text-primary-700 uppercase tracking-[0.2em] mb-4"
-          >
-            Filter Cepat
-          </p>
-          <div class="flex flex-wrap gap-3">
-            <button
-              class="tab-btn active rounded-full btn-menu btntext-white btn-font-semibold tabpy-2 te active xt-sm tab-btnpx-4 bg-primary-500"
-            >
-              Semua
-            </button>
-            <button
-              class="tab-btn px-4 py-2 text-sm text-gray-700 bg-white border border-gray-200 rounded-full"
-            >
-              Dasar
-            </button>
-            <button
-              class="tab-btn px-4 py-2 text-sm text-gray-700 bg-white border border-gray-200 rounded-full"
-            >
-              Ungkapan
-            </button>
-            <button
-              class="tab-btn px-4 py-2 text-sm text-gray-700 bg-white border border-gray-200 rounded-full"
-            >
-              Anak
-            </button>
-            <button
-              class="tab-btn px-4 py-2 text-sm text-gray-700 bg-white border border-gray-200 rounded-full"
-            >
-              Quiz
-            </button>
-            <button
-              class="tab-btn px-4 py-2 text-sm text-gray-700 bg-white border border-gray-200 rounded-full"
-            >
-              Video
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section>
-     <!-- Daftar Konten / Item -->
-  <div class="space-y-2">
-    <div class="item p-4 rounded-lg bg-white border border-gray-200 shadow-sm" data-category="anak">
-      📘 Buku Cerita Anak A
-    </div>
-    <div class="item p-4 rounded-lg bg-white border border-gray-200 shadow-sm" data-category="dewasa">
-      📕 Novel Dewasa A
-    </div>
-    <div class="item p-4 rounded-lg bg-white border border-gray-200 shadow-sm" data-category="anak">
-      🎨 Buku Mewarnai Anak B
-    </div>
-    <div class="item p-4 rounded-lg bg-white border border-gray-200 shadow-sm" data-category="dewasa">
-      💼 Jurnal Bisnis B
-    </div>
-  </div>
-    </section>
-
-
-
-
-
-    <!-- ============ FOOTER ============ -->
-    <footer class="pt-16 pb-8 mt-10 text-gray-400 bg-gray-900">
-      <div class="px-5 mx-auto max-w-7xl md:px-8">
-        <h2
-          class="text-4xl font-extrabold tracking-tight text-center text-white md:text-6xl mb-14"
-        >
-          ISYARAT<span class="text-primary-500">OK</span>
-        </h2>
-
-        <div class="grid grid-cols-2 gap-8 mb-12 text-sm md:grid-cols-4">
-          <div>
-            <p class="mb-4 font-semibold tracking-wide text-white">NAVIGASI</p>
-            <ul class="space-y-2">
-              <li>
-                <a href="index.html" class="transition hover:text-primary-400"
-                  >Beranda</a
-                >
-              </li>
-              <li>
-                <a href="#edukasi" class="transition hover:text-primary-400"
-                  >Edukasi</a
-                >
-              </li>
-              <li>
-                <a href="#kamus" class="transition hover:text-primary-400"
-                  >Kamus</a
-                >
-              </li>
-              <li>
-                <a href="#quiz" class="transition hover:text-primary-400"
-                  >Quiz</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p class="mb-4 font-semibold tracking-wide text-white">LEGAL</p>
-            <ul class="space-y-2">
-              <li>
-                <a href="#" class="transition hover:text-primary-400"
-                  >Privacy Policy</a
-                >
-              </li>
-              <li>
-                <a href="#" class="transition hover:text-primary-400"
-                  >Terms of Service</a
-                >
-              </li>
-              <li>
-                <a href="#" class="transition hover:text-primary-400"
-                  >Cookie Policy</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p class="mb-4 font-semibold tracking-wide text-white">SOSIAL</p>
-            <ul class="space-y-2">
-              <li>
-                <a href="#" class="transition hover:text-primary-400"
-                  >Instagram</a
-                >
-              </li>
-              <li>
-                <a href="#" class="transition hover:text-primary-400"
-                  >Facebook</a
-                >
-              </li>
-              <li>
-                <a href="#" class="transition hover:text-primary-400"
-                  >Twitter</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p class="mb-4 font-semibold tracking-wide text-white">KONTAK</p>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="mailto:hello@isyaratok.id"
-                  class="transition hover:text-primary-400"
-                  >hello@isyaratok.id</a
-                >
-              </li>
-              <li>Jakarta, Indonesia</li>
-            </ul>
-          </div>
-        </div>
-
-        <div
-          class="flex flex-col items-center justify-between gap-3 pt-6 text-xs border-t border-gray-800 sm:flex-row"
-        >
-          <p>© 2026 ISYARATOK. All rights reserved.</p>
-          <p class="flex items-center gap-2">
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
+          ></div>
+          <div class="absolute bottom-0 left-0 p-4">
             <span
-              class="inline-block w-2 h-2 rounded-full bg-primary-500"
-            ></span>
-            ONLINE LEARNING ACTIVE
-          </p>
+              class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase"
+              >Dasar</span
+            >
+            <p class="text-sm font-bold text-white md:text-base">
+              Alfabet (A-Z)
+            </p>
+          </div>
         </div>
       </div>
-    </footer>
-  </body>
+      <!-- Kartu 2 -->
+      <div class="cursor-pointer group">
+        <div
+          class="relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img"
+        >
+          <span class="absolute inset-0 flex items-center justify-center"
+            >300x400</span
+          >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
+          ></div>
+          <div class="absolute bottom-0 left-0 p-4">
+            <span
+              class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase"
+              >Level 1</span
+            >
+            <p class="text-sm font-bold text-white md:text-base">
+              Alfabet (A-Z)
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Kartu 3 -->
+      <div class="cursor-pointer group">
+        <div
+          class="relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img"
+        >
+          <span class="absolute inset-0 flex items-center justify-center"
+            >300x400</span
+          >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
+          ></div>
+          <div class="absolute bottom-0 left-0 p-4">
+            <span
+              class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase"
+              >Level 1</span
+            >
+            <p class="text-sm font-bold text-white md:text-base">
+              Alfabet (A-Z)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="pt-16 pb-8 mt-10 text-gray-400 bg-gray-900">
+    <div class="px-5 mx-auto max-w-7xl md:px-8">
+      <h2 class="text-4xl font-extrabold tracking-tight text-center text-white md:text-6xl mb-14">
+        ISYARAT<span class="text-primary-500">OK</span>
+      </h2>
+
+      <div class="grid grid-cols-2 gap-8 mb-12 text-sm md:grid-cols-4">
+        <div>
+          <p class="mb-4 font-semibold tracking-wide text-white">NAVIGASI</p>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="transition hover:text-primary-400">Beranda</a>
+            </li>
+            <li>
+              <a href="#edukasi" class="transition hover:text-primary-400">Edukasi</a>
+            </li>
+            <li>
+              <a href="#kamus" class="transition hover:text-primary-400">Kamus</a>
+            </li>
+            <li>
+              <a href="#quiz" class="transition hover:text-primary-400">Quiz</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="mb-4 font-semibold tracking-wide text-white">LEGAL</p>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="transition hover:text-primary-400">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-primary-400">Terms of Service</a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-primary-400">Cookie Policy</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="mb-4 font-semibold tracking-wide text-white">SOSIAL</p>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="transition hover:text-primary-400">Instagram</a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-primary-400">Facebook</a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-primary-400">Twitter</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="mb-4 font-semibold tracking-wide text-white">KONTAK</p>
+          <ul class="space-y-2">
+            <li>
+              <a href="mailto:hello@isyaratok.id" class="transition hover:text-primary-400">hello@isyaratok.id</a>
+            </li>
+            <li>Jakarta, Indonesia</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center justify-between gap-3 pt-6 text-xs border-t border-gray-800 sm:flex-row">
+        <p>© 2026 ISYARATOK. All rights reserved.</p>
+        <p class="flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-primary-500"></span>
+          ONLINE LEARNING ACTIVE
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>
