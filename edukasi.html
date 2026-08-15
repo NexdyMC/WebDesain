@@ -1,6 +1,5 @@
 ﻿<!doctype html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,33 +15,7 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="assets/js/edukasi.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: {
-              50: "#fff7ed",
-              100: "#ffedd5",
-              200: "#fed7aa",
-              300: "#fdba74",
-              400: "#fb923c",
-              500: "#f97316",
-              600: "#ea580c",
-              700: "#c2410c",
-              800: "#9a3412",
-              900: "#7c2d12",
-            },
-          },
-          fontFamily: {
-            sans: ["Poppins", "sans-serif"],
-          },
-        },
-      },
-    };
-  </script>
+  <script src="assets/js/tailwind.config.js"></script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -71,21 +44,25 @@
 </head>
 
 <body class="antialiased text-gray-800 bg-white">
-  <!-- ============ NAVBAR ============ -->
-  <header class="sticky top-0 z-50 border-b border-orange-100 bg-white/95 backdrop-blur">
-    <div class="flex items-center justify-between h-16 px-5 mx-auto max-w-7xl md:px-8 md:h-20">
-      <a href="index.html" class="flex items-center gap-1 text-xl font-extrabold md:text-2xl">
+  
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 border-b border-orange-100 shadow-lg backdrop-blur bg-white/90" >
+    <div class="flex items-center justify-between h-16 px-5 mx-auto max-w-7xl md:px-8 md:h-18" >
+      
+      <!-- Judul Website  -->
+      <a href="#" class="flex items-center text-xl font-extrabold md:text-2xl" >
+        <i class="mr-2 text-4xl fa-solid fa-hands-asl-interpreting text-primary-500"></i>
         <span class="text-gray-900">Isyarat</span><span class="text-primary-500">OK</span>
         <span class="ml-1 text-primary-500">TesDoang</span>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="items-center hidden gap-8 text-sm font-semibold text-gray-500 md:flex">
-        <a href="index.html" class="transition hover:text-primary-500">BERANDA</a>
-        <a href="#edukasi" class="text-primary-500">EDUKASI</a>
-        <a href="#kamus" class="transition hover:text-primary-500">KAMUS</a>
-        <a href="#quiz" class="transition hover:text-primary-500">QUIZ</a>
-        <a href="#komunitas" class="transition hover:text-primary-500">KOMUNITAS</a>
+      <!-- Desktop Navigasi -->
+      <nav class="items-center hidden gap-6 font-semibold text-gray-500 md:flex text-md" >
+        <a href="index.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Beranda</a>
+        <a href="edukasi.html" class="py-2 text-orange-500 border-b-2 border-orange-500" >Edukasi</a>
+        <a href="#kamus" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Kamus</a>
+        <a href="#quiz" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Quiz</a>
+        <a href="#komunitas" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Asisten AI</a>
       </nav>
 
       <button
@@ -107,21 +84,17 @@
     </div>
 
     <!-- Mobile Nav -->
-    <nav id="mobileMenu" class="flex flex-col hidden gap-1 px-5 pb-5 text-sm font-semibold text-gray-600 md:hidden">
-      <a href="index.html" class="py-2 transition hover:text-primary-500">BERANDA</a>
-      <a href="#edukasi" class="py-2 text-primary-500">EDUKASI</a>
-      <a href="#kamus" class="py-2 transition hover:text-primary-500">KAMUS</a>
-      <a href="#quiz" class="py-2 transition hover:text-primary-500">QUIZ</a>
-      <a href="#komunitas" class="py-2 transition hover:text-primary-500">KOMUNITAS</a>
-      <button class="mt-2 bg-primary-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full">
-        Mulai Belajar
-      </button>
+    <nav id="mobileMenu" class="grid hidden gap-1 px-6 pb-6 text-sm font-semibold text-gray-600 rounded-2xl">
+      <a href="index.html" class="py-2 transition hover:text-orange-400">Beranda</a>
+      <a href="edukasi.html" class="py-2 text-orange-500 ">Edukasi</a>
+      <a href="#kamus" class="py-2 transition hover:text-orange-400">Kamus</a>
+      <a href="#quiz" class="py-2 transition hover:text-orange-400">Quiz</a>
+      <a href="#komunitas" class="py-2 transition hover:text-orange-400">Asisten AI</a>
     </nav>
   </header>
 
   <!-- ============ HERO EDUKASI ============ -->
-  <section id="edukasi"
-    class="relative py-16 overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 md:py-24">
+  <section id="edukasi" class="relative min-h-screen py-16 overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 md:py-24">
     <div class="px-5 mx-auto max-w-7xl md:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2">
         <div>
@@ -278,7 +251,10 @@
     </div>
   </section>
 
-  <section>
+  <section class="px-5 py-10 mx-auto max-w-7xl md:px-8 md:py-14">
+    <div class="m max-w-7xl">
+
+
     <!-- Daftar Item -->
     <div class=" grid grid-cols-2 gap-4 md:grid-cols-4 m-8 md:gap-6">
       <!-- karut 1-->
@@ -386,6 +362,7 @@
         </div>
       </div>
     </div>
+        </div>
   </section>
 
   <!-- ============ FOOTER ============ -->
@@ -461,6 +438,10 @@
       </div>
     </div>
   </footer>
+  
+  <!-- Script jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/edukasi.js"></script>
 </body>
 
 </html>

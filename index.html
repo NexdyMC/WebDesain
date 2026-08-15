@@ -23,7 +23,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
 </head>
-
 <body class="text-gray-800 bg-white">
   
   <!-- Navigation -->
@@ -32,17 +31,17 @@
       
       <!-- Judul Website  -->
       <a href="#" class="flex items-center text-xl font-extrabold md:text-2xl" >
-        <i class="mr-2 text-4xl fa-solid fa-hands-asl-interpreting text-amber-400"></i>
+        <i class="mr-2 text-4xl fa-solid fa-hands-asl-interpreting text-primary-500"></i>
         <span class="text-gray-900">Isyarat</span><span class="text-primary-500">OK</span>
       </a>
 
       <!-- Desktop Navigasi -->
       <nav class="items-center hidden gap-6 font-semibold text-gray-500 md:flex text-md" >
-        <a href="#beranda" class="py-2 text-orange-500 border-b-2 border-orange-500" >Beranda</a>
-        <a href="edukasi.html" class="py-2 transition border-b-2 border-white hover:text-orange-500 hover:border-orange-500" >Edukasi</a>
-        <a href="#kamus" class="py-2 transition border-b-2 border-white hover:text-orange-500 hover:border-orange-500" >Kamus</a>
-        <a href="#quiz" class="py-2 transition border-b-2 border-white hover:text-orange-500 hover:border-orange-500" >Quiz</a>
-        <a href="#komunitas" class="py-2 transition border-b-2 border-white hover:text-orange-500 hover:border-orange-500" >Asisten AI</a>
+        <a href="index.html" class="py-2 text-orange-500 border-b-2 border-orange-500" >Beranda</a>
+        <a href="edukasi.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Edukasi</a>
+        <a href="#kamus" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Kamus</a>
+        <a href="#quiz" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Quiz</a>
+        <a href="#komunitas" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Asisten AI</a>
       </nav>
 
       <!-- Mobile menu button -->
@@ -55,18 +54,18 @@
 
     <!-- Mobile Nav -->
     <nav id="mobileMenu" class="grid hidden gap-1 px-6 pb-6 text-sm font-semibold text-gray-600 rounded-2xl">
-      <a href="#beranda" class="py-2 text-primary-500">Beranda</a>
-      <a href="edukasi.html" class="py-2 transition hover:text-primary-400">Edukasi</a>
-      <a href="#kamus" class="py-2 transition hover:text-primary-400">Kamus</a>
-      <a href="#quiz" class="py-2 transition hover:text-primary-400">Quiz</a>
-      <a href="#komunitas" class="py-2 transition hover:text-primary-400">Asisten AI</a>
+      <a href="index.html" class="py-2 text-orange-500">Beranda</a>
+      <a href="edukasi.html" class="py-2 transition hover:text-orange-400">Edukasi</a>
+      <a href="#kamus" class="py-2 transition hover:text-orange-400">Kamus</a>
+      <a href="#quiz" class="py-2 transition hover:text-orange-400">Quiz</a>
+      <a href="#komunitas" class="py-2 transition hover:text-orange-400">Asisten AI</a>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section id="beranda" class="relative bg-[url(assets/images/hero_1.webp)] bg-center bg-cover overflow-hidden min-h-screen bg-linear-to-r from-cyan-500 to-blue-500" >
+  <section id="beranda" class="relative bg-[url(assets/images/hero_2.png)] bg-center flex items-center bg-cover overflow-hidden min-h-screen bg-linear-to-r from-cyan-500 to-blue-500" >
     <div class="px-5 pt-10 pb-16 mx-auto max-w-7xl md:px-8 md:pt-16 md:pb-24">
-      <div class="relative bg-gradient-to-br from-primary-500 to-primary-600 rounded-[2rem] md:rounded-[2.5rem] px-6 py-10 md:px-14 md:py-16 overflow-hidden" >
+      <div class="relative bg-gradient-to-tl to-orange-400 from-orange-600 rounded-[2rem] md:rounded-[2.5rem] px-6 py-10 md:px-14 md:py-16 overflow-hidden" >
         <div class="absolute inset-0 pointer-events-none opacity-20" aria-hidden="true">
           <div class="grid grid-cols-8 gap-4 p-8">
             <template x-if="false"></template>
@@ -104,7 +103,7 @@
     </div>
   </section>
 
-  <!-- Navigation Card Section : proses -->
+  <!-- Navigation Card Section -->
   <section class="px-4 py-20 mx-auto sm:px-6 lg:px-8 max-w-7xl">
 
     <!-- Section Header -->
@@ -197,9 +196,9 @@
 
       <!-- Section Header -->
       <div class="mb-16 text-center">
-        <h2 class="mb-4 text-4xl font-extrabold md:text-5xl">
+        <h2 class="mb-4 text-3xl font-bold">
           <span class="text-transparent bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-400 bg-clip-text">
-            Why Isyarat To day?
+            Mengapa bahasa isyarat Masih Relevan di Era Modern?
           </span>
         </h2>
         <p class="max-w-2xl mx-auto text-lg text-gray-600">
@@ -258,9 +257,9 @@
       </div>
 
       <!-- Main Quote -->
-      <blockquote class="mb-4 font-serif text-2xl font-medium leading-snug">
+      <h2 class="mb-4 font-serif text-3xl font-medium leading-snug">
         "Orang tuli bisa melakukan apa saja yang bisa dilakukan orang yang bisa mendengar, kecuali mendengar."
-      </blockquote>
+      </h2>
 
       <!-- Original Quote / Terjemahan -->
       <p class="mb-2 text-lg italic font-light text-yellow-100">
@@ -272,10 +271,8 @@
         - Dr. I. King Jordan (Presiden Tuli Pertama di Gallaudet University)
       </p>
 
-      <!-- Explanation Box (Mengadaptasi kotak hijau dari referensi) -->
-      <!-- Menggunakan efek 'glassmorphism' (transparan dengan blur) agar terlihat modern -->
-      <div
-        class="w-full max-w-3xl p-8 border shadow-xl bg-white/10 backdrop-blur-md border-white/20 rounded-2xl md:p-10">
+      <!-- Explanation Box -->
+      <div class="w-full max-w-3xl p-8 transition-transform border shadow-lg bg-white/10 backdrop-blur-md border-white/20 rounded-2xl md:p-10">
         <p class="text-base font-light leading-relaxed text-white md:text-lg">
           Seperti kutipan di atas, platform Isyarat percaya bahwa tidak ada batasan dalam berkarya dan berkomunikasi.
           Dengan mempelajari bahasa isyarat, kita turut serta meruntuhkan tembok pembatas dan membangun masyarakat yang
@@ -463,9 +460,7 @@
   <!-- KAMUS ISYARAT VIRTUAL -->
   <section id="kamus" class="py-20 bg-gray-50 md:py-24">
     <div class="px-5 mx-auto max-w-7xl md:px-8">
-      <div
-        class="flex flex-col gap-6 mb-10 lg:flex-row lg:items-end lg:justify-between"
-      >
+      <div class="flex flex-col gap-6 mb-10 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <h2 class="mb-3 text-2xl font-extrabold text-gray-900 md:text-3xl">
             Kamus Isyarat Virtual
@@ -476,42 +471,28 @@
           </p>
         </div>
         <div class="flex w-full gap-2 lg:w-auto">
-          <input
-            type="text"
-            placeholder="Cari kata (misal: Halo, Terima Kasih)"
-            class="flex-1 px-5 py-3 text-sm border border-gray-300 rounded-full lg:w-80 focus:outline-none focus:ring-2 focus:ring-primary-400"
-          />
-          <button
-            class="px-6 py-3 text-sm font-semibold text-white transition rounded-full bg-primary-500 hover:bg-primary-600 whitespace-nowrap"
-          >
+          <input type="text" placeholder="Cari kata (misal: Halo, Terima Kasih)" class="flex-1 px-5 py-3 text-sm border border-gray-300 rounded-full lg:w-80 focus:outline-none focus:ring-2 focus:ring-primary-400"/>
+          <button class="px-6 py-3 text-sm font-semibold text-white transition rounded-full bg-primary-500 hover:bg-primary-600 whitespace-nowrap">
             Cari
           </button>
         </div>
       </div>
 
-      <div
-        class="grid grid-cols-3 gap-4 sm:grid-cols-3 md:grid-cols-6 md:gap-5"
-      >
+      <div class="grid grid-cols-3 gap-4 sm:grid-cols-3 md:grid-cols-6 md:gap-5">
         <!-- item -->
-        <div
-          class="p-3 text-center transition bg-white shadow-sm rounded-2xl hover:shadow-md"
-        >
+        <div class="p-3 text-center transition bg-white shadow-sm rounded-2xl hover:shadow-md">
           <div class="mb-3 aspect-square rounded-xl placeholder-img">
             120x120
           </div>
           <p class="text-sm font-semibold text-gray-800">Halo</p>
         </div>
-        <div
-          class="p-3 text-center transition bg-white shadow-sm rounded-2xl hover:shadow-md"
-        >
+        <div class="p-3 text-center transition bg-white shadow-sm rounded-2xl hover:shadow-md">
           <div class="mb-3 aspect-square rounded-xl placeholder-img">
             120x120
           </div>
           <p class="text-sm font-semibold text-gray-800">Terima Kasih</p>
         </div>
-        <div
-          class="p-3 text-center transition bg-white shadow-sm rounded-2xl hover:shadow-md"
-        >
+        <div class="p-3 text-center transition bg-white shadow-sm rounded-2xl hover:shadow-md">
           <div class="mb-3 aspect-square rounded-xl placeholder-img">
             120x120
           </div>
@@ -580,7 +561,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-16 text-white bg-orange-900">
+  <footer class="py-20 bg-orange-900 text-hite">
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="grid gap-8 mb-8 md:grid-cols-4">
 
@@ -600,15 +581,15 @@
           </p>
           <div class="flex space-x-4">
             <a href="#"
-              class="flex items-center justify-center w-8 h-8 transition-colors bg-orange-800 rounded-full hover:bg-orange-600/40">
+              class="flex items-center justify-center w-8 h-8 text-white transition-colors bg-orange-800 rounded-full hover:bg-orange-600/40">
               <i class="fab fa-twitter"></i>
             </a>
             <a href="#"
-              class="flex items-center justify-center w-8 h-8 transition-colors bg-orange-800 rounded-full hover:bg-orange-600/40">
+              class="flex items-center justify-center w-8 h-8 text-white transition-colors bg-orange-800 rounded-full hover:bg-orange-600/40">
               <i class="fab fa-pinterest"></i>
             </a>
             <a href="#"
-              class="flex items-center justify-center w-8 h-8 transition-colors bg-orange-800 rounded-full hover:bg-orange-600/40">
+              class="flex items-center justify-center w-8 h-8 text-white transition-colors bg-orange-800 rounded-full hover:bg-orange-600/40">
               <i class="fab fa-instagram"></i>
             </a>
           </div>
@@ -616,19 +597,19 @@
 
         <!-- Navigation Links -->
         <div class="col-span-1">
-          <h3 class="mb-4 text-lg font-semibold">Navigasi</h3>
+          <h3 class="mb-4 text-lg font-semibold text-white">Navigasi</h3>
           <ul class="space-y-3 text-gray-400 text-md">
-            <li><a href="#home" class="transition-colors hover:text-white">Beranda</a></li>
-            <li><a class='transition-colors hover:text-white' href='/sejarah'>Edukasi</a></li>
-            <li><a class='transition-colors hover:text-white' href='/katalog'>Kamus</a></li>
-            <li><a class='transition-colors hover:text-white' href='/pageai'>Quiz</a></li>
-            <li><a class='transition-colors hover:text-white' href='/pageai'>Asisten AI</a></li>
+            <li><a href="index.html" class="transition-colors hover:text-white">Beranda</a></li>
+            <li><a href='edukasi.html' class='transition-colors hover:text-white'>Edukasi</a></li>
+            <li><a href='/katalog' class='transition-colors hover:text-white'>Kamus</a></li>
+            <li><a href='/pageai' class='transition-colors hover:text-white'>Quiz</a></li>
+            <li><a href='/pageai' class='transition-colors hover:text-white'>Asisten AI</a></li>
           </ul>
         </div>
 
         <!-- Contact Info -->
         <div class="col-span-1" id="contact">
-          <h3 class="mb-4 text-lg font-semibold">Kontak</h3>
+          <h3 class="mb-4 text-lg font-semibold text-white">Kontak</h3>
           <div class="space-y-3 text-gray-400 text-md">
             <div class="flex items-center space-x-2">
               <i class="fa-solid fa-location-dot fa-xl"></i>
@@ -665,6 +646,6 @@
 
   <!-- Script jQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" ></script>
-  <script src="assets/js/script.js"></script>
+  <script src="assets/js/edukasi.js"></script>
 </body>
 </html>

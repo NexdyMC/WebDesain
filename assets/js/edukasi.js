@@ -1,3 +1,15 @@
+// Navigasi Toggle For Android & iOS
+$("#menuBtn").on("click", function () {
+  $("#mobileMenu").toggleClass("hidden");
+  $("#iconOpen").toggleClass("hidden");
+  $("#iconClose").toggleClass("hidden");
+});
+$("#mobileMenu a").on("click", function () {
+  $("#mobileMenu").toggleClass("hidden");
+  $("#iconOpen").removeClass("hidden");
+  $("#iconClose").toggleClass("hidden");
+});
+
 $(document).ready(function () {
   const $tabButtons = $(".tab-btn");
   const $items = $(".item");
