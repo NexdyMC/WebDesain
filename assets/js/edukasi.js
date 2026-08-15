@@ -1,3 +1,4 @@
+// Kategori
 $(document).ready(function () {
   const $tabButtons = $(".tab-btn");
   const $items = $(".item");
@@ -20,7 +21,7 @@ $(document).ready(function () {
     });
   }
 
-
+// Pencarian
   function animateFadeUp($targets) {
 
     $targets.css({
@@ -61,4 +62,32 @@ $(document).ready(function () {
     setActiveTab(filterValue);
     applyFilter(filterValue);
   });
+});
+
+$(document).ready(function() {
+  var activeCategory = 'all';
+
+  $('.filter-btn').on('click', function() {
+    activeCategory = $(this).data('category');
+    applyFilters();
+  });
+
+  $('#searchInput').on('keyup input', function() {
+    applyFilters();
+  });
+
+  function applyFilters() {
+    var searchValue = $('#searchInput').val().toLowerCase().trim();
+
+    $('#itemList .item').each(function() {
+      var itemText = $(this).text().toLowerCase();
+      var itemCategory = $(this).attr('data-category');
+
+      var matchesSearch = itemText.indexOf(searchValue) > -1;
+      
+      var matchesCategory = (activeCategory === 'all' || itemCategory === activeCategory);
+
+      $(this).toggle(matchesSearch && matchesCategory);
+    });
+  }
 });
