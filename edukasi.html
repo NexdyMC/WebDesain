@@ -1,6 +1,5 @@
 ﻿<!doctype html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +15,6 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/tailwind.config.js"></script>
 
   <!-- Google Fonts -->
@@ -28,26 +26,22 @@
 <body class="antialiased text-gray-800 bg-white">
   
   <!-- Navigation -->
-  <header class="sticky top-0 z-50 border-b border-orange-100 shadow-lg backdrop-blur bg-white/90">
-    <div class="flex items-center justify-between h-16 px-5 mx-auto max-w-7xl md:px-8 md:h-18">
-
+  <header class="sticky top-0 z-50 border-b border-orange-100 shadow-lg backdrop-blur bg-white/90" >
+    <div class="flex items-center justify-between h-16 px-5 mx-auto max-w-7xl md:px-8 md:h-18" >
+      
       <!-- Judul Website  -->
-      <a href="#" class="flex items-center text-xl font-extrabold md:text-2xl">
-        <i class="mr-2 text-4xl fa-solid fa-hands-asl-interpreting text-amber-400"></i>
+      <a href="#" class="flex items-center text-xl font-extrabold md:text-2xl" >
+        <i class="mr-2 text-4xl fa-solid fa-hands-asl-interpreting text-primary-500"></i>
         <span class="text-gray-900">Isyarat</span><span class="text-primary-500">OK</span>
       </a>
 
       <!-- Desktop Navigasi -->
-      <nav class="items-center hidden gap-6 font-semibold text-gray-500 md:flex text-md">
-        <a href="#beranda"
-          class="py-2 transition border-b-2 border-white hover:text-orange-500 hover:border-orange-500">Beranda</a>
-        <a href="edukasi.html" class="py-2 text-orange-500 border-b-2 border-orange-500">Edukasi</a>
-        <a href="#kamus"
-          class="py-2 transition border-b-2 border-white hover:text-orange-500 hover:border-orange-500">Kamus</a>
-        <a href="#quiz"
-          class="py-2 transition border-b-2 border-white hover:text-orange-500 hover:border-orange-500">Quiz</a>
-        <a href="#komunitas"
-          class="py-2 transition border-b-2 border-white hover:text-orange-500 hover:border-orange-500">Asisten AI</a>
+      <nav class="items-center hidden gap-6 font-semibold text-gray-500 md:flex text-md" >
+        <a href="index.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Beranda</a>
+        <a href="edukasi.html" class="py-2 text-orange-500 border-b-2 border-orange-500" >Edukasi</a>
+        <a href="#kamus" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Kamus</a>
+        <a href="#quiz" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Quiz</a>
+        <a href="#komunitas" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Asisten AI</a>
       </nav>
 
       <!-- Mobile menu button -->
@@ -69,8 +63,7 @@
   </header>
 
   <!-- ============ HERO EDUKASI ============ -->
-  <section id="edukasi"
-    class="relative py-16 overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 md:py-24">
+  <section id="edukasi" class="relative min-h-screen py-16 overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 md:py-24">
     <div class="px-5 mx-auto max-w-7xl md:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2">
         <div>
@@ -346,7 +339,8 @@
     </div>
   </footer>
   
-  <!-- Script JS -->
+  <!-- Script jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/edukasi.js"></script>
 </body>
 
