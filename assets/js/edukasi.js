@@ -1,15 +1,3 @@
-// Navigasi Toggle For Android & iOS
-$("#menuBtn").on("click", function () {
-  $("#mobileMenu").toggleClass("hidden");
-  $("#iconOpen").toggleClass("hidden");
-  $("#iconClose").toggleClass("hidden");
-});
-$("#mobileMenu a").on("click", function () {
-  $("#mobileMenu").toggleClass("hidden");
-  $("#iconOpen").removeClass("hidden");
-  $("#iconClose").toggleClass("hidden");
-});
-
 $(document).ready(function () {
   const $tabButtons = $(".tab-btn");
   const $items = $(".item");
@@ -32,26 +20,41 @@ $(document).ready(function () {
     });
   }
 
-  function showAllItems() {
-    $items.show();
-    $items.css("opacity", "1").css("transform", "translateY(0)");
-  }
 
-  function applyFilter(filterValue) {
-    if (filterValue === "semua") {
-      showAllItems();
-      return;
-    }
+  function animateFadeUp($targets) {
 
-    $items.hide();
-    $items.filter('[data-category="' + filterValue + '"]').show();
-    $items.filter('[data-category="' + filterValue + '"]').css({
-      opacity: 1,
-      transform: "translateY(0)",
+    $targets.css({
+      display: "block",
+      opacity: "0",
+      transform: "translateY(20px)"
+    });
+
+    $targets.each(function (index) {
+      const $el = $(this);
+      setTimeout(function () {
+        $el.css({
+          opacity: "1",
+          transform: "translateY(0)"
+        });
+      }, index * 50);
     });
   }
 
-  showAllItems();
+  function applyFilter(filterValue) {
+    $items.css({
+      display: "none",
+      opacity: "0",
+      transform: "translateY(20px)"
+    });
+
+    const $targetItems = (filterValue === "semua")
+      ? $items
+      : $items.filter('[data-category="' + filterValue + '"]');
+
+    animateFadeUp($targetItems);
+  }
+
+  applyFilter("semua");
 
   $tabButtons.on("click", function () {
     const filterValue = $(this).data("filter");
