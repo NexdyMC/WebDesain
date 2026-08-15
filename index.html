@@ -26,12 +26,13 @@
 
 <body class="text-gray-800 bg-white">
   
-  <!-- Navbar  -->
+  <!-- Navigation -->
   <header class="sticky top-0 z-50 border-b border-orange-100 shadow-lg backdrop-blur bg-white/90" >
     <div class="flex items-center justify-between h-16 px-5 mx-auto max-w-7xl md:px-8 md:h-18" >
       
       <!-- Judul Website  -->
       <a href="#" class="flex items-center text-xl font-extrabold md:text-2xl" >
+        <i class="mr-2 text-4xl fa-solid fa-hands-asl-interpreting text-amber-400"></i>
         <span class="text-gray-900">Isyarat</span><span class="text-primary-500">OK</span>
       </a>
 
@@ -64,7 +65,7 @@
 
   <!-- Hero Section -->
   <section id="beranda" class="relative bg-[url(assets/images/hero_1.webp)] bg-center bg-cover overflow-hidden min-h-screen bg-linear-to-r from-cyan-500 to-blue-500" >
-    <div class="max-w-7xl mx-auto px-5 md:px-8 pt-10 md:pt-16 pb-16 md:pb-24">
+    <div class="px-5 pt-10 pb-16 mx-auto max-w-7xl md:px-8 md:pt-16 md:pb-24">
       <div class="relative bg-gradient-to-br from-primary-500 to-primary-600 rounded-[2rem] md:rounded-[2.5rem] px-6 py-10 md:px-14 md:py-16 overflow-hidden" >
         <div class="absolute inset-0 pointer-events-none opacity-20" aria-hidden="true">
           <div class="grid grid-cols-8 gap-4 p-8">
@@ -75,7 +76,7 @@
         <div class="relative grid items-center gap-10 md:grid-cols-2">
           
           <div>
-            <h1 class="mb-4 text-3xl font-extrabold leading-tight text-white bg-clip-text text-transparent sm:text-4xl md:text-5xl" >
+            <h1 class="mb-4 text-3xl font-extrabold leading-tight text-transparent text-white bg-clip-text sm:text-4xl md:text-5xl" >
               Belajar Isyarat &amp; Bangun Koneksi
             </h1>
             <p class="max-w-md mb-8 text-sm leading-relaxed text-primary-50/90 md:text-base">
@@ -104,14 +105,14 @@
   </section>
 
   <!-- Navigation Card Section : proses -->
-  <section class="px-4 py-16 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+  <section class="px-4 py-20 mx-auto sm:px-6 lg:px-8 max-w-7xl">
 
     <!-- Section Header -->
     <div class="mb-12 text-center">
       <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
         Eksplorasi <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400">Fitur Kami</span>
       </h2>
-      <p class="max-w-2xl mx-auto mt-4 text-lg text-gray-500">
+      <p class="max-w-2xl mx-auto mt-4 text-lg text-gray-700">
         Mulai perjalananmu mengenal bahasa isyarat melalui beragam konten informatif dari kami.
       </p>
     </div>
@@ -120,12 +121,12 @@
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
 
       <!-- Card 1: Edukasi -->
-      <div class="flex flex-col p-8 text-left transition-all duration-300 transform bg-amber-100 border-2 border-transparent shadow-md group rounded-2xl hover:shadow-xl hover:-translate-y-2">
-        <div class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-colors duration-300 bg-gradient-to-tl from-amber-500 to-yellow-400 rounded-full group-hover:text-white">
+      <div class="flex flex-col p-8 text-left transition-all duration-300 transform border-2 border-transparent shadow-lg bg-amber-100 group rounded-2xl hover:shadow-2xl hover:-translate-y-2">
+        <div class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-transform duration-300 rounded-full bg-gradient-to-tl from-amber-500 to-yellow-400 group-hover:scale-125 ">
           <i class="fas fa-book-open"></i>
         </div>
-        <h3 class="mb-3 text-2xl font-bold text-amber-500 transition-colors">Edukasi</h3>
-        <p class="mb-6 leading-relaxed text-gray-500 text-md">
+        <h3 class="mb-3 text-2xl font-bold transition-colors text-amber-500">Edukasi</h3>
+        <p class="mb-6 leading-relaxed text-gray-700 text-md">
           Pelajari berbagai materi menarik dengan panduan langkah demi langkah yang mudah dipahami.
         </p>
         <ul class="mb-6 space-y-2 text-sm text-amber-500">
@@ -133,16 +134,16 @@
           <li class="flex items-center"><i class="mr-2 text-xs fas fa-circle"></i><p>kosakata Bahasa Isyarat</p></li>
           <li class="flex items-center"><i class="mr-2 text-xs fas fa-circle"></i><p>kosakata Bahasa Isyarat</p></li>
         </ul>
-        <a href="#jelajahi" class="items-center font-semibold text-amber-500 transition-colors inline-fles hover:text-amber-900">Pelajari Edukasi<i class="ml-2 fas fa-chevron-right"></i></a>
+        <a href="#jelajahi" class="items-center font-semibold transition-colors text-amber-500 inline-fles hover:text-amber-900">Pelajari Edukasi<i class="ml-2 fas fa-chevron-right"></i></a>
       </div>
 
       <!-- Card 2: Kamus -->
-      <div class="flex flex-col p-8 text-left transition-all duration-300 transform bg-orange-100 border-2 border-transparent shadow-md group rounded-2xl hover:shadow-xl hover:-translate-y-2">
-        <div class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-colors duration-300 bg-gradient-to-tl from-orange-500 to-amber-400 rounded-full group-hover:text-white">
+      <div class="flex flex-col p-8 text-left transition-all duration-300 transform bg-orange-100 border-2 border-transparent shadow-lg group rounded-2xl hover:shadow-2xl hover:-translate-y-2">
+        <div class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-transform duration-300 rounded-full bg-gradient-to-tl from-orange-500 to-amber-400 group-hover:scale-125">
           <i class="fas fa-spell-check"></i>
         </div>
         <h3 class="mb-3 text-2xl font-bold text-orange-500 transition-colors">Kamus</h3>
-        <p class="mb-6 leading-relaxed text-gray-600 text-md">
+        <p class="mb-6 leading-relaxed text-gray-700 text-md">
           Temukan arti kata, istilah baru, dan perbanyak kosa kata kamu dengan cepat di sini.
         </p>
         <ul class="mb-6 space-y-2 text-sm text-orange-500">
@@ -154,12 +155,12 @@
       </div>
 
       <!-- Card 3: Quis Game -->
-      <div class="flex flex-col p-8 text-left transition-all duration-300 transform bg-amber-100 border-2 border-transparent shadow-md group rounded-2xl hover:shadow-xl hover:-translate-y-2">
-        <div class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-colors duration-300 bg-gradient-to-tl from-amber-500 to-yellow-400 rounded-full group-hover:text-white">
+      <div class="flex flex-col p-8 text-left transition-all duration-300 transform border-2 border-transparent shadow-lg bg-amber-100 group rounded-2xl hover:shadow-2xl hover:-translate-y-2">
+        <div class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-transform duration-300 rounded-full bg-gradient-to-tl from-amber-500 to-yellow-400 group-hover:scale-125">
           <i class="fas fa-gamepad"></i>
         </div>
-        <h3 class="mb-3 text-2xl font-bold text-amber-500 transition-colors">Quis Game</h3>
-        <p class="mb-6 leading-relaxed text-gray-600 text-md">
+        <h3 class="mb-3 text-2xl font-bold transition-colors text-amber-500">Quis Game</h3>
+        <p class="mb-6 leading-relaxed text-gray-700 text-md">
           Uji pengetahuanmu dengan kuis interaktif yang seru dan menantang.
         </p>
         <ul class="mb-6 space-y-2 text-sm text-amber-500">
@@ -167,16 +168,16 @@
           <li class="flex items-center"><i class="mr-2 text-xs fas fa-circle"></i><p>kosakata Bahasa Isyarat</p></li>
           <li class="flex items-center"><i class="mr-2 text-xs fas fa-circle"></i><p>kosakata Bahasa Isyarat</p></li>
         </ul>
-        <a href="#jelajahi" class="items-center font-semibold text-amber-500 transition-colors inline-fles hover:text-amber-900">Pelajari Quis<i class="ml-2 fas fa-chevron-right"></i></a>
+        <a href="#jelajahi" class="items-center font-semibold transition-colors text-amber-500 inline-fles hover:text-amber-900">Pelajari Quis<i class="ml-2 fas fa-chevron-right"></i></a>
       </div>
 
       <!-- Card 4: Asisten AI -->
-      <div class="flex flex-col p-8 text-left transition-all duration-300 transform bg-orange-100 border-2 border-transparent shadow-md group rounded-2xl hover:shadow-xl hover:-translate-y-2">
-        <div class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-colors duration-300 bg-gradient-to-tl from-orange-500 to-amber-400 rounded-full group-hover:text-white">
+      <div class="flex flex-col p-8 text-left transition-all duration-300 transform bg-orange-100 border-2 border-transparent shadow-lg group rounded-2xl hover:shadow-2xl hover:-translate-y-2">
+        <div class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-transform duration-300 rounded-full bg-gradient-to-tl from-orange-500 to-amber-400 group-hover:scale-125">
           <i class="fas fa-robot"></i>
         </div>
         <h3 class="mb-3 text-2xl font-bold text-orange-500 transition-colors">Asisten AI</h3>
-        <p class="mb-6 leading-relaxed text-gray-600 text-md">
+        <p class="mb-6 leading-relaxed text-gray-700 text-md">
           Tanya apa saja ke Asisten AI pintar yang siap membantumu kapan pun kamu butuh.
         </p>
         <ul class="mb-6 space-y-2 text-sm text-orange-500">
@@ -191,65 +192,97 @@
   </section>
 
   <!-- Why Isyarat Today Section -->
-  <section class="py-20 bg-yellow-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-20 bg-orange-100">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
 
       <!-- Section Header -->
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
-          <span class="bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-400 bg-clip-text text-transparent">
+      <div class="mb-16 text-center">
+        <h2 class="mb-4 text-4xl font-extrabold md:text-5xl">
+          <span class="text-transparent bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-400 bg-clip-text">
             Why Isyarat To day?
           </span>
         </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p class="max-w-2xl mx-auto text-lg text-gray-600">
           Platform terbaik untuk belajar bahasa isyarat dengan menyenangkan, interaktif, dan menjembatani komunikasi
           tanpa batas.
         </p>
       </div>
 
       <!-- Features Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 
         <!-- Reason 1: Orange Accent -->
-        <div
-          class="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-orange-500 hover:-translate-y-2 transition-transform duration-300">
-          <div
-            class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-2xl mb-6">
+        <div class="p-8 transition-all duration-300 bg-white border-t-4 border-orange-500 shadow-lg rounded-2xl hover:scale-105 hover:shadow-xl">
+          <div class="flex items-center justify-center mb-6 text-2xl text-orange-600 bg-orange-100 rounded-full w-14 h-14">
             <i class="fas fa-universal-access"></i>
           </div>
-          <h3 class="text-xl font-bold text-gray-800 mb-3">Aksesibilitas Tinggi</h3>
+          <h3 class="mb-3 text-xl font-bold text-gray-800">Aksesibilitas Tinggi</h3>
           <p class="text-gray-600">
             Materi dirancang agar mudah diakses dan dipahami oleh siapa saja, dari pemula hingga mahir.
           </p>
         </div>
 
         <!-- Reason 2: Amber Accent -->
-        <div
-          class="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-amber-400 hover:-translate-y-2 transition-transform duration-300">
-          <div
-            class="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center text-amber-500 text-2xl mb-6">
+        <div class="p-8 transition-all duration-300 bg-white border-t-4 shadow-lg rounded-2xl border-amber-400 hover:scale-105 hover:shadow-xl">
+          <div class="flex items-center justify-center mb-6 text-2xl rounded-full w-14 h-14 bg-amber-100 text-amber-500">
             <i class="fas fa-users"></i>
           </div>
-          <h3 class="text-xl font-bold text-gray-800 mb-3">Komunitas Solid</h3>
+          <h3 class="mb-3 text-xl font-bold text-gray-800">Komunitas Solid</h3>
           <p class="text-gray-600">
             Bergabunglah dengan ribuan teman lainnya untuk berlatih bersama dan saling mendukung.
           </p>
         </div>
 
         <!-- Reason 3: Yellow Accent -->
-        <div
-          class="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300">
-          <div
-            class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-500 text-2xl mb-6">
+        <div class="p-8 transition-all duration-300 bg-white border-t-4 border-yellow-400 shadow-lg rounded-2xl hover:scale-105 hover:shadow-xl">
+          <div class="flex items-center justify-center mb-6 text-2xl text-yellow-500 bg-yellow-100 rounded-full w-14 h-14">
             <i class="fas fa-lightbulb"></i>
           </div>
-          <h3 class="text-xl font-bold text-gray-800 mb-3">Metode Interaktif</h3>
+          <h3 class="mb-3 text-xl font-bold text-gray-800">Metode Interaktif</h3>
           <p class="text-gray-600">
             Belajar tidak lagi membosankan berkat kuis, mini-game, dan asisten AI pintar kami.
           </p>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- Cultural Quote Section -->
+  <section class="flex justify-center py-20 text-white bg-gradient-to-br from-orange-600 to-amber-500">
+    <div class="flex flex-col items-center max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+
+      <!-- Ikon Kutipan -->
+      <div class="mb-6 opacity-80">
+        <i class="text-3xl text-yellow-300 fas fa-quote-left"></i>
+      </div>
+
+      <!-- Main Quote -->
+      <blockquote class="mb-4 font-serif text-2xl font-medium leading-snug">
+        "Orang tuli bisa melakukan apa saja yang bisa dilakukan orang yang bisa mendengar, kecuali mendengar."
+      </blockquote>
+
+      <!-- Original Quote / Terjemahan -->
+      <p class="mb-2 text-lg italic font-light text-yellow-100">
+        "Deaf people can do anything hearing people can do except hear."
+      </p>
+
+      <!-- Attribution -->
+      <p class="mb-12 text-base font-medium tracking-wide text-yellow-200/80">
+        - Dr. I. King Jordan (Presiden Tuli Pertama di Gallaudet University)
+      </p>
+
+      <!-- Explanation Box (Mengadaptasi kotak hijau dari referensi) -->
+      <!-- Menggunakan efek 'glassmorphism' (transparan dengan blur) agar terlihat modern -->
+      <div
+        class="w-full max-w-3xl p-8 border shadow-xl bg-white/10 backdrop-blur-md border-white/20 rounded-2xl md:p-10">
+        <p class="text-base font-light leading-relaxed text-white md:text-lg">
+          Seperti kutipan di atas, platform Isyarat percaya bahwa tidak ada batasan dalam berkarya dan berkomunikasi.
+          Dengan mempelajari bahasa isyarat, kita turut serta meruntuhkan tembok pembatas dan membangun masyarakat yang
+          inklusif, di mana setiap individu memiliki kesempatan yang sama untuk berekspresi.
+        </p>
+      </div>
+
     </div>
   </section>
 
@@ -268,7 +301,7 @@
       
       <!-- Card 1: Kosa Kata -->
       <div class="text-center fade-in">
-        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 bg-gradient-to-tl from-orange-500 to-amber-400 rounded-full shadow-xl shadow-orange-500/20">
+        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full shadow-xl bg-gradient-to-tl from-orange-500 to-amber-400 shadow-orange-500/20">
           <i class="text-3xl fa-solid fa-globe text-cream"></i>
         </div>
         <p class="mb-2 text-3xl font-bold leading-none text-orange-600">800+</p>
@@ -278,7 +311,7 @@
 
       <!-- Card 2: Sejarah -->
       <div class="text-center fade-in">
-        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 bg-gradient-to-tl from-amber-500 to-yellow-400 rounded-full shadow-xl shadow-orange-500/20">
+        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full shadow-xl bg-gradient-to-tl from-amber-500 to-yellow-400 shadow-orange-500/20">
           <i class="text-3xl fa-solid fa-scroll text-cream"></i>
         </div>
         <p class="mb-2 text-3xl font-bold leading-none text-amber-500">100+</p>
@@ -288,7 +321,7 @@
 
       <!-- Card 3: Interpreter -->
       <div class="text-center fade-in">
-        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 bg-gradient-to-tl from-orange-500 to-amber-400 rounded-full shadow-xl shadow-orange-500/20">
+        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full shadow-xl bg-gradient-to-tl from-orange-500 to-amber-400 shadow-orange-500/20">
           <i class="text-3xl fa-solid fa-shield-halved text-cream"></i>
         </div>
         <p class="mb-2 text-3xl font-bold leading-none text-orange-600">300+</p>
@@ -298,7 +331,7 @@
 
       <!-- Card 4: Cabang Komunitas -->
       <div class="text-center fade-in">
-        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 bg-gradient-to-tl from-amber-500 to-yellow-400 rounded-full shadow-xl shadow-orange-500/20">
+        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full shadow-xl bg-gradient-to-tl from-amber-500 to-yellow-400 shadow-orange-500/20">
           <i class="text-3xl fa-solid fa-location-dot text-cream"></i>
         </div>
         <p class="mb-2 text-3xl font-bold leading-none text-amber-500">38</p>
@@ -308,8 +341,8 @@
     </div>
   </section>
 
-  <!-- -->
-  <section id="edukasi" class="px-5 py-16 mx-auto max-w-7xl md:px-8 md:py-24">
+  <!-- Edukasi Section -->
+  <section id="edukasi" class="px-5 py-20 mx-auto max-w-7xl md:px-8 md:py-24">
     <div
       class="flex flex-col gap-6 mb-10 md:flex-row md:items-end md:justify-between"
     >
@@ -428,7 +461,7 @@
   </section>
 
   <!-- KAMUS ISYARAT VIRTUAL -->
-  <section id="kamus" class="py-16 bg-gray-50 md:py-24">
+  <section id="kamus" class="py-20 bg-gray-50 md:py-24">
     <div class="px-5 mx-auto max-w-7xl md:px-8">
       <div
         class="flex flex-col gap-6 mb-10 lg:flex-row lg:items-end lg:justify-between"
@@ -513,8 +546,8 @@
   </section>
 
   <!-- QUIZ CTA -->
-  <section id="quiz" class="px-5 py-16 mx-auto max-w-7xl md:px-8 md:py-24">
-    <div class="relative bg-gray-900 rounded-[2rem] overflow-hidden">
+  <section id="quiz" class="py-20 bg-yellow-50">
+    <div class="px-5 py-16 mx-auto bg-gray-900 rounded-2xl max-w-7xl md:px-8 md:py-24">
       <div class="grid items-center gap-8 p-8 md:grid-cols-2 md:p-14">
         <div>
           <h2
@@ -547,7 +580,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-16 text-white bg-gray-900">
+  <footer class="py-16 text-white bg-orange-900">
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="grid gap-8 mb-8 md:grid-cols-4">
 
@@ -556,10 +589,10 @@
           <div class="flex items-center mb-4 space-x-2">
             <span class="font-bold">
               <!-- <img src="assets/images" alt="IsyaratOK" class="object-contain w-10 h-10"> -->
-              <i class="text-2xl text-white fas fa-leaf"></i>
+              <i class="text-4xl text-orange-400 fa-solid fa-hands-asl-interpreting"></i>
             </span>
             <a href="index.html" class="flex items-center text-2xl font-extrabold md:text-2xl" >
-              <span class="text-white">Isyarat</span><span class="text-primary-500">OK</span>
+              <span class="text-white">Isyarat</span><span class="text-orange-400">OK</span>
             </a>
           </div>
           <p class="mb-6 leading-relaxed text-gray-400">
@@ -567,15 +600,15 @@
           </p>
           <div class="flex space-x-4">
             <a href="#"
-              class="flex items-center justify-center w-8 h-8 transition-colors bg-gray-800 rounded-full hover:bg-blue-600/40">
+              class="flex items-center justify-center w-8 h-8 transition-colors bg-orange-800 rounded-full hover:bg-orange-600/40">
               <i class="fab fa-twitter"></i>
             </a>
             <a href="#"
-              class="flex items-center justify-center w-8 h-8 transition-colors bg-gray-800 rounded-full hover:bg-blue-600/40">
+              class="flex items-center justify-center w-8 h-8 transition-colors bg-orange-800 rounded-full hover:bg-orange-600/40">
               <i class="fab fa-pinterest"></i>
             </a>
             <a href="#"
-              class="flex items-center justify-center w-8 h-8 transition-colors bg-gray-800 rounded-full hover:bg-blue-600/40">
+              class="flex items-center justify-center w-8 h-8 transition-colors bg-orange-800 rounded-full hover:bg-orange-600/40">
               <i class="fab fa-instagram"></i>
             </a>
           </div>
@@ -615,7 +648,7 @@
       </div>
 
       <!-- Copyright -->
-      <div class="pt-8 border-t border-gray-800">
+      <div class="pt-8 border-t border-orange-800">
         <div class="flex flex-col items-center justify-between md:flex-row">
           <p class="mb-4 text-gray-400 md:mb-0 text-md">
             © 2026 IsyaratOK
