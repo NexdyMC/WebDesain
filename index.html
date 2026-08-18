@@ -63,9 +63,10 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="beranda" class="relative bg-[url(assets/images/hero_2.jpg)] bg-center flex items-center bg-cover overflow-hidden min-h-screen bg-linear-to-r from-cyan-500 to-blue-500" >
-    <div class="px-5 pt-10 pb-16 mx-auto max-w-7xl md:px-8 md:pt-16 md:pb-24">
-      <div class="relative bg-gradient-to-tl to-orange-400 from-orange-600 rounded-[2rem] md:rounded-[2.5rem] px-6 py-10 md:px-14 md:py-16 overflow-hidden" >
+  <section class="relative min-h-screen overflow-hidden">
+    <img src="assets/images/hero_2.jpg" alt="hero section" class="absolute inset-0 z-10 object-cover w-full h-full">
+    <div class="absolute inset-0 z-20 w-full h-full px-5 pt-10 pb-16 mx-auto bg-white/60 md:pt-16 md:pb-24">
+      <div class="relative bg-gradient-to-tl max-w-7xl mx-auto w-auto to-orange-400 from-orange-600 rounded-[2rem] md:rounded-[2.5rem] px-6 py-10 md:px-14 md:py-16 overflow-hidden" >
         <div class="absolute inset-0 pointer-events-none opacity-20" aria-hidden="true">
           <div class="grid grid-cols-8 gap-4 p-8">
             <template x-if="false"></template>
@@ -101,7 +102,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section>  
 
   <!-- Navigation Card Section -->
   <section class="px-4 py-20 mx-auto sm:px-6 lg:px-8 max-w-7xl">
@@ -226,7 +227,7 @@
     <div class="mx-auto sm:px-6 lg:px-8 max-w-7xl">
 
       <!-- Section Header -->
-      <div class="text-lg text-center mb-16 fade-in">
+      <div class="mb-16 text-lg text-center fade-in">
         <h2 class="mb-4 text-3xl font-extrabold text-transparent sm:text-4xl md:text-5xl bg-clip-text bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-400">
           Mengapa bahasa isyarat Masih Relevan di Era Modern?
         </h2>
@@ -276,7 +277,7 @@
   </section>
   
   <!-- Cultural Quote Section -->
-  <section class="flex justify-center py-20 text-white bg-gradient-to-br from-orange-600 to-amber-500">
+  <section class="flex justify-center px-4 py-20 text-white bg-gradient-to-br from-orange-600 to-amber-600">
     <div class="flex flex-col items-center max-w-4xl px-4 text-center sm:px-6 lg:px-8">
 
       <!-- Ikon Kutipan -->
@@ -368,11 +369,11 @@
 
   <!-- Edukasi Section -->
   <section class="px-4 py-20 bg-amber-50 md:px-8 md:py-24">
-    <div class="max-w-7xl mx-auto">
+    <div class="mx-auto max-w-7xl">
       <div class="mb-16 text-center fade-in">
         <h2 class="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">Edukasi <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400">Interaktif</span>
         </h2>
-        <p class="text-lg text-gray-600 mb-4">
+        <p class="mb-4 text-lg text-gray-600">
           Modul pembelajaran terstruktur dari dasar hingga mahir, dirancang untuk berbagai gaya belajar.
         </p>
         <a href="edukasi.html"
@@ -442,18 +443,18 @@
       </div>
     </div>
     <!-- Diperbaiki: Tombol versi mobile -->
-    <a href="edukasi.html" class="flex items-center justify-center w-full px-5 py-3 mt-6 text-sm font-semibold text-gray-700 border border-gray-300 rounded-full md:hidden hover:border-orange-500 hover:text-orange-500 transition">
+    <a href="edukasi.html" class="flex items-center justify-center w-full px-5 py-3 mt-6 text-sm font-semibold text-gray-700 transition border border-gray-300 rounded-full md:hidden hover:border-orange-500 hover:text-orange-500">
       Lihat Semua Modul
     </a>
   </section>
 
   <!-- KAMUS ISYARAT VIRTUAL -->
-  <section class="py-20 bg-gray-50 md:py-24">
+  <section class="px-4 py-20 bg-gray-50 md:py-24">
     <div class="px-5 mx-auto max-w-7xl md:px-8">
       <div class="mb-16 text-center fade-in">
         <h2 class="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">Edukasi <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400">Interaktif</span>
         </h2>
-        <p class="text-lg text-gray-600 mb-4">
+        <p class="mb-4 text-lg text-gray-600">
           Modul pembelajaran terstruktur dari dasar hingga mahir, dirancang untuk berbagai gaya belajar.
         </p>
         <a href="edukasi.html"
@@ -505,7 +506,7 @@
   </section>
 
   <!-- QUIZ CTA -->
-  <section class="py-20 bg-yellow-50">
+  <section class="px-4 py-20 bg-yellow-50">
     <div class="px-5 py-16 mx-auto bg-gray-900 rounded-2xl max-w-7xl md:px-8 md:py-24">
       <div class="grid items-center gap-8 p-8 md:grid-cols-2 md:p-14">
         <div>
@@ -539,7 +540,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-20 bg-orange-900 text-hite">
+  <footer class="px-4 py-20 bg-orange-600 text-hite">
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="grid gap-8 mb-8 md:grid-cols-4">
 
@@ -554,7 +555,7 @@
               <span class="text-white">Isyarat</span><span class="text-orange-400">OK</span>
             </a>
           </div>
-          <p class="mb-6 leading-relaxed text-gray-400">
+          <p class="mb-6 leading-relaxed text-[#ffb99e]">
             Platform edukasi interaktif bahasa isyarat yang dirancang ramah untuk anak dan remaja. Mari ciptakan ruang belajar yang inklusif, seru, dan menyenangkan!
           </p>
           <div class="flex space-x-4">
