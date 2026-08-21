@@ -91,3 +91,64 @@ $(document).ready(function() {
     });
   }
 });
+
+$(document).ready(function () {
+  
+  // Buka Modal saat .item diklik
+  $(document).on("click", ".item", function (e) {
+    e.preventDefault();
+    
+    // Ambil Kategori & Judul dari Kartu
+    const category = $(this).find("span.uppercase").text().trim() || $(this).attr("data-category");
+    const title = $(this).find("p").text().trim();
+    
+    // Isi Judul & Kategori
+    $("#modalCategory").text(category);
+    $("#modalTitle").text(title);
+
+    // Ambil konten dari template <template class="card-details"> jika ada
+    const $template = $(this).find("template.card-details");
+
+    if ($template.length > 0) {
+      const $content = $($template.html());
+      const mediaHTML = $content.filter(".media-content").html();
+      const descHTML = $content.filter(".desc-content").html();
+
+      // Set Media (Gambar / Video)
+      if (mediaHTML && mediaHTML.trim() !== "") {
+        $("#modalMedia").html(mediaHTML).removeClass("hidden");
+      } else {
+        $("#modalMedia").html("").addClass("hidden");
+      }
+
+      // Set Deskripsi Teks
+      $("#modalDescription").html(descHTML);
+    } else {
+      // Fallback jika tidak ada template di kartu tersebut
+      $("#modalMedia").html("").addClass("hidden");
+      $("#modalDescription").html("<p>Penjelasan detail materi belum tersedia.</p>");
+    }
+
+    // Tampilkan Modal
+    $("#popupModal").removeClass("hidden").addClass("flex");
+  });
+
+  // Fungsi Tutup Modal
+  function closeModal() {
+    $("#popupModal").removeClass("flex").addClass("hidden");
+    // Bersihkan isi media agar video YouTube/Audio langsung stop saat ditutup
+    $("#modalMedia").html("");
+  }
+
+  // Event Tombol Close & Klik Outside
+  $(document).on("click", "#closeBtn", function () {
+    closeModal();
+  });
+
+  $(document).on("click", "#popupModal", function (e) {
+    if ($(e.target).is("#popupModal")) {
+      closeModal();
+    }
+  });
+
+});
