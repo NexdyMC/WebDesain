@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+
+   <!-- Script jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/edukasi.js"></script>
+<body>
+    <div class="p-6 max-w-6xl mx-auto">
+  <!-- Header Dropdown (Clickable) -->
+  <div class="faq-header inline-flex items-center gap-3 cursor-pointer select-none">
+    <h2 class="text-2xl font-bold text-orange-600">ABJAD</h2>
+    <!-- Panah memakai transisi Tailwind -->
+    <span class="arrow inline-block text-orange-600 text-lg font-bold transition-transform duration-300">
+      &#10095;
+    </span>
+  </div>
+
+  <!-- Konten Abjad (hidden secara default via Tailwind) -->
+  <div class="faq-content hidden mt-5">
+    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4">
+      
+      <!-- Card Abjad -->
+      <div class="border border-gray-200 rounded-xl p-2 text-center bg-white shadow-sm">
+        <img src="img/a.jpg" alt="A" class="w-full h-auto rounded-lg object-cover">
+        <p class="mt-2 font-bold text-gray-800">A</p>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl p-2 text-center bg-white shadow-sm">
+        <img src="img/b.jpg" alt="B" class="w-full h-auto rounded-lg object-cover">
+        <p class="mt-2 font-bold text-gray-800">B</p>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl p-2 text-center bg-white shadow-sm">
+        <img src="img/c.jpg" alt="C" class="w-full h-auto rounded-lg object-cover">
+        <p class="mt-2 font-bold text-gray-800">C</p>
+      </div>
+
+      <!-- Tambahkan card abjad lainnya di sini -->
+
+    </div>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+  $('.faq-header').click(function() {
+    // 1. Menampilkan/menyembunyikan konten dengan animasi slide
+    $('.faq-content').slideToggle(300);
+
+    // 2. Toggle utility class Tailwind 'rotate-90' pada ikon panah
+    $(this).find('.arrow').toggleClass('rotate-90');
+  });
+});
+</script>
+</body>
+</html>
