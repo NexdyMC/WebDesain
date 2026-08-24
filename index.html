@@ -53,7 +53,7 @@
     </div>
 
     <!-- Mobile Nav -->
-    <nav id="mobileMenu" class="grid hidden gap-1 px-6 pb-6 text-sm font-semibold text-gray-600 rounded-2xl">
+    <nav id="mobileMenu" class="hidden gap-1 px-6 pb-6 text-sm font-semibold text-gray-600 rounded-2xl">
       <a href="index.html" class="py-2 text-orange-500">Beranda</a>
       <a href="edukasi.html" class="py-2 transition hover:text-orange-400">Edukasi</a>
       <a href="kosakata.html" class="py-2 transition hover:text-orange-400">Kamus</a>
@@ -64,45 +64,56 @@
 
   <!-- Hero Section -->
   <section class="relative min-h-screen overflow-hidden">
+    <!-- Background Image -->
     <img src="assets/images/hero_2.jpg" alt="hero section" class="absolute inset-0 z-10 object-cover w-full h-full">
-    <div class="absolute inset-0 z-20 w-full h-full px-5 pt-10 pb-16 mx-auto bg-white/60 md:pt-16 md:pb-24">
-      <div class="relative bg-gradient-to-tl max-w-7xl mx-auto w-auto to-orange-400 from-orange-600 rounded-[2rem] md:rounded-[2.5rem] px-6 py-10 md:px-14 md:py-16 overflow-hidden" >
+
+    <!-- Overlay Layer -->
+    <div class="absolute inset-0 z-20 w-full h-full px-5 pt-10 pb-16 bg-white/60 md:pt-16 md:pb-24">
+
+      <!-- Main Card -->
+      <div class="relative w-full max-w-7xl mx-auto bg-gradient-to-tl to-orange-400 from-orange-600 rounded-[2rem] md:rounded-[2.5rem] px-6 py-10 md:px-14 md:py-16 overflow-hidden">
         <div class="absolute inset-0 pointer-events-none opacity-20" aria-hidden="true">
-          <div class="grid grid-cols-8 gap-4 p-8">
-            <template x-if="false"></template>
-          </div>
+          <div class="grid grid-cols-8 gap-4 p-8"></div>
         </div>
 
+        <!-- Content Grid -->
         <div class="relative grid items-center gap-10 md:grid-cols-2">
-          
+
+          <!-- Text Column -->
           <div>
-            <h1 class="mb-4 text-3xl font-extrabold leading-tight text-transparent text-white bg-clip-text sm:text-4xl md:text-5xl" >
+            <!-- PERBAIKAN: Menghapus text-transparent dan bg-clip-text agar teks putih solid -->
+            <h1 class="mb-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-5xl">
               Belajar Isyarat &amp; Bangun Koneksi
             </h1>
-            <p class="max-w-md mb-8 text-sm leading-relaxed text-orange-50/90 md:text-base">
-              Setiap orang bicara dengan caranya sendiri. Jutaan orang di
-              dunia berkomunikasi lewat gerak tangan, ekspresi wajah, dan
-              bahasa tubuh. Yuk mulai belajar bahasa isyarat hari ini. Satu
-              kata, satu langkah lebih dekat untuk saling mengerti.
+            <p class="max-w-md mb-8 text-sm leading-relaxed text-gray-100 md:text-base">
+              Setiap orang bicara dengan caranya sendiri. Jutaan orang di dunia berkomunikasi lewat gerak tangan, ekspresi
+              wajah, dan bahasa tubuh. Yuk mulai belajar bahasa isyarat hari ini. Satu kata, satu langkah lebih dekat
+              untuk saling mengerti.
             </p>
             <div class="flex flex-wrap gap-3">
-              <button class="px-6 py-3 text-sm font-semibold text-orange-600 transition bg-white rounded-full hover:bg-orange-50">
+              <button
+                class="px-6 py-3 text-sm font-semibold text-orange-600 transition bg-white rounded-full hover:bg-orange-50">
                 Mulai Belajar Gratis
               </button>
-              <button class="px-6 py-3 text-sm font-semibold text-white transition border-2 rounded-full border-white/80 hover:bg-white/10" >
+              <button
+                class="px-6 py-3 text-sm font-semibold text-white transition border-2 rounded-full border-white/80 hover:bg-white/10">
                 Kenali Bahasa Isyarat
               </button>
             </div>
           </div>
 
-          <div class="flex justify-center md:justify-end">
-            <div class="w-56 h-56 overflow-hidden border-4 rounded-full sm:w-64 sm:h-64 md:w-80 md:h-80 border-white/30 placeholder-img">500x500
+          <!-- Image Column -->
+          <div class="hidden justify-center md:justify-end md:flex">
+            <div
+              class="flex items-center justify-center w-56 h-56 overflow-hidden border-4 rounded-full sm:w-64 sm:h-64 md:w-80 md:h-80 border-white/30 placeholder-img text-white/50">
+              500x500
             </div>
           </div>
+
         </div>
       </div>
     </div>
-  </section>  
+  </section>
 
   <!-- Navigation Card Section -->
   <section class="px-4 py-20 mx-auto sm:px-6 lg:px-8 max-w-7xl">
@@ -618,6 +629,6 @@
 
   <!-- Script jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="assets/js/edukasi.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

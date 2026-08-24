@@ -1,10 +1,10 @@
+
 $("#menuBtn").on("click", function () {
-  $("#mobileMenu").toggleClass("hidden");
-  $("#iconOpen").toggleClass("hidden");
-  $("#iconClose").toggleClass("hidden");
+  $("#mobileMenu, #iconOpen, #iconClose").toggleClass("hidden grid");
 });
+
 $("#mobileMenu a").on("click", function () {
-  $("#mobileMenu").toggleClass("hidden");
-  $("#iconOpen").removeClass("hidden");
-  $("#iconClose").toggleClass("hidden");
+  $("#mobileMenu").addClass("hidden").removeClass("grid");
+  $("#iconOpen").addClass("grid").removeClass("hidden");
+  $("#iconClose").addClass("hidden").removeClass("grid");
 });
