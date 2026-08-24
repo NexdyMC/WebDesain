@@ -21,9 +21,9 @@
 
   <!-- Tailwind CSS v3 -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="assets/js/tailwind.config.js"></script>
+  <script src="tailwind.config.js"></script>
 </head>
-<body class="text-gray-800 bg-white">
+<body>
   
   <!-- Navigation -->
   <header class="sticky top-0 z-50 border-b border-orange-100 shadow-lg backdrop-blur bg-white/90" >
@@ -31,8 +31,8 @@
       
       <!-- Judul Website  -->
       <a href="#" class="flex items-center text-xl font-extrabold md:text-2xl" >
-        <i class="mr-2 text-4xl fa-solid fa-hands-asl-interpreting text-primary-500"></i>
-        <span class="text-gray-900">Isyarat</span><span class="text-primary-500">OK</span>
+        <i class="mr-2 text-4xl text-orange-500 fa-solid fa-hands-asl-interpreting"></i>
+        <span class="text-gray-900">Isyarat</span><span class="text-orange-500">OK</span>
       </a>
 
       <!-- Desktop Navigasi -->
@@ -79,14 +79,14 @@
             <h1 class="mb-4 text-3xl font-extrabold leading-tight text-transparent text-white bg-clip-text sm:text-4xl md:text-5xl" >
               Belajar Isyarat &amp; Bangun Koneksi
             </h1>
-            <p class="max-w-md mb-8 text-sm leading-relaxed text-primary-50/90 md:text-base">
+            <p class="max-w-md mb-8 text-sm leading-relaxed text-orange-50/90 md:text-base">
               Setiap orang bicara dengan caranya sendiri. Jutaan orang di
               dunia berkomunikasi lewat gerak tangan, ekspresi wajah, dan
               bahasa tubuh. Yuk mulai belajar bahasa isyarat hari ini. Satu
               kata, satu langkah lebih dekat untuk saling mengerti.
             </p>
             <div class="flex flex-wrap gap-3">
-              <button class="px-6 py-3 text-sm font-semibold transition bg-white rounded-full text-primary-600 hover:bg-primary-50">
+              <button class="px-6 py-3 text-sm font-semibold text-orange-600 transition bg-white rounded-full hover:bg-orange-50">
                 Mulai Belajar Gratis
               </button>
               <button class="px-6 py-3 text-sm font-semibold text-white transition border-2 rounded-full border-white/80 hover:bg-white/10" >
@@ -122,10 +122,8 @@
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
 
       <!-- Card 1: Edukasi -->
-      <div
-        class="flex flex-col p-8 text-left transition-all duration-300 transform border-2 border-transparent shadow-lg bg-amber-100 group rounded-2xl hover:shadow-2xl hover:-translate-y-2">
-        <div
-          class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-transform duration-300 rounded-full bg-gradient-to-tl from-amber-500 to-yellow-400 group-hover:scale-125">
+      <div class="flex flex-col p-8 text-left transition-all duration-300 transform border-2 border-transparent shadow-lg bg-amber-200 group rounded-2xl hover:shadow-2xl hover:-translate-y-2">
+        <div class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-transform duration-300 rounded-full bg-gradient-to-tl from-amber-500 to-yellow-400 group-hover:scale-125">
           <i class="fas fa-book-open"></i>
         </div>
         <h3 class="mb-3 text-2xl font-bold transition-colors text-amber-500">Edukasi</h3>
@@ -147,10 +145,8 @@
       </div>
 
       <!-- Card 2: Kamus -->
-      <div
-        class="flex flex-col p-8 text-left transition-all duration-300 transform bg-orange-100 border-2 border-transparent shadow-lg group rounded-2xl hover:shadow-2xl hover:-translate-y-2">
-        <div
-          class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-transform duration-300 rounded-full bg-gradient-to-tl from-orange-500 to-amber-400 group-hover:scale-125">
+      <div class="flex flex-col p-8 text-left transition-all duration-300 transform bg-orange-200 border-2 border-transparent shadow-lg group rounded-2xl hover:shadow-2xl hover:-translate-y-2">
+        <div class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-transform duration-300 rounded-full bg-gradient-to-tl from-orange-500 to-amber-400 group-hover:scale-125">
           <i class="fas fa-spell-check"></i>
         </div>
         <h3 class="mb-3 text-2xl font-bold text-orange-500 transition-colors">Kamus</h3>
@@ -172,10 +168,8 @@
       </div>
 
       <!-- Card 3: Quis Game -->
-      <div
-        class="flex flex-col p-8 text-left transition-all duration-300 transform border-2 border-transparent shadow-lg bg-amber-100 group rounded-2xl hover:shadow-2xl hover:-translate-y-2">
-        <div
-          class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-transform duration-300 rounded-full bg-gradient-to-tl from-amber-500 to-yellow-400 group-hover:scale-125">
+      <div class="flex flex-col p-8 text-left transition-all duration-300 transform border-2 border-transparent shadow-lg bg-amber-200 group rounded-2xl hover:shadow-2xl hover:-translate-y-2">
+        <div class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-transform duration-300 rounded-full bg-gradient-to-tl from-amber-500 to-yellow-400 group-hover:scale-125">
           <i class="fas fa-gamepad"></i>
         </div>
         <h3 class="mb-3 text-2xl font-bold transition-colors text-amber-500">Quis Game</h3>
@@ -196,8 +190,7 @@
       </div>
 
       <!-- Card 4: Asisten AI -->
-      <div
-        class="flex flex-col p-8 text-left transition-all duration-300 transform bg-orange-100 border-2 border-transparent shadow-lg group rounded-2xl hover:shadow-2xl hover:-translate-y-2">
+      <div class="flex flex-col p-8 text-left transition-all duration-300 transform bg-orange-200 border-2 border-transparent shadow-lg group rounded-2xl hover:shadow-2xl hover:-translate-y-2">
         <div
           class="flex items-center justify-center w-16 h-16 mb-6 text-2xl text-white transition-transform duration-300 rounded-full bg-gradient-to-tl from-orange-500 to-amber-400 group-hover:scale-125">
           <i class="fas fa-robot"></i>
@@ -327,7 +320,7 @@
       
       <!-- Card 1: Kosa Kata -->
       <div class="text-center fade-in">
-        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full shadow-xl bg-gradient-to-tl from-orange-500 to-amber-500 shadow-orange-500/20">
+        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 text-white rounded-full shadow-xl bg-gradient-to-tl from-orange-500 to-amber-500 shadow-orange-500/20">
           <i class="text-3xl fa-solid fa-globe text-cream"></i>
         </div>
         <p class="mb-2 text-3xl font-bold leading-none text-orange-600">800+</p>
@@ -337,7 +330,7 @@
 
       <!-- Card 2: Sejarah -->
       <div class="text-center fade-in">
-        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full shadow-xl bg-gradient-to-tl from-amber-500 to-yellow-500 shadow-orange-500/20">
+        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 text-white rounded-full shadow-xl bg-gradient-to-tl from-amber-500 to-yellow-500 shadow-orange-500/20">
           <i class="text-3xl fa-solid fa-scroll text-cream"></i>
         </div>
         <p class="mb-2 text-3xl font-bold leading-none text-amber-500">100+</p>
@@ -347,7 +340,7 @@
 
       <!-- Card 3: Interpreter -->
       <div class="text-center fade-in">
-        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full shadow-xl bg-gradient-to-tl from-orange-500 to-amber-500 shadow-orange-500/20">
+        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 text-white rounded-full shadow-xl bg-gradient-to-tl from-orange-500 to-amber-500 shadow-orange-500/20">
           <i class="text-3xl fa-solid fa-shield-halved text-cream"></i>
         </div>
         <p class="mb-2 text-3xl font-bold leading-none text-orange-600">300+</p>
@@ -357,7 +350,7 @@
 
       <!-- Card 4: Cabang Komunitas -->
       <div class="text-center fade-in">
-        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full shadow-xl bg-gradient-to-tl from-amber-500 to-yellow-500 shadow-orange-500/20">
+        <div class="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 text-white rounded-full shadow-xl bg-gradient-to-tl from-amber-500 to-yellow-500 shadow-orange-500/20">
           <i class="text-3xl fa-solid fa-location-dot text-cream"></i>
         </div>
         <p class="mb-2 text-3xl font-bold leading-none text-amber-500">38</p>
@@ -523,7 +516,7 @@
             isyarat.
           </p>
           <button
-            class="px-6 py-3 text-sm font-semibold text-white transition rounded-full bg-primary-500 hover:bg-primary-600"
+            class="px-6 py-3 text-sm font-semibold text-white transition bg-orange-500 rounded-full hover:bg-orange-600"
           >
             Mulai Quiz Sekarang
           </button>
@@ -540,7 +533,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="px-4 py-20 bg-orange-600 text-hite">
+  <footer class="px-4 py-20 text-white bg-orange-600">
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="grid gap-8 mb-8 md:grid-cols-4">
 
