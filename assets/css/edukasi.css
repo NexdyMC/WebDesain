@@ -1,0 +1,25 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.placeholder-img {
+  background-color: #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.item {
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+html {
+  scroll-behavior: smooth;
+}

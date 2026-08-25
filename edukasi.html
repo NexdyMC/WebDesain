@@ -1,10 +1,11 @@
 ﻿<!doctype html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IsyaratOk - Belajar Bahasa Isyarat</title>
+  <title>IsyaratOk - Edukasi</title>
+  
+  <!-- Config Website -->
   <meta property="og:title" content="NexdyMC/WebDesain" />
   <meta property="og:title" />
   <meta property="og:description" />
@@ -17,39 +18,11 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
+  <link rel="stylesheet" href="assets//css/edukasi.css">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet" />
-
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-    }
-
-    .placeholder-img {
-      background-color: #d1d5db;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #6b7280;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-
-    .item {
-      transition:
-        opacity 0.4s ease,
-        transform 0.4s ease;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
 <body class="antialiased text-gray-800 bg-white">
@@ -66,8 +39,8 @@
 
       <!-- Desktop Navigasi -->
       <nav class="items-center hidden gap-6 font-semibold text-gray-500 md:flex text-md" >
-        <a href="index.html" class="py-2 text-orange-500 border-b-2 border-orange-500" >Beranda</a>
-        <a href="edukasi.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Edukasi</a>
+        <a href="index.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Beranda</a>
+        <a href="edukasi.html" class="py-2 text-orange-500 border-b-2 border-orange-500" >Edukasi</a>
         <a href="kosakata.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Kosakata</a>
         <a href="quiz.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Quiz</a>
         <a href="#komunitas" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Asisten AI</a>
@@ -83,8 +56,8 @@
 
     <!-- Mobile Nav -->
     <nav id="mobileMenu" class="hidden gap-1 px-6 pb-6 text-sm font-semibold text-gray-600 rounded-2xl">
-      <a href="index.html" class="py-2 text-orange-500">Beranda</a>
-      <a href="edukasi.html" class="py-2 transition hover:text-orange-400">Edukasi</a>
+      <a href="index.html" class="py-2 transition hover:text-orange-400">Beranda</a>
+      <a href="edukasi.html" class="py-2 text-orange-500">Edukasi</a>
       <a href="kosakata.html" class="py-2 transition hover:text-orange-400">Kamus</a>
       <a href="quiz.html" class="py-2 transition hover:text-orange-400">Quiz</a>
       <a href="komunitas.html" class="py-2 transition hover:text-orange-400">Asisten AI</a>
@@ -92,8 +65,7 @@
   </header>
 
   <!-- HERO EDUKASI -->
-  <section id="edukasi"
-    class="relative min-h-screen py-16 overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 md:py-24">
+  <section id="edukasi" class="relative min-h-screen py-16 overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 md:py-24">
     <div class="px-5 mx-auto max-w-7xl md:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2">
         <div>
@@ -219,25 +191,25 @@
         <div class="flex flex-wrap gap-3">
           <!-- Tombol Aktif / Default (Semua) -->
           <button
-            class="tab-btn active px-4 py-2 text-sm font-semibold text-white bg-primary-500 rounded-full transition-colors"
+            class="px-4 py-2 text-sm font-semibold text-white transition-colors rounded-full tab-btn active bg-primary-500"
             data-filter="semua">
             Semua
           </button>
 
           <button
-            class="tab-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 rounded-full transition-colors"
+            class="px-4 py-2 text-sm font-medium text-gray-700 transition-colors bg-white border border-gray-200 rounded-full tab-btn hover:bg-gray-50"
             data-filter="dasar">
             Dasar
           </button>
 
           <button
-            class="tab-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 rounded-full transition-colors"
+            class="px-4 py-2 text-sm font-medium text-gray-700 transition-colors bg-white border border-gray-200 rounded-full tab-btn hover:bg-gray-50"
             data-filter="ungkapan">
             Ungkapan
           </button>
 
           <button
-            class="tab-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 rounded-full transition-colors"
+            class="px-4 py-2 text-sm font-medium text-gray-700 transition-colors bg-white border border-gray-200 rounded-full tab-btn hover:bg-gray-50"
             data-filter="anak">
             Anak
           </button>
@@ -249,9 +221,9 @@
   <section class="px-5 py-10 mx-auto max-w-7xl md:px-8 md:py-14">
     <div class="m max-w-7xl">
       <!-- Daftar Item -->
-      <div class="grid grid-cols-2 gap-4 md:grid-cols-4 m-8 md:gap-6" id="itemList">
+      <div class="grid grid-cols-2 gap-4 m-8 md:grid-cols-4 md:gap-6" id="itemList">
         <!-- kartu 1-->
-        <div class="item cursor-pointer group" data-category="dasar">
+        <div class="cursor-pointer item group" data-category="dasar">
           <div
             class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
             <span class="absolute inset-0 flex items-center justify-center">300x400</span>
@@ -265,13 +237,13 @@
           </div>
           <template class="card-details">
             <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="w-full h-48 object-cover rounded-xl" />
+              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
             </div>
             <div class="desc-content">
               <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
               <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
                 menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="list-disc list-inside space-y-1">
+              <ul class="space-y-1 list-disc list-inside">
                 <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
                 <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
               </ul>
@@ -279,7 +251,7 @@
           </template>
         </div>
         <!-- Kartu 2 -->
-        <div class="item cursor-pointer group" data-category="dasar">
+        <div class="cursor-pointer item group" data-category="dasar">
           <div
             class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
             <span class="absolute inset-0 flex items-center justify-center">300x400</span>
@@ -293,13 +265,13 @@
           </div>
           <template class="card-details">
             <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="w-full h-48 object-cover rounded-xl" />
+              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
             </div>
             <div class="desc-content">
               <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
               <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
                 menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="list-disc list-inside space-y-1">
+              <ul class="space-y-1 list-disc list-inside">
                 <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
                 <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
               </ul>
@@ -307,7 +279,7 @@
           </template>
         </div>
         <!-- Kartu 3 -->
-        <div class="item cursor-pointer group" data-category="ungkapan">
+        <div class="cursor-pointer item group" data-category="ungkapan">
           <div
             class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
             <span class="absolute inset-0 flex items-center justify-center">300x400</span>
@@ -321,13 +293,13 @@
           </div>
           <template class="card-details">
             <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="w-full h-48 object-cover rounded-xl" />
+              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
             </div>
             <div class="desc-content">
               <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
               <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
                 menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="list-disc list-inside space-y-1">
+              <ul class="space-y-1 list-disc list-inside">
                 <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
                 <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
               </ul>
@@ -335,7 +307,7 @@
           </template>
         </div>
         <!-- Kartu 4 -->
-        <div class="item cursor-pointer group" data-category="ungkapan">
+        <div class="cursor-pointer item group" data-category="ungkapan">
           <div
             class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
             <span class="absolute inset-0 flex items-center justify-center">300x400</span>
@@ -349,13 +321,13 @@
           </div>
           <template class="card-details">
             <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="w-full h-48 object-cover rounded-xl" />
+              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
             </div>
             <div class="desc-content">
               <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
               <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
                 menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="list-disc list-inside space-y-1">
+              <ul class="space-y-1 list-disc list-inside">
                 <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
                 <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
               </ul>
@@ -363,7 +335,7 @@
           </template>
         </div>
         <!-- Kartu 5 -->
-        <div class="item cursor-pointer group" data-category="ungkapan">
+        <div class="cursor-pointer item group" data-category="ungkapan">
           <div
             class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
             <span class="absolute inset-0 flex items-center justify-center">300x400</span>
@@ -377,13 +349,13 @@
           </div>
           <template class="card-details">
             <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="w-full h-48 object-cover rounded-xl" />
+              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
             </div>
             <div class="desc-content">
               <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
               <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
                 menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="list-disc list-inside space-y-1">
+              <ul class="space-y-1 list-disc list-inside">
                 <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
                 <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
               </ul>
@@ -391,7 +363,7 @@
           </template>
         </div>
         <!-- Kartu 6  -->
-        <div class="item cursor-pointer group" data-category="anak">
+        <div class="cursor-pointer item group" data-category="anak">
           <div
             class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
             <span class="absolute inset-0 flex items-center justify-center">300x400</span>
@@ -405,13 +377,13 @@
           </div>
           <template class="card-details">
             <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="w-full h-48 object-cover rounded-xl" />
+              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
             </div>
             <div class="desc-content">
               <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
               <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
                 menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="list-disc list-inside space-y-1">
+              <ul class="space-y-1 list-disc list-inside">
                 <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
                 <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
               </ul>
@@ -419,7 +391,7 @@
           </template>
         </div>
         <!-- Kartu 7 -->
-        <div class="item cursor-pointer group" data-category="anak">
+        <div class="cursor-pointer item group" data-category="anak">
           <div
             class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
             <span class="absolute inset-0 flex items-center justify-center">300x400</span>
@@ -433,13 +405,13 @@
           </div>
           <template class="card-details">
             <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="w-full h-48 object-cover rounded-xl" />
+              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
             </div>
             <div class="desc-content">
               <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
               <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
                 menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="list-disc list-inside space-y-1">
+              <ul class="space-y-1 list-disc list-inside">
                 <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
                 <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
               </ul>
@@ -447,7 +419,7 @@
           </template>
         </div>
         <!-- Kartu 8 -->
-        <div class="item cursor-pointer group" data-category="anak">
+        <div class="cursor-pointer item group" data-category="anak">
           <div
             class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
             <span class="absolute inset-0 flex items-center justify-center">300x400</span>
@@ -462,13 +434,13 @@
           <!-- Rincian Konten Pop-up disimpan di sini (Hidden) -->
           <template class="card-details">
             <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="w-full h-48 object-cover rounded-xl" />
+              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
             </div>
             <div class="desc-content">
               <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
               <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
                 menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="list-disc list-inside space-y-1">
+              <ul class="space-y-1 list-disc list-inside">
                 <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
                 <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
               </ul>
@@ -481,33 +453,31 @@
   </section>
 
   <!-- Modal Pop-up -->
-  <div id="popupModal" class="hidden fixed inset-0 bg-black/70 z-50 justify-center items-center p-4 backdrop-blur-none">
-    <!-- Container Modal dengan max-height & overflow-y-auto agar bisa di-scroll -->
-    <div
-      class="bg-white rounded-2xl p-6 max-w-lg w-full relative shadow-2xl max-h-[85vh] overflow-y-auto flex flex-col">
+  <div id="popupModal" class="fixed inset-0 z-50 items-center justify-center hidden p-4 bg-black/70 backdrop-blur-none">
+    <div class="bg-white rounded-2xl p-6 max-w-lg w-full relative shadow-2xl max-h-[85vh] overflow-y-auto flex flex-col">
 
       <!-- Tombol Close Sticky di Atas -->
       <button id="closeBtn" type="button"
-        class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold z-10 cursor-pointer">&times;</button>
+        class="absolute z-10 text-2xl font-bold text-gray-400 cursor-pointer top-4 right-4 hover:text-gray-600">&times;</button>
 
       <!-- Header Modal -->
       <span id="modalCategory" class="text-[11px] font-bold text-orange-500 uppercase tracking-wider block mb-1"></span>
-      <h2 id="modalTitle" class="text-xl font-bold text-gray-800 mb-4 pr-6"></h2>
+      <h2 id="modalTitle" class="pr-6 mb-4 text-xl font-bold text-gray-800"></h2>
 
       <!-- Media (Gambar atau Video) -->
-      <div id="modalMedia" class="mb-4 rounded-xl overflow-hidden hidden">
+      <div id="modalMedia" class="hidden mb-4 overflow-hidden rounded-xl">
         <!-- Media dinamis akan disuntikkan ke sini lewat jQuery -->
       </div>
 
       <!-- Deskripsi / Teks Panjang -->
-      <div id="modalDescription" class="text-gray-600 text-sm leading-relaxed space-y-3">
+      <div id="modalDescription" class="space-y-3 text-sm leading-relaxed text-gray-600">
         <!-- Teks atau HTML panjang akan disuntikkan ke sini -->
       </div>
 
     </div>
   </div>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- footer -->
   <footer class="pt-16 pb-8 mt-10 text-gray-400 bg-gray-900">
     <div class="px-5 mx-auto max-w-7xl md:px-8">
       <h2 class="text-4xl font-extrabold tracking-tight text-center text-white md:text-6xl mb-14">
