@@ -1,423 +1,866 @@
 <!doctype html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IsyaratOk - Kosakata</title>
+  <title>IsyaratOK - Kamus &amp; Kosakata Isyarat Interaktif</title>
 
-  <!-- Config Website -->
-  <meta property="og:title" content="NexdyMC/WebDesain" />
-  <meta property="og:title" />
-  <meta property="og:description" />
+  <!-- Meta SEO & Open Graph -->
+  <meta name="description" content="Kamus visual Bahasa Isyarat Indonesia (BISINDO). Cari abjad A-Z, angka 0-10, dan kosakata sehari-hari dengan foto panduan gestur tangan jelas." />
+  <meta property="og:title" content="IsyaratOK - Kamus Kosakata Isyarat Lengkap" />
+  <meta property="og:description" content="Koleksi lengkap isyarat abjad, angka, dan kata sehari-hari dalam BISINDO ramah pemula." />
   <meta property="og:image" content="https://isyarat-ok.netlify.app/assets/images/banner.png" />
-  <meta property="og:image:width" />
-  <meta property="og:image:height" />
-  <meta property="og:url" content="https://isyarat-ok.netlify.app/" />
-  <meta property="og:type" />
+  <meta property="og:url" content="https://isyarat-ok.netlify.app/kosakata.html" />
+  <meta property="og:type" content="website" />
 
-  <!-- Tailwind CSS -->
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN & Custom Styles -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
-  <link rel="stylesheet" href="assets/css/kosakata.css">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/kosakata.css" />
 </head>
 
-<body class="antialiased text-gray-800 bg-white">
-  
-  <!-- Navigation -->
-  <header class="sticky top-0 z-50 border-b border-orange-100 shadow-lg backdrop-blur bg-white/90" >
-    <div class="flex items-center justify-between h-16 px-5 mx-auto max-w-7xl md:px-8 md:h-18"  >
+<body class="font-sans antialiased text-slate-800 bg-[#fafafa] selection:bg-orange-500 selection:text-white">
+
+  <!-- Accessibility: Skip to Content Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-5 focus:py-3 focus:bg-orange-600 focus:text-white focus:font-semibold focus:rounded-xl focus:shadow-2xl">
+    Lewati ke Konten Utama
+  </a>
+
+  <!-- Header / Navigation Bar (Unified Across All Pages) -->
+  <header class="sticky top-0 z-50 border-b border-orange-100/70 shadow-xs backdrop-blur-md bg-white/95">
+    <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 md:h-18">
       
-      <!-- Judul Website  -->
-      <a href="#" class="flex items-center text-xl font-extrabold md:text-2xl" >
-        <i class="mr-2 text-4xl text-orange-500 fa-solid fa-hands-asl-interpreting"></i>
-        <span class="text-gray-900">Isyarat</span><span class="text-orange-500">OK</span>
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2.5 text-xl font-extrabold tracking-tight md:text-2xl text-slate-900 group" aria-label="IsyaratOK">
+        <div class="flex items-center justify-center w-10 h-10 text-xl text-white transition-transform shadow-md rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 group-hover:scale-105 shadow-orange-500/20">
+          <i class="fa-solid fa-hands-asl-interpreting" aria-hidden="true"></i>
+        </div>
+        <span>Isyarat<span class="text-orange-600">OK</span></span>
       </a>
 
-      <!-- Desktop Navigasi -->
-      <nav class="items-center hidden gap-6 font-semibold text-gray-500 md:flex text-md" >
-        <a href="index.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Beranda</a>
-        <a href="edukasi.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Edukasi</a>
-        <a href="kosakata.html" class="py-2 text-orange-500 border-b-2 border-orange-500" >Kosakata</a>
-        <a href="quiz.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Quiz</a>
-        <a href="#komunitas" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Asisten AI</a>
+      <!-- Desktop Navigation -->
+      <nav class="items-center hidden gap-7 font-semibold text-slate-600 md:flex text-md" aria-label="Navigasi Utama">
+        <a href="index.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Beranda</a>
+        <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Edukasi</a>
+        <a href="kosakata.html" class="py-1 text-orange-600 border-b-2 border-orange-600" aria-current="page">Kosakata</a>
+        <a href="edukasi.html#quiz" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Quiz</a>
+        <a href="index.html#isyarat-angka" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Statistik</a>
+        <a href="edukasi.html" class="px-5 py-2.5 ml-2 text-sm font-semibold text-white transition-all rounded-full shadow-md bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 shadow-orange-500/20 hover:shadow-orange-500/30">
+          Mulai Belajar
+        </a>
       </nav>
 
-      <!-- Mobile menu button -->
-      <button id="menuBtn" class="text-orange-700 cursor-pointer md:hidden">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi"
+        class="p-2 transition rounded-xl text-slate-700 hover:text-orange-600 hover:bg-orange-50 md:hidden focus:outline-none">
+        <svg id="iconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="iconClose" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
 
-    <!-- Mobile Nav -->
-    <nav id="mobileMenu" class="hidden gap-1 px-6 pb-6 text-sm font-semibold text-gray-600 rounded-2xl">
-      <a href="index.html" class="py-2 transition hover:text-orange-400">Beranda</a>
-      <a href="edukasi.html" class="py-2 transition hover:text-orange-400">Edukasi</a>
-      <a href="kosakata.html" class="py-2 text-orange-500">Kamus</a>
-      <a href="quiz.html" class="py-2 transition hover:text-orange-400">Quiz</a>
-      <a href="komunitas.html" class="py-2 transition hover:text-orange-400">Asisten AI</a>
+    <!-- Mobile Navigation Drawer -->
+    <nav id="mobileMenu" class="hidden px-6 pt-2 pb-6 border-b border-orange-100 bg-white/95 md:hidden" aria-label="Menu Mobile">
+      <div class="flex flex-col space-y-2.5 font-medium text-slate-700">
+        <a href="index.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Beranda</a>
+        <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Edukasi</a>
+        <a href="kosakata.html" class="px-3 py-2 font-bold text-orange-600 rounded-lg bg-orange-50">Kosakata</a>
+        <a href="edukasi.html#quiz" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Quiz</a>
+        <a href="index.html#isyarat-angka" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Statistik</a>
+        <a href="edukasi.html" class="w-full py-3 mt-2 text-center text-sm font-semibold text-white rounded-xl shadow-md bg-gradient-to-r from-orange-500 to-amber-500">
+          Mulai Belajar Gratis
+        </a>
+      </div>
     </nav>
   </header>
-  
-  <!-- section Abjad -->
-  <section class="px-5 py-10 mx-auto max-w-7xl md:px-8 md:py-14">
-    <button id="faqHeader" type="button" aria-expanded="false" aria-controls="abjadContent"
-      class="inline-flex items-center gap-3 px-5 py-3 mb-4 ml-6 text-left transition border-2 border-orange-200 cursor-pointer select-none faq-header rounded-xl bg-orange-50 hover:bg-orange-100 hover:border-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-200">
-      <h2
-        class="text-2xl font-bold text-transparent sm:text-3xl bg-clip-text bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-400">
-        ABJAD
-      </h2>
-      <span class="text-sm font-semibold text-orange-700">Lihat huruf</span>
-      <svg id="faqArrow" aria-hidden="true" class="w-6 h-6 transition-transform duration-300 text-amber-500" fill="none"
-        stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
 
-    <!-- Daftar Item -->
-    <div class="hidden m-4 faq-content" id="abjadContent">
-      <div class="grid grid-cols-2 gap-3 md:grid-cols-6 md:gap-4" id="itemList">
+  <!-- Main Content Landmark -->
+  <main id="main-content">
 
-        <!-- Kartu -->
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/A/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">A</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/B/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">B</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/C/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">C</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/D/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">D</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/E/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">E</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/F/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">F</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/G/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">G</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/H/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">H</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/I/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">I</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/J/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">J</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/K/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">K</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/L/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">L</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/M/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">M</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/N/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">N</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/O/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">O</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/P/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">P</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/Q/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">Q</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/R/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">R</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/S/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">S</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/T/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">T</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/U/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">U</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/V/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">V</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/W/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">W</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/X/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">X</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/Y/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">Y</p>
-        </div>
-        <div
-          class="p-2 text-center transition bg-white border border-gray-200 shadow-xs hover:shadow-md rounded-xl">
-          <img src="assets/images/Gestur-Tangan/Z/wall white (1).jpg" alt="Foto Produk"
-            class="object-cover mb-2 rounded-lg aspect-square" />
-          <p class="text-xs font-semibold text-gray-800 truncate">Z</p>
+    <!-- HERO & SEARCH SECTION -->
+    <section class="relative px-4 pt-8 pb-12 overflow-hidden sm:px-6 md:pt-12 md:pb-16 lg:px-8 bg-gradient-to-b from-orange-50/60 via-white to-transparent">
+      <div class="mx-auto max-w-7xl">
+        
+        <!-- Hero Header -->
+        <div class="max-w-3xl mx-auto mb-10 text-center">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1 mb-4 text-xs font-bold tracking-wider text-orange-700 uppercase bg-orange-100 rounded-full">
+            <i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Kamus Visual BISINDO
+          </span>
+          <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+            Eksplorasi <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Kamus Isyarat</span>
+          </h1>
+          <p class="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
+            Temukan visualisasi bentuk gerakan tangan untuk abjad, angka, dan kosakata sehari-hari. Klik kartu mana saja untuk melihat panduan detailnya.
+          </p>
         </div>
 
+        <!-- Search & Filter Card Box -->
+        <div class="max-w-4xl p-6 mx-auto bg-white border shadow-xl rounded-3xl border-slate-100 md:p-8">
+          
+          <!-- Search Input Bar -->
+          <div class="relative mb-6">
+            <label for="searchInput" class="sr-only">Cari abjad, angka, atau kosakata</label>
+            <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none text-slate-400">
+              <i class="fa-solid fa-magnifying-glass text-base" aria-hidden="true"></i>
+            </div>
+            <input type="text" id="searchInput" placeholder="Ketik kata, huruf, atau angka... (contoh: A, 1, Halo, Terima Kasih)"
+              class="w-full py-4 pl-12 pr-12 text-sm md:text-base border border-slate-200 rounded-2xl bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all text-slate-800 placeholder-slate-400 shadow-inner" />
+            <button id="clearSearchBtn" type="button" aria-label="Hapus pencarian" class="hidden absolute inset-y-0 right-0 flex items-center pr-5 text-slate-400 hover:text-slate-600 focus:outline-none">
+              <i class="fa-solid fa-circle-xmark text-lg" aria-hidden="true"></i>
+            </button>
+          </div>
 
+          <!-- Category Switcher Tabs -->
+          <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <button type="button" data-filter="all" class="category-tab px-5 py-2.5 text-xs sm:text-sm font-bold rounded-full transition-all duration-200 bg-orange-600 text-white shadow-md shadow-orange-500/20 active:scale-95">
+              <i class="mr-1.5 fa-solid fa-layer-group" aria-hidden="true"></i> Semua Koleksi
+            </button>
+            <button type="button" data-filter="abjad" class="category-tab px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 bg-white text-slate-700 hover:bg-orange-50 border border-slate-200 active:scale-95">
+              <i class="mr-1.5 fa-solid fa-font text-orange-500" aria-hidden="true"></i> Abjad (A - Z)
+            </button>
+            <button type="button" data-filter="angka" class="category-tab px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 bg-white text-slate-700 hover:bg-orange-50 border border-slate-200 active:scale-95">
+              <i class="mr-1.5 fa-solid fa-arrow-down-1-9 text-amber-500" aria-hidden="true"></i> Angka (0 - 10)
+            </button>
+            <button type="button" data-filter="kata" class="category-tab px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 bg-white text-slate-700 hover:bg-orange-50 border border-slate-200 active:scale-95">
+              <i class="mr-1.5 fa-solid fa-comments text-emerald-500" aria-hidden="true"></i> Kosakata Harian
+            </button>
+          </div>
+
+          <!-- Status Bar -->
+          <div class="flex items-center justify-between pt-4 mt-6 border-t border-slate-100 text-xs text-slate-500">
+            <span id="resultCount" class="font-medium text-slate-600">Menampilkan semua koleksi</span>
+            <span class="flex items-center gap-1.5 text-orange-600 font-semibold"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Standar BISINDO</span>
+          </div>
+
+        </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Pencarian -->
-  <section class="px-5 py-10 mx-auto max-w-7xl md:px-8 md:py-14">
-    <div class="grid items-center gap-6 lg:grid">
-      <div class="rounded-[2rem] bg-white shadow-lg border border-gray-200 p-6 md:p-8">
-        <div class="flex flex-col gap-4 mb-6 sm:flex-row sm:items-center sm:justify-between">
+    <!-- CONTENT DISPLAY SECTION -->
+    <section class="px-4 py-8 mx-auto sm:px-6 md:py-12 lg:px-8 max-w-7xl">
+      
+      <!-- EMPTY STATE (Hidden by default) -->
+      <div id="noResultsMessage" class="hidden max-w-md p-10 mx-auto my-12 text-center bg-white border border-slate-100 rounded-3xl shadow-sm">
+        <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 text-2xl text-orange-500 bg-orange-100 rounded-full">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </div>
+        <h3 class="text-lg font-bold text-slate-800">Isyarat Tidak Ditemukan</h3>
+        <p class="mt-2 text-xs leading-relaxed text-slate-500">
+          Coba cari dengan kata kunci lain seperti abjad "A", angka "1", atau kata "Halo".
+        </p>
+      </div>
+
+      <!-- 1. SECTION: ISYARAT ANGKA (0 - 10) -->
+      <div class="mb-14 section-category-header">
+        <div class="flex items-center gap-3 mb-6 pb-3 border-b border-orange-100">
+          <div class="flex items-center justify-center w-9 h-9 text-white bg-amber-500 rounded-xl shadow-xs">
+            <i class="fa-solid fa-arrow-down-1-9 text-sm" aria-hidden="true"></i>
+          </div>
           <div>
-            <p class="text-xs uppercase tracking-[0.24em] text-primary-600 font-semibold mb-2">
-              Cari kata
-            </p>
-            <h2 class="text-2xl font-extrabold text-gray-900 md:text-3xl">
-              Temukan Gerakan BISINDO
-            </h2>
+            <h2 class="text-xl font-extrabold text-slate-900 sm:text-2xl">Isyarat Angka / Nombor (0 - 10)</h2>
+            <p class="text-xs text-slate-500">Bentuk gestur jari untuk bilangan dasar dalam BISINDO</p>
           </div>
-          <button
-            class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold transition border rounded-full bg-primary-50 text-primary-700 border-primary-100 hover:bg-primary-100">
-            Semua Kategori
-          </button>
-        </div>
-        <div class="flex flex-col gap-3 sm:flex-row">
-          <input type="text" id="searchInput" placeholder="Cari beberapa kata... (contoh: AKU BER- MAIN)"
-            class="flex-1 px-5 py-3 text-sm border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary-300" />
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Kamus -->
-  <section class="px-5 py-10 mx-auto max-w-7xl md:px-8 md:py-14">
-    <div class="m max-w-7xl">
-      <!-- Daftar Item -->
-      <div class="grid grid-cols-2 gap-4 m-8 md:grid-cols-4 md:gap-6" id="searchResults">
-        <div class="p-3 text-center transition bg-white shadow-sm search-item rounded-2xl hover:shadow-md"
-          data-keywords="halo">
-          <div class="mb-3 overflow-hidden aspect-square rounded-xl">
-            <img src="assets/images/Gestur-Tangan/H/wall white (1).jpg" alt="Isyarat kata Halo"
-              class="object-cover w-full h-full" />
+      <!-- Numbers Grid (0 to 10) -->
+      <div class="grid grid-cols-2 gap-3 mb-16 sm:grid-cols-3 md:grid-cols-6 md:gap-4" id="angkaContainer">
+
+        <!-- Angka 0 -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="0 nol kosong zero"
+             data-desc="Bentuk lingkaran dengan menghubungkan ujung ibu jari dan keempat jari lainnya membentuk angka 0."
+             data-tips="Pastikan telapak tangan menghadap ke depan membentuk lingkaran tertutup."
+             class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-amber-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/O/wall white (1).jpg" alt="Isyarat Angka 0 (Nol) dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-900 bg-amber-100 rounded-md card-badge">Angka</span>
           </div>
-          <p class="text-sm font-semibold text-gray-800">Halo</p>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-amber-600 card-title">0</p>
+          <span class="text-[11px] font-medium text-slate-500">Nol</span>
         </div>
-        <div class="p-3 text-center transition bg-white shadow-sm search-item rounded-2xl hover:shadow-md"
-          data-keywords="aku">
-          <div class="mb-3 overflow-hidden aspect-square rounded-xl">
-            <img src="assets/images/Gestur-Tangan/A/wall white (1).jpg" alt="Isyarat kata Aku"
-              class="object-cover w-full h-full" />
+
+        <!-- Angka 1 -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="1 satu one"
+             data-desc="Tegakkan satu jari telunjuk ke atas dengan jari lainnya terlipat rapat."
+             data-tips="Posisikan jari telunjuk tegak lurus mengarah ke atas."
+             class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-amber-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/D/wall white (1).jpg" alt="Isyarat Angka 1 (Satu) dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-900 bg-amber-100 rounded-md card-badge">Angka</span>
           </div>
-          <p class="text-sm font-semibold text-gray-800">AKU</p>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-amber-600 card-title">1</p>
+          <span class="text-[11px] font-medium text-slate-500">Satu</span>
         </div>
-        <div class="p-3 text-center transition bg-white shadow-sm search-item rounded-2xl hover:shadow-md"
-          data-keywords="ber- ber">
-          <div class="mb-3 overflow-hidden aspect-square rounded-xl">
-            <img src="assets/images/Gestur-Tangan/B/wall white (1).jpg" alt="Isyarat kata Ber"
-              class="object-cover w-full h-full" />
+
+        <!-- Angka 2 -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="2 dua two"
+             data-desc="Tegakkan jari telunjuk dan jari tengah membentuk huruf V."
+             data-tips="Jari telunjuk dan tengah terbuka rileks menghadap ke depan."
+             class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-amber-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/V/wall white (1).jpg" alt="Isyarat Angka 2 (Dua) dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-900 bg-amber-100 rounded-md card-badge">Angka</span>
           </div>
-          <p class="text-sm font-semibold text-gray-800">BER-</p>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-amber-600 card-title">2</p>
+          <span class="text-[11px] font-medium text-slate-500">Dua</span>
         </div>
-        <div class="p-3 text-center transition bg-white shadow-sm search-item rounded-2xl hover:shadow-md"
-          data-keywords="main">
-          <div class="mb-3 overflow-hidden aspect-square rounded-xl">
-            <img src="assets/images/Gestur-Tangan/M/wall white (1).jpg" alt="Isyarat kata Main"
-              class="object-cover w-full h-full" />
+
+        <!-- Angka 3 -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="3 tiga three"
+             data-desc="Tegakkan ibu jari, jari telunjuk, dan jari tengah ke atas."
+             data-tips="Tiga jari tegak dengan jari manis dan kelingking tertutup."
+             class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-amber-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/W/wall white (1).jpg" alt="Isyarat Angka 3 (Tiga) dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-900 bg-amber-100 rounded-md card-badge">Angka</span>
           </div>
-          <p class="text-sm font-semibold text-gray-800">MAIN</p>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-amber-600 card-title">3</p>
+          <span class="text-[11px] font-medium text-slate-500">Tiga</span>
+        </div>
+
+        <!-- Angka 4 -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="4 empat four"
+             data-desc="Tegakkan empat jari (telunjuk, tengah, manis, kelingking) dengan ibu jari terlipat."
+             data-tips="Empat jari terentang lurus dan rapat menghadap depan."
+             class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-amber-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/B/wall white (1).jpg" alt="Isyarat Angka 4 (Empat) dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-900 bg-amber-100 rounded-md card-badge">Angka</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-amber-600 card-title">4</p>
+          <span class="text-[11px] font-medium text-slate-500">Empat</span>
+        </div>
+
+        <!-- Angka 5 -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="5 lima five"
+             data-desc="Buka kelima jari tangan secara terbuka dan rileks."
+             data-tips="Telapak tangan terbuka penuh menghadap ke lawan bicara."
+             class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-amber-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/C/wall white (1).jpg" alt="Isyarat Angka 5 (Lima) dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-900 bg-amber-100 rounded-md card-badge">Angka</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-amber-600 card-title">5</p>
+          <span class="text-[11px] font-medium text-slate-500">Lima</span>
+        </div>
+
+        <!-- Angka 6 -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="6 enam six"
+             data-desc="Sentuhkan ujung ibu jari dengan kelingking sementara tiga jari lainnya tegak."
+             data-tips="Tiga jari di tengah tegak lurus."
+             class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-amber-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/F/wall white (1).jpg" alt="Isyarat Angka 6 (Enam) dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-900 bg-amber-100 rounded-md card-badge">Angka</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-amber-600 card-title">6</p>
+          <span class="text-[11px] font-medium text-slate-500">Enam</span>
+        </div>
+
+        <!-- Angka 7 -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="7 tujuh seven"
+             data-desc="Sentuhkan ujung ibu jari dengan jari manis sementara jari lainnya tegak."
+             data-tips="Jari telunjuk, tengah, dan kelingking terbuka tegak."
+             class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-amber-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/G/wall white (1).jpg" alt="Isyarat Angka 7 (Tujuh) dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-900 bg-amber-100 rounded-md card-badge">Angka</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-amber-600 card-title">7</p>
+          <span class="text-[11px] font-medium text-slate-500">Tujuh</span>
+        </div>
+
+        <!-- Angka 8 -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="8 delapan eight"
+             data-desc="Sentuhkan ujung ibu jari dengan jari tengah sementara jari lainnya tegak."
+             data-tips="Jari telunjuk, manis, dan kelingking tegak ke atas."
+             class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-amber-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/H/wall white (1).jpg" alt="Isyarat Angka 8 (Delapan) dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-900 bg-amber-100 rounded-md card-badge">Angka</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-amber-600 card-title">8</p>
+          <span class="text-[11px] font-medium text-slate-500">Delapan</span>
+        </div>
+
+        <!-- Angka 9 -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="9 sembilan nine"
+             data-desc="Sentuhkan ujung ibu jari dengan jari telunjuk membentuk lingkaran sementara tiga jari lainnya tegak."
+             data-tips="Bentuk gestur OK dengan tiga jari tegak lurus."
+             class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-amber-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/I/wall white (1).jpg" alt="Isyarat Angka 9 (Sembilan) dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-900 bg-amber-100 rounded-md card-badge">Angka</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-amber-600 card-title">9</p>
+          <span class="text-[11px] font-medium text-slate-500">Sembilan</span>
+        </div>
+
+        <!-- Angka 10 -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="10 sepuluh ten"
+             data-desc="Acungkan ibu jari ke atas lalu goyangkan sedikit ke kanan dan kiri."
+             data-tips="Gestur jempol terangkat dengan sedikit gerakan menggeleng ringan."
+             class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-amber-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/A/wall white (1).jpg" alt="Isyarat Angka 10 (Sepuluh) dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-900 bg-amber-100 rounded-md card-badge">Angka</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-amber-600 card-title">10</p>
+          <span class="text-[11px] font-medium text-slate-500">Sepuluh</span>
+        </div>
+
+      </div>
+
+
+      <!-- 2. SECTION: ABJAD (A - Z) -->
+      <div class="mb-14 section-category-header">
+        <div class="flex items-center gap-3 mb-6 pb-3 border-b border-orange-100">
+          <div class="flex items-center justify-center w-9 h-9 text-white bg-orange-600 rounded-xl shadow-xs">
+            <i class="fa-solid fa-font text-sm" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-extrabold text-slate-900 sm:text-2xl">Abjad BISINDO (A - Z)</h2>
+            <p class="text-xs text-slate-500">Panduan ejaan jari (*fingerspelling*) untuk huruf alfabet Indonesia</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Modal Pop-up -->
-  <div id="popupModal" class="fixed inset-0 z-50 items-center justify-center hidden p-4 bg-black/70 backdrop-blur-none">
-    <!-- Container Modal dengan max-height & overflow-y-auto agar bisa di-scroll -->
-    <div
-      class="bg-white rounded-2xl p-6 max-w-lg w-full relative shadow-2xl max-h-[85vh] overflow-y-auto flex flex-col">
+      <!-- Alphabet Grid (A - Z) -->
+      <div class="grid grid-cols-2 gap-3 mb-16 sm:grid-cols-3 md:grid-cols-6 md:gap-4" id="abjadContainer">
+        
+        <!-- A to Z Generated Cards with Accessible Labels and Real Hand Gesture Assets -->
+        <script>
+          // Quick helper for clean rendering of A-Z
+        </script>
 
-      <!-- Tombol Close Sticky di Atas -->
-      <button id="closeBtn" type="button"
-        class="absolute z-10 text-2xl font-bold text-gray-400 cursor-pointer top-4 right-4 hover:text-gray-600">&times;</button>
+        <!-- A -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf a abjad a" data-desc="Genggam tangan dengan ibu jari menempel tegak di samping jari telunjuk." data-tips="Pastikan buku-buku jari menghadap ke depan." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/A/wall white (1).jpg" alt="Isyarat Huruf A dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">A</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf A</span>
+        </div>
 
-      <!-- Header Modal -->
-      <span id="modalCategory" class="text-[11px] font-bold text-orange-500 uppercase tracking-wider block mb-1"></span>
-      <h2 id="modalTitle" class="pr-6 mb-4 text-xl font-bold text-gray-800"></h2>
+        <!-- B -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf b abjad b" data-desc="Buka empat jari tegak lurus ke atas dengan ibu jari terlipat di depan telapak tangan." data-tips="Rapatkan keempat jari lurus." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/B/wall white (1).jpg" alt="Isyarat Huruf B dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">B</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf B</span>
+        </div>
 
-      <!-- Media (Gambar atau Video) -->
-      <div id="modalMedia" class="hidden mb-4 overflow-hidden rounded-xl">
-        <!-- Media dinamis akan disuntikkan ke sini lewat jQuery -->
+        <!-- C -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf c abjad c" data-desc="Lengkungkan semua jari membentuk setengah lingkaran seperti huruf C." data-tips="Tangan membentuk kurva C menghadap samping/depan." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/C/wall white (1).jpg" alt="Isyarat Huruf C dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">C</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf C</span>
+        </div>
+
+        <!-- D -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf d abjad d" data-desc="Tegakkan jari telunjuk ke atas sementara ujung ibu jari menyentuh jari tengah dan manis membentuk lingkaran." data-tips="Jari telunjuk lurus tegak ke atas." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/D/wall white (1).jpg" alt="Isyarat Huruf D dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">D</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf D</span>
+        </div>
+
+        <!-- E -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf e abjad e" data-desc="Lipat semua ujung jari ke bawah dengan ibu jari terlipat di bawahnya." data-tips="Kuku jari menghadap ke bawah menyentuh jempol." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/E/wall white (1).jpg" alt="Isyarat Huruf E dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">E</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf E</span>
+        </div>
+
+        <!-- F -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf f abjad f" data-desc="Sentuhkan ujung jari telunjuk dan ibu jari membentuk lingkaran, tiga jari lainnya tegak." data-tips="Tiga jari di samping tetap terbuka lurus." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/F/wall white (1).jpg" alt="Isyarat Huruf F dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">F</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf F</span>
+        </div>
+
+        <!-- G -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf g abjad g" data-desc="Arahkan jari telunjuk dan ibu jari sejajar ke samping horizontal." data-tips="Jarak antara telunjuk dan jempol sekitar 2-3 cm." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/G/wall white (1).jpg" alt="Isyarat Huruf G dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">G</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf G</span>
+        </div>
+
+        <!-- H -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf h abjad h" data-desc="Arahkan jari telunjuk dan jari tengah sejajar ke samping horizontal." data-tips="Dua jari lurus mendatar rapat." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/H/wall white (1).jpg" alt="Isyarat Huruf H dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">H</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf H</span>
+        </div>
+
+        <!-- I -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf i abjad i" data-desc="Tegakkan jari kelingking ke atas dengan jari lainnya terlipat rapat." data-tips="Hanya jari kelingking yang tegak lurus." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/I/wall white (1).jpg" alt="Isyarat Huruf I dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">I</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf I</span>
+        </div>
+
+        <!-- J -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf j abjad j" data-desc="Bentuk isyarat I (kelingking tegak) lalu gerakkan membentuk kurva huruf J di udara." data-tips="Tarik garis melengkung dari atas ke bawah membentuk kait J." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/J/wall white (1).jpg" alt="Isyarat Huruf J dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">J</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf J</span>
+        </div>
+
+        <!-- K -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf k abjad k" data-desc="Tegakkan jari telunjuk dan tengah dengan ibu jari menopang di antara keduanya." data-tips="Jari telunjuk tegak, jari tengah sedikit miring ke depan." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/K/wall white (1).jpg" alt="Isyarat Huruf K dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">K</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf K</span>
+        </div>
+
+        <!-- L -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf l abjad l" data-desc="Buka ibu jari dan telunjuk membentuk sudut siku 90 derajat seperti huruf L." data-tips="Ibu jari horizontal, telunjuk vertikal tegak." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/L/wall white (1).jpg" alt="Isyarat Huruf L dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">L</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf L</span>
+        </div>
+
+        <!-- M -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf m abjad m" data-desc="Lipat ibu jari di bawah tiga jari (telunjuk, tengah, manis)." data-tips="Tiga jari menutupi ibu jari dari atas." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/M/wall white (1).jpg" alt="Isyarat Huruf M dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">M</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf M</span>
+        </div>
+
+        <!-- N -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf n abjad n" data-desc="Lipat ibu jari di bawah dua jari (telunjuk dan tengah)." data-tips="Dua jari menutupi ibu jari dari atas." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/N/wall white (1).jpg" alt="Isyarat Huruf N dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">N</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf N</span>
+        </div>
+
+        <!-- O -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf o abjad o" data-desc="Sentuhkan semua ujung jari dengan ibu jari membentuk lingkaran huruf O bulat." data-tips="Bentuk lingkaran sempurna menghadap depan." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/O/wall white (1).jpg" alt="Isyarat Huruf O dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">O</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf O</span>
+        </div>
+
+        <!-- P -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf p abjad p" data-desc="Bentuk isyarat K namun arahkan jari telunjuk dan tengah mengarah ke bawah." data-tips="Jari telunjuk mengarah ke bawah, jari tengah mendatar." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/P/wall white (1).jpg" alt="Isyarat Huruf P dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">P</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf P</span>
+        </div>
+
+        <!-- Q -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf q abjad q" data-desc="Bentuk isyarat G namun arahkan kedua jari (telunjuk dan jempol) mengarah lurus ke bawah." data-tips="Ibu jari dan telunjuk mengarah ke lantai." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/Q/wall white (1).jpg" alt="Isyarat Huruf Q dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">Q</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf Q</span>
+        </div>
+
+        <!-- R -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf r abjad r" data-desc="Silangkan jari tengah di belakang atau di atas jari telunjuk yang tegak ke atas." data-tips="Dua jari saling menyilang tegak." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/R/wall white (1).jpg" alt="Isyarat Huruf R dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">R</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf R</span>
+        </div>
+
+        <!-- S -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf s abjad s" data-desc="Genggam semua jari membentuk tinju dengan ibu jari melintang di depan jari-jari." data-tips="Ibu jari berada di atas buku jari yang terlipat." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/S/wall white (1).jpg" alt="Isyarat Huruf S dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">S</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf S</span>
+        </div>
+
+        <!-- T -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf t abjad t" data-desc="Selipkan ibu jari di antara jari telunjuk dan jari tengah dalam genggaman." data-tips="Ujung ibu jari menyembul di antara telunjuk dan jari tengah." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/T/wall white (1).jpg" alt="Isyarat Huruf T dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">T</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf T</span>
+        </div>
+
+        <!-- U -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf u abjad u" data-desc="Tegakkan jari telunjuk dan jari tengah secara rapat ke atas." data-tips="Dua jari lurus ke atas tanpa celah." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/U/wall white (1).jpg" alt="Isyarat Huruf U dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">U</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf U</span>
+        </div>
+
+        <!-- V -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf v abjad v" data-desc="Tegakkan jari telunjuk dan jari tengah terbuka membentuk huruf V." data-tips="Dua jari terbuka membentuk sudut V." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/V/wall white (1).jpg" alt="Isyarat Huruf V dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">V</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf V</span>
+        </div>
+
+        <!-- W -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf w abjad w" data-desc="Tegakkan tiga jari (telunjuk, tengah, manis) terbuka ke atas seperti huruf W." data-tips="Tiga jari terbuka membentuk W." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/W/wall white (1).jpg" alt="Isyarat Huruf W dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">W</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf W</span>
+        </div>
+
+        <!-- X -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf x abjad x" data-desc="Tegakkan jari telunjuk yang sedikit ditekuk seperti kait/cakar." data-tips="Jari telunjuk membentuk lengkungan kait." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/X/wall white (1).jpg" alt="Isyarat Huruf X dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">X</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf X</span>
+        </div>
+
+        <!-- Y -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf y abjad y" data-desc="Bentangkan ibu jari dan jari kelingking ke samping membentuk huruf Y." data-tips="Tiga jari di tengah terlipat rapat." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/Y/wall white (1).jpg" alt="Isyarat Huruf Y dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">Y</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf Y</span>
+        </div>
+
+        <!-- Z -->
+        <div role="button" tabindex="0" data-category="abjad" data-keywords="huruf z abjad z" data-desc="Gunakan jari telunjuk untuk menggambar bentuk zig-zag huruf Z di udara." data-tips="Tarik garis horizontal, diagonal, dan horizontal di depan dada." class="flex flex-col p-3 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-orange-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/Z/wall white (1).jpg" alt="Isyarat Huruf Z dalam BISINDO" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-900 bg-orange-100 rounded-md card-badge">Abjad</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-900 group-hover:text-orange-600 card-title">Z</p>
+          <span class="text-[11px] font-medium text-slate-500">Huruf Z</span>
+        </div>
+
       </div>
 
-      <!-- Deskripsi / Teks Panjang -->
-      <div id="modalDescription" class="space-y-3 text-sm leading-relaxed text-gray-600">
-        <!-- Teks atau HTML panjang akan disuntikkan ke sini -->
+
+      <!-- 3. SECTION: KOSAKATA HARIAN POPULER -->
+      <div class="mb-14 section-category-header">
+        <div class="flex items-center gap-3 mb-6 pb-3 border-b border-orange-100">
+          <div class="flex items-center justify-center w-9 h-9 text-white bg-emerald-600 rounded-xl shadow-xs">
+            <i class="fa-solid fa-comments text-sm" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-extrabold text-slate-900 sm:text-2xl">Kosakata Isyarat Harian</h2>
+            <p class="text-xs text-slate-500">Kata-kata penting yang sering digunakan dalam interaksi sosial sehari-hari</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Words Grid -->
+      <div class="grid grid-cols-2 gap-4 mb-16 sm:grid-cols-3 md:grid-cols-4 md:gap-5" id="kataContainer">
+
+        <!-- Word 1: Halo -->
+        <div role="button" tabindex="0" data-category="kata" data-keywords="halo hai sapaan salam hello hi"
+             data-desc="Letakkan tangan terbuka di samping pelipis/dahi lalu lambaikan ringan ke arah depan luar."
+             data-tips="Sertai dengan kontak mata dan senyuman ramah."
+             class="flex flex-col p-4 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-3 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/H/wall white (1).jpg" alt="Isyarat kata Halo" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Sapaan</span>
+          </div>
+          <p class="text-base font-bold text-slate-900 group-hover:text-emerald-600 card-title">Halo / Hai</p>
+          <span class="text-xs text-slate-500">Salam pembuka</span>
+        </div>
+
+        <!-- Word 2: Terima Kasih -->
+        <div role="button" tabindex="0" data-category="kata" data-keywords="terima kasih makasih thanks thank you"
+             data-desc="Sentuhkan ujung jari tangan terbuka ke dagu lalu gerakkan tangan ke depan ke arah lawan bicara."
+             data-tips="Gerakan mengalir halus dengan ekspresi wajah bersyukur."
+             class="flex flex-col p-4 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-3 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/T/wall white (1).jpg" alt="Isyarat kata Terima Kasih" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Ungkapan</span>
+          </div>
+          <p class="text-base font-bold text-slate-900 group-hover:text-emerald-600 card-title">Terima Kasih</p>
+          <span class="text-xs text-slate-500">Apresiasi &amp; santun</span>
+        </div>
+
+        <!-- Word 3: Sama-Sama -->
+        <div role="button" tabindex="0" data-category="kata" data-keywords="sama-sama sama sama kembali welcome you're welcome"
+             data-desc="Kedua tangan terbuka telapak menghadap ke atas lalu digerakkan bersama ke depan."
+             data-tips="Respon ramah atas ucapan terima kasih."
+             class="flex flex-col p-4 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-3 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/S/wall white (1).jpg" alt="Isyarat kata Sama-Sama" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Ungkapan</span>
+          </div>
+          <p class="text-base font-bold text-slate-900 group-hover:text-emerald-600 card-title">Sama-Sama</p>
+          <span class="text-xs text-slate-500">Balasan terima kasih</span>
+        </div>
+
+        <!-- Word 4: Maaf -->
+        <div role="button" tabindex="0" data-category="kata" data-keywords="maaf minta maaf sorry ampun"
+             data-desc="Bentuk kepalan tangan lalu putar melingkar searah jarum jam di atas dada/hati."
+             data-tips="Ekspresikan wajah menyesal dan tulus."
+             class="flex flex-col p-4 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-3 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/M/wall white (1).jpg" alt="Isyarat kata Maaf" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Ungkapan</span>
+          </div>
+          <p class="text-base font-bold text-slate-900 group-hover:text-emerald-600 card-title">Maaf</p>
+          <span class="text-xs text-slate-500">Permohonan maaf</span>
+        </div>
+
+        <!-- Word 5: Tolong -->
+        <div role="button" tabindex="0" data-category="kata" data-keywords="tolong bantu bantuan please help"
+             data-desc="Letakkan satu tangan terbuka menghadap atas lalu tangan lain menopang atau menepuk ringan ke atas."
+             data-tips="Gerakan menunjukkan gesture meminta bantuan atau menolong."
+             class="flex flex-col p-4 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-3 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/T/wall white (1).jpg" alt="Isyarat kata Tolong" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Bantuan</span>
+          </div>
+          <p class="text-base font-bold text-slate-900 group-hover:text-emerald-600 card-title">Tolong</p>
+          <span class="text-xs text-slate-500">Permohonan bantuan</span>
+        </div>
+
+        <!-- Word 6: Teman -->
+        <div role="button" tabindex="0" data-category="kata" data-keywords="teman kawan sahabat friend buddy"
+             data-desc="Kaitkan jari telunjuk kedua tangan secara bergantian seperti saling mengait."
+             data-tips="Simbol keterikatan dan persahabatan akrab."
+             class="flex flex-col p-4 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-3 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/X/wall white (1).jpg" alt="Isyarat kata Teman" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Sosial</span>
+          </div>
+          <p class="text-base font-bold text-slate-900 group-hover:text-emerald-600 card-title">Teman</p>
+          <span class="text-xs text-slate-500">Hubungan sosial</span>
+        </div>
+
+        <!-- Word 7: Sayang -->
+        <div role="button" tabindex="0" data-category="kata" data-keywords="sayang cinta kasih love affection"
+             data-desc="Silangkan kedua lengan tangan memeluk dada di depan tubuh."
+             data-tips="Ekspresi hangat dan penuh kasih sayang."
+             class="flex flex-col p-4 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-3 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/S/wall white (1).jpg" alt="Isyarat kata Sayang" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Perasaan</span>
+          </div>
+          <p class="text-base font-bold text-slate-900 group-hover:text-emerald-600 card-title">Sayang / Cinta</p>
+          <span class="text-xs text-slate-500">Ungkapan perasaan</span>
+        </div>
+
+        <!-- Word 8: Belajar -->
+        <div role="button" tabindex="0" data-category="kata" data-keywords="belajar studi ilmu learn study"
+             data-desc="Ambil isyarat dari telapak tangan kiri (buku) ke arah dahi menggunakan ujung jari tangan kanan."
+             data-tips="Gerakan menyerap ilmu dari buku ke pikiran."
+             class="flex flex-col p-4 text-center bg-white border border-slate-100 shadow-xs rounded-2xl cursor-pointer card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+          <div class="relative overflow-hidden mb-3 rounded-xl aspect-square bg-slate-50">
+            <img src="assets/images/Gestur-Tangan/B/wall white (1).jpg" alt="Isyarat kata Belajar" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Aktivitas</span>
+          </div>
+          <p class="text-base font-bold text-slate-900 group-hover:text-emerald-600 card-title">Belajar</p>
+          <span class="text-xs text-slate-500">Menuntut ilmu</span>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ACCESSIBLE DETAIL MODAL POPUP -->
+  <div id="popupModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" class="fixed inset-0 z-50 items-center justify-center hidden p-4 bg-slate-900/80 backdrop-blur-xs">
+    <div class="relative flex flex-col w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl p-6 sm:p-8 border border-slate-100">
+
+      <!-- Close Button -->
+      <button id="closeBtn" type="button" aria-label="Tutup detail isyarat"
+        class="absolute top-5 right-5 flex items-center justify-center w-9 h-9 text-slate-400 rounded-full hover:text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500">
+        <i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>
+      </button>
+
+      <!-- Modal Category Pill -->
+      <div class="mb-2">
+        <span id="modalCategory" class="inline-block px-3 py-1 text-[11px] font-bold tracking-wider text-orange-800 uppercase bg-orange-100 rounded-full"></span>
+      </div>
+
+      <!-- Modal Title -->
+      <h2 id="modalTitle" class="pr-8 mb-4 text-2xl font-extrabold text-slate-900 sm:text-3xl"></h2>
+
+      <!-- Image Preview -->
+      <div class="relative mb-5 overflow-hidden border aspect-video bg-slate-50 rounded-2xl border-slate-100 flex items-center justify-center">
+        <img id="modalImg" src="" alt="" class="object-contain w-full h-full p-2" />
+      </div>
+
+      <!-- Explanation & Tips -->
+      <div class="space-y-4 text-sm text-slate-600">
+        <div class="p-4 bg-orange-50/70 border border-orange-100 rounded-2xl">
+          <p class="font-bold text-orange-950 mb-1 flex items-center gap-1.5 text-xs uppercase tracking-wider">
+            <i class="fa-solid fa-hand-sparkles text-orange-600" aria-hidden="true"></i> Cara Melakukan Gerakan
+          </p>
+          <p id="modalDescription" class="leading-relaxed"></p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200/60 rounded-2xl">
+          <p class="font-bold text-slate-800 mb-1 flex items-center gap-1.5 text-xs uppercase tracking-wider">
+            <i class="fa-solid fa-lightbulb text-amber-500" aria-hidden="true"></i> Tips Posisi Jari &amp; Wajah
+          </p>
+          <p id="modalTips" class="text-xs leading-relaxed text-slate-600"></p>
+        </div>
+      </div>
+
+      <!-- Modal Actions -->
+      <div class="flex items-center justify-end gap-3 mt-6 pt-4 border-t border-slate-100">
+        <button id="closeModalAction" type="button" class="px-5 py-2.5 text-xs font-bold text-slate-700 bg-slate-100 rounded-full hover:bg-slate-200 transition">
+          Tutup
+        </button>
+        <a href="edukasi.html" class="px-5 py-2.5 text-xs font-bold text-white bg-orange-600 rounded-full hover:bg-orange-700 transition shadow-md shadow-orange-500/20">
+          Latihan di Modul Edukasi &rarr;
+        </a>
       </div>
 
     </div>
   </div>
 
-  <!-- footer -->
-  <footer class="pt-16 pb-8 mt-10 text-gray-400 bg-gray-900">
-    <div class="px-5 mx-auto max-w-7xl md:px-8">
-      <h2 class="text-4xl font-extrabold tracking-tight text-center text-white md:text-6xl mb-14">
-        ISYARAT<span class="text-primary-500">OK</span>
-      </h2>
+  <!-- FOOTER SECTION (Unified Across All Pages) -->
+  <footer class="text-white bg-slate-900 border-t border-slate-800 mt-20">
+    <div class="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div class="grid gap-10 md:grid-cols-12">
 
-      <div class="grid grid-cols-2 gap-8 mb-12 text-sm md:grid-cols-4">
-        <div>
-          <p class="mb-4 font-semibold tracking-wide text-white">NAVIGASI</p>
-          <ul class="space-y-2">
-            <li>
-              <a href="index.html" class="transition hover:text-primary-400">Beranda</a>
-            </li>
-            <li>
-              <a href="#edukasi" class="transition hover:text-primary-400">Edukasi</a>
-            </li>
-            <li>
-              <a href="#kamus" class="transition hover:text-primary-400">Kamus</a>
-            </li>
-            <li>
-              <a href="#quiz" class="transition hover:text-primary-400">Quiz</a>
-            </li>
+        <!-- Brand Col -->
+        <div class="md:col-span-5">
+          <a href="index.html" class="flex items-center gap-2.5 mb-4 text-2xl font-extrabold tracking-tight text-white group" aria-label="IsyaratOK Footer">
+            <div class="flex items-center justify-center w-10 h-10 text-xl text-white rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 shadow-md shadow-orange-500/20">
+              <i class="fa-solid fa-hands-asl-interpreting" aria-hidden="true"></i>
+            </div>
+            <span>Isyarat<span class="text-orange-500">OK</span></span>
+          </a>
+          <p class="max-w-md text-sm leading-relaxed text-slate-400 mb-6">
+            Platform edukasi bahasa isyarat interaktif yang dirancang inklusif untuk semua usia. Bersama membangun masyarakat yang ramah dan saling memahami.
+          </p>
+          <div class="flex space-x-3">
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-slate-300 transition-colors bg-slate-800 rounded-xl hover:bg-orange-600 hover:text-white" aria-label="Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-slate-300 transition-colors bg-slate-800 rounded-xl hover:bg-orange-600 hover:text-white" aria-label="Instagram">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-slate-300 transition-colors bg-slate-800 rounded-xl hover:bg-orange-600 hover:text-white" aria-label="Youtube">
+              <i class="fab fa-youtube" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Col -->
+        <div class="md:col-span-3">
+          <h3 class="mb-4 text-sm font-bold tracking-wider text-white uppercase">Navigasi Utama</h3>
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><a href="index.html" class="transition-colors hover:text-orange-400">Beranda</a></li>
+            <li><a href="edukasi.html" class="transition-colors hover:text-orange-400">Modul Edukasi</a></li>
+            <li><a href="kosakata.html" class="transition-colors hover:text-orange-400">Kamus Kosakata</a></li>
+            <li><a href="edukasi.html#quiz" class="transition-colors hover:text-orange-400">Kuis Interaktif</a></li>
+            <li><a href="index.html#isyarat-angka" class="transition-colors hover:text-orange-400">Statistik Isyarat</a></li>
           </ul>
         </div>
-        <div>
-          <p class="mb-4 font-semibold tracking-wide text-white">LEGAL</p>
-          <ul class="space-y-2">
-            <li>
-              <a href="#" class="transition hover:text-primary-400">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#" class="transition hover:text-primary-400">Terms of Service</a>
-            </li>
-            <li>
-              <a href="#" class="transition hover:text-primary-400">Cookie Policy</a>
-            </li>
-          </ul>
+
+        <!-- Contact Col -->
+        <div class="md:col-span-4" id="kontak">
+          <h3 class="mb-4 text-sm font-bold tracking-wider text-white uppercase">Hubungi Kami</h3>
+          <div class="space-y-3 text-sm text-slate-400">
+            <div class="flex items-center gap-3">
+              <i class="text-orange-500 fa-solid fa-location-dot" aria-hidden="true"></i>
+              <span>Indonesia &mdash; Untuk Seluruh Nusantara</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="text-orange-500 fas fa-envelope" aria-hidden="true"></i>
+              <span>halo@isyaratok.id</span>
+            </div>
+            <p class="pt-2 text-xs text-slate-500 leading-relaxed">
+              Mendukung kurikulum BISINDO terbuka dan pembelajaran inklusif di sekolah &amp; ruang publik.
+            </p>
+          </div>
         </div>
-        <div>
-          <p class="mb-4 font-semibold tracking-wide text-white">SOSIAL</p>
-          <ul class="space-y-2">
-            <li>
-              <a href="#" class="transition hover:text-primary-400">Instagram</a>
-            </li>
-            <li>
-              <a href="#" class="transition hover:text-primary-400">Facebook</a>
-            </li>
-            <li>
-              <a href="#" class="transition hover:text-primary-400">Twitter</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <p class="mb-4 font-semibold tracking-wide text-white">KONTAK</p>
-          <ul class="space-y-2">
-            <li>
-              <a href="mailto:hello@isyaratok.id" class="transition hover:text-primary-400">hello@isyaratok.id</a>
-            </li>
-            <li>Jakarta, Indonesia</li>
-          </ul>
-        </div>
+
       </div>
 
-      <div class="flex flex-col items-center justify-between gap-3 pt-6 text-xs border-t border-gray-800 sm:flex-row">
-        <p>© 2026 ISYARATOK. All rights reserved.</p>
-        <p class="flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-primary-500"></span>
-          ONLINE LEARNING ACTIVE
-        </p>
+      <!-- Copyright Bar -->
+      <div class="pt-8 mt-12 border-t border-slate-800 flex flex-col items-center justify-between gap-4 sm:flex-row text-xs text-slate-400">
+        <p>&copy; 2026 IsyaratOK. Seluruh hak cipta dilindungi.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="transition-colors hover:text-white">Kebijakan Privasi</a>
+          <a href="#" class="transition-colors hover:text-white">Aksesibilitas</a>
+          <a href="#" class="transition-colors hover:text-white">Ketentuan Layanan</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Script jQuery -->
+  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/kosakata.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
-
 </html>

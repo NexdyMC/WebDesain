@@ -1,155 +1,205 @@
-// Kategori
-$(document).ready(function () {
+/**
+ * IsyaratOK - Modul Edukasi Script
+ * Powered by jQuery
+ */
+
+$(function () {
+  "use strict";
+
+  let activeCategory = "semua";
+
+  // ==========================================
+  // 1. TAB CATEGORY SWITCHER & FILTER
+  // ==========================================
   const $tabButtons = $(".tab-btn");
-  const $items = $(".item");
-
-  function setActiveTab(selectedFilter) {
-    $tabButtons.each(function () {
-      const isActive = $(this).data("filter") === selectedFilter;
-
-      $(this)
-        .toggleClass("active", isActive)
-        .toggleClass(
-          "bg-primary-500 text-white border-primary-500 font-semibold",
-          isActive,
-        )
-        .toggleClass(
-          "bg-white text-gray-700 border-gray-200 font-medium",
-          !isActive,
-        )
-        .toggleClass("shadow-sm", isActive);
-    });
-  }
-
-// Pencarian
-  function animateFadeUp($targets) {
-
-    $targets.css({
-      display: "block",
-      opacity: "0",
-      transform: "translateY(20px)"
-    });
-
-    $targets.each(function (index) {
-      const $el = $(this);
-      setTimeout(function () {
-        $el.css({
-          opacity: "1",
-          transform: "translateY(0)"
-        });
-      }, index * 50);
-    });
-  }
-
-  function applyFilter(filterValue) {
-    $items.css({
-      display: "none",
-      opacity: "0",
-      transform: "translateY(20px)"
-    });
-
-    const $targetItems = (filterValue === "semua")
-      ? $items
-      : $items.filter('[data-category="' + filterValue + '"]');
-
-    animateFadeUp($targetItems);
-  }
-
-  applyFilter("semua");
-
-  $tabButtons.on("click", function () {
-    const filterValue = $(this).data("filter");
-    setActiveTab(filterValue);
-    applyFilter(filterValue);
-  });
-});
-
-$(document).ready(function() {
-  var activeCategory = 'all';
-
-  $('.filter-btn').on('click', function() {
-    activeCategory = $(this).data('category');
-    applyFilters();
-  });
-
-  $('#searchInput').on('keyup input', function() {
-    applyFilters();
-  });
+  const $items = $(".modul-item");
+  const $searchInput = $("#searchInput");
+  const $noResultsMsg = $("#noResultsMessage");
+  const $resultCount = $("#modulCount");
 
   function applyFilters() {
-    var searchValue = $('#searchInput').val().toLowerCase().trim();
+    const searchValue = $searchInput.val().toLowerCase().trim();
+    let visibleCount = 0;
 
-    $('#itemList .item').each(function() {
-      var itemText = $(this).text().toLowerCase();
-      var itemCategory = $(this).attr('data-category');
+    $items.each(function () {
+      const $card = $(this);
+      const category = $card.data("category");
+      const title = ($card.find(".modul-title").text() || "").toLowerCase();
+      const desc = ($card.find(".modul-desc").text() || "").toLowerCase();
+      const keywords = ($card.data("keywords") || "").toLowerCase();
 
-      var matchesSearch = itemText.indexOf(searchValue) > -1;
-      
-      var matchesCategory = (activeCategory === 'all' || itemCategory === activeCategory);
+      const matchesCategory = (activeCategory === "semua" || category === activeCategory);
+      const matchesSearch = !searchValue || title.includes(searchValue) || desc.includes(searchValue) || keywords.includes(searchValue);
 
-      $(this).toggle(matchesSearch && matchesCategory);
-    });
-  }
-});
-
-$(document).ready(function () {
-  
-  $(document).on("click", ".item", function (e) {
-    e.preventDefault();
-
-    const category = $(this).find("span.uppercase").text().trim() || $(this).attr("data-category");
-    const title = $(this).find("p").text().trim();
-    
-    $("#modalCategory").text(category);
-    $("#modalTitle").text(title);
-
-    const $template = $(this).find("template.card-details");
-
-    if ($template.length > 0) {
-      const $content = $($template.html());
-      const mediaHTML = $content.filter(".media-content").html();
-      const descHTML = $content.filter(".desc-content").html();
-
-      if (mediaHTML && mediaHTML.trim() !== "") {
-        $("#modalMedia").html(mediaHTML).removeClass("hidden");
+      if (matchesCategory && matchesSearch) {
+        $card.removeClass("hidden").addClass("flex");
+        visibleCount++;
       } else {
-        $("#modalMedia").html("").addClass("hidden");
+        $card.addClass("hidden").removeClass("flex");
       }
+    });
 
-      $("#modalDescription").html(descHTML);
-    } else {
-
-      $("#modalMedia").html("").addClass("hidden");
-      $("#modalDescription").html("<p>Penjelasan detail materi belum tersedia.</p>");
+    if ($resultCount.length) {
+      $resultCount.text(`${visibleCount} modul ditemukan`);
     }
 
-    $("#popupModal").removeClass("hidden").addClass("flex");
-  });
-
-  function closeModal() {
-    $("#popupModal").removeClass("flex").addClass("hidden");
-    $("#modalMedia").html("");
+    if (visibleCount === 0) {
+      $noResultsMsg.removeClass("hidden");
+    } else {
+      $noResultsMsg.addClass("hidden");
+    }
   }
 
-  $(document).on("click", "#closeBtn", function () {
-    closeModal();
+  $tabButtons.on("click", function () {
+    activeCategory = $(this).data("filter");
+
+    $tabButtons
+      .removeClass("bg-orange-600 text-white shadow-md shadow-orange-500/20")
+      .addClass("bg-white text-slate-700 hover:bg-orange-50 border border-slate-200");
+
+    $(this)
+      .removeClass("bg-white text-slate-700 hover:bg-orange-50 border border-slate-200")
+      .addClass("bg-orange-600 text-white shadow-md shadow-orange-500/20");
+
+    applyFilters();
   });
 
-  $(document).on("click", "#popupModal", function (e) {
+  $searchInput.on("input keyup", applyFilters);
+
+  $("#clearSearchBtn").on("click", function () {
+    $searchInput.val("").trigger("focus");
+    applyFilters();
+  });
+
+
+  // ==========================================
+  // 2. INTERACTIVE MODAL DETAIL PREVIEW
+  // ==========================================
+  const $popupModal = $("#popupModal");
+  const $modalTitle = $("#modalTitle");
+  const $modalCategory = $("#modalCategory");
+  const $modalImg = $("#modalImg");
+  const $modalDescription = $("#modalDescription");
+  const $modalCurriculum = $("#modalCurriculum");
+  const $modalActionLink = $("#modalActionLink");
+
+  function openModal($card) {
+    const title = $card.find(".modul-title").text().trim();
+    const category = $card.find(".modul-badge").text().trim() || $card.data("category");
+    const imgSrc = $card.find("img").attr("src");
+    const imgAlt = $card.find("img").attr("alt");
+    const desc = $card.data("desc") || "Pelajari materi ini secara bertahap dan terstruktur.";
+    const curriculum = $card.find("template.curriculum-details").html() || "";
+    const actionUrl = $card.data("action-url") || "kosakata.html";
+    const actionText = $card.data("action-text") || "Buka Kamus Terkait &rarr;";
+
+    $modalTitle.text(title);
+    $modalCategory.text(category);
+    $modalImg.attr("src", imgSrc).attr("alt", imgAlt);
+    $modalDescription.html(desc);
+    $modalCurriculum.html(curriculum);
+    $modalActionLink.attr("href", actionUrl).html(actionText);
+
+    $popupModal.removeClass("hidden").addClass("flex");
+    $("body").addClass("overflow-hidden");
+  }
+
+  function closeModal() {
+    $popupModal.addClass("hidden").removeClass("flex");
+    $("body").removeClass("overflow-hidden");
+  }
+
+  $(document).on("click", ".modul-item", function () {
+    openModal($(this));
+  });
+
+  $(document).on("keydown", ".modul-item", function (e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      openModal($(this));
+    }
+  });
+
+  $("#closeBtn, #closeModalAction").on("click", closeModal);
+
+  $popupModal.on("click", function (e) {
     if ($(e.target).is("#popupModal")) {
       closeModal();
     }
   });
 
-});
+  $(document).on("keydown", function (e) {
+    if (e.key === "Escape" && $popupModal.is(":visible")) {
+      closeModal();
+    }
+  });
 
 
-$("#menuBtn").on("click", function () {
-  $("#mobileMenu, #iconOpen, #iconClose").toggleClass("hidden grid");
-});
+  // ==========================================
+  // 3. INTERACTIVE MINI QUIZ WIDGET (#quiz)
+  // ==========================================
+  let quizScore = 0;
+  let answeredCount = 0;
+  const totalQuestions = $(".quiz-question-card").length || 3;
 
-$("#mobileMenu a").on("click", function () {
-  $("#mobileMenu").addClass("hidden").removeClass("grid");
-  $("#iconOpen").addClass("grid").removeClass("hidden");
-  $("#iconClose").addClass("hidden").removeClass("grid");
+  $(".quiz-option").on("click", function () {
+    const $btn = $(this);
+    const $parentCard = $btn.closest(".quiz-question-card");
+
+    if ($parentCard.data("answered")) return;
+    $parentCard.data("answered", true);
+
+    const isCorrect = $btn.data("correct") === true || $btn.data("correct") === "true";
+    const feedbackText = $btn.data("feedback") || (isCorrect ? "Jawaban tepat! Hebat!" : "Kurang tepat, coba pelajari lagi materinya.");
+
+    // Disable all options in this question
+    $parentCard.find(".quiz-option").addClass("pointer-events-none opacity-60");
+
+    if (isCorrect) {
+      $btn.removeClass("opacity-60 bg-white border-slate-200").addClass("bg-emerald-50 border-emerald-500 text-emerald-800 font-bold");
+      $btn.find(".quiz-icon").html('<i class="fa-solid fa-circle-check text-emerald-500 text-base"></i>');
+      quizScore += 10;
+    } else {
+      $btn.removeClass("opacity-60 bg-white border-slate-200").addClass("bg-rose-50 border-rose-500 text-rose-800 font-bold");
+      $btn.find(".quiz-icon").html('<i class="fa-solid fa-circle-xmark text-rose-500 text-base"></i>');
+      
+      // Highlight the correct one
+      $parentCard.find('.quiz-option[data-correct="true"]').removeClass("opacity-60 bg-white border-slate-200").addClass("bg-emerald-50 border-emerald-500 text-emerald-800 font-bold");
+    }
+
+    // Show feedback box
+    $parentCard.find(".quiz-feedback")
+      .html(`<div class="p-3.5 mt-3 rounded-2xl text-xs font-semibold ${isCorrect ? 'bg-emerald-100/70 text-emerald-900' : 'bg-rose-100/70 text-rose-900'}">${feedbackText}</div>`)
+      .removeClass("hidden");
+
+    answeredCount++;
+    $("#quizCurrentScore").text(quizScore);
+    $("#quizProgress").text(`${answeredCount} dari ${totalQuestions} selesai`);
+
+    if (answeredCount === totalQuestions) {
+      $("#quizCompletionCard").removeClass("hidden");
+      $("#finalScoreText").text(`${quizScore} Poin`);
+    }
+  });
+
+  $("#resetQuizBtn").on("click", function () {
+    quizScore = 0;
+    answeredCount = 0;
+    $("#quizCurrentScore").text("0");
+    $("#quizProgress").text(`0 dari ${totalQuestions} selesai`);
+    $("#quizCompletionCard").addClass("hidden");
+
+    $(".quiz-question-card").each(function () {
+      const $card = $(this);
+      $card.removeData("answered");
+      $card.find(".quiz-feedback").addClass("hidden").html("");
+      $card.find(".quiz-option")
+        .removeClass("pointer-events-none opacity-60 bg-emerald-50 border-emerald-500 text-emerald-800 bg-rose-50 border-rose-500 text-rose-800 font-bold")
+        .addClass("bg-white border-slate-200 text-slate-700");
+      $card.find(".quiz-icon").html('<i class="fa-regular fa-circle text-slate-400"></i>');
+    });
+  });
+
+  // Initial filter run
+  applyFilters();
 });

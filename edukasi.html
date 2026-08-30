@@ -1,559 +1,724 @@
-﻿<!doctype html>
-<html lang="id">
+<!doctype html>
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IsyaratOk - Edukasi</title>
-  
-  <!-- Config Website -->
-  <meta property="og:title" content="NexdyMC/WebDesain" />
-  <meta property="og:title" />
-  <meta property="og:description" />
-  <meta property="og:image" content="https://isyarat-ok.netlify.app/assets/images/banner.png" />
-  <meta property="og:image:width" />
-  <meta property="og:image:height" />
-  <meta property="og:url" content="https://isyarat-ok.netlify.app/" />
-  <meta property="og:type" />
+  <title>IsyaratOK - Modul Edukasi &amp; Kuis Interaktif</title>
 
-  <!-- Tailwind CSS -->
+  <!-- Meta SEO & Open Graph -->
+  <meta name="description" content="Katalog modul edukasi bahasa isyarat BISINDO interaktif. Pelajari abjad A-Z, angka 0-10, ungkapan harian, dan uji pemahaman lewat kuis interaktif." />
+  <meta property="og:title" content="IsyaratOK - Modul Edukasi Bahasa Isyarat Lengkap" />
+  <meta property="og:description" content="Modul pembelajaran terstruktur dari dasar hingga mahir untuk segala usia." />
+  <meta property="og:image" content="https://isyarat-ok.netlify.app/assets/images/banner.png" />
+  <meta property="og:url" content="https://isyarat-ok.netlify.app/edukasi.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN & Custom Styles -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
-  <link rel="stylesheet" href="assets//css/edukasi.css">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/edukasi.css" />
 </head>
 
-<body class="antialiased text-gray-800 bg-white">
-  
-  <!-- Navigation -->
-  <header class="sticky top-0 z-50 border-b border-orange-100 shadow-lg backdrop-blur bg-white/90" >
-    <div class="flex items-center justify-between h-16 px-5 mx-auto max-w-7xl md:px-8 md:h-18"  >
+<body class="font-sans antialiased text-slate-800 bg-[#fafafa] selection:bg-orange-500 selection:text-white">
+
+  <!-- Accessibility: Skip to Content Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-5 focus:py-3 focus:bg-orange-600 focus:text-white focus:font-semibold focus:rounded-xl focus:shadow-2xl">
+    Lewati ke Konten Utama
+  </a>
+
+  <!-- Header / Navigation Bar (Unified Across All Pages) -->
+  <header class="sticky top-0 z-50 border-b border-orange-100/70 shadow-xs backdrop-blur-md bg-white/95">
+    <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 md:h-18">
       
-      <!-- Judul Website  -->
-      <a href="#" class="flex items-center text-xl font-extrabold md:text-2xl" >
-        <i class="mr-2 text-4xl text-orange-500 fa-solid fa-hands-asl-interpreting"></i>
-        <span class="text-gray-900">Isyarat</span><span class="text-orange-500">OK</span>
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2.5 text-xl font-extrabold tracking-tight md:text-2xl text-slate-900 group" aria-label="IsyaratOK">
+        <div class="flex items-center justify-center w-10 h-10 text-xl text-white transition-transform shadow-md rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 group-hover:scale-105 shadow-orange-500/20">
+          <i class="fa-solid fa-hands-asl-interpreting" aria-hidden="true"></i>
+        </div>
+        <span>Isyarat<span class="text-orange-600">OK</span></span>
       </a>
 
-      <!-- Desktop Navigasi -->
-      <nav class="items-center hidden gap-6 font-semibold text-gray-500 md:flex text-md" >
-        <a href="index.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Beranda</a>
-        <a href="edukasi.html" class="py-2 text-orange-500 border-b-2 border-orange-500" >Edukasi</a>
-        <a href="kosakata.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Kosakata</a>
-        <a href="quiz.html" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Quiz</a>
-        <a href="#komunitas" class="py-2 transition border-b-2 border-hidden hover:text-orange-500 hover:border-orange-500" >Asisten AI</a>
+      <!-- Desktop Navigation -->
+      <nav class="items-center hidden gap-7 font-semibold text-slate-600 md:flex text-md" aria-label="Navigasi Utama">
+        <a href="index.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Beranda</a>
+        <a href="edukasi.html" class="py-1 text-orange-600 border-b-2 border-orange-600" aria-current="page">Edukasi</a>
+        <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Kosakata</a>
+        <a href="#quiz" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Quiz</a>
+        <a href="index.html#isyarat-angka" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Statistik</a>
+        <a href="#koleksi-modul" class="px-5 py-2.5 ml-2 text-sm font-semibold text-white transition-all rounded-full shadow-md bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 shadow-orange-500/20 hover:shadow-orange-500/30">
+          Mulai Belajar
+        </a>
       </nav>
 
-      <!-- Mobile menu button -->
-      <button id="menuBtn" class="text-orange-700 cursor-pointer md:hidden">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi"
+        class="p-2 transition rounded-xl text-slate-700 hover:text-orange-600 hover:bg-orange-50 md:hidden focus:outline-none">
+        <svg id="iconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="iconClose" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
 
-    <!-- Mobile Nav -->
-    <nav id="mobileMenu" class="hidden gap-1 px-6 pb-6 text-sm font-semibold text-gray-600 rounded-2xl">
-      <a href="index.html" class="py-2 transition hover:text-orange-400">Beranda</a>
-      <a href="edukasi.html" class="py-2 text-orange-500">Edukasi</a>
-      <a href="kosakata.html" class="py-2 transition hover:text-orange-400">Kamus</a>
-      <a href="quiz.html" class="py-2 transition hover:text-orange-400">Quiz</a>
-      <a href="komunitas.html" class="py-2 transition hover:text-orange-400">Asisten AI</a>
+    <!-- Mobile Navigation Drawer -->
+    <nav id="mobileMenu" class="hidden px-6 pt-2 pb-6 border-b border-orange-100 bg-white/95 md:hidden" aria-label="Menu Mobile">
+      <div class="flex flex-col space-y-2.5 font-medium text-slate-700">
+        <a href="index.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Beranda</a>
+        <a href="edukasi.html" class="px-3 py-2 font-bold text-orange-600 rounded-lg bg-orange-50">Edukasi</a>
+        <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Kosakata</a>
+        <a href="#quiz" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Quiz</a>
+        <a href="index.html#isyarat-angka" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Statistik</a>
+        <a href="#koleksi-modul" class="w-full py-3 mt-2 text-center text-sm font-semibold text-white rounded-xl shadow-md bg-gradient-to-r from-orange-500 to-amber-500">
+          Mulai Belajar Gratis
+        </a>
+      </div>
     </nav>
   </header>
 
-  <!-- HERO EDUKASI -->
-  <section id="edukasi" class="relative min-h-screen py-16 overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 md:py-24">
-    <div class="px-5 mx-auto max-w-7xl md:px-8">
-      <div class="grid items-center gap-10 lg:grid-cols-2">
-        <div>
-          <span
-            class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary-600 mb-4">
-            <span class="h-1.5 w-1.5 rounded-full bg-primary-500"></span>
-            Katalog Edukasi
-          </span>
-          <h1 class="mb-5 text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
-            Katalog Belajar Bahasa Isyarat untuk Semua Usia
-          </h1>
-          <p class="max-w-xl mb-8 text-base leading-relaxed text-gray-600 md:text-lg">
-            Temukan modul belajar yang disusun dari dasar hingga mahir. Pilih
-            kategori, lihat rekomendasi, dan mulai perjalananmu dengan materi
-            yang mudah dipahami.
-          </p>
-          <div class="flex flex-wrap gap-3">
-            <a href="#koleksi"
-              class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white transition rounded-full bg-primary-500 hover:bg-primary-600">
-              Lihat Modul
-            </a>
-            <a href="#rekomendasi"
-              class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-gray-700 transition border border-gray-300 rounded-full hover:border-primary-500 hover:text-primary-500">
-              Rekomendasi untukmu
-            </a>
-          </div>
-        </div>
+  <!-- Main Content Landmark -->
+  <main id="main-content">
 
-        <div class="relative">
-          <div class="rounded-[2rem] bg-white shadow-2xl p-8 md:p-10 border border-gray-200">
-            <div class="flex flex-col gap-5">
-              <div class="p-5 bg-primary-50 rounded-3xl">
-                <p class="mb-3 text-sm font-semibold text-primary-700">
-                  Mulai dari sini
-                </p>
-                <div class="flex items-center justify-between gap-4">
-                  <div>
-                    <p class="text-2xl font-bold text-gray-900">8 Modul</p>
-                    <p class="text-sm text-gray-500">
-                      Dari pemula hingga mahir
-                    </p>
-                  </div>
-                  <div
-                    class="px-4 py-2 text-xs font-semibold bg-white border rounded-full border-primary-100 text-primary-600">
-                    Gratis
-                  </div>
-                </div>
-              </div>
-
-              <div class="grid gap-4">
-                <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-3xl">
-                  <div class="grid w-12 h-12 font-bold rounded-3xl bg-primary-100 text-primary-700 place-items-center">
-                    01
-                  </div>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-900">
-                      Alfabet A-Z
-                    </p>
-                    <p class="text-xs text-gray-500">Dasar gerakan tangan</p>
-                  </div>
-                </div>
-                <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-3xl">
-                  <div class="grid w-12 h-12 font-bold rounded-3xl bg-primary-100 text-primary-700 place-items-center">
-                    02
-                  </div>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-900">
-                      Ungkapan Harian
-                    </p>
-                    <p class="text-xs text-gray-500">
-                      Salam, terima kasih, maaf
-                    </p>
-                  </div>
-                </div>
-                <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-3xl">
-                  <div class="grid w-12 h-12 font-bold rounded-3xl bg-primary-100 text-primary-700 place-items-center">
-                    03
-                  </div>
-                  <div>
-                    <p class="text-sm font-semibold text-gray-900">
-                      Percakapan Ringan
-                    </p>
-                    <p class="text-xs text-gray-500">Dialog sehari-hari</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--Pencarian  -->
-  <section class="px-5 py-10 mx-auto max-w-7xl md:px-8 md:py-14">
-    <div class="grid gap-6 lg:grid-cols-[1.6fr_1fr] items-center">
-      <div class="rounded-[2rem] bg-white shadow-lg border border-gray-200 p-6 md:p-8">
-        <div class="flex flex-col gap-4 mb-6 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p class="text-xs uppercase tracking-[0.24em] text-primary-600 font-semibold mb-2">
-              Cari Modul
+    <!-- HERO SECTION -->
+    <section class="relative px-4 pt-8 pb-12 overflow-hidden sm:px-6 md:pt-12 md:pb-16 lg:px-8 bg-gradient-to-b from-orange-50/60 via-white to-transparent">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid items-center gap-10 lg:grid-cols-12">
+          
+          <!-- Left Text Hero -->
+          <div class="lg:col-span-7">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 mb-4 text-xs font-bold tracking-wider text-orange-800 uppercase bg-orange-100 rounded-full">
+              <span class="w-2 h-2 rounded-full bg-orange-600 animate-pulse"></span>
+              Kurikulum Inklusif BISINDO
+            </span>
+            <h1 class="mb-5 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+              Katalog Modul Belajar <br class="hidden sm:inline" /><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Bahasa Isyarat Lengkap</span>
+            </h1>
+            <p class="max-w-xl mb-8 text-base leading-relaxed text-slate-600 md:text-lg">
+              Pelajari materi terstruktur dari abjad dasar, isyarat angka 0-10, percakapan sehari-hari, hingga modul ramah anak. Pilih modul dan tingkatkan kemahiranmu secara mandiri.
             </p>
-            <h2 class="text-2xl font-extrabold text-gray-900 md:text-3xl">
-              Temukan materi yang cocok untukmu
-            </h2>
+            <div class="flex flex-wrap items-center gap-4">
+              <a href="#koleksi-modul"
+                class="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-bold text-white transition-all duration-200 rounded-full shadow-lg bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 shadow-orange-500/20 hover:scale-105 active:scale-95">
+                <i class="fa-solid fa-layer-group text-xs" aria-hidden="true"></i> Jelajahi 8 Modul
+              </a>
+              <a href="#quiz"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-slate-700 transition-all duration-200 bg-white border border-slate-200 rounded-full shadow-xs hover:bg-orange-50 hover:border-orange-300">
+                <i class="fa-solid fa-gamepad text-orange-500 text-sm" aria-hidden="true"></i> Coba Kuis Interaktif
+              </a>
+            </div>
           </div>
-          <button
-            class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold transition border rounded-full bg-primary-50 text-primary-700 border-primary-100 hover:bg-primary-100">
-            Semua Kategori
-          </button>
-        </div>
-        <div class="flex flex-col gap-3 sm:flex-row">
-          <input type="text" id="searchInput" placeholder="Cari modul, materi, atau kata kunci..."
-            class="flex-1 px-5 py-3 text-sm border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary-300" />
+
+          <!-- Right Hero Highlight Box -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="w-full max-w-md p-6 bg-white border shadow-xl rounded-3xl border-slate-100">
+              <div class="flex items-center justify-between p-4 mb-5 bg-gradient-to-tr from-orange-500 to-amber-500 rounded-2xl text-white shadow-md shadow-orange-500/20">
+                <div>
+                  <p class="text-xs font-bold text-orange-100 uppercase tracking-wider">Akses Belajar</p>
+                  <p class="text-xl font-extrabold">8 Modul Lengkap</p>
+                </div>
+                <span class="px-3 py-1 text-xs font-bold text-orange-950 bg-white rounded-full">100% Gratis</span>
+              </div>
+
+              <!-- Quick Module Highlights -->
+              <div class="space-y-3 text-xs">
+                <div class="flex items-center justify-between p-3 transition rounded-xl bg-slate-50 hover:bg-orange-50/80 border border-slate-100">
+                  <div class="flex items-center gap-3">
+                    <span class="flex items-center justify-center w-7 h-7 font-bold text-orange-600 bg-orange-100 rounded-lg">01</span>
+                    <span class="font-bold text-slate-800">Alfabet A-Z &amp; Fingerspelling</span>
+                  </div>
+                  <span class="font-semibold text-orange-600">Dasar</span>
+                </div>
+                <div class="flex items-center justify-between p-3 transition rounded-xl bg-slate-50 hover:bg-amber-50/80 border border-slate-100">
+                  <div class="flex items-center gap-3">
+                    <span class="flex items-center justify-center w-7 h-7 font-bold text-amber-600 bg-amber-100 rounded-lg">02</span>
+                    <span class="font-bold text-slate-800">Isyarat Angka &amp; Nombor (0-10)</span>
+                  </div>
+                  <span class="font-semibold text-amber-600">Baru</span>
+                </div>
+                <div class="flex items-center justify-between p-3 transition rounded-xl bg-slate-50 hover:bg-emerald-50/80 border border-slate-100">
+                  <div class="flex items-center gap-3">
+                    <span class="flex items-center justify-center w-7 h-7 font-bold text-emerald-600 bg-emerald-100 rounded-lg">03</span>
+                    <span class="font-bold text-slate-800">Ungkapan Harian &amp; Etika</span>
+                  </div>
+                  <span class="font-semibold text-emerald-600">Praktis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+    </section>
 
-      <div class="tab-menu rounded-[2rem] bg-primary-50 border border-primary-100 p-6 md:p-8 shadow-sm">
-        <p class="text-sm font-semibold text-primary-700 uppercase tracking-[0.2em] mb-4">
-          Filter Cepat
+    <!-- PENCARIAN & FILTER MODUL -->
+    <section id="koleksi-modul" class="px-4 py-8 mx-auto sm:px-6 md:py-10 lg:px-8 max-w-7xl">
+      <div class="p-6 bg-white border shadow-xl rounded-3xl border-slate-100 md:p-8">
+        
+        <!-- Search Input Bar -->
+        <div class="relative mb-6">
+          <label for="searchInput" class="sr-only">Cari judul modul atau materi</label>
+          <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none text-slate-400">
+            <i class="fa-solid fa-magnifying-glass text-base" aria-hidden="true"></i>
+          </div>
+          <input type="text" id="searchInput" placeholder="Cari materi modul... (contoh: Angka, Alfabet, Salam, Anak, Percakapan)"
+            class="w-full py-4 pl-12 pr-12 text-sm md:text-base border border-slate-200 rounded-2xl bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all text-slate-800 placeholder-slate-400 shadow-inner" />
+          <button id="clearSearchBtn" type="button" aria-label="Hapus pencarian" class="hidden absolute inset-y-0 right-0 flex items-center pr-5 text-slate-400 hover:text-slate-600 focus:outline-none">
+            <i class="fa-solid fa-circle-xmark text-lg" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          <button type="button" data-filter="semua" class="tab-btn px-5 py-2.5 text-xs sm:text-sm font-bold rounded-full transition-all duration-200 bg-orange-600 text-white shadow-md shadow-orange-500/20 active:scale-95">
+            <i class="mr-1.5 fa-solid fa-layer-group" aria-hidden="true"></i> Semua Modul
+          </button>
+          <button type="button" data-filter="dasar" class="tab-btn px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 bg-white text-slate-700 hover:bg-orange-50 border border-slate-200 active:scale-95">
+            <i class="mr-1.5 fa-solid fa-font text-orange-500" aria-hidden="true"></i> Dasar (Abjad)
+          </button>
+          <button type="button" data-filter="angka" class="tab-btn px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 bg-white text-slate-700 hover:bg-orange-50 border border-slate-200 active:scale-95">
+            <i class="mr-1.5 fa-solid fa-arrow-down-1-9 text-amber-500" aria-hidden="true"></i> Angka &amp; Nombor
+          </button>
+          <button type="button" data-filter="ungkapan" class="tab-btn px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 bg-white text-slate-700 hover:bg-orange-50 border border-slate-200 active:scale-95">
+            <i class="mr-1.5 fa-solid fa-comments text-emerald-500" aria-hidden="true"></i> Ungkapan Harian
+          </button>
+          <button type="button" data-filter="anak" class="tab-btn px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 bg-white text-slate-700 hover:bg-orange-50 border border-slate-200 active:scale-95">
+            <i class="mr-1.5 fa-solid fa-child-reaching text-indigo-500" aria-hidden="true"></i> Ramah Anak
+          </button>
+        </div>
+
+        <div class="flex items-center justify-between pt-4 mt-6 border-t border-slate-100 text-xs text-slate-500">
+          <span id="modulCount" class="font-medium text-slate-600">8 modul siap dipelajari</span>
+          <span class="flex items-center gap-1.5 text-orange-600 font-semibold"><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Panduan Langkah-demi-Langkah</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODUL CARDS GRID SECTION -->
+    <section class="px-4 py-8 mx-auto sm:px-6 md:py-12 lg:px-8 max-w-7xl">
+      
+      <!-- Empty State -->
+      <div id="noResultsMessage" class="hidden max-w-md p-10 mx-auto my-12 text-center bg-white border border-slate-100 rounded-3xl shadow-sm">
+        <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 text-2xl text-orange-500 bg-orange-100 rounded-full">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </div>
+        <h3 class="text-lg font-bold text-slate-800">Modul Tidak Ditemukan</h3>
+        <p class="mt-2 text-xs leading-relaxed text-slate-500">
+          Coba cari dengan kata kunci lain seperti "Alfabet", "Angka", "Ungkapan", atau "Anak".
         </p>
-
-        <div class="flex flex-wrap gap-3">
-          <!-- Tombol Aktif / Default (Semua) -->
-          <button
-            class="px-4 py-2 text-sm font-semibold text-white transition-colors rounded-full tab-btn active bg-primary-500"
-            data-filter="semua">
-            Semua
-          </button>
-
-          <button
-            class="px-4 py-2 text-sm font-medium text-gray-700 transition-colors bg-white border border-gray-200 rounded-full tab-btn hover:bg-gray-50"
-            data-filter="dasar">
-            Dasar
-          </button>
-
-          <button
-            class="px-4 py-2 text-sm font-medium text-gray-700 transition-colors bg-white border border-gray-200 rounded-full tab-btn hover:bg-gray-50"
-            data-filter="ungkapan">
-            Ungkapan
-          </button>
-
-          <button
-            class="px-4 py-2 text-sm font-medium text-gray-700 transition-colors bg-white border border-gray-200 rounded-full tab-btn hover:bg-gray-50"
-            data-filter="anak">
-            Anak
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="px-5 py-10 mx-auto max-w-7xl md:px-8 md:py-14">
-    <div class="m max-w-7xl">
-      <!-- Daftar Item -->
-      <div class="grid grid-cols-2 gap-4 m-8 md:grid-cols-4 md:gap-6" id="itemList">
-        <!-- kartu 1-->
-        <div class="cursor-pointer item group" data-category="dasar">
-          <div
-            class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
-            <span class="absolute inset-0 flex items-center justify-center">300x400</span>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Dasar</span>
-              <p class="text-sm font-bold text-white md:text-base">
-                Alfabet (A-Z)
-              </p>
-            </div>
-          </div>
-          <template class="card-details">
-            <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
-            </div>
-            <div class="desc-content">
-              <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
-              <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
-                menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="space-y-1 list-disc list-inside">
-                <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
-                <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
-              </ul>
-            </div>
-          </template>
-        </div>
-        <!-- Kartu 2 -->
-        <div class="cursor-pointer item group" data-category="dasar">
-          <div
-            class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
-            <span class="absolute inset-0 flex items-center justify-center">300x400</span>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Dasar</span>
-              <p class="text-sm font-bold text-white md:text-base">
-                Lorem, ipsum.
-              </p>
-            </div>
-          </div>
-          <template class="card-details">
-            <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
-            </div>
-            <div class="desc-content">
-              <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
-              <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
-                menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="space-y-1 list-disc list-inside">
-                <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
-                <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
-              </ul>
-            </div>
-          </template>
-        </div>
-        <!-- Kartu 3 -->
-        <div class="cursor-pointer item group" data-category="ungkapan">
-          <div
-            class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
-            <span class="absolute inset-0 flex items-center justify-center">300x400</span>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Ungkapan</span>
-              <p class="text-sm font-bold text-white md:text-base">
-                LOLOLOLLOLOL
-              </p>
-            </div>
-          </div>
-          <template class="card-details">
-            <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
-            </div>
-            <div class="desc-content">
-              <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
-              <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
-                menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="space-y-1 list-disc list-inside">
-                <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
-                <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
-              </ul>
-            </div>
-          </template>
-        </div>
-        <!-- Kartu 4 -->
-        <div class="cursor-pointer item group" data-category="ungkapan">
-          <div
-            class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
-            <span class="absolute inset-0 flex items-center justify-center">300x400</span>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Ungkapan</span>
-              <p class="text-sm font-bold text-white md:text-base">
-                Smk informatika sumedang
-              </p>
-            </div>
-          </div>
-          <template class="card-details">
-            <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
-            </div>
-            <div class="desc-content">
-              <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
-              <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
-                menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="space-y-1 list-disc list-inside">
-                <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
-                <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
-              </ul>
-            </div>
-          </template>
-        </div>
-        <!-- Kartu 5 -->
-        <div class="cursor-pointer item group" data-category="ungkapan">
-          <div
-            class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
-            <span class="absolute inset-0 flex items-center justify-center">300x400</span>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Ungkapan</span>
-              <p class="text-sm font-bold text-white md:text-base">
-                Alfabet (A-Z)
-              </p>
-            </div>
-          </div>
-          <template class="card-details">
-            <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
-            </div>
-            <div class="desc-content">
-              <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
-              <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
-                menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="space-y-1 list-disc list-inside">
-                <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
-                <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
-              </ul>
-            </div>
-          </template>
-        </div>
-        <!-- Kartu 6  -->
-        <div class="cursor-pointer item group" data-category="anak">
-          <div
-            class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
-            <span class="absolute inset-0 flex items-center justify-center">300x400</span>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Anak</span>
-              <p class="text-sm font-bold text-white md:text-base">
-                Alfabet (A-Z)
-              </p>
-            </div>
-          </div>
-          <template class="card-details">
-            <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
-            </div>
-            <div class="desc-content">
-              <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
-              <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
-                menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="space-y-1 list-disc list-inside">
-                <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
-                <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
-              </ul>
-            </div>
-          </template>
-        </div>
-        <!-- Kartu 7 -->
-        <div class="cursor-pointer item group" data-category="anak">
-          <div
-            class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
-            <span class="absolute inset-0 flex items-center justify-center">300x400</span>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Anak</span>
-              <p class="text-sm font-bold text-white md:text-base">
-                Alfabet (A-Z)
-              </p>
-            </div>
-          </div>
-          <template class="card-details">
-            <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
-            </div>
-            <div class="desc-content">
-              <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
-              <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
-                menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="space-y-1 list-disc list-inside">
-                <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
-                <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
-              </ul>
-            </div>
-          </template>
-        </div>
-        <!-- Kartu 8 -->
-        <div class="cursor-pointer item group" data-category="anak">
-          <div
-            class="hover:scale-[1.03] transform duration-300 relative rounded-2xl overflow-hidden aspect-[5/6] placeholder-img">
-            <span class="absolute inset-0 flex items-center justify-center">300x400</span>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="text-[10px] font-semibold tracking-wider text-primary-300 uppercase">Anak</span>
-              <p class="text-sm font-bold text-white md:text-base">
-                Alfabet (A-Z)
-              </p>
-            </div>
-          </div>
-          <!-- Rincian Konten Pop-up disimpan di sini (Hidden) -->
-          <template class="card-details">
-            <div class="media-content">
-              <img src="assets/images/jamu/jamujun.webp" alt="Alfabet" class="object-cover w-full h-48 rounded-xl" />
-            </div>
-            <div class="desc-content">
-              <p>Mengenal huruf alfabet A sampai Z adalah langkah awal penting dalam pendidikan anak usia dini.</p>
-              <p>Dalam materi ini, anak-anak akan belajar cara mengucapkan setiap huruf, mengenali bentuknya, dan
-                menghubungkannya dengan objek sehari-hari.</p>
-              <ul class="space-y-1 list-disc list-inside">
-                <li><strong>Huruf Vokal:</strong> A, I, U, E, O</li>
-                <li><strong>Huruf Konsonan:</strong> B, C, D, F, G, dll.</li>
-              </ul>
-            </div>
-          </template>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <!-- Modal Pop-up -->
-  <div id="popupModal" class="fixed inset-0 z-50 items-center justify-center hidden p-4 bg-black/70 backdrop-blur-none">
-    <div class="bg-white rounded-2xl p-6 max-w-lg w-full relative shadow-2xl max-h-[85vh] overflow-y-auto flex flex-col">
-
-      <!-- Tombol Close Sticky di Atas -->
-      <button id="closeBtn" type="button"
-        class="absolute z-10 text-2xl font-bold text-gray-400 cursor-pointer top-4 right-4 hover:text-gray-600">&times;</button>
-
-      <!-- Header Modal -->
-      <span id="modalCategory" class="text-[11px] font-bold text-orange-500 uppercase tracking-wider block mb-1"></span>
-      <h2 id="modalTitle" class="pr-6 mb-4 text-xl font-bold text-gray-800"></h2>
-
-      <!-- Media (Gambar atau Video) -->
-      <div id="modalMedia" class="hidden mb-4 overflow-hidden rounded-xl">
-        <!-- Media dinamis akan disuntikkan ke sini lewat jQuery -->
       </div>
 
-      <!-- Deskripsi / Teks Panjang -->
-      <div id="modalDescription" class="space-y-3 text-sm leading-relaxed text-gray-600">
-        <!-- Teks atau HTML panjang akan disuntikkan ke sini -->
+      <!-- Grid Cards -->
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" id="modulContainer">
+
+        <!-- MODUL 1: Alfabet A-Z -->
+        <div role="button" tabindex="0" data-category="dasar" data-keywords="alfabet abjad a-z huruf dasar fingerspelling"
+             data-desc="Mengenal 26 bentuk tangan huruf alfabet BISINDO dari A sampai Z untuk mengeja nama dan istilah kata."
+             data-action-url="kosakata.html" data-action-text="Buka Kamus Abjad &rarr;"
+             class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-orange-200">
+          <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white">
+            <img src="assets/images/Gestur-Tangan/A/wall white (1).jpg" alt="Modul Alfabet A-Z" class="object-cover w-full h-full opacity-90 transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-orange-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Level 1: Dasar</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-orange-600 transition-colors modul-title">Alfabet BISINDO (A - Z)</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-500 flex-1 modul-desc">Fondasi utama pembentukan ejaan jari (fingerspelling) untuk mengeja nama dan istilah baru.</p>
+            <div class="flex items-center justify-between mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-orange-600">
+              <span>26 Materi Huruf</span>
+              <span class="flex items-center gap-1">Detail <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <template class="curriculum-details">
+            <div class="space-y-2 text-xs">
+              <p class="font-bold text-slate-800">Cakupan Pembelajaran:</p>
+              <ul class="space-y-1.5 list-disc list-inside text-slate-600">
+                <li>Bentuk gestur vokal: A, I, U, E, O</li>
+                <li>Bentuk gestur konsonan: B sampai Z</li>
+                <li>Teknik kestabilan pergelangan tangan saat mengeja nama</li>
+              </ul>
+            </div>
+          </template>
+        </div>
+
+        <!-- MODUL 2: Isyarat Angka 0 - 10 (NEW NUMBER SIGN MODULE!) -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="angka nombor bilangan 0 1 2 3 4 5 6 7 8 9 10 matematika hitung"
+             data-desc="Pelajari pembentukan gestur jari untuk angka 0 sampai 10 dalam standar BISINDO dengan mudah."
+             data-action-url="kosakata.html" data-action-text="Lihat Panduan Angka di Kamus &rarr;"
+             class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-amber-200">
+          <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-white">
+            <img src="assets/images/Gestur-Tangan/D/wall white (1).jpg" alt="Modul Angka 0-10" class="object-cover w-full h-full opacity-90 transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Level 1: Angka</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors modul-title">Isyarat Angka (0 - 10)</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-500 flex-1 modul-desc">Panduan visual bentuk jari tangan untuk membilang angka 0 sampai 10 secara teratur.</p>
+            <div class="flex items-center justify-between mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-amber-600">
+              <span>11 Materi Angka</span>
+              <span class="flex items-center gap-1">Detail <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <template class="curriculum-details">
+            <div class="space-y-2 text-xs">
+              <p class="font-bold text-slate-800">Cakupan Pembelajaran:</p>
+              <ul class="space-y-1.5 list-disc list-inside text-slate-600">
+                <li>Angka dasar 0 (Nol) hingga 5 (Lima)</li>
+                <li>Kombinasi sentuhan jari untuk angka 6, 7, 8, dan 9</li>
+                <li>Gerakan ibu jari untuk angka 10 (Sepuluh)</li>
+              </ul>
+            </div>
+          </template>
+        </div>
+
+        <!-- MODUL 3: Angka Puluhan & Ratusan -->
+        <div role="button" tabindex="0" data-category="angka" data-keywords="angka nombor puluhan belasan ratusan berhitung nominal harga"
+             data-desc="Memahami cara menyusun angka belasan (11-19), puluhan (20-90), dan ratusan untuk transaksi dan waktu."
+             data-action-url="kosakata.html" data-action-text="Latihan Angka &rarr;"
+             class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-amber-200">
+          <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-amber-600 to-orange-500 flex items-center justify-center text-white">
+            <img src="assets/images/Gestur-Tangan/V/wall white (1).jpg" alt="Modul Angka Puluhan" class="object-cover w-full h-full opacity-90 transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Level 2: Angka</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors modul-title">Kombinasi Bilangan &amp; Waktu</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-500 flex-1 modul-desc">Mempelajari cara menyebutkan jam, umur, nomor telepon, dan nominal angka dalam percakapan.</p>
+            <div class="flex items-center justify-between mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-amber-600">
+              <span>8 Materi Lanjutan</span>
+              <span class="flex items-center gap-1">Detail <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <template class="curriculum-details">
+            <div class="space-y-2 text-xs">
+              <p class="font-bold text-slate-800">Cakupan Pembelajaran:</p>
+              <ul class="space-y-1.5 list-disc list-inside text-slate-600">
+                <li>Pola angka belasan (11-19)</li>
+                <li>Gerakan ganda untuk puluhan (20, 30, 50, dll.)</li>
+                <li>Menyatakan jam dan menit dalam kehidupan sehari-hari</li>
+              </ul>
+            </div>
+          </template>
+        </div>
+
+        <!-- MODUL 4: Salam & Ungkapan Harian -->
+        <div role="button" tabindex="0" data-category="ungkapan" data-keywords="salam sapaan terima kasih maaf tolong ungkapan harian sopan santun"
+             data-desc="Kumpulan isyarat sapaan sopan santun: Halo, Selamat Pagi, Terima Kasih, Maaf, dan Tolong."
+             data-action-url="kosakata.html" data-action-text="Buka Kosakata Salam &rarr;"
+             class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-emerald-200">
+          <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white">
+            <img src="assets/images/Gestur-Tangan/H/wall white (1).jpg" alt="Modul Salam & Ungkapan" class="object-cover w-full h-full opacity-90 transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Level 2: Ungkapan</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition-colors modul-title">Salam &amp; Ungkapan Sopan</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-500 flex-1 modul-desc">Kuasai gestur salam pembuka, terima kasih, permohonan maaf, dan permohonan tolong yang santun.</p>
+            <div class="flex items-center justify-between mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-emerald-600">
+              <span>12 Kosakata Kunci</span>
+              <span class="flex items-center gap-1">Detail <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <template class="curriculum-details">
+            <div class="space-y-2 text-xs">
+              <p class="font-bold text-slate-800">Cakupan Pembelajaran:</p>
+              <ul class="space-y-1.5 list-disc list-inside text-slate-600">
+                <li>Sapaan waktu: Pagi, Siang, Sore, Malam</li>
+                <li>Etika terima kasih &amp; sama-sama</li>
+                <li>Meminta permisi dan permohonan maaf yang tulus</li>
+              </ul>
+            </div>
+          </template>
+        </div>
+
+        <!-- MODUL 5: Percakapan & Tanya Jawab -->
+        <div role="button" tabindex="0" data-category="ungkapan" data-keywords="percakapan dialog tanya apa siapa di mana mengapa ekspresi wajah"
+             data-desc="Membangun dialog kalimat tanya (5W1H) dan respons ekspresif dalam percakapan dua arah."
+             data-action-url="#quiz" data-action-text="Uji di Kuis &rarr;"
+             class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-emerald-200">
+          <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white">
+            <img src="assets/images/Gestur-Tangan/W/wall white (1).jpg" alt="Modul Percakapan Praktis" class="object-cover w-full h-full opacity-90 transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-teal-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Level 3: Ungkapan</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-teal-600 transition-colors modul-title">Percakapan &amp; Kalimat Tanya</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-500 flex-1 modul-desc">Membentuk kalimat tanya, ekspresi alis/wajah (*non-manual markers*), dan dialog praktis.</p>
+            <div class="flex items-center justify-between mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-teal-600">
+              <span>10 Topik Dialog</span>
+              <span class="flex items-center gap-1">Detail <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <template class="curriculum-details">
+            <div class="space-y-2 text-xs">
+              <p class="font-bold text-slate-800">Cakupan Pembelajaran:</p>
+              <ul class="space-y-1.5 list-disc list-inside text-slate-600">
+                <li>Kata tanya: Siapa, Apa, Kapan, Di Mana, Kenapa, Bagaimana</li>
+                <li>Peran gerak alis dan kepala dalam kalimat tanya</li>
+                <li>Menjawab 'Ya', 'Bukan', 'Bisa', dan 'Belum'</li>
+              </ul>
+            </div>
+          </template>
+        </div>
+
+        <!-- MODUL 6: Keluarga & Hubungan Sosial -->
+        <div role="button" tabindex="0" data-category="ungkapan" data-keywords="keluarga ayah ibu kakak adik teman kawan hubungan sosial"
+             data-desc="Isyarat seputar relasi keluarga, teman sebaya, dan lingkungan komunitas."
+             data-action-url="kosakata.html" data-action-text="Buka Kosakata Sosial &rarr;"
+             class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-emerald-200">
+          <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-emerald-600 to-green-500 flex items-center justify-center text-white">
+            <img src="assets/images/Gestur-Tangan/F/wall white (1).jpg" alt="Modul Isyarat Keluarga" class="object-cover w-full h-full opacity-90 transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Level 2: Sosial</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition-colors modul-title">Keluarga &amp; Relasi Sosial</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-500 flex-1 modul-desc">Mengenal isyarat untuk Ayah, Ibu, Kakak, Adik, Kakek, Nenek, dan Teman akrab.</p>
+            <div class="flex items-center justify-between mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-emerald-600">
+              <span>9 Isyarat Keluarga</span>
+              <span class="flex items-center gap-1">Detail <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <template class="curriculum-details">
+            <div class="space-y-2 text-xs">
+              <p class="font-bold text-slate-800">Cakupan Pembelajaran:</p>
+              <ul class="space-y-1.5 list-disc list-inside text-slate-600">
+                <li>Isyarat Ayah (sentuhan dagu/pipi) dan Ibu</li>
+                <li>Isyarat Saudara Laki-laki &amp; Perempuan</li>
+                <li>Isyarat Teman dan Komunitas</li>
+              </ul>
+            </div>
+          </template>
+        </div>
+
+        <!-- MODUL 7: Ramah Anak: Dunia Hewan -->
+        <div role="button" tabindex="0" data-category="anak" data-keywords="anak hewan binatang kucing anjing burung ikan satwa fauna"
+             data-desc="Modul visual bertema hewan peliharaan dan satwa alam yang sangat disukai anak-anak."
+             data-action-url="kosakata.html" data-action-text="Latihan Isyarat Hewan &rarr;"
+             class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-indigo-200">
+          <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white">
+            <img src="assets/images/Gestur-Tangan/C/wall white (1).jpg" alt="Modul Ramah Anak Hewan" class="object-cover w-full h-full opacity-90 transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-indigo-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Khusus Anak</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors modul-title">Dunia Hewan &amp; Alam</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-500 flex-1 modul-desc">Meniru ciri khas gerak dan karakteristik hewan seperti Kucing (kumis), Burung (sayap), dan Ikan.</p>
+            <div class="flex items-center justify-between mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-indigo-600">
+              <span>10 Isyarat Hewan</span>
+              <span class="flex items-center gap-1">Detail <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <template class="curriculum-details">
+            <div class="space-y-2 text-xs">
+              <p class="font-bold text-slate-800">Cakupan Pembelajaran:</p>
+              <ul class="space-y-1.5 list-disc list-inside text-slate-600">
+                <li>Hewan peliharaan: Kucing, Anjing, Kelinci</li>
+                <li>Unggas &amp; air: Burung, Ikan, Bebek</li>
+                <li>Permainan tebak isyarat hewan interaktif</li>
+              </ul>
+            </div>
+          </template>
+        </div>
+
+        <!-- MODUL 8: Ramah Anak: Warna & Benda Rumah -->
+        <div role="button" tabindex="0" data-category="anak" data-keywords="anak warna merah kuning hijau biru benda rumah buku meja"
+             data-desc="Mengenal warna pelangi dan nama benda di sekitar rumah melalui isyarat visual yang ceria."
+             data-action-url="kosakata.html" data-action-text="Lihat Koleksi Benda &rarr;"
+             class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-indigo-200">
+          <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white">
+            <img src="assets/images/Gestur-Tangan/R/wall white (1).jpg" alt="Modul Warna & Benda" class="object-cover w-full h-full opacity-90 transition-transform duration-200 group-hover:scale-105" />
+            <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-purple-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Khusus Anak</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-purple-600 transition-colors modul-title">Warna &amp; Benda di Rumah</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-500 flex-1 modul-desc">Mempelajari isyarat warna (Merah, Kuning, Hijau, Biru) serta benda sehari-hari (Buku, Meja, Rumah).</p>
+            <div class="flex items-center justify-between mt-5 pt-3 border-t border-slate-100 text-xs font-semibold text-purple-600">
+              <span>12 Kosakata Visual</span>
+              <span class="flex items-center gap-1">Detail <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <template class="curriculum-details">
+            <div class="space-y-2 text-xs">
+              <p class="font-bold text-slate-800">Cakupan Pembelajaran:</p>
+              <ul class="space-y-1.5 list-disc list-inside text-slate-600">
+                <li>Warna dasar: Merah (bibir), Kuning, Hijau, Putih, Hitam</li>
+                <li>Benda belajar: Buku, Pena, Meja</li>
+                <li>Aktivitas bermain dan menggambar bersama</li>
+              </ul>
+            </div>
+          </template>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- INTERACTIVE QUIZ SECTION (#quiz) -->
+    <section id="quiz" class="px-4 py-16 sm:px-6 md:py-24 lg:px-8 bg-gradient-to-b from-orange-50/60 to-white border-t border-orange-100">
+      <div class="mx-auto max-w-4xl">
+        
+        <!-- Quiz Header Banner -->
+        <div class="mb-10 text-center">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1 mb-3 text-xs font-bold tracking-wider text-orange-800 uppercase bg-orange-100 rounded-full">
+            <i class="fa-solid fa-gamepad" aria-hidden="true"></i> Latihan Interaktif Langsung
+          </span>
+          <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+            Kuis Uji Pemahaman <span class="text-orange-600">BISINDO</span>
+          </h2>
+          <p class="max-w-xl mx-auto mt-3 text-sm text-slate-600 sm:text-base">
+            Uji apa yang telah kamu pelajari dari modul di atas! Pilih jawaban yang benar untuk mengumpulkan poin.
+          </p>
+
+          <!-- Quiz Score Bar -->
+          <div class="flex items-center justify-between max-w-md p-4 mx-auto mt-6 bg-white border rounded-2xl border-orange-100 shadow-sm">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-trophy text-amber-500 text-lg" aria-hidden="true"></i>
+              <span class="text-xs font-bold text-slate-700">Skor Anda: <span id="quizCurrentScore" class="text-orange-600 font-extrabold text-sm">0</span> Poin</span>
+            </div>
+            <span id="quizProgress" class="text-xs font-medium text-slate-500">0 dari 3 selesai</span>
+          </div>
+        </div>
+
+        <!-- Quiz Question 1 -->
+        <div class="p-6 mb-6 bg-white border shadow-md rounded-3xl border-slate-100 quiz-question-card">
+          <div class="flex items-center justify-between mb-3 text-xs font-bold text-orange-600 uppercase">
+            <span>Soal 1 &bull; Abjad &amp; Angka</span>
+            <span>+10 Poin</span>
+          </div>
+          <h3 class="mb-4 text-base font-bold text-slate-900 sm:text-lg">
+            Bagaimanakah bentuk isyarat tangan untuk angka 1 (Satu) dalam BISINDO?
+          </h3>
+          
+          <div class="space-y-3 text-sm">
+            <button type="button" data-correct="true" data-feedback="Benar! Angka 1 dibentuk dengan menegakkan satu jari telunjuk ke atas."
+              class="w-full flex items-center justify-between p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>A. Menegakkan satu jari telunjuk ke atas lurus</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+            <button type="button" data-correct="false" data-feedback="Kurang tepat. Mengacungkan ibu jari ke atas biasanya untuk angka 10 atau isyarat 'Bagus'."
+              class="w-full flex items-center justify-between p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>B. Mengacungkan ibu jari saja ke atas</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+            <button type="button" data-correct="false" data-feedback="Kurang tepat. Membuka semua jari adalah isyarat angka 5."
+              class="w-full flex items-center justify-between p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>C. Membuka kelima jari secara lebar</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+          </div>
+          <div class="hidden quiz-feedback"></div>
+        </div>
+
+        <!-- Quiz Question 2 -->
+        <div class="p-6 mb-6 bg-white border shadow-md rounded-3xl border-slate-100 quiz-question-card">
+          <div class="flex items-center justify-between mb-3 text-xs font-bold text-orange-600 uppercase">
+            <span>Soal 2 &bull; Ungkapan Sopan</span>
+            <span>+10 Poin</span>
+          </div>
+          <h3 class="mb-4 text-base font-bold text-slate-900 sm:text-lg">
+            Bagaimana cara melakukan isyarat "Terima Kasih" dengan benar?
+          </h3>
+          
+          <div class="space-y-3 text-sm">
+            <button type="button" data-correct="false" data-feedback="Kurang tepat. Memutar tangan di dada adalah isyarat untuk 'Maaf'."
+              class="w-full flex items-center justify-between p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>A. Mengepalkan tangan dan memutarnya di depan dada</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+            <button type="button" data-correct="true" data-feedback="Tepat sekali! Sentuhkan ujung jari terbuka ke dagu lalu gerakkan ke arah depan lawan bicara."
+              class="w-full flex items-center justify-between p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>B. Menyentuhkan ujung jari ke dagu lalu menggerakkannya ke depan</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+            <button type="button" data-correct="false" data-feedback="Kurang tepat. Melambaikan tangan di pelipis adalah isyarat untuk 'Halo'."
+              class="w-full flex items-center justify-between p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>C. Melambaikan tangan di samping pelipis/dahi</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+          </div>
+          <div class="hidden quiz-feedback"></div>
+        </div>
+
+        <!-- Quiz Question 3 -->
+        <div class="p-6 mb-6 bg-white border shadow-md rounded-3xl border-slate-100 quiz-question-card">
+          <div class="flex items-center justify-between mb-3 text-xs font-bold text-orange-600 uppercase">
+            <span>Soal 3 &bull; Etika Komunikasi</span>
+            <span>+10 Poin</span>
+          </div>
+          <h3 class="mb-4 text-base font-bold text-slate-900 sm:text-lg">
+            Mengapa ekspresi wajah (non-manual marker) sangat penting dalam berbahasa isyarat?
+          </h3>
+          
+          <div class="space-y-3 text-sm">
+            <button type="button" data-correct="false" data-feedback="Kurang tepat. Ekspresi wajah memiliki fungsi tata bahasa yang penting, bukan sekadar dekorasi."
+              class="w-full flex items-center justify-between p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>A. Hanya sebagai hiasan agar terlihat lebih menarik</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+            <button type="button" data-correct="true" data-feedback="Luar biasa! Ekspresi wajah menentukan intonasi, jenis kalimat tanya/pernyataan, dan emosi."
+              class="w-full flex items-center justify-between p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>B. Menentukan intonasi, konteks kalimat tanya/seru, dan ketegasan makna</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+            <button type="button" data-correct="false" data-feedback="Kurang tepat. Gerakan tangan dan ekspresi wajah harus saling melengkapi."
+              class="w-full flex items-center justify-between p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>C. Untuk menggantikan seluruh gerakan tangan</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+          </div>
+          <div class="hidden quiz-feedback"></div>
+        </div>
+
+        <!-- Quiz Completion Box -->
+        <div id="quizCompletionCard" class="hidden p-8 text-center bg-white border shadow-xl rounded-3xl border-orange-200">
+          <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 text-3xl text-amber-500 bg-amber-100 rounded-full">
+            <i class="fa-solid fa-award" aria-hidden="true"></i>
+          </div>
+          <h3 class="text-2xl font-extrabold text-slate-900">Kuis Selesai!</h3>
+          <p class="mt-1 text-sm text-slate-600">Total skor yang kamu peroleh:</p>
+          <p id="finalScoreText" class="my-3 text-4xl font-extrabold text-orange-600">30 Poin</p>
+          <div class="flex flex-wrap items-center justify-center gap-3 mt-5">
+            <button id="resetQuizBtn" type="button" class="px-6 py-2.5 text-xs font-bold text-slate-700 bg-slate-100 rounded-full hover:bg-slate-200 transition">
+              <i class="fa-solid fa-rotate-left mr-1" aria-hidden="true"></i> Main Ulang Kuis
+            </button>
+            <a href="kosakata.html" class="px-6 py-2.5 text-xs font-bold text-white bg-orange-600 rounded-full hover:bg-orange-700 transition shadow-md shadow-orange-500/20">
+              Buka Kamus Kosakata &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ACCESSIBLE MODAL DETAIL POPUP -->
+  <div id="popupModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" class="fixed inset-0 z-50 items-center justify-center hidden p-4 bg-slate-900/80 backdrop-blur-xs">
+    <div class="relative flex flex-col w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl p-6 sm:p-8 border border-slate-100">
+
+      <!-- Close Button -->
+      <button id="closeBtn" type="button" aria-label="Tutup modul detail"
+        class="absolute top-5 right-5 flex items-center justify-center w-9 h-9 text-slate-400 rounded-full hover:text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500">
+        <i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>
+      </button>
+
+      <!-- Category Pill -->
+      <div class="mb-2">
+        <span id="modalCategory" class="inline-block px-3 py-1 text-[11px] font-bold tracking-wider text-orange-800 uppercase bg-orange-100 rounded-full"></span>
+      </div>
+
+      <!-- Title -->
+      <h2 id="modalTitle" class="pr-8 mb-4 text-2xl font-extrabold text-slate-900 sm:text-3xl"></h2>
+
+      <!-- Image Preview -->
+      <div class="relative mb-5 overflow-hidden border aspect-video bg-slate-50 rounded-2xl border-slate-100 flex items-center justify-center">
+        <img id="modalImg" src="" alt="" class="object-cover w-full h-full" />
+      </div>
+
+      <!-- Description & Curriculum -->
+      <div class="space-y-4 text-sm text-slate-600">
+        <div class="p-4 bg-orange-50/70 border border-orange-100 rounded-2xl">
+          <p class="font-bold text-orange-950 mb-1 flex items-center gap-1.5 text-xs uppercase tracking-wider">
+            <i class="fa-solid fa-circle-info text-orange-600" aria-hidden="true"></i> Ringkasan Modul
+          </p>
+          <div id="modalDescription" class="leading-relaxed text-xs sm:text-sm"></div>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200/60 rounded-2xl">
+          <div id="modalCurriculum"></div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex items-center justify-end gap-3 mt-6 pt-4 border-t border-slate-100">
+        <button id="closeModalAction" type="button" class="px-5 py-2.5 text-xs font-bold text-slate-700 bg-slate-100 rounded-full hover:bg-slate-200 transition">
+          Tutup
+        </button>
+        <a id="modalActionLink" href="kosakata.html" class="px-5 py-2.5 text-xs font-bold text-white bg-orange-600 rounded-full hover:bg-orange-700 transition shadow-md shadow-orange-500/20">
+          Buka Kamus Terkait &rarr;
+        </a>
       </div>
 
     </div>
   </div>
 
-  <!-- footer -->
-  <footer class="pt-16 pb-8 mt-10 text-gray-400 bg-gray-900">
-    <div class="px-5 mx-auto max-w-7xl md:px-8">
-      <h2 class="text-4xl font-extrabold tracking-tight text-center text-white md:text-6xl mb-14">
-        ISYARAT<span class="text-primary-500">OK</span>
-      </h2>
+  <!-- FOOTER SECTION (Unified Across All Pages) -->
+  <footer class="text-white bg-slate-900 border-t border-slate-800 mt-20">
+    <div class="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div class="grid gap-10 md:grid-cols-12">
 
-      <div class="grid grid-cols-2 gap-8 mb-12 text-sm md:grid-cols-4">
-        <div>
-          <p class="mb-4 font-semibold tracking-wide text-white">NAVIGASI</p>
-          <ul class="space-y-2">
-            <li>
-              <a href="index.html" class="transition hover:text-primary-400">Beranda</a>
-            </li>
-            <li>
-              <a href="#edukasi" class="transition hover:text-primary-400">Edukasi</a>
-            </li>
-            <li>
-              <a href="#kamus" class="transition hover:text-primary-400">Kamus</a>
-            </li>
-            <li>
-              <a href="#quiz" class="transition hover:text-primary-400">Quiz</a>
-            </li>
+        <!-- Brand Col -->
+        <div class="md:col-span-5">
+          <a href="index.html" class="flex items-center gap-2.5 mb-4 text-2xl font-extrabold tracking-tight text-white group" aria-label="IsyaratOK Footer">
+            <div class="flex items-center justify-center w-10 h-10 text-xl text-white rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 shadow-md shadow-orange-500/20">
+              <i class="fa-solid fa-hands-asl-interpreting" aria-hidden="true"></i>
+            </div>
+            <span>Isyarat<span class="text-orange-500">OK</span></span>
+          </a>
+          <p class="max-w-md text-sm leading-relaxed text-slate-400 mb-6">
+            Platform edukasi bahasa isyarat interaktif yang dirancang inklusif untuk semua usia. Bersama membangun masyarakat yang ramah dan saling memahami.
+          </p>
+          <div class="flex space-x-3">
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-slate-300 transition-colors bg-slate-800 rounded-xl hover:bg-orange-600 hover:text-white" aria-label="Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-slate-300 transition-colors bg-slate-800 rounded-xl hover:bg-orange-600 hover:text-white" aria-label="Instagram">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="flex items-center justify-center w-9 h-9 text-slate-300 transition-colors bg-slate-800 rounded-xl hover:bg-orange-600 hover:text-white" aria-label="Youtube">
+              <i class="fab fa-youtube" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Col -->
+        <div class="md:col-span-3">
+          <h3 class="mb-4 text-sm font-bold tracking-wider text-white uppercase">Navigasi Utama</h3>
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><a href="index.html" class="transition-colors hover:text-orange-400">Beranda</a></li>
+            <li><a href="edukasi.html" class="transition-colors hover:text-orange-400">Modul Edukasi</a></li>
+            <li><a href="kosakata.html" class="transition-colors hover:text-orange-400">Kamus Kosakata</a></li>
+            <li><a href="#quiz" class="transition-colors hover:text-orange-400">Kuis Interaktif</a></li>
+            <li><a href="index.html#isyarat-angka" class="transition-colors hover:text-orange-400">Statistik Isyarat</a></li>
           </ul>
         </div>
-        <div>
-          <p class="mb-4 font-semibold tracking-wide text-white">LEGAL</p>
-          <ul class="space-y-2">
-            <li>
-              <a href="#" class="transition hover:text-primary-400">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#" class="transition hover:text-primary-400">Terms of Service</a>
-            </li>
-            <li>
-              <a href="#" class="transition hover:text-primary-400">Cookie Policy</a>
-            </li>
-          </ul>
+
+        <!-- Contact Col -->
+        <div class="md:col-span-4" id="kontak">
+          <h3 class="mb-4 text-sm font-bold tracking-wider text-white uppercase">Hubungi Kami</h3>
+          <div class="space-y-3 text-sm text-slate-400">
+            <div class="flex items-center gap-3">
+              <i class="text-orange-500 fa-solid fa-location-dot" aria-hidden="true"></i>
+              <span>Indonesia &mdash; Untuk Seluruh Nusantara</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="text-orange-500 fas fa-envelope" aria-hidden="true"></i>
+              <span>halo@isyaratok.id</span>
+            </div>
+            <p class="pt-2 text-xs text-slate-500 leading-relaxed">
+              Mendukung kurikulum BISINDO terbuka dan pembelajaran inklusif di sekolah &amp; ruang publik.
+            </p>
+          </div>
         </div>
-        <div>
-          <p class="mb-4 font-semibold tracking-wide text-white">SOSIAL</p>
-          <ul class="space-y-2">
-            <li>
-              <a href="#" class="transition hover:text-primary-400">Instagram</a>
-            </li>
-            <li>
-              <a href="#" class="transition hover:text-primary-400">Facebook</a>
-            </li>
-            <li>
-              <a href="#" class="transition hover:text-primary-400">Twitter</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <p class="mb-4 font-semibold tracking-wide text-white">KONTAK</p>
-          <ul class="space-y-2">
-            <li>
-              <a href="mailto:hello@isyaratok.id" class="transition hover:text-primary-400">hello@isyaratok.id</a>
-            </li>
-            <li>Jakarta, Indonesia</li>
-          </ul>
-        </div>
+
       </div>
 
-      <div class="flex flex-col items-center justify-between gap-3 pt-6 text-xs border-t border-gray-800 sm:flex-row">
-        <p>© 2026 ISYARATOK. All rights reserved.</p>
-        <p class="flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-primary-500"></span>
-          ONLINE LEARNING ACTIVE
-        </p>
+      <!-- Copyright Bar -->
+      <div class="pt-8 mt-12 border-t border-slate-800 flex flex-col items-center justify-between gap-4 sm:flex-row text-xs text-slate-400">
+        <p>&copy; 2026 IsyaratOK. Seluruh hak cipta dilindungi.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="transition-colors hover:text-white">Kebijakan Privasi</a>
+          <a href="#" class="transition-colors hover:text-white">Aksesibilitas</a>
+          <a href="#" class="transition-colors hover:text-white">Ketentuan Layanan</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Script jQuery -->
+  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/edukasi.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
-
 </html>

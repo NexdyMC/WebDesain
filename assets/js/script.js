@@ -1,79 +1,256 @@
+/**
+ * IsyaratOK - Main Script
+ * Powered by jQuery & Modern Web Standards
+ */
+
 $(function () {
-  $("#menuBtn").on("click", function () {
-    $("#mobileMenu").toggleClass("hidden grid");
+  "use strict";
+
+  // ==========================================
+  // 1. ACCESSIBLE MOBILE NAVIGATION (ALL PAGES)
+  // ==========================================
+  const $menuBtn = $("#menuBtn");
+  const $mobileMenu = $("#mobileMenu");
+  const $iconOpen = $("#iconOpen");
+  const $iconClose = $("#iconClose");
+
+  function toggleMobileMenu(isOpen) {
+    const isCurrentlyOpen = $mobileMenu.is(":visible") && !$mobileMenu.hasClass("hidden");
+    const openState = typeof isOpen === "boolean" ? isOpen : !isCurrentlyOpen;
+
+    if (openState) {
+      $mobileMenu.removeClass("hidden").addClass("flex flex-col");
+      $menuBtn.attr("aria-expanded", "true");
+      $iconOpen.addClass("hidden");
+      $iconClose.removeClass("hidden");
+    } else {
+      $mobileMenu.addClass("hidden").removeClass("flex flex-col");
+      $menuBtn.attr("aria-expanded", "false");
+      $iconOpen.removeClass("hidden");
+      $iconClose.addClass("hidden");
+    }
+  }
+
+  $menuBtn.on("click", function (e) {
+    e.stopPropagation();
+    toggleMobileMenu();
   });
 
   $("#mobileMenu a").on("click", function () {
-    $("#mobileMenu").addClass("hidden").removeClass("grid");
+    toggleMobileMenu(false);
   });
 
-  function isVisibleOnScroll($el) {
-    const rect = $el[0].getBoundingClientRect();
-    return rect.top < window.innerHeight * 0.9;
-  }
+  // Close menu when clicking outside or pressing Escape
+  $(document).on("click", function (e) {
+    if (!$(e.target).closest("header").length) {
+      toggleMobileMenu(false);
+    }
+  });
 
-  function revealFadeUp() {
-    $(".fade-in, .fade-up-item").each(function () {
-      const $el = $(this);
+  $(document).on("keydown", function (e) {
+    if (e.key === "Escape" && $mobileMenu.is(":visible") && !$mobileMenu.hasClass("hidden")) {
+      toggleMobileMenu(false);
+      $menuBtn.trigger("focus");
+    }
+  });
 
-      if (isVisibleOnScroll($el) && !$el.hasClass("is-visible")) {
-        $el.addClass("is-visible");
-      }
-    });
-  }
 
-  $(window).on("scroll resize load", revealFadeUp);
-  revealFadeUp();
+  // ==========================================
+  // 2. FAST & SNAPPY FADE-UP SCROLL ANIMATION (JQUERY)
+  // ==========================================
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function animateRandomLetterReveal($el, finalText) {
-    const chars = Array.from(finalText);
-    const pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-";
-    const $charNodes = [];
+  function initFadeUpAnimation() {
+    const $fadeElements = $(".fade-in, .fade-up-item");
 
-    $el.empty();
+    if (prefersReducedMotion) {
+      // If user prefers reduced motion, make visible immediately without transition delay
+      $fadeElements.addClass("is-visible").css({ opacity: 1, transform: "none", "transition-delay": "0s" });
+      return;
+    }
 
-    chars.forEach(function (char) {
-      const randomChar = pool[Math.floor(Math.random() * pool.length)];
-      const $char = $("<span>")
-        .addClass("reveal-char")
-        .text(randomChar === " " ? "\u00A0" : randomChar);
+    if ("IntersectionObserver" in window) {
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.1
+      };
 
-      $el.append($char);
-      $charNodes.push($char);
-    });
+      const fadeObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            const $el = $(entry.target);
+            $el.addClass("is-visible");
 
-    let revealedCount = 0;
+            // CRITICAL FIX FOR HOVER DELAY:
+            // Remove transition-delay once initial reveal animation completes
+            // so card hover micro-interactions are instantly responsive (0ms delay)
+            const delay = parseFloat($el.css("transition-delay")) * 1000 || 0;
+            const duration = parseFloat($el.css("transition-duration")) * 1000 || 500;
+            setTimeout(function () {
+              $el.css("transition-delay", "0s");
+            }, delay + duration);
 
-    const interval = setInterval(function () {
-      $charNodes.forEach(function ($char, index) {
-        if (index < revealedCount) {
-          const targetChar = chars[index] === " " ? "\u00A0" : chars[index];
-          $char.text(targetChar).addClass("done");
-        } else {
-          const randomChar = pool[Math.floor(Math.random() * pool.length)];
-          $char.text(randomChar === " " ? "\u00A0" : randomChar);
-        }
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      $fadeElements.each(function () {
+        fadeObserver.observe(this);
       });
+    } else {
+      // jQuery Fallback for older browsers
+      function checkFadeUpScroll() {
+        const windowBottom = $(window).scrollTop() + $(window).height();
 
-      revealedCount += 1;
-
-      if (revealedCount > chars.length) {
-        clearInterval(interval);
-        $charNodes.forEach(function ($char, index) {
-          const targetChar = chars[index] === " " ? "\u00A0" : chars[index];
-          $char.text(targetChar).addClass("done");
+        $fadeElements.each(function () {
+          const $el = $(this);
+          if (!$el.hasClass("is-visible")) {
+            const elTop = $el.offset().top;
+            if (windowBottom > elTop + 40) {
+              $el.addClass("is-visible");
+              setTimeout(function () {
+                $el.css("transition-delay", "0s");
+              }, 600);
+            }
+          }
         });
       }
-    }, 150);
+
+      $(window).on("scroll resize", checkFadeUpScroll);
+      checkFadeUpScroll();
+    }
   }
 
-  $(".stat-number").each(function () {
-    const $el = $(this);
-    const finalText = $el.data("value") || $el.text();
-    const delay = Number($el.data("delay")) || 0;
+  initFadeUpAnimation();
 
-    setTimeout(function () {
-      animateRandomLetterReveal($el, finalText);
-    }, delay);
+
+  // ==========================================
+  // 3. ANIMATED RANDOM NUMBER (ISYARAT DALAM ANGKA)
+  // ==========================================
+  /**
+   * Animates a counter by spinning random numbers and progressively
+   * locking in digits to the target number.
+   */
+  function animateRandomNumber($element) {
+    if ($element.data("animated-done")) return;
+    $element.data("animated-done", true);
+
+    const targetValue = String($element.attr("data-target") || $element.data("value") || "100").replace(/[^0-9]/g, "");
+    const targetNum = parseInt(targetValue, 10) || 0;
+    const prefix = $element.attr("data-prefix") || "";
+    const suffix = $element.attr("data-suffix") || ($element.text().includes("+") ? "+" : "");
+    const duration = parseInt($element.attr("data-duration"), 10) || 1500; // ms
+
+    if (prefersReducedMotion) {
+      $element.text(prefix + targetNum.toLocaleString("id-ID") + suffix);
+      return;
+    }
+
+    const startTime = performance.now();
+    const targetDigitsCount = String(targetNum).length;
+
+    function updateCounter(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Easing: easeOutExpo
+      const easedProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+
+      if (progress < 1) {
+        // Calculate how many digits from left to lock
+        const lockedCount = Math.floor(easedProgress * targetDigitsCount);
+        const targetStr = String(targetNum);
+        
+        let displayStr = "";
+        for (let i = 0; i < targetDigitsCount; i++) {
+          if (i < lockedCount) {
+            displayStr += targetStr[i];
+          } else {
+            displayStr += Math.floor(Math.random() * 10);
+          }
+        }
+
+        // Format as number string
+        $element.html(
+          `<span class="tracking-tight">${prefix}${displayStr}${suffix}</span>`
+        );
+
+        requestAnimationFrame(updateCounter);
+      } else {
+        // Final locked state
+        $element.html(
+          `<span class="tracking-tight">${prefix}${targetNum.toLocaleString("id-ID")}${suffix}</span>`
+        );
+        $element.addClass("number-locked");
+      }
+    }
+
+    requestAnimationFrame(updateCounter);
+  }
+
+  function initRandomNumberSection() {
+    const $statNumbers = $(".stat-number, .animated-random-number");
+
+    if (!$statNumbers.length) return;
+
+    if ("IntersectionObserver" in window) {
+      const statsObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            const $el = $(entry.target);
+            const delay = parseInt($el.attr("data-delay"), 10) || 0;
+            
+            setTimeout(function () {
+              animateRandomNumber($el);
+            }, delay);
+
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.15
+      });
+
+      $statNumbers.each(function () {
+        statsObserver.observe(this);
+      });
+    } else {
+      // Fallback
+      function checkStatsScroll() {
+        const windowBottom = $(window).scrollTop() + $(window).height();
+
+        $statNumbers.each(function () {
+          const $el = $(this);
+          if (!$el.data("animated-done")) {
+            const elTop = $el.offset().top;
+            if (windowBottom > elTop + 40) {
+              const delay = parseInt($el.attr("data-delay"), 10) || 0;
+              setTimeout(function () {
+                animateRandomNumber($el);
+              }, delay);
+            }
+          }
+        });
+      }
+
+      $(window).on("scroll resize", checkStatsScroll);
+      checkStatsScroll();
+    }
+  }
+
+  initRandomNumberSection();
+
+
+  // ==========================================
+  // 4. INTERACTIVE GESTURE CARDS (MICRO-INTERACTIONS)
+  // ==========================================
+  $(".gesture-card").on("click", function () {
+    $(this).addClass("scale-95");
+    setTimeout(() => {
+      $(this).removeClass("scale-95");
+    }, 120);
   });
 });

@@ -2,22 +2,32 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+:focus-visible {
+  outline: 3px solid #ea580c;
+  outline-offset: 3px;
+}
+
 .placeholder-img {
-  background-color: #d1d5db;
+  background-color: #f1f5f9;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6b7280;
+  color: #64748b;
   font-size: 0.875rem;
   font-weight: 500;
 }
 
 .item {
-  transition:
-    opacity 0.4s ease,
-    transform 0.4s ease;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(16px);
+}
+
+.card-interactive {
+  transition: transform 0.18s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.18s cubic-bezier(0.2, 0, 0, 1), border-color 0.18s ease;
+}
+.card-interactive:hover {
+  transform: translateY(-4px);
 }
 
 html {
