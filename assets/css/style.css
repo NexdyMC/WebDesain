@@ -1,0 +1,64 @@
+.fade-in,
+.fade-up-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.fade-in.is-visible,
+.fade-up-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-up-item.is-visible:hover,
+.fade-in.is-visible:hover {
+  transition-delay: 0s !important;
+}
+
+.card-interactive {
+  transition: transform 0.18s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.18s cubic-bezier(0.2, 0, 0, 1), border-color 0.18s ease;
+  will-change: transform, box-shadow;
+}
+
+.card-interactive:hover {
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  min-width: 3ch;
+}
+
+.stat-number.number-locked {
+  animation: statPop 0.35s ease-out;
+}
+
+@keyframes statPop {
+  0% {
+    transform: scale(1.06);
+    color: #ea580c;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .fade-in,
+  .fade-up-item,
+  .card-interactive {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .stat-number {
+    animation: none !important;
+  }
+}

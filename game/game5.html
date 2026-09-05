@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benar atau Salah — Game 5</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body{font-family:'Nunito',sans-serif;}
+  .font-heading{font-family:'Baloo 2',cursive;}
+  .nav-pill{transition:transform .15s ease;}
+  .nav-pill:hover{transform:translateY(-2px);}
+  .choice-btn{transition:all .15s ease;}
+  .choice-btn:active{transform:scale(.96);}
+  .choice-btn:disabled{cursor:default;}
+  .pop-in{animation:popIn .25s ease;}
+  @keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+  .confetti{position:fixed;top:-10px;width:10px;height:10px;border-radius:2px;animation:fall linear forwards;}
+  @keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:.9}}
+</style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-yellow-50 via-orange-50 to-amber-100">
+
+<div id="confetti-container" class="pointer-events-none fixed inset-0 overflow-hidden z-50"></div>
+
+<div class="min-h-screen flex flex-col">
+  <header class="px-4 py-3 flex items-center justify-between gap-2 flex-wrap">
+    <span class="font-heading text-xl md:text-2xl font-bold text-orange-700">🖐️ BelajarIsyarat</span>
+    <nav class="flex gap-2 text-sm overflow-x-auto">
+      <a href="game1.html" class="nav-pill px-3 py-1.5 rounded-full bg-white border-2 border-orange-200 text-orange-700 font-bold whitespace-nowrap">1. Tebak Huruf</a>
+      <a href="game2.html" class="nav-pill px-3 py-1.5 rounded-full bg-white border-2 border-orange-200 text-orange-700 font-bold whitespace-nowrap">2. Cocokkan</a>
+      <a href="game3.html" class="nav-pill px-3 py-1.5 rounded-full bg-white border-2 border-orange-200 text-orange-700 font-bold whitespace-nowrap">3. Susun Kata</a>
+      <a href="game4.html" class="nav-pill px-3 py-1.5 rounded-full bg-white border-2 border-orange-200 text-orange-700 font-bold whitespace-nowrap">4. Mode Cepat</a>
+      <a href="game5.html" class="nav-pill px-3 py-1.5 rounded-full bg-orange-500 text-white font-bold whitespace-nowrap">5. Benar/Salah</a>
+    </nav>
+  </header>
+
+  <main class="flex-1 flex items-start justify-center px-4 pb-10">
+    <div class="w-full max-w-lg">
+
+      <div class="mt-2 mb-4">
+        <div class="flex justify-between items-center mb-1.5 text-orange-800 font-bold">
+          <span id="progress-label">Soal 1 / 10</span>
+          <span id="score-label">⭐ Skor: 0</span>
+        </div>
+        <div class="h-2.5 w-full bg-orange-200 rounded-full overflow-hidden">
+          <div id="progress-bar" class="h-full bg-orange-500 rounded-full transition-all duration-300" style="width:10%"></div>
+        </div>
+      </div>
+
+      <section id="question-card" class="bg-white rounded-3xl shadow-lg border-4 border-orange-200 p-6 text-center">
+        <h1 class="font-heading text-xl md:text-2xl font-bold text-orange-800 mb-4">Apakah huruf ini cocok dengan isyaratnya?</h1>
+        <div id="hand-display" class="flex justify-center items-center py-1"></div>
+        <div id="claim-letter" class="font-heading text-6xl font-extrabold text-orange-600 my-4"></div>
+
+        <div class="grid grid-cols-2 gap-4 mt-2">
+          <button id="btn-benar" class="choice-btn bg-green-50 hover:bg-green-100 border-2 border-green-400 text-green-700 font-heading font-bold text-2xl rounded-2xl py-5">✅ Benar</button>
+          <button id="btn-salah" class="choice-btn bg-red-50 hover:bg-red-100 border-2 border-red-400 text-red-700 font-heading font-bold text-2xl rounded-2xl py-5">❌ Salah</button>
+        </div>
+
+        <div id="feedback" class="hidden mt-5 rounded-2xl p-4 pop-in" aria-live="polite"></div>
+
+        <button id="next-btn" class="hidden mt-5 w-full bg-orange-500 hover:bg-orange-600 text-white font-heading font-bold text-lg rounded-2xl py-3">Lanjut ➜</button>
+      </section>
+
+      <section id="end-card" class="hidden bg-white rounded-3xl shadow-lg border-4 border-orange-200 p-8 text-center">
+        <p class="text-5xl mb-3">🎉</p>
+        <h2 class="font-heading text-2xl font-bold text-orange-800 mb-2">Selesai!</h2>
+        <p id="end-score" class="text-lg text-orange-700 font-bold mb-6"></p>
+        <button id="restart-btn" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-heading font-bold text-lg rounded-2xl py-3">Main Lagi 🔁</button>
+      </section>
+
+      <p class="text-center text-orange-700/70 text-xs mt-4">Catatan: gambar tangan adalah ilustrasi contoh. Ganti dengan foto isyarat BISINDO/SIBI asli untuk penggunaan nyata. Game ini paling cocok untuk pemula dan anak kecil.</p>
+    </div>
+  </main>
+</div>
+
+<script>
+const SIGNS = [
+  { letter: 'A', word: 'AYAH',  pattern: [1,0,0,0,0] },
+  { letter: 'B', word: 'BOLA',  pattern: [0,1,1,1,1] },
+  { letter: 'C', word: 'CINTA', pattern: [1,1,0,0,0] },
+  { letter: 'D', word: 'DUNIA', pattern: [0,1,0,0,0] },
+  { letter: 'E', word: 'ENAK',  pattern: [0,0,0,0,0] },
+  { letter: 'F', word: 'FOTO',  pattern: [1,0,1,1,1] },
+  { letter: 'G', word: 'GAJAH', pattern: [1,1,1,0,0] },
+  { letter: 'H', word: 'HATI',  pattern: [0,1,1,0,0] },
+  { letter: 'I', word: 'IBU',   pattern: [0,0,0,0,1] },
+  { letter: 'J', word: 'JAM',   pattern: [0,0,0,1,1] },
+];
+const TOTAL = 10;
+
+function handSVG(pattern, size=150){
+  const cols = [40, 66, 92, 118];
+  let fingers = '';
+  [1,2,3,4].forEach((idx, i) => {
+    const up = pattern[idx];
+    const h = up ? 66 : 20;
+    const y = 100 - h;
+    fingers += `<rect x="${cols[i]-9}" y="${y}" width="18" height="${h}" rx="9" fill="#FFEDD5" stroke="#C2410C" stroke-width="2.5"/>`;
+  });
+  const thumbUp = pattern[0];
+  const thumbH = thumbUp ? 54 : 20;
+  fingers += `<rect x="4" y="${120-thumbH}" width="18" height="${thumbH}" rx="9" fill="#FFEDD5" stroke="#C2410C" stroke-width="2.5" transform="rotate(-35 13 120)"/>`;
+  return `<svg viewBox="0 0 160 190" width="${size}" height="${size*1.18}" xmlns="http://www.w3.org/2000/svg">
+    <rect x="18" y="100" width="124" height="82" rx="28" fill="#FB923C" stroke="#C2410C" stroke-width="3.5"/>
+    ${fingers}
+  </svg>`;
+}
+
+function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
+
+function confettiBurst(){
+  const colors = ['#FB923C','#FACC15','#F97316','#FDE047','#EA580C'];
+  const $c = $('#confetti-container').empty();
+  for(let i=0;i<60;i++){
+    $('<div class="confetti"></div>').css({
+      left: (Math.random()*100)+'vw',
+      background: colors[Math.floor(Math.random()*colors.length)],
+      animationDuration: (1.6+Math.random()*1.2)+'s',
+      animationDelay: (Math.random()*0.4)+'s'
+    }).appendTo($c);
+  }
+  setTimeout(()=>$c.empty(), 3200);
+}
+
+let order = [], index = 0, score = 0, answered = false;
+
+function buildRound(sign){
+  const isTrue = Math.random() < 0.5;
+  let shownLetter = sign.letter;
+  if(!isTrue){
+    const others = SIGNS.filter(s => s.letter !== sign.letter);
+    shownLetter = others[Math.floor(Math.random()*others.length)].letter;
+  }
+  return { sign, shownLetter, isTrue };
+}
+
+function startGame(){
+  order = shuffle(SIGNS).slice(0, TOTAL).map(buildRound);
+  index = 0; score = 0; answered = false;
+  $('#end-card').addClass('hidden');
+  $('#question-card').removeClass('hidden');
+  renderQuestion();
+}
+
+function renderQuestion(){
+  answered = false;
+  const round = order[index];
+  $('#progress-label').text(`Soal ${index+1} / ${order.length}`);
+  $('#score-label').text(`⭐ Skor: ${score}`);
+  $('#progress-bar').css('width', `${((index+1)/order.length)*100}%`);
+  $('#hand-display').html(handSVG(round.sign.pattern));
+  $('#claim-letter').text(round.shownLetter);
+  $('#feedback').addClass('hidden').empty();
+  $('#next-btn').addClass('hidden');
+  $('#btn-benar, #btn-salah').prop('disabled', false).removeClass('ring-4 ring-offset-2');
+}
+
+function handleAnswer(userSaysTrue){
+  if(answered) return;
+  answered = true;
+  const round = order[index];
+  const correctChoice = round.isTrue;
+  $('#btn-benar, #btn-salah').prop('disabled', true);
+  const $chosenBtn = userSaysTrue ? $('#btn-benar') : $('#btn-salah');
+  $chosenBtn.addClass('ring-4 ring-offset-2 ' + (userSaysTrue ? 'ring-green-400' : 'ring-red-400'));
+
+  if(userSaysTrue === correctChoice){
+    score++;
+    $('#feedback').removeClass('hidden bg-red-50 text-red-700').addClass('bg-green-50 text-green-700 rounded-2xl p-4')
+      .html(`✅ <strong>Tepat!</strong> Isyarat ini memang huruf <strong>${round.sign.letter}</strong> — seperti pada kata <strong>${round.sign.word}</strong>.`);
+  } else {
+    $('#feedback').removeClass('hidden bg-green-50 text-green-700').addClass('bg-red-50 text-red-700 rounded-2xl p-4')
+      .html(`❌ Isyarat ini sebenarnya huruf <strong>${round.sign.letter}</strong> — seperti pada kata <strong>${round.sign.word}</strong>.`);
+  }
+  $('#score-label').text(`⭐ Skor: ${score}`);
+  $('#next-btn').removeClass('hidden');
+}
+
+$('#btn-benar').on('click', () => handleAnswer(true));
+$('#btn-salah').on('click', () => handleAnswer(false));
+
+$('#next-btn').on('click', function(){
+  index++;
+  if(index < order.length){
+    renderQuestion();
+  } else {
+    $('#question-card').addClass('hidden');
+    $('#end-card').removeClass('hidden');
+    $('#end-score').text(`Skor kamu: ${score} / ${order.length}`);
+    confettiBurst();
+  }
+});
+
+$('#restart-btn').on('click', startGame);
+
+startGame();
+</script>
+</body>
+</html>
