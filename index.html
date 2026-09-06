@@ -5,18 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IsyaratOK - Belajar Bahasa Isyarat Interaktif &amp; Inklusif</title>
 
-  <!-- Meta SEO & Open Graph -->
-  <meta name="description" content="Platform edukasi bahasa isyarat BISINDO interaktif ramah anak dan remaja. Belajar kosakata, kuis, dan tingkatkan inklusivitas bersama IsyaratOK." />
-  <meta property="og:title" content="IsyaratOK - Belajar Bahasa Isyarat Interaktif" />
-  <meta property="og:description" content="Platform edukasi bahasa isyarat interaktif ramah untuk semua kalangan. Mari ciptakan ruang komunikasi yang inklusif." />
-  <meta property="og:image" content="https://isyarat-ok.netlify.app/assets/images/banner.png" />
-  <meta property="og:url" content="https://isyarat-ok.netlify.app/" />
-  <meta property="og:type" content="website" />
-
   <!-- Google Fonts & Font Awesome Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Tailwind CSS CDN & Config -->
@@ -77,9 +69,14 @@
   <main id="main-content">
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden">
-      <img src="assets/images/landingpage.webp" alt="landing page" class="absolute inset-0 object-cover w-full h-full bg-center bg-cover z-1">
-      <div class="z-10 px-4 pt-8 pb-16 m-auto bg-gradient-to-b from-white/30 to-white/50 max-w-7xl sm:px-6 md:pt-14 md:pb-24 lg:px-8">
+    <section class="relative overflow-hidden h-screen">
+
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent z-10"></div>
+        <img src="../assets/images/landingpage.webp" alt="landing page" class="object-cover w-full h-full bg-center">
+      </div>
+
+      <div class="relative z-10 px-4 pt-8 pb-16 m-auto max-w-7xl sm:px-6 md:pt-14 md:pb-24 lg:px-8">
         <div class="relative overflow-hidden shadow-2xl rounded-3xl md:rounded-[2.5rem] bg-orange-500 p-8 sm:p-10 md:p-14 lg:p-16 text-white">
           
           <!-- Background Subtle Pattern -->
@@ -148,14 +145,14 @@
 
           </div>
         </div>
-        <div class="animasi">
-          <i class="shake-vertical fa-solid fa-angles-down" style="color: rgb(249, 115, 22);"></i>
+        <div class="mt-6 text-center animasi">
+          <i class="shake-vertical fa-solid fa-angles-down text-orange-600 text-xl"></i>
         </div>
       </div>
     </section>
 
     <!-- Eksporasi Fitur -->
-    <section id="fitur" class="px-4 py-16 sm:px-6 md:py-24 lg:px-8 bg-gradient-to-b from-orange-50 to-orange-50/70">
+    <section id="fitur" class="px-4 py-16 sm:px-6 md:py-24 lg:px-8 bg-gradient-to-b from-white to-orange-50/70">
       <div class="mx-auto max-w-7xl">
         <!-- Section Header -->
         <div class="text-center mb-14 fade-up-item" style="--delay: 60ms;">
