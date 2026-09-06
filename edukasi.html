@@ -435,6 +435,142 @@
     </section>
 
     
+    <!-- INTERACTIVE QUIZ SECTION (#quiz) -->
+    <section id="quiz" class="px-4 py-16 border-t border-orange-100 sm:px-6 md:py-24 lg:px-8 bg-gradient-to-b from-orange-50/60 to-white">
+      <div class="max-w-4xl mx-auto">
+        
+        <!-- Quiz Header Banner -->
+        <div class="mb-10 text-center">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1 mb-3 text-xs font-bold tracking-wider text-orange-800 uppercase bg-orange-100 rounded-full">
+            <i class="fa-solid fa-gamepad" aria-hidden="true"></i> Latihan Interaktif Langsung
+          </span>
+          <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+            Kuis Uji Pemahaman <span class="text-orange-600">BISINDO</span>
+          </h2>
+          <p class="max-w-xl mx-auto mt-3 text-sm text-slate-600 sm:text-base">
+            Uji apa yang telah kamu pelajari dari modul di atas! Pilih jawaban yang benar untuk mengumpulkan poin.
+          </p>
+
+          <!-- Quiz Score Bar -->
+          <div class="flex items-center justify-between max-w-md p-4 mx-auto mt-6 bg-white border border-orange-100 shadow-sm rounded-2xl">
+            <div class="flex items-center gap-2">
+              <i class="text-lg fa-solid fa-trophy text-amber-500" aria-hidden="true"></i>
+              <span class="text-xs font-bold text-slate-700">Skor Anda: <span id="quizCurrentScore" class="text-sm font-extrabold text-orange-600">0</span> Poin</span>
+            </div>
+            <span id="quizProgress" class="text-xs font-medium text-slate-500">0 dari 3 selesai</span>
+          </div>
+        </div>
+
+        <!-- Quiz Question 1 -->
+        <div class="p-6 mb-6 bg-white border shadow-md rounded-3xl border-slate-100 quiz-question-card">
+          <div class="flex items-center justify-between mb-3 text-xs font-bold text-orange-600 uppercase">
+            <span>Soal 1 &bull; Abjad &amp; Angka</span>
+            <span>+10 Poin</span>
+          </div>
+          <h3 class="mb-4 text-base font-bold text-slate-900 sm:text-lg">
+            Bagaimanakah bentuk isyarat tangan untuk angka 1 (Satu) dalam BISINDO?
+          </h3>
+          
+          <div class="space-y-3 text-sm">
+            <button type="button" data-correct="true" data-feedback="Benar! Angka 1 dibentuk dengan menegakkan satu jari telunjuk ke atas."
+              class="flex items-center justify-between w-full p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>A. Menegakkan satu jari telunjuk ke atas lurus</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+            <button type="button" data-correct="false" data-feedback="Kurang tepat. Mengacungkan ibu jari ke atas biasanya untuk angka 10 atau isyarat 'Bagus'."
+              class="flex items-center justify-between w-full p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>B. Mengacungkan ibu jari saja ke atas</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+            <button type="button" data-correct="false" data-feedback="Kurang tepat. Membuka semua jari adalah isyarat angka 5."
+              class="flex items-center justify-between w-full p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>C. Membuka kelima jari secara lebar</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+          </div>
+          <div class="hidden quiz-feedback"></div>
+        </div>
+
+        <!-- Quiz Question 2 -->
+        <div class="p-6 mb-6 bg-white border shadow-md rounded-3xl border-slate-100 quiz-question-card">
+          <div class="flex items-center justify-between mb-3 text-xs font-bold text-orange-600 uppercase">
+            <span>Soal 2 &bull; Ungkapan Sopan</span>
+            <span>+10 Poin</span>
+          </div>
+          <h3 class="mb-4 text-base font-bold text-slate-900 sm:text-lg">
+            Bagaimana cara melakukan isyarat "Terima Kasih" dengan benar?
+          </h3>
+          
+          <div class="space-y-3 text-sm">
+            <button type="button" data-correct="false" data-feedback="Kurang tepat. Memutar tangan di dada adalah isyarat untuk 'Maaf'."
+              class="flex items-center justify-between w-full p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>A. Mengepalkan tangan dan memutarnya di depan dada</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+            <button type="button" data-correct="true" data-feedback="Tepat sekali! Sentuhkan ujung jari terbuka ke dagu lalu gerakkan ke arah depan lawan bicara."
+              class="flex items-center justify-between w-full p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>B. Menyentuhkan ujung jari ke dagu lalu menggerakkannya ke depan</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+            <button type="button" data-correct="false" data-feedback="Kurang tepat. Melambaikan tangan di pelipis adalah isyarat untuk 'Halo'."
+              class="flex items-center justify-between w-full p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>C. Melambaikan tangan di samping pelipis/dahi</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+          </div>
+          <div class="hidden quiz-feedback"></div>
+        </div>
+
+        <!-- Quiz Question 3 -->
+        <div class="p-6 mb-6 bg-white border shadow-md rounded-3xl border-slate-100 quiz-question-card">
+          <div class="flex items-center justify-between mb-3 text-xs font-bold text-orange-600 uppercase">
+            <span>Soal 3 &bull; Etika Komunikasi</span>
+            <span>+10 Poin</span>
+          </div>
+          <h3 class="mb-4 text-base font-bold text-slate-900 sm:text-lg">
+            Mengapa ekspresi wajah (non-manual marker) sangat penting dalam berbahasa isyarat?
+          </h3>
+          
+          <div class="space-y-3 text-sm">
+            <button type="button" data-correct="false" data-feedback="Kurang tepat. Ekspresi wajah memiliki fungsi tata bahasa yang penting, bukan sekadar dekorasi."
+              class="flex items-center justify-between w-full p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>A. Hanya sebagai hiasan agar terlihat lebih menarik</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+            <button type="button" data-correct="true" data-feedback="Luar biasa! Ekspresi wajah menentukan intonasi, jenis kalimat tanya/pernyataan, dan emosi."
+              class="flex items-center justify-between w-full p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>B. Menentukan intonasi, konteks kalimat tanya/seru, dan ketegasan makna</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+            <button type="button" data-correct="false" data-feedback="Kurang tepat. Gerakan tangan dan ekspresi wajah harus saling melengkapi."
+              class="flex items-center justify-between w-full p-4 text-left transition bg-white border rounded-2xl border-slate-200 quiz-option hover:border-orange-500 hover:bg-orange-50/50">
+              <span>C. Untuk menggantikan seluruh gerakan tangan</span>
+              <span class="quiz-icon"><i class="fa-regular fa-circle text-slate-400"></i></span>
+            </button>
+          </div>
+          <div class="hidden quiz-feedback"></div>
+        </div>
+
+        <!-- Quiz Completion Box -->
+        <div id="quizCompletionCard" class="hidden p-8 text-center bg-white border border-orange-200 shadow-xl rounded-3xl">
+          <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 text-3xl rounded-full text-amber-500 bg-amber-100">
+            <i class="fa-solid fa-award" aria-hidden="true"></i>
+          </div>
+          <h3 class="text-2xl font-extrabold text-slate-900">Kuis Selesai!</h3>
+          <p class="mt-1 text-sm text-slate-600">Total skor yang kamu peroleh:</p>
+          <p id="finalScoreText" class="my-3 text-4xl font-extrabold text-orange-600">30 Poin</p>
+          <div class="flex flex-wrap items-center justify-center gap-3 mt-5">
+            <button id="resetQuizBtn" type="button" class="px-6 py-2.5 text-xs font-bold text-slate-700 bg-slate-100 rounded-full hover:bg-slate-200 transition">
+              <i class="mr-1 fa-solid fa-rotate-left" aria-hidden="true"></i> Main Ulang Kuis
+            </button>
+            <a href="kosakata.html" class="px-6 py-2.5 text-xs font-bold text-white bg-orange-600 rounded-full hover:bg-orange-700 transition shadow-md shadow-orange-500/20">
+              Buka Kamus Kosakata &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
   </main>
 
