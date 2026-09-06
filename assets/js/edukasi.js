@@ -1,16 +1,7 @@
-/**
- * IsyaratOK - Modul Edukasi Script
- * Powered by jQuery
- */
-
 $(function () {
   "use strict";
 
   let activeCategory = "semua";
-
-  // ==========================================
-  // 1. TAB CATEGORY SWITCHER & FILTER
-  // ==========================================
   const $tabButtons = $(".tab-btn");
   const $items = $(".modul-item");
   const $searchInput = $("#searchInput");
@@ -71,10 +62,6 @@ $(function () {
     applyFilters();
   });
 
-
-  // ==========================================
-  // 2. INTERACTIVE MODAL DETAIL PREVIEW
-  // ==========================================
   const $popupModal = $("#popupModal");
   const $modalTitle = $("#modalTitle");
   const $modalCategory = $("#modalCategory");
@@ -134,10 +121,6 @@ $(function () {
     }
   });
 
-
-  // ==========================================
-  // 3. INTERACTIVE MINI QUIZ WIDGET (#quiz)
-  // ==========================================
   let quizScore = 0;
   let answeredCount = 0;
   const totalQuestions = $(".quiz-question-card").length || 3;
@@ -152,7 +135,6 @@ $(function () {
     const isCorrect = $btn.data("correct") === true || $btn.data("correct") === "true";
     const feedbackText = $btn.data("feedback") || (isCorrect ? "Jawaban tepat! Hebat!" : "Kurang tepat, coba pelajari lagi materinya.");
 
-    // Disable all options in this question
     $parentCard.find(".quiz-option").addClass("pointer-events-none opacity-60");
 
     if (isCorrect) {
@@ -162,12 +144,10 @@ $(function () {
     } else {
       $btn.removeClass("opacity-60 bg-white border-slate-200").addClass("bg-rose-50 border-rose-500 text-rose-800 font-bold");
       $btn.find(".quiz-icon").html('<i class="fa-solid fa-circle-xmark text-rose-500 text-base"></i>');
-      
-      // Highlight the correct one
+
       $parentCard.find('.quiz-option[data-correct="true"]').removeClass("opacity-60 bg-white border-slate-200").addClass("bg-emerald-50 border-emerald-500 text-emerald-800 font-bold");
     }
 
-    // Show feedback box
     $parentCard.find(".quiz-feedback")
       .html(`<div class="p-3.5 mt-3 rounded-2xl text-xs font-semibold ${isCorrect ? 'bg-emerald-100/70 text-emerald-900' : 'bg-rose-100/70 text-rose-900'}">${feedbackText}</div>`)
       .removeClass("hidden");
@@ -200,6 +180,5 @@ $(function () {
     });
   });
 
-  // Initial filter run
   applyFilters();
 });

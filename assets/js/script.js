@@ -1,14 +1,7 @@
-/**
- * IsyaratOK - Main Script
- * Powered by jQuery & Modern Web Standards
- */
 
 $(function () {
   "use strict";
 
-  // ==========================================
-  // 1. ACCESSIBLE MOBILE NAVIGATION (ALL PAGES)
-  // ==========================================
   const $menuBtn = $("#menuBtn");
   const $mobileMenu = $("#mobileMenu");
   const $iconOpen = $("#iconOpen");
@@ -40,7 +33,6 @@ $(function () {
     toggleMobileMenu(false);
   });
 
-  // Close menu when clicking outside or pressing Escape
   $(document).on("click", function (e) {
     if (!$(e.target).closest("header").length) {
       toggleMobileMenu(false);
@@ -55,16 +47,13 @@ $(function () {
   });
 
 
-  // ==========================================
-  // 2. FAST & SNAPPY FADE-UP SCROLL ANIMATION (JQUERY)
-  // ==========================================
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function initFadeUpAnimation() {
     const $fadeElements = $(".fade-in, .fade-up-item");
 
     if (prefersReducedMotion) {
-      // If user prefers reduced motion, make visible immediately without transition delay
+
       $fadeElements.addClass("is-visible").css({ opacity: 1, transform: "none", "transition-delay": "0s" });
       return;
     }
@@ -82,9 +71,6 @@ $(function () {
             const $el = $(entry.target);
             $el.addClass("is-visible");
 
-            // CRITICAL FIX FOR HOVER DELAY:
-            // Remove transition-delay once initial reveal animation completes
-            // so card hover micro-interactions are instantly responsive (0ms delay)
             const delay = parseFloat($el.css("transition-delay")) * 1000 || 0;
             const duration = parseFloat($el.css("transition-duration")) * 1000 || 500;
             setTimeout(function () {
@@ -100,7 +86,6 @@ $(function () {
         fadeObserver.observe(this);
       });
     } else {
-      // jQuery Fallback for older browsers
       function checkFadeUpScroll() {
         const windowBottom = $(window).scrollTop() + $(window).height();
 
@@ -125,14 +110,6 @@ $(function () {
 
   initFadeUpAnimation();
 
-
-  // ==========================================
-  // 3. ANIMATED RANDOM NUMBER (ISYARAT DALAM ANGKA)
-  // ==========================================
-  /**
-   * Animates a counter by spinning random numbers and progressively
-   * locking in digits to the target number.
-   */
   function animateRandomNumber($element) {
     if ($element.data("animated-done")) return;
     $element.data("animated-done", true);
@@ -154,11 +131,10 @@ $(function () {
     function updateCounter(currentTime) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Easing: easeOutExpo
+     
       const easedProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
 
       if (progress < 1) {
-        // Calculate how many digits from left to lock
         const lockedCount = Math.floor(easedProgress * targetDigitsCount);
         const targetStr = String(targetNum);
         
@@ -171,14 +147,12 @@ $(function () {
           }
         }
 
-        // Format as number string
         $element.html(
           `<span class="tracking-tight">${prefix}${displayStr}${suffix}</span>`
         );
 
         requestAnimationFrame(updateCounter);
       } else {
-        // Final locked state
         $element.html(
           `<span class="tracking-tight">${prefix}${targetNum.toLocaleString("id-ID")}${suffix}</span>`
         );
@@ -218,7 +192,6 @@ $(function () {
         statsObserver.observe(this);
       });
     } else {
-      // Fallback
       function checkStatsScroll() {
         const windowBottom = $(window).scrollTop() + $(window).height();
 
@@ -242,11 +215,6 @@ $(function () {
   }
 
   initRandomNumberSection();
-
-
-  // ==========================================
-  // 4. INTERACTIVE GESTURE CARDS (MICRO-INTERACTIONS)
-  // ==========================================
   $(".gesture-card").on("click", function () {
     $(this).addClass("scale-95");
     setTimeout(() => {

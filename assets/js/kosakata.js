@@ -1,35 +1,27 @@
-/**
- * IsyaratOK - Kosakata & Kamus Interaktif Script
- * Powered by jQuery
- */
-
 $(function () {
   "use strict";
 
   let currentCategory = "all";
 
-  // ==========================================
-  // 1. TAB CATEGORY SWITCHER
-  // ==========================================
   $(".category-tab").on("click", function () {
     const filter = $(this).data("filter");
     currentCategory = filter;
 
-    // Update active tab styles
     $(".category-tab")
       .removeClass("bg-orange-600 text-white shadow-md shadow-orange-500/20")
-      .addClass("bg-white text-slate-700 hover:bg-orange-50 border border-slate-200");
+      .addClass(
+        "bg-white text-slate-700 hover:bg-orange-50 border border-slate-200",
+      );
 
     $(this)
-      .removeClass("bg-white text-slate-700 hover:bg-orange-50 border border-slate-200")
+      .removeClass(
+        "bg-white text-slate-700 hover:bg-orange-50 border border-slate-200",
+      )
       .addClass("bg-orange-600 text-white shadow-md shadow-orange-500/20");
 
     applyFilters();
   });
 
-  // ==========================================
-  // 2. LIVE SEARCH & FILTER ENGINE
-  // ==========================================
   const $searchInput = $("#searchInput");
   const $clearSearchBtn = $("#clearSearchBtn");
   const $noResultsMsg = $("#noResultsMessage");
@@ -37,8 +29,7 @@ $(function () {
 
   function applyFilters() {
     const query = $searchInput.val().toLowerCase().trim();
-    
-    // Toggle clear button
+
     if (query.length > 0) {
       $clearSearchBtn.removeClass("hidden");
     } else {
@@ -54,11 +45,14 @@ $(function () {
       const keywords = ($card.data("keywords") || "").toLowerCase();
       const desc = ($card.data("desc") || "").toLowerCase();
 
-      // Check category match
-      const matchesCategory = (currentCategory === "all" || cardCategory === currentCategory);
+      const matchesCategory =
+        currentCategory === "all" || cardCategory === currentCategory;
 
-      // Check search match
-      const matchesSearch = !query || title.includes(query) || keywords.includes(query) || desc.includes(query);
+      const matchesSearch =
+        !query ||
+        title.includes(query) ||
+        keywords.includes(query) ||
+        desc.includes(query);
 
       if (matchesCategory && matchesSearch) {
         $card.removeClass("hidden").addClass("flex");
@@ -68,19 +62,16 @@ $(function () {
       }
     });
 
-    // Update result count text
     if ($resultCount.length) {
       $resultCount.text(`${visibleCount} item ditemukan`);
     }
 
-    // Toggle no results state
     if (visibleCount === 0) {
       $noResultsMsg.removeClass("hidden");
     } else {
       $noResultsMsg.addClass("hidden");
     }
 
-    // Toggle Section Headers based on category
     if (currentCategory === "all" && !query) {
       $(".section-category-header").removeClass("hidden");
     } else {
@@ -95,9 +86,6 @@ $(function () {
     applyFilters();
   });
 
-  // ==========================================
-  // 3. INTERACTIVE MODAL DETAIL PREVIEW
-  // ==========================================
   const $popupModal = $("#popupModal");
   const $modalTitle = $("#modalTitle");
   const $modalCategory = $("#modalCategory");
@@ -107,11 +95,16 @@ $(function () {
 
   function openModal($card) {
     const title = $card.find(".card-title").text().trim();
-    const category = $card.find(".card-badge").text().trim() || $card.data("category");
+    const category =
+      $card.find(".card-badge").text().trim() || $card.data("category");
     const imgSrc = $card.find("img").attr("src");
     const imgAlt = $card.find("img").attr("alt");
-    const desc = $card.data("desc") || `Panduan gerakan isyarat untuk "${title}" dalam standar BISINDO.`;
-    const tips = $card.data("tips") || "Pastikan posisi jari dan telapak tangan menghadap ke depan dengan rileks dan jelas.";
+    const desc =
+      $card.data("desc") ||
+      `Panduan gerakan isyarat untuk "${title}" dalam standar BISINDO.`;
+    const tips =
+      $card.data("tips") ||
+      "Pastikan posisi jari dan telapak tangan menghadap ke depan dengan rileks dan jelas.";
 
     $modalTitle.text(title);
     $modalCategory.text(category);
@@ -128,7 +121,6 @@ $(function () {
     $("body").removeClass("overflow-hidden");
   }
 
-  // Open modal on clicking card or pressing Enter on focused card
   $(document).on("click", ".kosakata-card", function () {
     openModal($(this));
   });
@@ -154,6 +146,5 @@ $(function () {
     }
   });
 
-  // Initial filter run
   applyFilters();
 });
