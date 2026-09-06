@@ -61,6 +61,7 @@
   .stat-number {
     animation: none !important;
   }
+<<<<<<< HEAD
 }
 
 /* ANIMASI ICON */
@@ -133,4 +134,6 @@
     -webkit-transform: translateY(-6.4px);
             transform: translateY(-6.4px);
   }
+=======
+>>>>>>> 9e2f0fd (add a animasi aos vanila not library)
 }
