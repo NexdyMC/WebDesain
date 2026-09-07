@@ -2,6 +2,7 @@ $(function () {
   "use strict";
 
   let currentCategory = "all";
+  const expandedContainers = new Set();
 
   $(".category-tab").on("click", function () {
     const filter = $(this).data("filter");
@@ -54,12 +55,40 @@ $(function () {
         keywords.includes(query) ||
         desc.includes(query);
 
-      if (matchesCategory && matchesSearch) {
-        $card.removeClass("hidden").addClass("flex");
+      const matchesFilter = matchesCategory && matchesSearch;
+      $card.data("matches-filter", matchesFilter);
+
+      if (matchesFilter) {
         visibleCount++;
-      } else {
-        $card.addClass("hidden").removeClass("flex");
       }
+    });
+
+    $(".show-more-cards").each(function () {
+      const $button = $(this);
+      const containerId = $button.data("target");
+      const $cards = $(`#${containerId} .kosakata-card`);
+      const $matchingCards = $cards.filter(function () {
+        return $(this).data("matches-filter") === true;
+      });
+      const isExpanded = expandedContainers.has(containerId);
+      const shouldLimit = !query && !isExpanded;
+
+      $cards.addClass("hidden").removeClass("flex");
+      $matchingCards.each(function (index) {
+        if (!shouldLimit || index < 10) {
+          $(this).removeClass("hidden").addClass("flex");
+        }
+      });
+
+      const canExpand = $matchingCards.length > 10 && !query;
+      $button.toggleClass("hidden", !canExpand && !isExpanded);
+      $button.toggleClass("flex", canExpand || isExpanded);
+      $button.attr("aria-expanded", String(isExpanded));
+      $button.html(
+        isExpanded
+          ? 'Tampilkan Lebih Sedikit <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>'
+          : 'Tampilkan Selengkapnya <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>',
+      );
     });
 
     if ($resultCount.length) {
@@ -83,6 +112,16 @@ $(function () {
 
   $clearSearchBtn.on("click", function () {
     $searchInput.val("").trigger("focus");
+    applyFilters();
+  });
+
+  $(document).on("click", ".show-more-cards", function () {
+    const containerId = $(this).data("target");
+    if (expandedContainers.has(containerId)) {
+      expandedContainers.delete(containerId);
+    } else {
+      expandedContainers.add(containerId);
+    }
     applyFilters();
   });
 
