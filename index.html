@@ -37,7 +37,7 @@
         <a href="index.html" class="py-1 text-orange-600 border-b-2 border-orange-600" aria-current="page">Beranda</a>
         <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Edukasi</a>
         <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Kosakata</a>
-        <a href="edukasi.html#quiz" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Quiz</a>
+        <a href="quiz.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Quiz</a>
         <a href="#isyarat-angka" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Statistik</a>
       </nav>
 
@@ -72,8 +72,8 @@
     <section class="relative min-h-screen overflow-hidden">
 
       <div class="absolute inset-0 z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent z-10"></div>
-        <img src="../assets/images/landingpage.webp" alt="landing page" class="object-cover w-full h-full bg-center">
+        <div class="absolute inset-0 z-10 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
+        <img src="assets/images/landingpage.webp" alt="landing page" class="object-cover w-full h-full bg-center">
       </div>
 
       <div class="relative z-10 px-4 pt-8 pb-16 m-auto max-w-7xl sm:px-6 md:pt-14 md:pb-24 lg:px-8">
@@ -116,18 +116,19 @@
                     </div>
                     <div>
                       <p class="text-xs font-semibold tracking-wider text-orange-100 uppercase">Isyarat Hari Ini</p>
-                      <p class="text-lg font-bold text-white">"Terima Kasih"</p>
+                      <p class="text-lg font-bold text-white">"Halo Semua"</p>
                     </div>
                   </div>
                   <span class="px-2.5 py-1 text-xs font-semibold text-white bg-white/20 rounded-full">Level Dasar</span>
                 </div>
 
-                <div class="p-4 mb-4 bg-white shadow-inner rounded-2xl text-slate-800">
-                  <div class="relative flex items-center justify-center overflow-hidden border h-44 bg-gradient-to-tr from-orange-100 to-amber-50 rounded-xl border-orange-200/60 group">
-                    <i class="text-6xl transition-transform duration-200 fa-solid fa-hands text-orange-500/80 group-hover:scale-110" aria-hidden="true"></i>
+                <div class="p-4 mb-4 bg-white shadow-inner rounded-2xl text-slate-800 aspect-[4/3]">
+                  <div class="relative flex items-center justify-center overflow-hidden border bg-[length:160%] bg-[url('assets/images/test-img.jpeg')] bg-center rounded-xl h-full border-orange-200/60 group">
+                    <!-- <img src="assets/images/test-img.jpeg" alt="" class="bg-cover"> -->
+                    <!-- <i class="text-6xl transition-transform duration-200 fa-solid fa-hands text-orange-500/80 group-hover:scale-110" aria-hidden="true"></i>
                     <div class="absolute bottom-2 left-2 right-2 text-center text-xs font-medium text-slate-600 bg-white/90 py-1.5 px-2 rounded-lg backdrop-blur-xs">
                       Gerakan tangan terbuka menyentuh dagu ke depan
-                    </div>
+                    </div> -->
                   </div>
                 </div>
 
@@ -141,9 +142,9 @@
           </div>
         </div>
         <!-- Icon Animasi Header -->
-        <div class="mt-20 text-center animasi grid">
-          <i class="shake-vertical fa-solid fa-angles-down text-orange-600 text-xl"></i>
-          <p class="shake-vertical text-orange-600 text-xl">Lihat Selengkapnya</p>
+        <div class="grid mt-20 text-center animasi">
+          <i class="text-xl text-orange-600 shake-vertical fa-solid fa-angles-down"></i>
+          <p class="text-xl text-orange-600 shake-vertical">Lihat Selengkapnya</p>
         </div>
       </div>
     </section>
@@ -153,9 +154,9 @@
       <div class="mx-auto max-w-7xl">
         <!-- Section Header -->
         <div class="text-center mb-14 fade-up-item" style="--delay: 60ms;">
-          <div class="heading-icon-layout flex items-center justify-center gap-2 sm:gap-4">
-            <i class="why-heading-icon fa-solid fa-book-atlas text-xl text-orange-500 sm:text-3xl" aria-hidden="true"></i>
-            <h2 class="tracking-in-contract text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+          <div class="flex items-center justify-center gap-2 heading-icon-layout sm:gap-4">
+            <i class="text-xl text-orange-500 why-heading-icon fa-solid fa-book-atlas sm:text-3xl" aria-hidden="true"></i>
+            <h2 class="text-2xl font-extrabold tracking-tight tracking-in-contract text-slate-900 sm:text-4xl">
               Eksplorasi <span class="text-transparent bg-orange-600 bg-clip-text">Fitur Kami</span>
             </h2>
           </div>
@@ -167,7 +168,7 @@
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
   
           <!-- Card 1: Edukasi -->
-          <div class="flex flex-col bg-white border shadow-sm p-7 border-slate-100 rounded-3xl card-interactive hover:shadow-xl hover:bg-orange-100/30 hover:border-orange-200 group fade-up-item" style="--delay: 100ms;">
+          <div class="flex flex-col border-2 shadow-sm p-7 border-slate-200 rounded-3xl card-interactive hover:shadow-xl bg-orange-100/30 hover:border-orange-200 group fade-up-item" style="--delay: 100ms;">
             <div class="flex items-center justify-center mb-6 text-xl text-white transition-transform duration-200 shadow-md w-14 h-14 rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 group-hover:scale-110 shadow-orange-500/20">
               <i class="fas fa-book-open" aria-hidden="true"></i>
             </div>
@@ -186,7 +187,7 @@
           </div>
   
           <!-- Card 2: Kamus Kosakata -->
-          <div class="flex flex-col bg-white border shadow-sm p-7 border-slate-100 rounded-3xl card-interactive hover:shadow-xl hover:bg-amber-100/30 hover:border-amber-200 group fade-up-item" style="--delay: 180ms;">
+          <div class="flex flex-col border-2 shadow-sm p-7 border-slate-200 rounded-3xl card-interactive hover:shadow-xl bg-amber-100/30 hover:border-amber-200 group fade-up-item" style="--delay: 180ms;">
             <div class="flex items-center justify-center mb-6 text-xl text-white transition-transform duration-200 shadow-md w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-500 group-hover:scale-110 shadow-amber-500/20">
               <i class="fas fa-spell-check" aria-hidden="true"></i>
             </div>
@@ -205,7 +206,7 @@
           </div>
   
           <!-- Card 3: Quiz Game -->
-          <div class="flex flex-col bg-white border shadow-sm p-7 border-slate-100 rounded-3xl card-interactive hover:shadow-xl hover:bg-emerald-100/30 hover:border-emerald-200 group fade-up-item" style="--delay: 260ms;">
+          <div class="flex flex-col border-2 shadow-sm p-7 border-slate-200 rounded-3xl card-interactive hover:shadow-xl bg-emerald-100/30 hover:border-emerald-200 group fade-up-item" style="--delay: 260ms;">
             <div class="flex items-center justify-center mb-6 text-xl text-white transition-transform duration-200 shadow-md w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-500 group-hover:scale-110 shadow-emerald-500/20">
               <i class="fas fa-gamepad" aria-hidden="true"></i>
             </div>
@@ -224,7 +225,7 @@
           </div>
   
           <!-- Card 4: Asisten Cerdas -->
-          <div class="flex flex-col bg-white border shadow-sm p-7 border-slate-100 rounded-3xl card-interactive hover:shadow-xl hover:bg-indigo-100/30 hover:border-indigo-200 group fade-up-item" style="--delay: 340ms;">
+          <div class="flex flex-col border-2 shadow-sm p-7 border-slate-200 rounded-3xl card-interactive hover:shadow-xl bg-indigo-100/30 hover:border-indigo-200 group fade-up-item" style="--delay: 340ms;">
             <div class="flex items-center justify-center mb-6 text-xl text-white transition-transform duration-200 shadow-md w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-500 group-hover:scale-110 shadow-indigo-500/20">
               <i class="fas fa-robot" aria-hidden="true"></i>
             </div>
@@ -251,10 +252,10 @@
       <div class="mx-auto max-w-7xl">
 
         <!-- Section Header -->
-        <div class="mb-14 text-center fade-up-item" style="--delay: 60ms;">
+        <div class="text-center mb-14 fade-up-item" style="--delay: 60ms;">
           <div class="why-heading-layout">
-          <h2 class="why-heading-title inline-flex items-start gap-2 text-left tracking-in-contract text-2xl font-extrabold tracking-tight text-slate-900 sm:gap-4 sm:text-4xl">
-            <i class="why-heading-icon mt-1 shrink-0 fa-solid fa-hand-peace text-xl text-orange-500 sm:text-3xl" aria-hidden="true"></i>
+          <h2 class="inline-flex items-start gap-2 text-2xl font-extrabold tracking-tight text-left why-heading-title tracking-in-contract text-slate-900 sm:gap-4 sm:text-4xl">
+            <i class="mt-1 text-xl text-orange-500 why-heading-icon shrink-0 fa-solid fa-hand-peace sm:text-3xl" aria-hidden="true"></i>
             <span class="why-title-desktop">Mengapa Belajar di <span class="text-orange-600">IsyaratOK?</span></span>
             <span class="why-title-mobile">Mengapa di <span class="text-orange-600">IsyaratOK</span></span>
           </h2>
@@ -342,10 +343,10 @@
         
         <!-- Section Header -->
         <div class="text-center mb-14 fade-up-item" style="--delay: 60ms;">
-          <div class="heading-icon-layout flex items-center justify-center gap-2 sm:gap-4">
-            <i class="why-heading-icon fa-solid fa-chart-line text-xl text-orange-500 sm:text-3xl" aria-hidden="true"></i>
-            <h2 class="tracking-in-contract text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Isyarat dalam <span class="text-transparent bg-clip-text bg-orange-600">Angka</span>
+          <div class="flex items-center justify-center gap-2 heading-icon-layout sm:gap-4">
+            <i class="text-xl text-orange-500 why-heading-icon fa-solid fa-chart-line sm:text-3xl" aria-hidden="true"></i>
+            <h2 class="text-2xl font-extrabold tracking-tight tracking-in-contract text-slate-900 sm:text-4xl">
+              Isyarat dalam <span class="text-transparent bg-orange-600 bg-clip-text">Angka</span>
             </h2>
           </div>
           <p class="max-w-2xl mx-auto mt-4 text-base text-slate-600 sm:text-lg">
@@ -416,10 +417,10 @@
     <section class="px-4 py-16 sm:px-6 md:py-24 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
       <div class="mx-auto max-w-7xl">
         <div class="text-center mb-14 fade-up-item" style="--delay: 60ms;">
-          <div class="heading-icon-layout flex items-center justify-center gap-2 sm:gap-4">
-            <i class="why-heading-icon fa-solid fa-graduation-cap text-xl text-orange-500 sm:text-3xl" aria-hidden="true"></i>
-            <h2 class="tracking-in-contract text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Modul Belajar <span class="text-transparent bg-clip-text bg-orange-600">Pilihan</span>
+          <div class="flex items-center justify-center gap-2 heading-icon-layout sm:gap-4">
+            <i class="text-xl text-orange-500 why-heading-icon fa-solid fa-graduation-cap sm:text-3xl" aria-hidden="true"></i>
+            <h2 class="text-2xl font-extrabold tracking-tight tracking-in-contract text-slate-900 sm:text-4xl">
+              Modul Belajar <span class="text-transparent bg-orange-600 bg-clip-text">Pilihan</span>
             </h2>
           </div>
           <p class="max-w-2xl mx-auto mt-4 text-base text-slate-600 sm:text-lg">
@@ -526,10 +527,10 @@
         
         <!-- Section Header -->
         <div class="text-center mb-14 fade-up-item" style="--delay: 60ms;">
-          <div class="heading-icon-layout flex items-center justify-center gap-2 sm:gap-4">
-            <i class="why-heading-icon fa-solid fa-book-open text-xl text-orange-500 sm:text-3xl" aria-hidden="true"></i>
-            <h2 class="tracking-in-contract text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Kosakata Isyarat <span class="text-transparent bg-clip-text bg-orange-600">Populer</span>
+          <div class="flex items-center justify-center gap-2 heading-icon-layout sm:gap-4">
+            <i class="text-xl text-orange-500 why-heading-icon fa-solid fa-book-open sm:text-3xl" aria-hidden="true"></i>
+            <h2 class="text-2xl font-extrabold tracking-tight tracking-in-contract text-slate-900 sm:text-4xl">
+              Kosakata Isyarat <span class="text-transparent bg-orange-600 bg-clip-text">Populer</span>
             </h2>
           </div>
           <p class="max-w-2xl mx-auto mt-4 text-base text-slate-600 sm:text-lg">
