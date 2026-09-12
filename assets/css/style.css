@@ -9,6 +9,13 @@
   will-change: opacity, transform;
 }
 
+/* Ukuran teks isi dibuat seragam; judul tetap mengikuti hierarki masing-masing halaman. */
+.text-description,
+.text-label {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
 .fade-in.is-visible,
 .fade-up-item.is-visible {
   opacity: 1;

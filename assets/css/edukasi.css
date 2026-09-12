@@ -2,6 +2,11 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.modul-desc {
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
 :focus-visible {
   outline: 3px solid #ea580c;
   outline-offset: 3px;

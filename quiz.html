@@ -34,11 +34,11 @@
 
       <!-- Desktop Navigation -->
       <nav class="items-center hidden font-semibold gap-7 text-slate-600 md:flex text-md" aria-label="Navigasi Utama">
-        <a href="index.html" class="py-1 text-orange-600 border-b-2 border-orange-600" aria-current="page">Beranda</a>
+        <a href="index.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Beranda</a>
         <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Edukasi</a>
-        <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Kosakata</a>
-        <a href="edukasi.html#quiz" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Quiz</a>
-        <a href="#isyarat-angka" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Statistik</a>
+        <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Kamus</a>
+        <a href="quiz.html" class="py-1 text-orange-600 border-b-2 border-orange-600" aria-current="page">Quiz</a>
+        <a href="index.html#isyarat-angka" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Asisten AI</a>
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -56,11 +56,11 @@
     <!-- Mobile Navigation Drawer -->
     <nav id="mobileMenu" class="hidden px-6 pt-2 pb-6 border-b border-orange-100 bg-white/95 md:hidden" aria-label="Menu Mobile">
       <div class="flex flex-col space-y-2.5 font-medium text-slate-700">
-        <a href="index.html" class="px-3 py-2 font-bold text-orange-600 rounded-lg bg-orange-50">Beranda</a>
+        <a href="index.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Beranda</a>
         <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Edukasi</a>
-        <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Kosakata</a>
-        <a href="edukasi.html#quiz" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Quiz</a>
-        <a href="#isyarat-angka" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Statistik</a>
+        <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Kamus</a>
+        <a href="quiz.html" class="px-3 py-2 font-bold text-orange-600 rounded-lg bg-orange-50">Quiz</a>
+        <a href="index.html#isyarat-angka" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Asisten AI</a>
       </div>
     </nav>
   </header>
@@ -105,7 +105,7 @@
 
             <!-- Judul -->
             <h1 class="mb-1 text-3xl font-bold tracking-wide text-black">Latihan Katakana</h1>
-            <p class="text-sm italic text-gray-700">Kuis Pilihan Ganda Adaptif</p>
+            <p class="text-description italic text-gray-700">Kuis Pilihan Ganda Adaptif</p>
           </div>
 
           <!-- BOTTOM SECTION: KONTROL & STATISTIK -->
@@ -251,6 +251,7 @@
 	
   <!-- jQuery & Main Script -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/script.js"></script>
   <script>
 $(function () {
 
