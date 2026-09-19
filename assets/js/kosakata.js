@@ -39,7 +39,7 @@ $(function () {
       .map(function ([letter, fileName]) {
         const imagePath = `assets/images/SIBI/${encodeURIComponent(fileName)}`;
         return `
-          <div role="button" tabindex="0" data-language="sibi" data-category="abjad" data-keywords="sibi abjad huruf alfabet ${letter.toLowerCase()}" data-desc="Bentuk isyarat huruf ${letter} dalam Sistem Isyarat Bahasa Indonesia (SIBI)." data-tips="Ikuti posisi jari pada foto dan pastikan telapak tangan menghadap arah yang sesuai." class="flex flex-col p-3 text-center bg-white border shadow-xs cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
+          <div role="button" tabindex="0" data-language="sibi" data-category="abjad" data-keywords="sibi abjad huruf alfabet ${letter.toLowerCase()}" data-desc="Bentuk isyarat huruf ${letter} dalam Sistem Isyarat Bahasa Indonesia (SIBI)." data-tips="Ikuti posisi jari pada foto dan pastikan telapak tangan menghadap arah yang sesuai." class="flex flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
             <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
               <img src="${imagePath}" alt="Isyarat huruf ${letter} dalam SIBI" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-sky-900 bg-sky-100 rounded-md card-badge">Abjad</span>

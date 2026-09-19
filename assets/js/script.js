@@ -7,16 +7,21 @@ $(function () {
   const $iconClose = $("#iconClose");
 
   function toggleMobileMenu(isOpen) {
-    const isCurrentlyOpen = $mobileMenu.hasClass("is-open");
+    const isCurrentlyOpen =
+      $mobileMenu.is(":visible") && !$mobileMenu.hasClass("hidden");
     const openState = typeof isOpen === "boolean" ? isOpen : !isCurrentlyOpen;
 
     if (openState) {
-      $mobileMenu.addClass("is-open");
+      $mobileMenu.removeClass("hidden").hide().stop(true, true).slideDown(220, function () {
+        $(this).css("display", "");
+      });
       $menuBtn.attr("aria-expanded", "true");
       $iconOpen.addClass("hidden");
       $iconClose.removeClass("hidden");
     } else {
-      $mobileMenu.removeClass("is-open");
+      $mobileMenu.stop(true, true).slideUp(180, function () {
+        $(this).addClass("hidden").css("display", "");
+      });
       $menuBtn.attr("aria-expanded", "false");
       $iconOpen.removeClass("hidden");
       $iconClose.addClass("hidden");
@@ -39,7 +44,11 @@ $(function () {
   });
 
   $(document).on("keydown", function (e) {
-    if (e.key === "Escape" && $mobileMenu.hasClass("is-open")) {
+    if (
+      e.key === "Escape" &&
+      $mobileMenu.is(":visible") &&
+      !$mobileMenu.hasClass("hidden")
+    ) {
       toggleMobileMenu(false);
       $menuBtn.trigger("focus");
     }

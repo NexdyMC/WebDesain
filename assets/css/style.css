@@ -35,9 +35,41 @@
 
 /* 3. STAT FLIP CARD — Fix: hapus hardcoded height 280px */
 .stat-flip-card {
+  position: relative;
   min-height: 260px;
   perspective: 1000px;
   cursor: pointer;
+}
+
+.stat-flip-card:first-child .flip-sticker {
+  position: absolute;
+  top: -0.7rem;
+  left: 1rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.8rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #fff7ed, #fed7aa);
+  border: 1px solid rgba(251, 146, 60, 0.35);
+  color: #9a4d11;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 18px rgba(249, 115, 22, 0.18);
+  transform: rotate(-10deg);
+  animation: stickerBounce 2.2s ease-in-out infinite;
+}
+
+@keyframes stickerBounce {
+  0%, 100% {
+    transform: rotate(-10deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-6deg) translateY(-4px);
+  }
 }
 
 .stat-flip-inner {
@@ -102,28 +134,6 @@
   100% { transform: scale(1); }
 }
 
-/* 5. MOBILE MENU — CSS grid transition (Fix: gantikan jQuery slideDown/slideUp)
-   GPU-composited, tidak memicu layout reflow. */
-#mobileMenu {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.28s cubic-bezier(0.2, 0, 0, 1);
-}
-
-#mobileMenu.is-open {
-  grid-template-rows: 1fr;
-}
-
-#mobileMenu > div {
-  min-height: 0;
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  #mobileMenu {
-    display: none !important;
-  }
-}
 
 /* 6. SECTION HEADING ICON */
 .why-heading-icon {
@@ -204,9 +214,6 @@
     animation: none !important;
   }
 
-  #mobileMenu {
-    transition: none !important;
-  }
 
   .stat-number {
     animation: none !important;

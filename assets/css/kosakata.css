@@ -2,10 +2,6 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.text-description {
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
 
 :focus-visible {
   outline: 3px solid #ea580c;
