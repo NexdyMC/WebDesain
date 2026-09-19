@@ -7,25 +7,16 @@ $(function () {
   const $iconClose = $("#iconClose");
 
   function toggleMobileMenu(isOpen) {
-    const isCurrentlyOpen =
-      $mobileMenu.is(":visible") && !$mobileMenu.hasClass("hidden");
+    const isCurrentlyOpen = $mobileMenu.hasClass("is-open");
     const openState = typeof isOpen === "boolean" ? isOpen : !isCurrentlyOpen;
 
     if (openState) {
-      $mobileMenu.removeClass("hidden").addClass("flex flex-col").hide();
-      $mobileMenu.stop(true, true).slideDown(260, function () {
-        $(this).css("display", "");
-      });
+      $mobileMenu.addClass("is-open");
       $menuBtn.attr("aria-expanded", "true");
       $iconOpen.addClass("hidden");
       $iconClose.removeClass("hidden");
     } else {
-      $mobileMenu.stop(true, true).slideUp(220, function () {
-        $(this)
-          .addClass("hidden")
-          .removeClass("flex flex-col")
-          .css("display", "");
-      });
+      $mobileMenu.removeClass("is-open");
       $menuBtn.attr("aria-expanded", "false");
       $iconOpen.removeClass("hidden");
       $iconClose.addClass("hidden");
@@ -48,11 +39,7 @@ $(function () {
   });
 
   $(document).on("keydown", function (e) {
-    if (
-      e.key === "Escape" &&
-      $mobileMenu.is(":visible") &&
-      !$mobileMenu.hasClass("hidden")
-    ) {
+    if (e.key === "Escape" && $mobileMenu.hasClass("is-open")) {
       toggleMobileMenu(false);
       $menuBtn.trigger("focus");
     }
@@ -63,70 +50,68 @@ $(function () {
   ).matches;
 
   function initFadeUpAnimation() {
-    const $fadeElements = $(".fade-in, .fade-up-item");
+    const fadeElements = document.querySelectorAll(".fade-in, .fade-up-item");
 
     if (prefersReducedMotion) {
-      $fadeElements
-        .addClass("is-visible")
-        .css({ opacity: 1, transform: "none", "transition-delay": "0s" });
+      fadeElements.forEach(function (element) {
+        element.classList.add("is-visible");
+      });
       return;
     }
 
-    if ("IntersectionObserver" in window) {
-      const observerOptions = {
+    if (!("IntersectionObserver" in window)) {
+      fadeElements.forEach(function (element) {
+        element.classList.add("is-visible");
+      });
+      return;
+    }
+
+    const fadeObserver = new IntersectionObserver(
+      function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
         root: null,
         rootMargin: "0px 0px -40px 0px",
         threshold: 0.1,
-      };
+      },
+    );
 
-      const fadeObserver = new IntersectionObserver(function (
-        entries,
-        observer,
-      ) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            const $el = $(entry.target);
-            $el.addClass("is-visible");
-
-            const delay = parseFloat($el.css("transition-delay")) * 1000 || 0;
-            const duration =
-              parseFloat($el.css("transition-duration")) * 1000 || 500;
-            setTimeout(function () {
-              $el.css("transition-delay", "0s");
-            }, delay + duration);
-
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      $fadeElements.each(function () {
-        fadeObserver.observe(this);
-      });
-    } else {
-      function checkFadeUpScroll() {
-        const windowBottom = $(window).scrollTop() + $(window).height();
-
-        $fadeElements.each(function () {
-          const $el = $(this);
-          if (!$el.hasClass("is-visible")) {
-            const elTop = $el.offset().top;
-            if (windowBottom > elTop + 40) {
-              $el.addClass("is-visible");
-              setTimeout(function () {
-                $el.css("transition-delay", "0s");
-              }, 600);
-            }
-          }
-        });
-      }
-
-      $(window).on("scroll resize", checkFadeUpScroll);
-      checkFadeUpScroll();
-    }
+    fadeElements.forEach(function (element) {
+      fadeObserver.observe(element);
+    });
   }
 
   initFadeUpAnimation();
+
+  function initScrollCue() {
+    const scrollCue = document.getElementById("scrollCue");
+    const heroSection = document.getElementById("hero");
+
+    if (!scrollCue || !heroSection || !("IntersectionObserver" in window)) {
+      return;
+    }
+
+    const cueObserver = new IntersectionObserver(
+      function (entries) {
+        const isHeroVisible = entries[0].isIntersecting;
+
+        scrollCue.classList.toggle("opacity-0", !isHeroVisible);
+        scrollCue.classList.toggle("pointer-events-none", !isHeroVisible);
+        scrollCue.classList.toggle("translate-y-2", !isHeroVisible);
+      },
+      { threshold: 0.05 },
+    );
+
+    cueObserver.observe(heroSection);
+  }
+
+  initScrollCue();
 
   function animateRandomNumber($element) {
     if ($element.data("animated-done")) return;
@@ -218,21 +203,28 @@ $(function () {
         statsObserver.observe(this);
       });
     } else {
+      let isTicking = false;
       function checkStatsScroll() {
-        const windowBottom = $(window).scrollTop() + $(window).height();
+        if (!isTicking) {
+          requestAnimationFrame(function () {
+            const windowBottom = $(window).scrollTop() + $(window).height();
 
-        $statNumbers.each(function () {
-          const $el = $(this);
-          if (!$el.data("animated-done")) {
-            const elTop = $el.offset().top;
-            if (windowBottom > elTop + 40) {
-              const delay = parseInt($el.attr("data-delay"), 10) || 0;
-              setTimeout(function () {
-                animateRandomNumber($el);
-              }, delay);
-            }
-          }
-        });
+            $statNumbers.each(function () {
+              const $el = $(this);
+              if (!$el.data("animated-done")) {
+                const elTop = $el.offset().top;
+                if (windowBottom > elTop + 40) {
+                  const delay = parseInt($el.attr("data-delay"), 10) || 0;
+                  setTimeout(function () {
+                    animateRandomNumber($el);
+                  }, delay);
+                }
+              }
+            });
+            isTicking = false;
+          });
+          isTicking = true;
+        }
       }
 
       $(window).on("scroll resize", checkStatsScroll);
@@ -241,10 +233,19 @@ $(function () {
   }
 
   initRandomNumberSection();
-  $(".gesture-card").on("click", function () {
-    $(this).addClass("scale-95");
-    setTimeout(() => {
-      $(this).removeClass("scale-95");
-    }, 120);
+
+  document.querySelectorAll(".stat-flip-card").forEach(function (card) {
+    function toggleFlip() {
+      const isFlipped = card.classList.toggle("is-flipped");
+      card.setAttribute("aria-pressed", String(isFlipped));
+    }
+
+    card.addEventListener("click", toggleFlip);
+    card.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        toggleFlip();
+      }
+    });
   });
 });

@@ -1,19 +1,17 @@
+/* ============================================================
+   IsyaratOK — Custom Styles (Audited & Optimized)
+   ============================================================ */
+
+/* 1. FADE ANIMATION */
 .fade-in,
 .fade-up-item {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(1.5rem);
   transition:
-    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--delay, 0ms);
   will-change: opacity, transform;
-}
-
-/* Ukuran teks isi dibuat seragam; judul tetap mengikuti hierarki masing-masing halaman. */
-.text-description,
-.text-label {
-  font-size: 0.875rem;
-  line-height: 1.5;
 }
 
 .fade-in.is-visible,
@@ -22,11 +20,7 @@
   transform: translateY(0);
 }
 
-.fade-up-item.is-visible:hover,
-.fade-in.is-visible:hover {
-  transition-delay: 0s !important;
-}
-
+/* 2. CARD INTERACTIVE */
 .card-interactive {
   transition:
     transform 0.18s cubic-bezier(0.2, 0, 0, 1),
@@ -39,6 +33,60 @@
   transform: translateY(-5px);
 }
 
+/* 3. STAT FLIP CARD — Fix: hapus hardcoded height 280px */
+.stat-flip-card {
+  min-height: 260px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.stat-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stat-flip-card.is-flipped .stat-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.stat-flip-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1), border-color 0.2s ease;
+}
+
+.stat-flip-card:hover .stat-flip-face {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border-color: #fed7aa;
+}
+
+.stat-flip-back {
+  transform: rotateY(180deg);
+  background: #ffffff;
+}
+
+.stat-flip-card:focus-visible {
+  outline: 3px solid rgb(249 115 22 / 0.45);
+  outline-offset: 4px;
+}
+
+/* 4. STAT NUMBER */
 .stat-number {
   font-variant-numeric: tabular-nums;
   display: inline-block;
@@ -50,51 +98,39 @@
 }
 
 @keyframes statPop {
-  0% {
-    transform: scale(1.06);
-    color: #ea580c;
-  }
+  0% { transform: scale(1.06); color: #ea580c; }
+  100% { transform: scale(1); }
+}
 
-  100% {
-    transform: scale(1);
+/* 5. MOBILE MENU — CSS grid transition (Fix: gantikan jQuery slideDown/slideUp)
+   GPU-composited, tidak memicu layout reflow. */
+#mobileMenu {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s cubic-bezier(0.2, 0, 0, 1);
+}
+
+#mobileMenu.is-open {
+  grid-template-rows: 1fr;
+}
+
+#mobileMenu > div {
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  #mobileMenu {
+    display: none !important;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .fade-in,
-  .fade-up-item,
-  .card-interactive,
-  .why-heading-icon {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    animation: none !important;
-  }
-
-  .stat-number {
-    animation: none !important;
-  }
-}
-
-/* ANIMASI ICON */
-
-.animasi {
-  display: flex;
-  justify-content: center;
-  margin-top: 5vh;
-}
-
-.shake-vertical {
-  -webkit-animation: shake-vertical 5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-    infinite both;
-  animation: shake-vertical 5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite
-    both;
-}
-
+/* 6. SECTION HEADING ICON */
 .why-heading-icon {
   display: inline-block;
   flex: 0 0 auto;
   animation: why-icon-float 2.8s ease-in-out infinite;
+  will-change: transform;
 }
 
 .why-title-mobile {
@@ -102,203 +138,86 @@
 }
 
 @media (max-width: 639px) {
-  .why-heading-layout {
-    text-align: center;
-  }
-
-  .why-heading-title {
-    max-width: calc(100vw - 2rem);
-    text-align: left;
-  }
-
-  .why-title-desktop {
-    display: none;
-  }
-
-  .why-title-mobile {
-    display: inline;
-  }
-
-  .heading-icon-layout {
-    width: fit-content;
-    max-width: 100%;
-    margin-inline: auto;
-    gap: 0.5rem;
-  }
-
-  .heading-icon-layout h2 {
-    width: auto;
-    max-width: calc(100vw - 3.5rem);
-    min-width: 0;
-    text-align: center;
-  }
+  .why-heading-layout { text-align: center; }
+  .why-heading-title { max-width: calc(100vw - 2rem); text-align: left; }
+  .why-title-desktop { display: none; }
+  .why-title-mobile { display: inline; }
+  .heading-icon-layout { width: fit-content; max-width: 100%; margin-inline: auto; gap: 0.5rem; }
+  .heading-icon-layout h2 { width: auto; max-width: calc(100vw - 3.5rem); min-width: 0; text-align: center; }
 }
 
 @keyframes why-icon-float {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-8deg);
-  }
-
-  50% {
-    transform: translateY(-6px) rotate(8deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-6px) rotate(8deg); }
 }
 
-@-webkit-keyframes shake-vertical {
-  0%,
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  10%,
-  30%,
-  50%,
-  70% {
-    -webkit-transform: translateY(-8px);
-    transform: translateY(-8px);
-  }
-  20%,
-  40%,
-  60% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-  80% {
-    -webkit-transform: translateY(6.4px);
-    transform: translateY(6.4px);
-  }
-  90% {
-    -webkit-transform: translateY(-6.4px);
-    transform: translateY(-6.4px);
-  }
+/* 7. SCROLL CUE — Fix: sederhanakan dari 14 keyframe, hapus -webkit- prefix */
+.shake-vertical {
+  animation: shake-vertical 2s ease-in-out infinite;
+  will-change: transform;
 }
+
 @keyframes shake-vertical {
-  0%,
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  10%,
-  30%,
-  50%,
-  70% {
-    -webkit-transform: translateY(-8px);
-    transform: translateY(-8px);
-  }
-  20%,
-  40%,
-  60% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-  80% {
-    -webkit-transform: translateY(6.4px);
-    transform: translateY(6.4px);
-  }
-  90% {
-    -webkit-transform: translateY(-6.4px);
-    transform: translateY(-6.4px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
 }
 
-/* Text Animasi di Header */
+/* 8. HEADING TEXT ANIMATION — Fix: hapus duplikasi @-webkit-keyframes */
 .tracking-in-contract {
-  -webkit-animation: tracking-in-contract 0.8s
-    cubic-bezier(0.215, 0.61, 0.355, 1) both;
   animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
-@-webkit-keyframes tracking-in-contract {
-  0% {
-    letter-spacing: 1em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    letter-spacing: normal;
-    opacity: 1;
-  }
-}
 @keyframes tracking-in-contract {
-  0% {
-    letter-spacing: 1em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    letter-spacing: normal;
-    opacity: 1;
-  }
+  0% { letter-spacing: 1em; opacity: 0; }
+  40% { opacity: 0.6; }
+  100% { letter-spacing: normal; opacity: 1; }
 }
 
-/* Animasi Kartu Jelly */
+/* 9. JELLO CARD ANIMATION — Fix: hapus duplikasi @-webkit-keyframes */
 .jello-horizontal {
-  -webkit-animation: jello-horizontal 0.9s both;
   animation: jello-horizontal 0.9s both;
 }
 
-@-webkit-keyframes jello-horizontal {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-  30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
-  }
-  40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
-  }
-  50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1);
-  }
-  65% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-    transform: scale3d(0.95, 1.05, 1);
-  }
-  75% {
-    -webkit-transform: scale3d(1.05, 0.95, 1);
-    transform: scale3d(1.05, 0.95, 1);
-  }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-}
 @keyframes jello-horizontal {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
+  0%   { transform: scale3d(1, 1, 1); }
+  30%  { transform: scale3d(1.25, 0.75, 1); }
+  40%  { transform: scale3d(0.75, 1.25, 1); }
+  50%  { transform: scale3d(1.15, 0.85, 1); }
+  65%  { transform: scale3d(0.95, 1.05, 1); }
+  75%  { transform: scale3d(1.05, 0.95, 1); }
+  100% { transform: scale3d(1, 1, 1); }
+}
+
+/* 10. REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .fade-up-item,
+  .card-interactive,
+  .stat-flip-inner,
+  .why-heading-icon,
+  .shake-vertical,
+  .jello-horizontal,
+  .tracking-in-contract {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
   }
-  30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
+
+  #mobileMenu {
+    transition: none !important;
   }
-  40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
+
+  .stat-number {
+    animation: none !important;
   }
-  50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1);
+
+  .stat-flip-card.is-flipped .stat-flip-inner {
+    transform: none;
   }
-  65% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-    transform: scale3d(0.95, 1.05, 1);
-  }
-  75% {
-    -webkit-transform: scale3d(1.05, 0.95, 1);
-    transform: scale3d(1.05, 0.95, 1);
-  }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
+
+  .stat-flip-back {
+    display: none;
   }
 }
+

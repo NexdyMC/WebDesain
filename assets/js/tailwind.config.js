@@ -15,12 +15,6 @@ tailwind.config = {
           800: "#9a3412",
           900: "#7c2d12",
         },
-        cream: '#FDFCF0',
-        orange_primary: '#e37b3c',
-        'cream-bg': '#fffbf0',
-        'signal-orange': '#e37b3c',
-        'orange-dark': '#b35d2d',
-        'gray-text': '#71717a',
       },
 
       // Konversi Tipografi / Font
