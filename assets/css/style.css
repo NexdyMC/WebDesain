@@ -1,27 +1,6 @@
-/* ============================================================
-   IsyaratOK — Custom Styles (Audited & Optimized)
-   ============================================================ */
-
-/* 1. FADE ANIMATION */
-.fade-in,
-.fade-up-item {
-  opacity: 0;
-  transform: translateY(1.5rem);
-  transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: var(--delay, 0ms);
-  will-change: opacity, transform;
-}
-
-.fade-in.is-visible,
-.fade-up-item.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 2. CARD INTERACTIVE */
+/* 1. CARD INTERACTIVE */
 .card-interactive {
+  height: 100%;
   transition:
     transform 0.18s cubic-bezier(0.2, 0, 0, 1),
     box-shadow 0.18s cubic-bezier(0.2, 0, 0, 1),
@@ -31,6 +10,117 @@
 
 .card-interactive:hover {
   transform: translateY(-5px);
+}
+
+/* 2. HERO ENTRANCE ANIMATION */
+.hero-copy,
+.hero-visual-wrap,
+.hero-actions,
+.hero-title,
+.hero-subtitle,
+.hero-visual {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+}
+
+.hero-copy {
+  animation: heroReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards;
+}
+
+.hero-title {
+  animation: heroTitleIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+}
+
+.hero-subtitle {
+  animation: heroTextIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.38s forwards;
+}
+
+.hero-actions {
+  animation: heroTextIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.52s forwards;
+}
+
+.hero-visual-wrap {
+  animation: heroVisualWrapIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.28s forwards;
+}
+
+.hero-visual {
+  animation: heroCardIn 1.05s cubic-bezier(0.22, 1, 0.36, 1) 0.42s forwards;
+}
+
+@keyframes heroReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroTitleIn {
+  0% {
+    opacity: 0;
+    transform: translateY(36px) scale(0.96);
+    filter: blur(8px);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.01);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroTextIn {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroVisualWrapIn {
+  0% {
+    opacity: 0;
+    transform: translateX(36px) scale(0.94) rotate(2deg);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-4px) scale(1.02) rotate(-1deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroCardIn {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+    box-shadow: 0 0 0 rgba(249, 115, 22, 0);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 30px 60px rgba(249, 115, 22, 0.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    box-shadow: 0 26px 50px rgba(249, 115, 22, 0.18);
+  }
 }
 
 /* 3. STAT FLIP CARD — Fix: hapus hardcoded height 280px */

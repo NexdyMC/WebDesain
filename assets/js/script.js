@@ -12,9 +12,13 @@ $(function () {
     const openState = typeof isOpen === "boolean" ? isOpen : !isCurrentlyOpen;
 
     if (openState) {
-      $mobileMenu.removeClass("hidden").hide().stop(true, true).slideDown(220, function () {
-        $(this).css("display", "");
-      });
+      $mobileMenu
+        .removeClass("hidden")
+        .hide()
+        .stop(true, true)
+        .slideDown(220, function () {
+          $(this).css("display", "");
+        });
       $menuBtn.attr("aria-expanded", "true");
       $iconOpen.addClass("hidden");
       $iconClose.removeClass("hidden");
@@ -54,49 +58,28 @@ $(function () {
     }
   });
 
+  function initScrollProgress() {
+    const progressBar = document.getElementById("scrollProgressBar");
+    if (!progressBar) return;
+
+    const updateScrollProgress = function () {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progressBar.style.width = Math.min(Math.max(progress, 0), 100) + "%";
+    };
+
+    updateScrollProgress();
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    window.addEventListener("resize", updateScrollProgress);
+  }
+
+  initScrollProgress();
+
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
-
-  function initFadeUpAnimation() {
-    const fadeElements = document.querySelectorAll(".fade-in, .fade-up-item");
-
-    if (prefersReducedMotion) {
-      fadeElements.forEach(function (element) {
-        element.classList.add("is-visible");
-      });
-      return;
-    }
-
-    if (!("IntersectionObserver" in window)) {
-      fadeElements.forEach(function (element) {
-        element.classList.add("is-visible");
-      });
-      return;
-    }
-
-    const fadeObserver = new IntersectionObserver(
-      function (entries, observer) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        root: null,
-        rootMargin: "0px 0px -40px 0px",
-        threshold: 0.1,
-      },
-    );
-
-    fadeElements.forEach(function (element) {
-      fadeObserver.observe(element);
-    });
-  }
-
-  initFadeUpAnimation();
 
   function initScrollCue() {
     const scrollCue = document.getElementById("scrollCue");

@@ -15,10 +15,17 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
 
+  <!-- AOS via CDN -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <!-- Custom Styles & Transitions -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="font-sans antialiased text-slate-800 bg-white selection:bg-orange-500 selection:text-white">
+
+  <div id="scrollProgressContainer" class="fixed left-0 top-0 z-[60] h-1 w-full bg-transparent pointer-events-none">
+    <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
+  </div>
 
   <!-- Navigation -->
   <header class="sticky top-0 z-50 border-b shadow-sm border-orange-100/70 backdrop-blur-md bg-white/95">
@@ -86,16 +93,16 @@
           <div class="relative z-10 grid items-center gap-10 lg:grid-cols-12">
             
             <!-- Left Text Content -->
-            <div class="lg:col-span-7">
-              <h1 c lass="mb-5 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:leading-tight">
+            <div class="lg:col-span-7 hero-copy">
+              <h1 class="mb-5 text-3xl font-extrabold leading-tight tracking-tight hero-title sm:text-4xl md:text-5xl lg:leading-tight">
                 Belajar Isyarat, <br class="hidden sm:inline" />Bangun Koneksi Tanpa Batas
               </h1>
-              <p class="max-w-xl mb-6 text-base leading-relaxed text-orange-50 sm:mb-8 md:text-lg">
+              <p class="max-w-xl mb-6 text-base leading-relaxed text-orange-50 hero-subtitle sm:mb-8 md:text-lg">
                 Setiap orang berhak didengar dan dipahami. Pelajari BISINDO dan SIBI secara interaktif, visual, dan menyenangkan untuk meruntuhkan tembok komunikasi.
               </p>
               
               <!-- Action Buttons -->
-              <div class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <div class="flex flex-col items-stretch gap-3 hero-actions sm:flex-row sm:items-center sm:gap-4">
                 <a href="edukasi.html"
                   class="inline-flex items-center justify-center w-full gap-2.5 px-6 py-3.5 text-base font-bold text-orange-600 transition-all duration-200 bg-white rounded-full shadow-lg sm:w-auto hover:bg-orange-50 hover:shadow-xl hover:scale-105 active:scale-95">
                   <i class="text-xs fa-solid fa-play" aria-hidden="true"></i> Mulai Belajar Gratis
@@ -107,8 +114,8 @@
               </div>
             </div>
 
-            <div class="flex justify-center lg:col-span-5">
-              <div class="w-full max-w-md p-4 border shadow-2xl rounded-3xl sm:p-6 bg-white/10 backdrop-blur-md border-white/20">
+            <div class="flex justify-center lg:col-span-5 hero-visual-wrap">
+              <div class="w-full max-w-md p-4 border shadow-2xl rounded-3xl hero-visual sm:p-6 bg-white/10 backdrop-blur-md border-white/20">
                 <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
                   <div class="flex items-center min-w-0 gap-3">
                     <div class="flex items-center justify-center w-10 h-10 text-orange-600 bg-white rounded-full shadow-md">
@@ -190,12 +197,12 @@
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
   
           <!-- Card 1: Edukasi -->
-          <div class="flex flex-col bg-white border shadow-sm p-7 border-slate-200/80 rounded-3xl card-interactive hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-300 group fade-up-item" style="--delay: 100ms;">
+          <div class="flex flex-col h-full bg-white border shadow-sm p-7 border-slate-200/80 rounded-3xl card-interactive hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-300 group fade-up-item" style="--delay: 100ms;">
             <div class="flex items-center justify-center mb-6 text-xl text-white transition-transform duration-200 shadow-md w-14 h-14 rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 group-hover:scale-110 shadow-orange-500/20">
               <i class="fas fa-book-open" aria-hidden="true"></i>
             </div>
             <h3 class="mb-3 text-xl font-bold transition-colors text-slate-900 group-hover:text-orange-600">Edukasi Modul</h3>
-            <p class="mb-6 text-sm leading-relaxed text-slate-600">
+            <p class="mb-6 text-sm leading-relaxed text-slate-600 min-h-[72px]">
               Pelajari materi BISINDO dan SIBI langkah demi langkah, dari abjad dasar hingga percakapan sehari-hari.
             </p>
             <ul class="mb-6 space-y-2.5 text-xs font-medium text-slate-700">
@@ -209,12 +216,12 @@
           </div>
   
           <!-- Card 2: Kamus Kosakata -->
-          <div class="flex flex-col bg-white border shadow-sm p-7 border-slate-200/80 rounded-3xl card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 group fade-up-item" style="--delay: 180ms;">
+          <div class="flex flex-col h-full bg-white border shadow-sm p-7 border-slate-200/80 rounded-3xl card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 group fade-up-item" style="--delay: 180ms;">
             <div class="flex items-center justify-center mb-6 text-xl text-white transition-transform duration-200 shadow-md w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-500 group-hover:scale-110 shadow-amber-500/20">
               <i class="fas fa-spell-check" aria-hidden="true"></i>
             </div>
             <h3 class="mb-3 text-xl font-bold transition-colors text-slate-900 group-hover:text-amber-600">Kamus Isyarat</h3>
-            <p class="mb-6 text-sm leading-relaxed text-slate-600">
+            <p class="mb-6 text-sm leading-relaxed text-slate-600 min-h-[72px]">
               Cari kata dan bandingkan visualisasi BISINDO maupun SIBI secara cepat, lengkap dengan foto panduan gestur.
             </p>
             <ul class="mb-6 space-y-2.5 text-xs font-medium text-slate-700">
@@ -228,12 +235,12 @@
           </div>
   
           <!-- Card 3: Quiz Game -->
-          <div class="flex flex-col bg-white border shadow-sm p-7 border-slate-200/80 rounded-3xl card-interactive hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-300 group fade-up-item" style="--delay: 260ms;">
+          <div class="flex flex-col h-full bg-white border shadow-sm p-7 border-slate-200/80 rounded-3xl card-interactive hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-300 group fade-up-item" style="--delay: 260ms;">
             <div class="flex items-center justify-center mb-6 text-xl text-white transition-transform duration-200 shadow-md w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-500 group-hover:scale-110 shadow-emerald-500/20">
               <i class="fas fa-gamepad" aria-hidden="true"></i>
             </div>
             <h3 class="mb-3 text-xl font-bold transition-colors text-slate-900 group-hover:text-emerald-600">Kuis Interaktif</h3>
-            <p class="mb-6 text-sm leading-relaxed text-slate-600">
+            <p class="mb-6 text-sm leading-relaxed text-slate-600 min-h-[72px]">
               Uji ingatan dan asah kemampuan menebak gerakan isyarat lewat kuis seru dan penilaian otomatis.
             </p>
             <ul class="mb-6 space-y-2.5 text-xs font-medium text-slate-700">
@@ -247,12 +254,12 @@
           </div>
   
           <!-- Card 4: Asisten Cerdas -->
-          <div class="flex flex-col bg-white border shadow-sm p-7 border-slate-200/80 rounded-3xl card-interactive hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 group fade-up-item" style="--delay: 340ms;">
+          <div class="flex flex-col h-full bg-white border shadow-sm p-7 border-slate-200/80 rounded-3xl card-interactive hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 group fade-up-item" style="--delay: 340ms;">
             <div class="flex items-center justify-center mb-6 text-xl text-white transition-transform duration-200 shadow-md w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-500 group-hover:scale-110 shadow-indigo-500/20">
               <i class="fas fa-robot" aria-hidden="true"></i>
             </div>
             <h3 class="mb-3 text-xl font-bold transition-colors text-slate-900 group-hover:text-indigo-600">Panduan Pintar</h3>
-            <p class="mb-6 text-sm leading-relaxed text-slate-600">
+            <p class="mb-6 text-sm leading-relaxed text-slate-600 min-h-[72px]">
               Dapatkan saran belajar dan rekomendasi modul yang sesuai dengan kebutuhan dan kecepatan belajarmu.
             </p>
             <ul class="mb-6 space-y-2.5 text-xs font-medium text-slate-700">
@@ -944,6 +951,31 @@
   
   <!-- jQuery & Main Script -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.fade-up-item').forEach(function (element) {
+        if (!element.hasAttribute('data-aos')) {
+          element.setAttribute('data-aos', 'fade-up');
+        }
+
+        var delayValue = element.style.getPropertyValue('--delay');
+        if (!element.hasAttribute('data-aos-delay') && delayValue) {
+          var numericDelay = parseInt(delayValue, 10) || 0;
+          if (!isNaN(numericDelay)) {
+            element.setAttribute('data-aos-delay', String(numericDelay));
+          }
+        }
+      });
+
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 30,
+        easing: 'ease-out-cubic'
+      });
+    });
+  </script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>
