@@ -23,7 +23,7 @@
 </head>
 <body class="font-sans antialiased text-slate-800 bg-white selection:bg-orange-500 selection:text-white">
 
-  <div id="scrollProgressContainer" class="fixed left-0 top-0 z-[60] h-1 w-full bg-transparent pointer-events-none">
+  <div id="scrollProgressContainer" class="fixed left-0 top-16 z-[60] h-1 w-full bg-transparent pointer-events-none md:top-20">
     <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
   </div>
 
@@ -103,12 +103,18 @@
               
               <!-- Action Buttons -->
               <div class="flex flex-col items-stretch gap-3 hero-actions sm:flex-row sm:items-center sm:gap-4">
-                <a href="edukasi.html"
-                  class="inline-flex items-center justify-center w-full gap-2.5 px-6 py-3.5 text-base font-bold text-orange-600 transition-all duration-200 bg-white rounded-full shadow-lg sm:w-auto hover:bg-orange-50 hover:shadow-xl hover:scale-105 active:scale-95">
-                  <i class="text-xs fa-solid fa-play" aria-hidden="true"></i> Mulai Belajar Gratis
-                </a>
+                <div class="relative inline-flex items-center justify-center w-full gap-4 group sm:w-auto">
+                  <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 opacity-60 blur-lg transition-all duration-1000 group-hover:opacity-100 group-hover:duration-200" aria-hidden="true"></div>
+                  <a href="edukasi.html" role="button" class="relative inline-flex items-center justify-center w-full gap-2 px-8 py-3 text-base font-semibold text-orange-600 transition-all duration-200 bg-white rounded-xl sm:w-auto hover:bg-orange-50 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-500/30" title="Mulai belajar gratis">
+                    Mulai Belajar Gratis
+                    <svg aria-hidden="true" viewBox="0 0 10 10" height="10" width="10" fill="none" class="mt-0.5 -mr-1 stroke-orange-600 stroke-2">
+                      <path d="M0 5h7" class="transition opacity-0 group-hover:opacity-100"></path>
+                      <path d="M1 1l4 4-4 4" class="transition group-hover:translate-x-[3px]"></path>
+                    </svg>
+                  </a>
+                </div>
                 <a href="#fitur"
-                  class="inline-flex items-center justify-center w-full gap-2 px-6 py-3.5 text-base font-semibold text-white transition-all duration-200 border-2 rounded-full sm:w-auto border-white/80 hover:bg-white/15 hover:border-white">
+                  class="inline-flex items-center justify-center w-full gap-2 px-6 py-3 text-base font-semibold text-white transition-all duration-200 border-2 rounded-xl sm:w-auto border-white/80 hover:bg-white/15 hover:border-white">
                   Kenali Fitur <i class="text-xs fa-solid fa-arrow-down" aria-hidden="true"></i>
                 </a>
               </div>
@@ -116,27 +122,27 @@
 
             <div class="flex justify-center lg:col-span-5 hero-visual-wrap">
               <div class="w-full max-w-md p-4 border shadow-2xl rounded-3xl hero-visual sm:p-6 bg-white/10 backdrop-blur-md border-white/20">
-                <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
-                  <div class="flex items-center min-w-0 gap-3">
-                    <div class="flex items-center justify-center w-10 h-10 text-orange-600 bg-white rounded-full shadow-md">
-                      <i class="text-lg fa-solid fa-hand-peace" aria-hidden="true"></i>
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+                      <div class="flex items-center min-w-0 gap-3">
+                        <div class="flex items-center justify-center w-10 h-10 text-orange-600 bg-white rounded-full shadow-md">
+                          <i class="text-lg fa-solid fa-hand-peace" aria-hidden="true"></i>
+                        </div>
+                        <div class="min-w-0">
+                          <p class="text-xs font-semibold tracking-wider text-orange-100 uppercase">Isyarat Hari Ini</p>
+                          <p class="text-lg font-bold text-white truncate">"Halo Semua"</p>
+                        </div>
+                      </div>
+                      <span class="px-2.5 py-1 text-xs font-semibold text-white rounded-full shrink-0 bg-white/20">Level Dasar</span>
                     </div>
-                    <div class="min-w-0">
-                      <p class="text-xs font-semibold tracking-wider text-orange-100 uppercase">Isyarat Hari Ini</p>
-                      <p class="text-lg font-bold text-white truncate">"Halo Semua"</p>
+
+                    <div class="p-4 mb-4 bg-white shadow-inner rounded-2xl text-slate-800 aspect-[4/3]">
+                      <img src="assets/images/test-img.jpeg" alt="Contoh isyarat tangan Halo Semua" loading="eager" class="object-cover w-full h-full border rounded-xl border-orange-200/60" />
                     </div>
-                  </div>
-                  <span class="px-2.5 py-1 text-xs font-semibold text-white rounded-full shrink-0 bg-white/20">Level Dasar</span>
-                </div>
 
-                <div class="p-4 mb-4 bg-white shadow-inner rounded-2xl text-slate-800 aspect-[4/3]">
-                  <img src="assets/images/test-img.jpeg" alt="Contoh isyarat tangan Halo Semua" loading="eager" class="object-cover w-full h-full border rounded-xl border-orange-200/60" />
-                </div>
-
-                <div class="flex items-center justify-between text-xs text-orange-100">
-                  <span class="flex items-center gap-1.5"><i class="text-green-300 fa-solid fa-circle-check" aria-hidden="true"></i> Modul Terverifikasi</span>
-                  <a href="kosakata.html" class="font-semibold text-white underline underline-offset-4 hover:text-amber-200">Lihat Kamus &rarr;</a>
-                </div>
+                    <div class="flex items-center justify-between text-xs text-orange-100">
+                      <span class="flex items-center gap-1.5"><i class="text-green-300 fa-solid fa-circle-check" aria-hidden="true"></i> Modul Terverifikasi</span>
+                      <a href="kosakata.html" class="font-semibold text-white underline underline-offset-4 hover:text-amber-200">Lihat Kamus &rarr;</a>
+                    </div>
               </div>
             </div>
 
@@ -179,7 +185,7 @@
     </section>
 
     <!-- Eksporasi Fitur -->
-    <section id="fitur" class="px-4 py-16 sm:px-6 md:py-24 lg:px-8 bg-gradient-to-b from-white via-orange-50/30 to-white">
+    <section id="fitur" class="bg-white px-4 py-16 sm:px-6 md:py-24 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <!-- Section Header -->
         <div class="text-center mb-14 fade-up-item" style="--delay: 60ms;">
@@ -367,7 +373,7 @@
     </section>
 
     <!-- Isyarat Dalam Angka -->
-    <section id="isyarat-angka" class="px-4 py-16 sm:px-6 md:py-24 lg:px-8 bg-[#fffaf5]">
+    <section id="isyarat-angka" class="bg-white px-4 py-16 sm:px-6 md:py-24 lg:px-8">
       <div class="mx-auto max-w-7xl">
         
         <!-- Section Header -->
@@ -601,7 +607,7 @@
     </section>
 
     <!-- Kamus Isyarat Cepat -->
-    <section class="px-4 py-16 bg-gradient-to-b from-white via-orange-50/30 to-white sm:px-6 md:py-24 lg:px-8">
+    <section class="bg-white px-4 py-16 sm:px-6 md:py-24 lg:px-8">
       <div class="mx-auto max-w-7xl">
         
         <!-- Section Header -->
@@ -741,134 +747,117 @@
     </section>
 
     <!-- Quiz Call To Action -->
-    <section class="px-4 py-16 sm:px-6 md:py-24 lg:px-8 bg-white" id="quiz">
-      <div class="mx-auto max-w-7xl">
-        <div class="relative overflow-hidden bg-gradient-to-br from-orange-600 via-orange-500 to-amber-600 rounded-3xl md:rounded-[2.5rem] p-8 sm:p-12 md:p-16 text-white shadow-2xl shadow-orange-500/20">
-          
-          <div class="relative z-10 grid items-center gap-10 lg:grid-cols-12">
-            
-            <div class="lg:col-span-7">
-              <h2 class="mb-4 text-2xl font-extrabold leading-snug text-white sm:text-3xl md:text-4xl">
-                Uji Pemahamanmu tentang Budaya &amp; Isyarat Tuli
-              </h2>
-              <p class="max-w-xl mb-8 text-sm leading-relaxed text-orange-50 sm:text-base">
-                Seberapa jauh kamu mengenal teman Tuli? Ikuti kuis singkat dan interaktif untuk menguji pemahaman etika berkomunikasi, alfabet BISINDO dan SIBI, serta kosakata sehari-hari.
-              </p>
-              <a href="quiz.html"
-                class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-sm font-bold text-orange-600 transition-all duration-200 bg-white rounded-full shadow-lg hover:bg-orange-50 hover:shadow-xl hover:scale-105 active:scale-95">
-                <i class="fa-solid fa-gamepad" aria-hidden="true"></i> Mulai Kuis Sekarang
-              </a>
-            </div>
+    <section class="relative overflow-hidden bg-white px-4 py-20 sm:px-6 md:py-28 lg:px-8" id="quiz">
+      <div class="absolute left-0 top-0 h-full w-2 bg-orange-600" aria-hidden="true"></div>
+      <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-5">
+          <p class="mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-orange-600">
+            <span class="h-px w-10 bg-orange-600"></span> Tantangan 01
+          </p>
+          <h2 class="max-w-lg text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+            Uji Pemahamanmu tentang <span class="text-orange-600">Budaya &amp; Isyarat Tuli</span>
+          </h2>
+          <p class="mt-6 max-w-lg text-sm leading-relaxed text-slate-600 sm:text-base">
+            Seberapa jauh kamu mengenal teman Tuli? Uji etika berkomunikasi, alfabet BISINDO dan SIBI, serta kosakata sehari-hari lewat kuis singkat.
+          </p>
+          <a href="quiz.html" class="mt-8 inline-flex items-center justify-center gap-3 rounded-full bg-orange-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-700 hover:shadow-xl">
+            Mulai Kuis Sekarang <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
 
-            <!-- Quiz Preview Badge Card -->
-            <div class="flex justify-center lg:col-span-5">
-              <div class="w-full max-w-sm p-6 border shadow-xl bg-white/15 backdrop-blur-md rounded-2xl border-white/20 text-white">
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-xs font-bold text-orange-200 uppercase tracking-wide">Pertanyaan Contoh</span>
-                  <span class="text-xs font-medium text-orange-100">Poin: +10</span>
-                </div>
-                <p class="mb-4 text-sm font-semibold text-white">
-                  Apa etika yang tepat saat ingin memanggil perhatian teman Tuli di ruangan?
-                </p>
-                <div class="space-y-2.5 text-xs">
-                  <div class="p-2.5 bg-white/10 rounded-xl text-white/90 flex items-center justify-between border border-white/10">
-                    <span>A. Berteriak lebih keras</span>
-                    <i class="fa-regular fa-circle text-white/50" aria-hidden="true"></i>
-                  </div>
-                  <div class="p-2.5 bg-white text-slate-900 rounded-xl font-bold flex items-center justify-between shadow-md">
-                    <span>B. Melambaikan tangan perlahan / sentuhan bahu sopan</span>
-                    <i class="text-orange-600 fa-solid fa-circle-check" aria-hidden="true"></i>
-                  </div>
-                </div>
+        <div class="relative lg:col-span-7 lg:pl-8">
+          <div class="absolute -left-2 top-10 hidden h-40 w-px bg-orange-200 lg:block" aria-hidden="true"></div>
+          <div class="relative rounded-3xl border border-slate-200/80 bg-white p-5 shadow-xl shadow-orange-500/10 sm:p-7">
+            <div class="flex items-center justify-between border-b border-orange-100 pb-4">
+              <div class="flex items-center gap-3">
+                <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-600 text-sm font-bold text-white shadow-sm shadow-orange-500/20">01</span>
+                <span class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Pertanyaan contoh</span>
+              </div>
+              <span class="text-xs font-bold text-orange-600">+10 poin</span>
+            </div>
+            <p class="mt-6 max-w-xl text-lg font-bold leading-relaxed text-slate-900 sm:text-xl">
+              Apa etika yang tepat saat ingin memanggil perhatian teman Tuli di ruangan?
+            </p>
+            <div class="mt-6 grid gap-3 sm:grid-cols-2">
+              <div class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm text-slate-600">
+                <span><b class="mr-2 text-slate-900">A.</b> Berteriak lebih keras</span>
+                <i class="fa-regular fa-circle text-slate-300" aria-hidden="true"></i>
+              </div>
+              <div class="flex items-center justify-between rounded-xl border-2 border-orange-300 bg-orange-50 p-3 text-sm font-bold text-slate-900">
+                <span><b class="mr-2 text-orange-600">B.</b> Melambaikan tangan dengan sopan</span>
+                <i class="fa-solid fa-circle-check text-orange-600" aria-hidden="true"></i>
               </div>
             </div>
-
+            <div class="mt-7 flex items-center justify-between border-t border-dashed border-slate-300 pt-4 text-xs font-semibold text-slate-500">
+              <span>Etika komunikasi dasar</span>
+              <span class="text-emerald-600"><i class="fa-solid fa-check" aria-hidden="true"></i> Jawaban tepat</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Asisten AI -->
-    <section id="asisten-ai" class="px-4 py-16 sm:px-6 md:py-24 lg:px-8 bg-[linear-gradient(135deg,#fff7ed_0%,#ffffff_35%,#f8fafc_100%)]">
-      <div class="mx-auto max-w-7xl">
-        <div class="grid items-center gap-8 overflow-hidden rounded-[2rem] border border-orange-100 bg-white shadow-[0_25px_80px_-30px_rgba(251,146,60,0.35)] lg:grid-cols-[1.1fr_0.9fr]">
-          <div class="p-8 sm:p-10 lg:p-12">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-5 text-xs font-semibold tracking-[0.2em] uppercase rounded-full bg-orange-100 text-orange-700">
-              <i class="fa-solid fa-robot" aria-hidden="true"></i>
-              Asisten AI
-            </div>
+    <section id="asisten-ai" class="relative overflow-hidden bg-white px-4 py-20 text-slate-900 sm:px-6 md:py-28 lg:px-8">
+      <div class="absolute right-0 top-0 h-full w-1/3" aria-hidden="true"></div>
+      <div class="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-4">
+          <p class="mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-orange-600">
+            <i class="fa-solid fa-sparkles" aria-hidden="true"></i> Ruang belajar
+          </p>
+          <h2 class="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+            Belajar dengan <span class="text-orange-600">teman yang selalu siap.</span>
+          </h2>
+          <p class="mt-5 text-sm leading-relaxed text-slate-600 sm:text-base">
+            Tanyakan arti kata, minta rekomendasi materi, atau bandingkan BISINDO dan SIBI sesuai kebutuhanmu.
+          </p>
 
-            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Bantuan belajar <span class="text-transparent bg-orange-600 bg-clip-text">yang lebih personal</span>
-            </h2>
-
-            <p class="max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
-              Dapatkan rekomendasi materi, penjelasan kata isyarat, dan tips belajar yang sesuai dengan kebutuhanmu—seperti tutor digital yang selalu siap menjawab setiap langkah belajarmu.
-            </p>
-
-            <div class="flex flex-wrap gap-3 mt-7">
-              <span class="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3 py-1.5 text-sm font-medium text-orange-700">
-                <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Jawab cepat
-              </span>
-              <span class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-700">
-                <i class="fa-solid fa-bolt" aria-hidden="true"></i> Relevan
-              </span>
-              <span class="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-3 py-1.5 text-sm font-medium text-sky-700">
-                <i class="fa-solid fa-user-check" aria-hidden="true"></i> Mudah dipahami
-              </span>
-            </div>
-
-            <div class="flex flex-col gap-3 mt-8 sm:flex-row">
-              <a href="edukasi.html" class="inline-flex items-center justify-center gap-2 rounded-full bg-orange-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-700">
-                Coba Asisten AI
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-              <a href="kosakata.html" class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-slate-700 transition hover:border-orange-200 hover:text-orange-600">
-                Lihat Kamus
-              </a>
+          <div class="mt-8 border-l border-orange-300 pl-4">
+            <p class="mb-3 text-xs font-bold uppercase tracking-widest text-slate-500">Coba tanyakan</p>
+            <div class="space-y-2 text-sm text-slate-700">
+              <p><i class="mr-2 text-orange-500 fa-solid fa-arrow-right" aria-hidden="true"></i> Apa beda BISINDO dan SIBI?</p>
+              <p><i class="mr-2 text-orange-500 fa-solid fa-arrow-right" aria-hidden="true"></i> Ajari saya abjad A sampai Z</p>
+              <p><i class="mr-2 text-orange-500 fa-solid fa-arrow-right" aria-hidden="true"></i> Rekomendasikan materi pemula</p>
             </div>
           </div>
 
-          <div class="p-6 sm:p-8 lg:p-10">
-            <div class="rounded-[1.75rem] border border-orange-100 bg-gradient-to-br from-slate-900 via-slate-800 to-orange-600 p-4 shadow-2xl shadow-orange-500/10 sm:p-5">
-              <div class="flex items-center justify-between pb-4 border-b border-white/10">
-                <div class="flex items-center gap-3">
-                  <div class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-orange-200">
-                    <i class="fa-solid fa-robot" aria-hidden="true"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm font-semibold text-white">IsyaratOK AI</p>
-                    <p class="text-xs text-orange-100">Online • Siap membantu</p>
-                  </div>
-                </div>
-                <span class="rounded-full border border-emerald-400/60 bg-emerald-500/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-200">
-                  Aktif
-                </span>
-              </div>
+          <a href="edukasi.html" class="mt-8 inline-flex items-center gap-3 rounded-full bg-orange-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:bg-orange-700">
+            Coba Asisten AI <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+        </div>
 
-              <div class="pt-5 space-y-4">
-                <div class="max-w-[80%] rounded-2xl rounded-bl-md bg-white/10 p-3 text-sm leading-relaxed text-orange-50">
-                  Hai! Aku bisa bantu jelaskan arti kata ini, atau rekomendasikan materi yang cocok untukmu.
+        <div class="lg:col-span-8">
+          <div class="rounded-3xl border border-slate-200/80 bg-white p-4 shadow-xl shadow-orange-500/10 sm:p-6">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+              <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-100 text-orange-600">
+                  <i class="fa-solid fa-robot" aria-hidden="true"></i>
                 </div>
-                <div class="ml-auto max-w-[80%] rounded-2xl rounded-br-md bg-white p-3 text-sm font-medium leading-relaxed text-slate-800">
-                  Bantu saya membedakan BISINDO dan SIBI untuk pemula.
-                </div>
-                <div class="max-w-[85%] rounded-2xl rounded-bl-md bg-white/10 p-3 text-sm leading-relaxed text-orange-50">
-                  Tentu. BISINDO lebih umum dan fleksibel, sementara SIBI mengikuti struktur baku dengan sistem yang lebih formal.
+                <div>
+                  <p class="text-sm font-bold text-slate-900">IsyaratOK AI</p>
+                  <p class="text-xs text-slate-500"><span class="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-500"></span> Online dan siap membantu</p>
                 </div>
               </div>
+              <span class="text-xs font-semibold uppercase tracking-widest text-slate-500">Tutor digital</span>
+            </div>
 
-              <div class="mt-5 rounded-2xl bg-white/10 p-3">
-                <div class="flex items-center gap-2 text-xs font-medium text-orange-100">
-                  <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                  Cari materi populer
-                </div>
-                <div class="flex flex-wrap gap-2 mt-3">
-                  <span class="rounded-full bg-white/10 px-2.5 py-1 text-[11px] text-orange-50">Abjad A-Z</span>
-                  <span class="rounded-full bg-white/10 px-2.5 py-1 text-[11px] text-orange-50">Percakapan</span>
-                  <span class="rounded-full bg-white/10 px-2.5 py-1 text-[11px] text-orange-50">Kata sehari-hari</span>
-                </div>
+            <div class="space-y-4 py-6">
+              <div class="max-w-[82%] rounded-2xl rounded-bl-md border-l-2 border-orange-400 bg-orange-50 p-4 text-sm leading-relaxed text-slate-700">
+                Hai! Aku bisa bantu jelaskan arti kata atau mencarikan materi yang cocok untukmu.
               </div>
+              <div class="ml-auto max-w-[82%] rounded-2xl rounded-br-md border-r-2 border-emerald-400 bg-emerald-50 p-4 text-sm font-medium leading-relaxed text-slate-800">
+                Bantu saya membedakan BISINDO dan SIBI untuk pemula.
+              </div>
+              <div class="max-w-[88%] rounded-2xl rounded-bl-md border-l-2 border-orange-400 bg-orange-50 p-4 text-sm leading-relaxed text-slate-700">
+                Tentu. BISINDO lebih umum dan fleksibel, sementara SIBI mengikuti struktur baku yang lebih formal. Mau mulai dari contoh kosakata?
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 border-t border-slate-200 pt-4">
+              <div class="flex-1 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs text-slate-500">Ketik pertanyaan tentang bahasa isyarat...</div>
+              <button type="button" class="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-600 text-white transition hover:bg-orange-700" aria-label="Kirim pertanyaan">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
         </div>
