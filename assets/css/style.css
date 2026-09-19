@@ -64,7 +64,8 @@
 }
 
 @keyframes stickerBounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(-10deg) translateY(0);
   }
   50% {
@@ -97,14 +98,20 @@
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 1.5rem;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transition: box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1), border-color 0.2s ease;
+  transition:
+    box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1),
+    border-color 0.2s ease;
 }
 
 .stat-flip-card:hover .stat-flip-face {
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
   border-color: #fed7aa;
 }
 
@@ -130,10 +137,14 @@
 }
 
 @keyframes statPop {
-  0% { transform: scale(1.06); color: #ea580c; }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1.06);
+    color: #ea580c;
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-
 
 /* 6. SECTION HEADING ICON */
 .why-heading-icon {
@@ -148,17 +159,41 @@
 }
 
 @media (max-width: 639px) {
-  .why-heading-layout { text-align: center; }
-  .why-heading-title { max-width: calc(100vw - 2rem); text-align: left; }
-  .why-title-desktop { display: none; }
-  .why-title-mobile { display: inline; }
-  .heading-icon-layout { width: fit-content; max-width: 100%; margin-inline: auto; gap: 0.5rem; }
-  .heading-icon-layout h2 { width: auto; max-width: calc(100vw - 3.5rem); min-width: 0; text-align: center; }
+  .why-heading-layout {
+    text-align: center;
+  }
+  .why-heading-title {
+    max-width: calc(100vw - 2rem);
+    text-align: left;
+  }
+  .why-title-desktop {
+    display: none;
+  }
+  .why-title-mobile {
+    display: inline;
+  }
+  .heading-icon-layout {
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+    gap: 0.5rem;
+  }
+  .heading-icon-layout h2 {
+    width: auto;
+    max-width: calc(100vw - 3.5rem);
+    min-width: 0;
+    text-align: center;
+  }
 }
 
 @keyframes why-icon-float {
-  0%, 100% { transform: translateY(0) rotate(-8deg); }
-  50% { transform: translateY(-6px) rotate(8deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(8deg);
+  }
 }
 
 /* 7. SCROLL CUE — Fix: sederhanakan dari 14 keyframe, hapus -webkit- prefix */
@@ -168,8 +203,13 @@
 }
 
 @keyframes shake-vertical {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-7px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
 }
 
 /* 8. HEADING TEXT ANIMATION — Fix: hapus duplikasi @-webkit-keyframes */
@@ -178,9 +218,17 @@
 }
 
 @keyframes tracking-in-contract {
-  0% { letter-spacing: 1em; opacity: 0; }
-  40% { opacity: 0.6; }
-  100% { letter-spacing: normal; opacity: 1; }
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
 }
 
 /* 9. JELLO CARD ANIMATION — Fix: hapus duplikasi @-webkit-keyframes */
@@ -189,13 +237,27 @@
 }
 
 @keyframes jello-horizontal {
-  0%   { transform: scale3d(1, 1, 1); }
-  30%  { transform: scale3d(1.25, 0.75, 1); }
-  40%  { transform: scale3d(0.75, 1.25, 1); }
-  50%  { transform: scale3d(1.15, 0.85, 1); }
-  65%  { transform: scale3d(0.95, 1.05, 1); }
-  75%  { transform: scale3d(1.05, 0.95, 1); }
-  100% { transform: scale3d(1, 1, 1); }
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 /* 10. REDUCED MOTION */
@@ -214,7 +276,6 @@
     animation: none !important;
   }
 
-
   .stat-number {
     animation: none !important;
   }
@@ -227,4 +288,3 @@
     display: none;
   }
 }
-
