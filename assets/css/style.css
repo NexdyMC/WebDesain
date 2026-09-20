@@ -350,6 +350,13 @@
   }
 }
 
+/* 11. SCROLL-DRIVEN QUOTE REVEAL */
+.scroll-word {
+  display: inline;
+  transition: opacity 0.15s ease, color 0.15s ease;
+  will-change: opacity, color;
+}
+
 /* 10. REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
   .fade-in,
@@ -359,7 +366,8 @@
   .why-heading-icon,
   .shake-vertical,
   .jello-horizontal,
-  .tracking-in-contract {
+  .tracking-in-contract,
+  .scroll-word {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;

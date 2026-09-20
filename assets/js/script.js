@@ -240,4 +240,161 @@ $(function () {
       }
     });
   });
+
+  /* Scroll-Driven Text Reveal for Cultural Quote */
+  function initScrollDrivenQuoteReveal() {
+    const quoteEl = document.getElementById("culturalQuoteText");
+    const originalQuoteEl = document.getElementById("culturalQuoteOriginal");
+    if (!quoteEl) return;
+
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const rawText = quoteEl.innerText.trim();
+    if (!rawText) return;
+
+    const words = rawText.split(/\s+/);
+    quoteEl.innerHTML = "";
+
+    const wordSpans = [];
+    words.forEach(function (word, index) {
+      const span = document.createElement("span");
+      span.className = "scroll-word";
+      span.textContent = word;
+
+      quoteEl.appendChild(span);
+
+      // Explicitly append a standard space text node so words never collapse together
+      if (index < words.length - 1) {
+        quoteEl.appendChild(document.createTextNode(" "));
+      }
+
+      wordSpans.push(span);
+    });
+
+    const totalWords = wordSpans.length;
+    let ticking = false;
+
+    function updateQuoteReveal() {
+      const rect = quoteEl.getBoundingClientRect();
+      const winHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      // Start reveal when quote reaches 82% from viewport top
+      // Fully revealed when quote reaches 35% from viewport top
+      const startY = winHeight * 0.82;
+      const endY = winHeight * 0.35;
+
+      let progress = (startY - rect.top) / (startY - endY);
+      progress = Math.min(Math.max(progress, 0), 1);
+
+      const overlap = 0.08;
+
+      for (let i = 0; i < totalWords; i++) {
+        const wordStart = (i / totalWords) * (1 - overlap);
+        const wordEnd = wordStart + overlap + (1 / totalWords);
+        const wordProgress = Math.min(Math.max((progress - wordStart) / (wordEnd - wordStart), 0), 1);
+
+        // Smoothly reveal from muted 0.22 opacity to crisp 1.0 white
+        const opacity = 0.22 + (0.78 * wordProgress);
+        const span = wordSpans[i];
+
+        span.style.opacity = opacity.toFixed(3);
+        span.style.color = "#ffffff";
+      }
+
+      if (originalQuoteEl) {
+        const subProgress = Math.min(Math.max((progress - 0.6) / 0.4, 0), 1);
+        originalQuoteEl.style.opacity = (0.3 + 0.7 * subProgress).toFixed(2);
+      }
+
+      ticking = false;
+    }
+
+    window.addEventListener("scroll", function () {
+      if (!ticking) {
+        requestAnimationFrame(updateQuoteReveal);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener("resize", function () {
+      if (!ticking) {
+        requestAnimationFrame(updateQuoteReveal);
+        ticking = true;
+      }
+    });
+
+    updateQuoteReveal();
+  }
+
+  /* Cultural Quote Ribbon Slide-In Animation */
+  function initCulturalQuoteRibbon() {
+    const sectionEl = document.getElementById("cultural-quote");
+    const ribbonBg = document.getElementById("culturalQuoteRibbonBg");
+    const contentEl = document.getElementById("culturalQuoteContent");
+    if (!sectionEl || !ribbonBg) return;
+
+    if (prefersReducedMotion) {
+      ribbonBg.classList.remove("-translate-x-full");
+      ribbonBg.classList.add("translate-x-0");
+      if (contentEl) {
+        contentEl.classList.remove("opacity-0", "-translate-x-8");
+        contentEl.classList.add("opacity-100", "translate-x-0");
+      }
+      return;
+    }
+
+    let isRevealed = false;
+    let ticking = false;
+
+    function checkRibbonState() {
+      const rect = sectionEl.getBoundingClientRect();
+      const winHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      // Saat mulai masuk scroll ke bawah (section masuk ke 88% viewport)
+      if (rect.top <= winHeight * 0.88 && rect.bottom >= 0) {
+        if (!isRevealed) {
+          isRevealed = true;
+          ribbonBg.classList.remove("-translate-x-full");
+          ribbonBg.classList.add("translate-x-0");
+          if (contentEl) {
+            contentEl.classList.remove("opacity-0", "-translate-x-8");
+            contentEl.classList.add("opacity-100", "translate-x-0");
+          }
+        }
+      } else if (rect.top > winHeight * 0.95) {
+        // Sebelum masuk / scroll kembali ke atas: twibbon kembali diam di kiri
+        if (isRevealed) {
+          isRevealed = false;
+          ribbonBg.classList.remove("translate-x-0");
+          ribbonBg.classList.add("-translate-x-full");
+          if (contentEl) {
+            contentEl.classList.remove("opacity-100", "translate-x-0");
+            contentEl.classList.add("opacity-0", "-translate-x-8");
+          }
+        }
+      }
+      ticking = false;
+    }
+
+    window.addEventListener("scroll", function () {
+      if (!ticking) {
+        requestAnimationFrame(checkRibbonState);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener("resize", function () {
+      if (!ticking) {
+        requestAnimationFrame(checkRibbonState);
+        ticking = true;
+      }
+    });
+
+    checkRibbonState();
+  }
+
+  initCulturalQuoteRibbon();
+  initScrollDrivenQuoteReveal();
 });
