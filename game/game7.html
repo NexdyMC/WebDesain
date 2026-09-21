@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isyarat OK — Mini Game</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --cream:#FFF6E3;
+    --coral:#FF6B5B;
+    --teal:#00B4A6;
+    --purple:#7C5CFC;
+    --leaf:#3FA15E;
+    --sun:#FFC93C;
+    --ink:#2B2140;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    font-family:'Nunito', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    overflow-x:hidden;
+  }
+  .font-display{ font-family:'Baloo 2', sans-serif; }
+
+  /* subtle dotted texture, hand-drawn playground feel */
+  .texture-dots{
+    background-image: radial-gradient(rgba(43,33,64,0.06) 1.6px, transparent 1.6px);
+    background-size: 22px 22px;
+  }
+
+  .blob-btn{
+    border-radius: 999px;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .blob-btn:active{ transform: scale(.94); }
+
+  .card-3d{
+    box-shadow: 0 6px 0 rgba(43,33,64,0.18);
+  }
+  .card-3d:active{
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 rgba(43,33,64,0.18);
+  }
+
+  .sign-emoji{
+    font-size: 3.4rem;
+    line-height: 1;
+    filter: drop-shadow(0 3px 0 rgba(43,33,64,0.12));
+  }
+
+  .hole{
+    background: radial-gradient(circle at 50% 35%, #d8cdb8 0%, #a99a7c 60%, #8c7c60 100%);
+    border-radius: 50%;
+    box-shadow: inset 0 6px 10px rgba(0,0,0,.35);
+  }
+
+  .pop-up{
+    animation: popUp .18s ease-out forwards;
+  }
+  @keyframes popUp{
+    from{ transform: translateY(40%) scale(.5); opacity:0; }
+    to{ transform: translateY(0) scale(1); opacity:1; }
+  }
+
+  .fall-item{
+    position:absolute;
+    top:-70px;
+    cursor:pointer;
+    user-select:none;
+  }
+
+  .swipe-card{
+    touch-action:none;
+    cursor:grab;
+  }
+  .swipe-card:active{ cursor:grabbing; }
+
+  .confetti-piece{
+    position:fixed;
+    top:-20px;
+    width:10px;
+    height:14px;
+    z-index:9999;
+    pointer-events:none;
+    animation: fall linear forwards;
+  }
+  @keyframes fall{
+    to{ transform: translateY(110vh) rotate(540deg); opacity:.9; }
+  }
+
+  .tab-btn.active{
+    color:#fff;
+  }
+
+  .flash{
+    animation: flashPulse .5s ease;
+  }
+  @keyframes flashPulse{
+    0%{ transform:scale(1); }
+    30%{ transform:scale(1.06); }
+    100%{ transform:scale(1); }
+  }
+
+  ::-webkit-scrollbar{ width:10px; }
+  ::-webkit-scrollbar-thumb{ background:#e2d6b8; border-radius:999px; }
+</style>
+</head>
+<body class="texture-dots min-h-screen">
+
+<!-- ======================= HEADER ======================= -->
+<header class="px-5 pt-8 pb-4 text-center">
+  <div class="inline-flex items-center gap-2 bg-white/70 px-4 py-1.5 rounded-full mb-3 card-3d">
+    <span class="text-lg">🤟</span>
+    <span class="font-display font-700 text-sm" style="color:var(--purple)">Isyarat OK</span>
+  </div>
+  <h1 class="font-display font-800 text-3xl sm:text-4xl" style="color:var(--ink)">Pilih Mini Game-mu!</h1>
+  <p class="mt-1 text-sm sm:text-base opacity-70 max-w-md mx-auto">Cocokkan isyarat, menang sekali langsung, seru tanpa mikir ribet 🎉</p>
+</header>
+
+<!-- ======================= GAME SELECTOR ======================= -->
+<nav id="gameSelector" class="px-4 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
+  <button data-game="tap" class="tab-btn blob-btn card-3d font-display font-700 text-sm py-3 px-2" style="background:var(--coral); color:#fff;">👉 Tap Sign</button>
+  <button data-game="whack" class="tab-btn blob-btn card-3d font-display font-700 text-sm py-3 px-2 bg-white" style="color:var(--ink)">🔨 Whack Sign</button>
+  <button data-game="catch" class="tab-btn blob-btn card-3d font-display font-700 text-sm py-3 px-2 bg-white" style="color:var(--ink)">🧤 Catch Sign</button>
+  <button data-game="swipe" class="tab-btn blob-btn card-3d font-display font-700 text-sm py-3 px-2 bg-white" style="color:var(--ink)">👆 Swipe Match</button>
+  <button data-game="reaction" class="tab-btn blob-btn card-3d font-display font-700 text-sm py-3 px-2 bg-white" style="color:var(--ink)">⚡ Sign Reaction</button>
+</nav>
+
+<!-- ======================= GAME STAGE ======================= -->
+<main class="px-4 max-w-3xl mx-auto pb-20">
+  <div id="stage" class="bg-white rounded-3xl card-3d p-5 sm:p-8 min-h-[420px] relative overflow-hidden"></div>
+</main>
+
+<!-- ======================= TEMPLATES ======================= -->
+
+<!-- 1. TAP THE RIGHT SIGN -->
+<template id="tpl-tap">
+  <div class="text-center">
+    <p class="font-display font-700 text-xs uppercase tracking-wide opacity-50 mb-1">Tap Isyarat</p>
+    <h2 class="font-display font-800 text-2xl mb-1">Sentuh isyarat untuk kata:</h2>
+    <div class="inline-block px-6 py-2 rounded-2xl mb-6 font-display font-800 text-3xl" style="background:var(--sun); color:var(--ink)">
+      <span class="tap-target-word"></span>
+    </div>
+    <div class="tap-options grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-lg mx-auto"></div>
+    <div class="tap-result mt-6"></div>
+  </div>
+</template>
+
+<!-- 2. WHACK-A-SIGN -->
+<template id="tpl-whack">
+  <div class="text-center">
+    <p class="font-display font-700 text-xs uppercase tracking-wide opacity-50 mb-1">Whack-a-Sign</p>
+    <h2 class="font-display font-800 text-2xl mb-1">Pukul isyarat yang muncul untuk kata:</h2>
+    <div class="inline-block px-6 py-2 rounded-2xl mb-6 font-display font-800 text-3xl" style="background:var(--teal); color:#fff">
+      <span class="whack-target-word"></span>
+    </div>
+    <div class="whack-grid grid grid-cols-3 gap-4 max-w-md mx-auto"></div>
+    <div class="whack-result mt-6"></div>
+  </div>
+</template>
+
+<!-- 3. CATCH THE SIGN -->
+<template id="tpl-catch">
+  <div class="text-center">
+    <p class="font-display font-700 text-xs uppercase tracking-wide opacity-50 mb-1">Catch the Sign</p>
+    <h2 class="font-display font-800 text-2xl mb-1">Tangkap isyarat yang jatuh untuk kata:</h2>
+    <div class="inline-block px-6 py-2 rounded-2xl mb-4 font-display font-800 text-3xl" style="background:var(--purple); color:#fff">
+      <span class="catch-target-word"></span>
+    </div>
+    <div class="catch-field relative w-full h-[300px] rounded-2xl overflow-hidden" style="background:linear-gradient(#eaf6ff,#dff1ff)"></div>
+    <div class="catch-result mt-6"></div>
+  </div>
+</template>
+
+<!-- 4. SWIPE TO MATCH -->
+<template id="tpl-swipe">
+  <div class="text-center">
+    <p class="font-display font-700 text-xs uppercase tracking-wide opacity-50 mb-1">Swipe to Match</p>
+    <h2 class="font-display font-800 text-2xl mb-6">Geser: cocok atau tidak dengan katanya?</h2>
+    <div class="relative w-full max-w-xs mx-auto h-64 mb-4">
+      <div class="swipe-card absolute inset-0 bg-white rounded-3xl card-3d flex flex-col items-center justify-center border-4" style="border-color:var(--sun)">
+        <div class="sign-emoji swipe-emoji mb-3"></div>
+        <div class="font-display font-800 text-2xl swipe-word"></div>
+      </div>
+    </div>
+    <div class="flex justify-center gap-6 mb-2">
+      <button class="swipe-no blob-btn card-3d font-display font-700 px-6 py-3" style="background:#fff; color:var(--coral); border:3px solid var(--coral)">❌ Tidak Cocok</button>
+      <button class="swipe-yes blob-btn card-3d font-display font-700 px-6 py-3" style="background:var(--leaf); color:#fff">✅ Cocok</button>
+    </div>
+    <p class="text-xs opacity-50">Tips: kamu juga bisa geser kartu ke kiri / kanan</p>
+    <div class="swipe-result mt-6"></div>
+  </div>
+</template>
+
+<!-- 5. SIGN REACTION -->
+<template id="tpl-reaction">
+  <div class="text-center">
+    <p class="font-display font-700 text-xs uppercase tracking-wide opacity-50 mb-1">Sign Reaction</p>
+    <h2 class="font-display font-800 text-2xl mb-6">Tap secepat mungkin begitu isyarat muncul!</h2>
+    <div class="reaction-field w-full h-[300px] rounded-2xl flex items-center justify-center cursor-pointer select-none" style="background:#F0EBFF"></div>
+    <div class="reaction-result mt-6"></div>
+  </div>
+</template>
+
+<!-- ======================= SCRIPT ======================= -->
+<script>
+$(function(){
+
+  // Bank pasangan isyarat (emoji) & kata — ganti emoji dengan <img> asli kapan pun siap
+  const SIGN_BANK = [
+    { emoji:"👋", word:"Halo" },
+    { emoji:"✌️", word:"Damai" },
+    { emoji:"👍", word:"Bagus" },
+    { emoji:"👌", word:"Oke" },
+    { emoji:"🤟", word:"Sayang" },
+    { emoji:"✊", word:"Semangat" },
+    { emoji:"🖐️", word:"Berhenti" },
+    { emoji:"🤙", word:"Santai" },
+    { emoji:"👎", word:"Tidak" },
+    { emoji:"🤞", word:"Semoga" },
+  ];
+
+  function pickRandom(arr, n){
+    const copy = [...arr];
+    const out = [];
+    while(out.length < n && copy.length){
+      const i = Math.floor(Math.random()*copy.length);
+      out.push(copy.splice(i,1)[0]);
+    }
+    return out;
+  }
+
+  // ---------- CONFETTI ----------
+  function confettiBurst(){
+    const colors = ["#FF6B5B","#00B4A6","#7C5CFC","#3FA15E","#FFC93C"];
+    for(let i=0;i<40;i++){
+      const el = $('<div class="confetti-piece"></div>');
+      const left = Math.random()*100;
+      const dur = 1.6 + Math.random()*1.2;
+      const delay = Math.random()*0.4;
+      el.css({
+        left: left+'vw',
+        background: colors[Math.floor(Math.random()*colors.length)],
+        animationDuration: dur+'s',
+        animationDelay: delay+'s',
+        borderRadius: Math.random() > .5 ? '50%' : '2px'
+      });
+      $('body').append(el);
+      setTimeout(()=>el.remove(), (dur+delay)*1000+100);
+    }
+  }
+
+  function winBanner(msg){
+    confettiBurst();
+    return $(`
+      <div class="flash inline-flex flex-col items-center gap-2">
+        <div class="font-display font-800 text-3xl" style="color:var(--leaf)">🎉 ${msg}</div>
+        <button class="play-again blob-btn card-3d font-display font-700 px-6 py-2 mt-2" style="background:var(--purple); color:#fff">Main Lagi</button>
+      </div>
+    `);
+  }
+
+  // ---------- ROUTER ----------
+  const stage = $('#stage');
+  let activeCleanup = null; // for clearing timers between games
+
+  function loadGame(name){
+    if(activeCleanup) activeCleanup();
+    activeCleanup = null;
+    $('#gameSelector .tab-btn').removeClass('active').css({background:'#fff', color:'var(--ink)'});
+    const btn = $(`#gameSelector [data-game="${name}"]`);
+    const colors = {tap:'var(--coral)', whack:'var(--teal)', catch:'var(--purple)', swipe:'var(--sun)', reaction:'#F0EBFF'};
+    btn.addClass('active').css({background:colors[name], color: (name==='swipe') ? 'var(--ink)' : (name==='reaction' ? 'var(--ink)' : '#fff')});
+    stage.empty();
+    if(name==='tap') initTap();
+    if(name==='whack') initWhack();
+    if(name==='catch') initCatch();
+    if(name==='swipe') initSwipe();
+    if(name==='reaction') initReaction();
+  }
+
+  $('#gameSelector').on('click', '.tab-btn', function(){
+    loadGame($(this).data('game'));
+  });
+
+  // ================= 1. TAP THE RIGHT SIGN =================
+  function initTap(){
+    const node = $('#tpl-tap').prop('content').cloneNode(true);
+    stage.append(node);
+
+    const target = pickRandom(SIGN_BANK,1)[0];
+    const distractors = pickRandom(SIGN_BANK.filter(s=>s.word!==target.word), 3);
+    const options = pickRandom([target, ...distractors], 4);
+
+    stage.find('.tap-target-word').text(target.word);
+    const optWrap = stage.find('.tap-options');
+    options.forEach(opt=>{
+      const card = $(`
+        <button class="tap-opt card-3d rounded-2xl bg-[#FFF6E3] py-6 flex items-center justify-center">
+          <span class="sign-emoji">${opt.emoji}</span>
+        </button>
+      `);
+      card.data('word', opt.word);
+      optWrap.append(card);
+    });
+
+    optWrap.on('click', '.tap-opt', function(){
+      optWrap.find('.tap-opt').prop('disabled', true);
+      if($(this).data('word') === target.word){
+        $(this).css('background', '#DFF5E3');
+        stage.find('.tap-result').append(winBanner('Tepat sekali!'));
+      } else {
+        $(this).css('background', '#FFE1DE');
+        optWrap.find('.tap-opt').each(function(){
+          if($(this).data('word') === target.word) $(this).css('background', '#DFF5E3');
+        });
+        stage.find('.tap-result').append(winBanner('Ini dia isyaratnya!'));
+      }
+    });
+
+    stage.on('click', '.play-again', ()=> loadGame('tap'));
+  }
+
+  // ================= 2. WHACK-A-SIGN =================
+  function initWhack(){
+    const node = $('#tpl-whack').prop('content').cloneNode(true);
+    stage.append(node);
+
+    const target = pickRandom(SIGN_BANK,1)[0];
+    stage.find('.whack-target-word').text(target.word);
+
+    const grid = stage.find('.whack-grid');
+    for(let i=0;i<6;i++){
+      grid.append(`<div class="hole w-full pt-[100%] relative" data-i="${i}"></div>`);
+    }
+
+    let finished = false;
+    let timers = [];
+
+    function popAt(i){
+      if(finished) return;
+      const hole = grid.find(`[data-i="${i}"]`);
+      if(hole.find('.mole').length) return; // already occupied
+      const isTarget = Math.random() < 0.4;
+      const item = isTarget ? target : pickRandom(SIGN_BANK.filter(s=>s.word!==target.word),1)[0];
+      const mole = $(`<div class="mole pop-up absolute inset-0 flex items-center justify-center rounded-full"><span class="sign-emoji" style="font-size:2.4rem">${item.emoji}</span></div>`);
+      mole.data('isTarget', isTarget);
+      hole.append(mole);
+      const t = setTimeout(()=>{ mole.remove(); }, 700);
+      timers.push(t);
+    }
+
+    grid.on('click', '.mole', function(){
+      if(finished) return;
+      if($(this).data('isTarget')){
+        finished = true;
+        timers.forEach(clearTimeout);
+        clearInterval(spawner);
+        $(this).css('background', '#DFF5E3');
+        stage.find('.whack-result').append(winBanner('Kena! Isyarat pas!'));
+      }
+    });
+
+    const spawner = setInterval(()=>{
+      popAt(Math.floor(Math.random()*6));
+    }, 500);
+    timers.push(spawner);
+
+    activeCleanup = ()=>{ finished = true; timers.forEach(clearTimeout); clearInterval(spawner); };
+    stage.on('click', '.play-again', ()=> loadGame('whack'));
+  }
+
+  // ================= 3. CATCH THE SIGN =================
+  function initCatch(){
+    const node = $('#tpl-catch').prop('content').cloneNode(true);
+    stage.append(node);
+
+    const target = pickRandom(SIGN_BANK,1)[0];
+    stage.find('.catch-target-word').text(target.word);
+
+    const field = stage.find('.catch-field');
+    const fieldW = 320; // fallback, recalculated on drop
+    let finished = false;
+    let timers = [];
+
+    function dropOne(){
+      if(finished) return;
+      const isTarget = Math.random() < 0.45;
+      const item = isTarget ? target : pickRandom(SIGN_BANK.filter(s=>s.word!==target.word),1)[0];
+      const w = field.width();
+      const left = Math.random()*(w-60);
+      const el = $(`<div class="fall-item"><span class="sign-emoji" style="font-size:2.4rem">${item.emoji}</span></div>`);
+      el.data('isTarget', isTarget);
+      el.css({left:left+'px'});
+      field.append(el);
+      const duration = 2600 + Math.random()*800;
+      el.animate({top: (field.height()-10)+'px'}, {
+        duration:duration,
+        easing:'linear',
+        complete: function(){ $(this).remove(); }
+      });
+      const t = setTimeout(()=>{ el.remove(); }, duration+50);
+      timers.push(t);
+    }
+
+    field.on('click', '.fall-item', function(){
+      if(finished) return;
+      if($(this).data('isTarget')){
+        finished = true;
+        timers.forEach(clearTimeout);
+        clearInterval(spawner);
+        field.find('.fall-item').stop(true);
+        $(this).css('background', '#DFF5E3').css('border-radius','12px');
+        stage.find('.catch-result').append(winBanner('Tertangkap!'));
+      }
+    });
+
+    const spawner = setInterval(dropOne, 550);
+    timers.push(spawner);
+    dropOne();
+
+    activeCleanup = ()=>{ finished = true; timers.forEach(clearTimeout); clearInterval(spawner); };
+    stage.on('click', '.play-again', ()=> loadGame('catch'));
+  }
+
+  // ================= 4. SWIPE TO MATCH =================
+  function initSwipe(){
+    const node = $('#tpl-swipe').prop('content').cloneNode(true);
+    stage.append(node);
+
+    const pair = pickRandom(SIGN_BANK,1)[0];
+    const isMatch = Math.random() < 0.5;
+    const shownWord = isMatch ? pair.word : pickRandom(SIGN_BANK.filter(s=>s.word!==pair.word),1)[0].word;
+
+    stage.find('.swipe-emoji').text(pair.emoji);
+    stage.find('.swipe-word').text(shownWord);
+
+    let finished = false;
+    const card = stage.find('.swipe-card');
+
+    function resolve(userSaysMatch){
+      if(finished) return;
+      finished = true;
+      const correct = (userSaysMatch === isMatch);
+      card.css('background', correct ? '#DFF5E3' : '#FFE1DE');
+      stage.find('.swipe-result').append(winBanner(correct ? 'Jawaban pas!' : 'Ini jawaban yang benar sudah kelihatan ya!'));
+    }
+
+    stage.on('click', '.swipe-yes', ()=> resolve(true));
+    stage.on('click', '.swipe-no', ()=> resolve(false));
+
+    // simple drag/swipe support
+    let startX = null, dx = 0, dragging=false;
+    function pointerX(e){ return e.touches ? e.touches[0].clientX : e.clientX; }
+
+    card.on('mousedown touchstart', function(e){
+      if(finished) return;
+      dragging = true; startX = pointerX(e.originalEvent);
+    });
+    $(document).on('mousemove touchmove', function(e){
+      if(!dragging || finished) return;
+      dx = pointerX(e.originalEvent) - startX;
+      card.css('transform', `translateX(${dx}px) rotate(${dx/20}deg)`);
+    });
+    $(document).on('mouseup touchend', function(){
+      if(!dragging) return;
+      dragging = false;
+      if(dx > 80) { card.css('transform','translateX(400px) rotate(20deg)'); resolve(true); }
+      else if(dx < -80) { card.css('transform','translateX(-400px) rotate(-20deg)'); resolve(false); }
+      else { card.css('transform','translateX(0) rotate(0)'); }
+      dx = 0;
+    });
+
+    activeCleanup = ()=>{ $(document).off('mousemove touchmove mouseup touchend'); };
+    stage.on('click', '.play-again', ()=> loadGame('swipe'));
+  }
+
+  // ================= 5. SIGN REACTION =================
+  function initReaction(){
+    const node = $('#tpl-reaction').prop('content').cloneNode(true);
+    stage.append(node);
+
+    const field = stage.find('.reaction-field');
+    const item = pickRandom(SIGN_BANK,1)[0];
+    field.html(`<span class="font-display font-700 text-lg opacity-50">Tunggu isyaratnya muncul...</span>`);
+
+    let appeared = false;
+    let startTime = 0;
+    let timer = null;
+
+    const delay = 1200 + Math.random()*2000;
+    timer = setTimeout(()=>{
+      appeared = true;
+      startTime = Date.now();
+      field.css('background', '#E8FBEF').html(`<span class="sign-emoji pop-up" style="font-size:5rem">${item.emoji}</span>`);
+    }, delay);
+
+    field.on('click', function(){
+      if(!appeared){
+        field.html(`<span class="font-display font-700 text-lg" style="color:var(--coral)">Belum muncul, tunggu ya! 😄</span>`);
+        return;
+      }
+      const ms = Date.now() - startTime;
+      let tier = 'Mantap!';
+      if(ms < 350) tier = 'Kilat! ⚡';
+      else if(ms < 600) tier = 'Cepat! 🚀';
+      else if(ms < 1000) tier = 'Lumayan! 👍';
+      field.off('click');
+      stage.find('.reaction-result').append(winBanner(`${tier} (${ms} ms)`));
+    });
+
+    activeCleanup = ()=>{ if(timer) clearTimeout(timer); };
+    stage.on('click', '.play-again', ()=> loadGame('reaction'));
+  }
+
+  // default game on load
+  loadGame('tap');
+});
+</script>
+</body>
+</html>
