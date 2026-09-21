@@ -345,14 +345,14 @@
       
       <!-- Animated Ribbon Background (Solid clean edge-to-edge on mobile, Swallowtail Ribbon Notch on desktop) -->
       <div id="culturalQuoteRibbonBg"
-           class="absolute inset-0 bg-orange-600 -translate-x-full transition-transform duration-700 ease-out will-change-transform
+           class="absolute inset-0 bg-orange-600 -translate-x-full transition-transform duration-[1100ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] will-change-transform
                   [clip-path:none]
                   md:[clip-path:polygon(0%_0%,100%_0%,calc(100%-6.5rem)_50%,100%_100%,0%_100%)]
                   lg:[clip-path:polygon(0%_0%,100%_0%,calc(100%-8rem)_50%,100%_100%,0%_100%)]">
       </div>
 
       <!-- Content Container (Fades & slides in smoothly alongside the ribbon) -->
-      <div id="culturalQuoteContent" class="relative z-10 max-w-4xl mx-auto text-center opacity-0 -translate-x-8 transition-all duration-700 ease-out delay-150 will-change-transform">
+      <div id="culturalQuoteContent" class="relative z-10 max-w-4xl mx-auto text-center opacity-0 -translate-x-8 transition-all duration-[1000ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] delay-200 will-change-transform">
 
         <!-- Quote Icon -->
         <div class="flex items-center justify-center w-12 h-12 mx-auto mb-6 text-xl rounded-full sm:w-16 sm:h-16 text-amber-300 bg-white/10 backdrop-blur-md shadow-inner sm:mb-8 sm:text-2xl">
@@ -947,6 +947,72 @@
       </div>
     </section>
   </main>
+
+  <div class="accessibility-float" aria-label="Panel aksesibilitas">
+    <button id="a11yToggle" class="accessibility-toggle" type="button" aria-expanded="false" aria-controls="a11yPanel" aria-label="Buka pengaturan aksesibilitas">
+      <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+    </button>
+
+    <div id="a11yPanel" class="accessibility-panel" aria-hidden="true">
+      <h3 class="accessibility-panel-title">Alat Aksesibilitas</h3>
+      <ul class="accessibility-menu">
+        <li>
+          <button type="button" data-a11y-action="increase-text" class="accessibility-item">
+            <span class="accessibility-icon"><i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i></span>
+            <span>Meningkatkan Teks</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-a11y-action="decrease-text" class="accessibility-item">
+            <span class="accessibility-icon"><i class="fa-solid fa-magnifying-glass-minus" aria-hidden="true"></i></span>
+            <span>Kurangi Teks</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-a11y-action="grayscale" class="accessibility-item">
+            <span class="accessibility-icon"><i class="fa-solid fa-droplet-slash" aria-hidden="true"></i></span>
+            <span>Skala abu-abu</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-a11y-action="high-contrast" class="accessibility-item">
+            <span class="accessibility-icon"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></span>
+            <span>Kontras Tinggi</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-a11y-action="negative-contrast" class="accessibility-item">
+            <span class="accessibility-icon"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i></span>
+            <span>Kontras Negatif</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-a11y-action="light-bg" class="accessibility-item">
+            <span class="accessibility-icon"><i class="fa-solid fa-sun" aria-hidden="true"></i></span>
+            <span>Latar Belakang Cahaya</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-a11y-action="underline-links" class="accessibility-item">
+            <span class="accessibility-icon"><i class="fa-solid fa-underline" aria-hidden="true"></i></span>
+            <span>Tautan Garis Bawah</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-a11y-action="readable-font" class="accessibility-item">
+            <span class="accessibility-icon"><i class="fa-solid fa-font" aria-hidden="true"></i></span>
+            <span>Fonta Yang Dapat Dibaca</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-a11y-action="reset" class="accessibility-item accessibility-item-reset">
+            <span class="accessibility-icon"><i class="fa-solid fa-arrow-rotate-left" aria-hidden="true"></i></span>
+            <span>Reset</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="text-white border-t bg-gradient-to-br from-orange-600 via-orange-600 to-amber-700 border-orange-500/30">

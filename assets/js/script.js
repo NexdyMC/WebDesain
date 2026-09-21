@@ -278,7 +278,8 @@ $(function () {
 
     function updateQuoteReveal() {
       const rect = quoteEl.getBoundingClientRect();
-      const winHeight = window.innerHeight || document.documentElement.clientHeight;
+      const winHeight =
+        window.innerHeight || document.documentElement.clientHeight;
 
       // Start reveal when quote reaches 82% from viewport top
       // Fully revealed when quote reaches 35% from viewport top
@@ -292,11 +293,14 @@ $(function () {
 
       for (let i = 0; i < totalWords; i++) {
         const wordStart = (i / totalWords) * (1 - overlap);
-        const wordEnd = wordStart + overlap + (1 / totalWords);
-        const wordProgress = Math.min(Math.max((progress - wordStart) / (wordEnd - wordStart), 0), 1);
+        const wordEnd = wordStart + overlap + 1 / totalWords;
+        const wordProgress = Math.min(
+          Math.max((progress - wordStart) / (wordEnd - wordStart), 0),
+          1,
+        );
 
         // Smoothly reveal from muted 0.22 opacity to crisp 1.0 white
-        const opacity = 0.22 + (0.78 * wordProgress);
+        const opacity = 0.22 + 0.78 * wordProgress;
         const span = wordSpans[i];
 
         span.style.opacity = opacity.toFixed(3);
@@ -311,12 +315,16 @@ $(function () {
       ticking = false;
     }
 
-    window.addEventListener("scroll", function () {
-      if (!ticking) {
-        requestAnimationFrame(updateQuoteReveal);
-        ticking = true;
-      }
-    }, { passive: true });
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!ticking) {
+          requestAnimationFrame(updateQuoteReveal);
+          ticking = true;
+        }
+      },
+      { passive: true },
+    );
 
     window.addEventListener("resize", function () {
       if (!ticking) {
@@ -350,7 +358,8 @@ $(function () {
 
     function checkRibbonState() {
       const rect = sectionEl.getBoundingClientRect();
-      const winHeight = window.innerHeight || document.documentElement.clientHeight;
+      const winHeight =
+        window.innerHeight || document.documentElement.clientHeight;
 
       // Saat mulai masuk scroll ke bawah (section masuk ke 88% viewport)
       if (rect.top <= winHeight * 0.88 && rect.bottom >= 0) {
@@ -378,12 +387,16 @@ $(function () {
       ticking = false;
     }
 
-    window.addEventListener("scroll", function () {
-      if (!ticking) {
-        requestAnimationFrame(checkRibbonState);
-        ticking = true;
-      }
-    }, { passive: true });
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!ticking) {
+          requestAnimationFrame(checkRibbonState);
+          ticking = true;
+        }
+      },
+      { passive: true },
+    );
 
     window.addEventListener("resize", function () {
       if (!ticking) {
@@ -397,4 +410,115 @@ $(function () {
 
   initCulturalQuoteRibbon();
   initScrollDrivenQuoteReveal();
+
+  const a11yToggle = document.getElementById("a11yToggle");
+  const a11yPanel = document.getElementById("a11yPanel");
+  const a11yButtons = document.querySelectorAll("[data-a11y-action]");
+
+  const state = {
+    fontScale: 1,
+    grayscale: false,
+    highContrast: false,
+    negativeContrast: false,
+    lightBg: false,
+    underlineLinks: false,
+    readableFont: false,
+  };
+
+  function applyAccessibilityState() {
+    document.documentElement.style.setProperty(
+      "--isyaratok-font-scale",
+      String(state.fontScale),
+    );
+
+    document.body.classList.toggle("a11y-grayscale", state.grayscale);
+    document.body.classList.toggle("a11y-high-contrast", state.highContrast);
+    document.body.classList.toggle(
+      "a11y-negative-contrast",
+      state.negativeContrast,
+    );
+    document.body.classList.toggle("a11y-light-bg", state.lightBg);
+    document.body.classList.toggle(
+      "a11y-underline-links",
+      state.underlineLinks,
+    );
+    document.body.classList.toggle("a11y-readable-font", state.readableFont);
+  }
+
+  function resetAccessibilityState() {
+    Object.assign(state, {
+      fontScale: 1,
+      grayscale: false,
+      highContrast: false,
+      negativeContrast: false,
+      lightBg: false,
+      underlineLinks: false,
+      readableFont: false,
+    });
+    applyAccessibilityState();
+  }
+
+  if (a11yToggle && a11yPanel) {
+    a11yToggle.addEventListener("click", function () {
+      const isOpen = a11yPanel.classList.toggle("is-open");
+      a11yToggle.setAttribute("aria-expanded", String(isOpen));
+      a11yPanel.setAttribute("aria-hidden", String(!isOpen));
+    });
+
+    document.addEventListener("click", function (event) {
+      if (
+        !a11yPanel.contains(event.target) &&
+        event.target !== a11yToggle &&
+        !a11yToggle.contains(event.target)
+      ) {
+        a11yPanel.classList.remove("is-open");
+        a11yToggle.setAttribute("aria-expanded", "false");
+        a11yPanel.setAttribute("aria-hidden", "true");
+      }
+    });
+  }
+
+  a11yButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const action = button.dataset.a11yAction;
+
+      switch (action) {
+        case "increase-text":
+          state.fontScale = Math.min(state.fontScale + 0.08, 1.4);
+          break;
+        case "decrease-text":
+          state.fontScale = Math.max(state.fontScale - 0.08, 0.8);
+          break;
+        case "grayscale":
+          state.grayscale = !state.grayscale;
+          break;
+        case "high-contrast":
+          state.highContrast = !state.highContrast;
+          state.negativeContrast = false;
+          break;
+        case "negative-contrast":
+          state.negativeContrast = !state.negativeContrast;
+          state.highContrast = false;
+          break;
+        case "light-bg":
+          state.lightBg = !state.lightBg;
+          break;
+        case "underline-links":
+          state.underlineLinks = !state.underlineLinks;
+          break;
+        case "readable-font":
+          state.readableFont = !state.readableFont;
+          break;
+        case "reset":
+          resetAccessibilityState();
+          return;
+        default:
+          break;
+      }
+
+      applyAccessibilityState();
+    });
+  });
+
+  applyAccessibilityState();
 });
