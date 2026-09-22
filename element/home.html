@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Latihan Katakana Card</title>
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts Serif untuk kesan klasik/jepang -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <!-- Font serif untuk nuansa klasik -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -28,33 +29,33 @@
 </head>
 <body class="bg-[#f4efe6] bg-grid-pattern min-h-screen flex items-center justify-center p-4">
 
-  <!-- CARD UTAMA -->
+  <!-- Kartu utama -->
   <div class="relative w-full max-w-md bg-[#f9f6f0] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
     
-    <!-- TOP SECTION: HEADER DENGAN GRID LATAR -->
+    <!-- Bagian atas dengan judul dan pola -->
     <div class="relative p-6 text-center border-b-4 border-black bg-grid-pattern">
       
-      <!-- Tombol Kotak Kecil di Kanan Atas -->
+      <!-- Tombol kecil di kanan atas -->
       <div class="absolute top-4 right-4 w-8 h-8 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
         <div class="w-3 h-3 bg-teal-800 rounded-full"></div>
       </div>
 
-      <!-- Ikon Gulungan (Scroll) -->
+      <!-- Ikon gulungan -->
       <div class="inline-flex items-center justify-center w-12 h-12 bg-white border-2 border-black rounded-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-3 text-teal-800">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
       </div>
 
-      <!-- Judul -->
+      <!-- Judul kartu -->
       <h1 class="mb-1 text-3xl font-bold tracking-wide text-black">Latihan Katakana</h1>
       <p class="text-sm leading-relaxed italic text-gray-700">Kuis Pilihan Ganda Adaptif</p>
     </div>
 
-    <!-- BOTTOM SECTION: KONTROL & STATISTIK -->
+    <!-- Kontrol dan statistik -->
     <div class="p-6 bg-[#f4efe6]">
       
-      <!-- Baris Level & Badge SET -->
+      <!-- Level dan badge -->
       <div class="flex items-start justify-between mb-6">
         <div>
           <span class="text-[10px] font-bold tracking-widest text-gray-600 uppercase block mb-1">Level Saat Ini</span>
@@ -73,18 +74,18 @@
         </div>
       </div>
 
-      <!-- Progress Bar EXP -->
+      <!-- Progress pengalaman -->
       <div class="mb-6">
         <div class="flex justify-between text-[10px] font-bold tracking-wider text-gray-600 uppercase mb-1">
           <span>Progres EXP</span>
           <span>Menuju Level Berikutnya</span>
         </div>
         <div class="w-full h-4 bg-white border-2 border-black p-0.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <div class="w-0 h-full bg-teal-800"></div> <!-- Ubah persentase lebar w-[x%] jika ada progress -->
+          <div class="w-0 h-full bg-teal-800"></div> <!-- Lebar bar diubah sesuai nilai progress -->
         </div>
       </div>
 
-      <!-- Tombol Aksi 1: Mulai Latihan (Primary Button) -->
+      <!-- Tombol mulai latihan -->
       <button class="w-full py-3.5 px-4 bg-black text-white font-bold text-base border-2 border-black shadow-[4px_4px_0px_0px_rgba(100,100,100,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2 mb-3">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
@@ -92,7 +93,7 @@
         Mulai Latihan
       </button>
 
-      <!-- Tombol Aksi 2: Daftar Huruf Katakana (Secondary Button) -->
+      <!-- Tombol daftar huruf Katakana -->
       <button class="w-full py-3 px-4 bg-white text-black font-bold text-sm border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -103,6 +104,8 @@
     </div>
   </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../assets/js/script.js"></script>
 </body>
 </html>
 =======

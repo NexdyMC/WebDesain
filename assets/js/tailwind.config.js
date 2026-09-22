@@ -1,7 +1,7 @@
 tailwind.config = {
   theme: {
     extend: {
-      // Konversi Variabel Warna
+      // Warna utama aplikasi
       colors: {
         primary: {
           50: "#fff7ed",
@@ -17,31 +17,31 @@ tailwind.config = {
         },
       },
 
-      // Konversi Tipografi / Font
+      // Font yang dipakai aplikasi
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
         serif: ["Playfair Display", "serif"],
       },
 
-      // Konversi Animasi Keyframes
+      // Animasi tambahan
       keyframes: {
-        'pulse-signal': {
-          '0%': {
-            boxShadow: '0 0 0 0 rgba(227, 123, 60, 0.7)'
+        "pulse-signal": {
+          "0%": {
+            boxShadow: "0 0 0 0 rgba(227, 123, 60, 0.7)",
           },
-          '70%': {
-            boxShadow: '0 0 0 15px rgba(227, 123, 60, 0)'
+          "70%": {
+            boxShadow: "0 0 0 15px rgba(227, 123, 60, 0)",
           },
-          '100%': {
-            boxShadow: '0 0 0 0 rgba(227, 123, 60, 0)'
+          "100%": {
+            boxShadow: "0 0 0 0 rgba(227, 123, 60, 0)",
           },
-        }
+        },
       },
 
-      // Mendaftarkan class animasi
+      // Nama class untuk animasi di atas
       animation: {
-        'pulse-signal': 'pulse-signal 2s infinite',
-      }
-    }
-  }
-}
+        "pulse-signal": "pulse-signal 2s infinite",
+      },
+    },
+  },
+};

@@ -7,6 +7,7 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link rel="stylesheet" href="../assets/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
@@ -114,7 +115,7 @@
 </head>
 <body class="texture-dots min-h-screen">
 
-<!-- ======================= HEADER ======================= -->
+<!-- Header permainan -->
 <header class="px-5 pt-8 pb-4 text-center">
   <div class="inline-flex items-center gap-2 bg-white/70 px-4 py-1.5 rounded-full mb-3 card-3d">
     <span class="text-lg">🤟</span>
@@ -124,7 +125,7 @@
   <p class="mt-1 text-sm sm:text-base opacity-70 max-w-md mx-auto">Cocokkan isyarat, menang sekali langsung, seru tanpa mikir ribet 🎉</p>
 </header>
 
-<!-- ======================= GAME SELECTOR ======================= -->
+<!-- Pilihan permainan -->
 <nav id="gameSelector" class="px-4 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
   <button data-game="tap" class="tab-btn blob-btn card-3d font-display font-700 text-sm py-3 px-2" style="background:var(--coral); color:#fff;">👉 Tap Sign</button>
   <button data-game="whack" class="tab-btn blob-btn card-3d font-display font-700 text-sm py-3 px-2 bg-white" style="color:var(--ink)">🔨 Whack Sign</button>
@@ -133,14 +134,14 @@
   <button data-game="reaction" class="tab-btn blob-btn card-3d font-display font-700 text-sm py-3 px-2 bg-white" style="color:var(--ink)">⚡ Sign Reaction</button>
 </nav>
 
-<!-- ======================= GAME STAGE ======================= -->
+<!-- Area permainan -->
 <main class="px-4 max-w-3xl mx-auto pb-20">
   <div id="stage" class="bg-white rounded-3xl card-3d p-5 sm:p-8 min-h-[420px] relative overflow-hidden"></div>
 </main>
 
-<!-- ======================= TEMPLATES ======================= -->
+<!-- Template tiap permainan -->
 
-<!-- 1. TAP THE RIGHT SIGN -->
+<!-- 1. Pilih isyarat yang benar -->
 <template id="tpl-tap">
   <div class="text-center">
     <p class="font-display font-700 text-xs uppercase tracking-wide opacity-50 mb-1">Tap Isyarat</p>
@@ -153,7 +154,7 @@
   </div>
 </template>
 
-<!-- 2. WHACK-A-SIGN -->
+<!-- 2. Pukul isyarat yang muncul -->
 <template id="tpl-whack">
   <div class="text-center">
     <p class="font-display font-700 text-xs uppercase tracking-wide opacity-50 mb-1">Whack-a-Sign</p>
@@ -166,7 +167,7 @@
   </div>
 </template>
 
-<!-- 3. CATCH THE SIGN -->
+<!-- 3. Tangkap isyarat yang benar -->
 <template id="tpl-catch">
   <div class="text-center">
     <p class="font-display font-700 text-xs uppercase tracking-wide opacity-50 mb-1">Catch the Sign</p>
@@ -179,7 +180,7 @@
   </div>
 </template>
 
-<!-- 4. SWIPE TO MATCH -->
+<!-- 4. Geser untuk mencocokkan -->
 <template id="tpl-swipe">
   <div class="text-center">
     <p class="font-display font-700 text-xs uppercase tracking-wide opacity-50 mb-1">Swipe to Match</p>
@@ -199,7 +200,7 @@
   </div>
 </template>
 
-<!-- 5. SIGN REACTION -->
+<!-- 5. Reaksi terhadap isyarat -->
 <template id="tpl-reaction">
   <div class="text-center">
     <p class="font-display font-700 text-xs uppercase tracking-wide opacity-50 mb-1">Sign Reaction</p>
@@ -209,7 +210,7 @@
   </div>
 </template>
 
-<!-- ======================= SCRIPT ======================= -->
+<!-- Logika permainan -->
 <script>
 $(function(){
 
@@ -269,7 +270,7 @@ $(function(){
 
   // ---------- ROUTER ----------
   const stage = $('#stage');
-  let activeCleanup = null; // for clearing timers between games
+  let activeCleanup = null; // membersihkan timer sebelum game berganti
 
   function loadGame(name){
     if(activeCleanup) activeCleanup();
@@ -524,5 +525,6 @@ $(function(){
   loadGame('tap');
 });
 </script>
+<script src="../assets/js/script.js"></script>
 </body>
 </html>

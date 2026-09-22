@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IsyaratOK - Belajar Bahasa Isyarat Interaktif &amp; Inklusif</title>
 
-  <!-- Google Fonts & Font Awesome Icons -->
+  <!-- Font dan ikon yang dipakai halaman -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Tailwind CSS CDN & Config -->
+  <!-- Tailwind dan konfigurasi warna -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
 
-  <!-- not file css external, internal and inline -->
+  <!-- Gaya kuis ditulis di halaman ini -->
   <style>
     .flash-ok { animation: ok .5s; }
     .flash-no { animation: no .5s; }
@@ -26,17 +26,17 @@
     #shell .screen.hidden { display: none; }
   </style>
 </head>
-<body class="font-sans antialiased text-slate-800 bg-white selection:bg-orange-500 selection:text-white">
+<body data-no-accessibility="true" class="font-sans antialiased text-slate-800 bg-white selection:bg-orange-500 selection:text-white">
 
   <div id="scrollProgressContainer" class="fixed left-0 top-16 z-[60] h-1 w-full bg-transparent pointer-events-none md:top-20">
     <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
   </div>
 
-  <!-- Navigation -->
+  <!-- Navigasi utama -->
   <header class="sticky top-0 z-50 border-b shadow-sm border-orange-100/70 backdrop-blur-md bg-white/95">
     <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 md:h-20">
 
-      <!-- Brand Logo -->
+      <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2.5 text-xl font-extrabold tracking-tight md:text-2xl text-slate-900 group" aria-label="IsyaratOK">
         <div class="flex items-center justify-center w-10 h-10">
           <img src="assets/images/Logo.png" alt="" class="object-contain w-8 h-8" />
@@ -44,7 +44,7 @@
         <span>Isyarat<span class="text-orange-600">OK</span></span>
       </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Menu desktop -->
       <nav class="items-center hidden font-semibold gap-7 text-slate-600 md:flex text-sm" aria-label="Navigasi Utama">
         <a href="index.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Beranda</a>
         <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Edukasi</a>
@@ -53,7 +53,7 @@
         <a href="asisten.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Asisten AI</a>
       </nav>
 
-      <!-- Mobile Menu Button -->
+      <!-- Tombol menu di layar kecil -->
       <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi"
         class="p-2 transition rounded-xl text-slate-700 hover:text-orange-600 hover:bg-orange-50 md:hidden focus:outline-none">
         <svg id="iconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -65,7 +65,7 @@
       </button>
     </div>
 
-    <!-- Mobile Navigation Drawer -->
+    <!-- Menu untuk layar kecil -->
     <nav id="mobileMenu" class="hidden px-6 pt-2 pb-6 border-b border-orange-100 bg-white/95 md:hidden" aria-label="Menu Mobile">
       <div class="flex flex-col space-y-2.5 font-medium text-slate-700">
         <a href="index.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Beranda</a>
@@ -103,11 +103,10 @@
 
   <main id="shell" class="flex items-center justify-center min-h-screen py-10">
 
-    <!-- card game -->
-    <!-- screen game -->
+    <!-- Wadah permainan dan layar-layarnya -->
     <div class="w-full max-w-sm px-4">
 
-      <!-- START SCREEN -->
+      <!-- Layar awal -->
       <section id="start-screen" class="screen">
         <div class="overflow-hidden bg-white border-2 shadow-xl rounded-3xl border-orange-100">
           <div class="relative flex flex-col items-center justify-center h-48 px-4 text-center text-white bg-orange-500"
@@ -127,7 +126,7 @@
         </div>
       </section>
 
-      <!-- PLAY SCREEN -->
+      <!-- Layar permainan -->
       <section id="play-screen" class="screen hidden">
         <div class="overflow-hidden bg-white border-2 shadow-xl rounded-3xl border-orange-100">
           <div class="flex items-center justify-between px-5 py-4 text-white bg-orange-500">
@@ -153,7 +152,7 @@
         </div>
       </section>
 
-      <!-- FINAL SCREEN -->
+      <!-- Layar hasil akhir -->
       <section id="final-screen" class="screen hidden">
         <div class="overflow-hidden bg-white border-2 shadow-xl rounded-3xl border-orange-100">
           <div class="flex items-center justify-center h-40 text-3xl font-bold text-white bg-orange-500"
@@ -246,7 +245,7 @@
     </div>
   </footer>
 
-  <!-- jQuery & Main Script -->
+  <!-- Library dan script halaman -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/script.js"></script>
 

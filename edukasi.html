@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IsyaratOK - Modul Edukasi &amp; Kuis Interaktif</title>
 
-  <!-- Meta SEO & Open Graph -->
+  <!-- Informasi halaman untuk mesin pencari dan pratinjau tautan -->
   <meta name="description" content="Katalog modul edukasi bahasa isyarat BISINDO interaktif. Pelajari abjad A-Z, angka 0-10, ungkapan harian, dan uji pemahaman lewat kuis interaktif." />
   <meta property="og:title" content="IsyaratOK - Modul Edukasi Bahasa Isyarat Lengkap" />
   <meta property="og:description" content="Modul pembelajaran terstruktur dari dasar hingga mahir untuk segala usia." />
@@ -13,16 +13,17 @@
   <meta property="og:url" content="https://isyarat-ok.netlify.app/edukasi.html" />
   <meta property="og:type" content="website" />
 
-  <!-- Google Fonts & Font Awesome Icons -->
+  <!-- Font dan ikon yang dipakai halaman -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Tailwind CSS CDN & Custom Styles -->
+  <!-- Tailwind dan gaya tambahan -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
   <link rel="stylesheet" href="assets/css/edukasi.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body class="font-sans antialiased text-slate-800 bg-white selection:bg-orange-500 selection:text-white">
@@ -31,16 +32,16 @@
     <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
   </div>
 
-  <!-- Accessibility: Skip to Content Link -->
+  <!-- Tautan untuk langsung ke isi halaman -->
   <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-5 focus:py-3 focus:bg-orange-600 focus:text-white focus:font-semibold focus:rounded-xl focus:shadow-2xl">
     Lewati ke Konten Utama
   </a>
 
-  <!-- Header / Navigation Bar (Unified Across All Pages) -->
+  <!-- Header dan navigasi -->
   <header class="sticky top-0 z-50 border-b shadow-sm border-orange-100/70 backdrop-blur-md bg-white/95">
     <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 md:h-20">
       
-      <!-- Brand Logo -->
+      <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2.5 text-xl font-extrabold tracking-tight md:text-2xl text-slate-900 group" aria-label="IsyaratOK">
         <div class="flex items-center justify-center w-10 h-10">
           <img src="assets/images/Logo.png" alt="" class="object-contain w-8 h-8" />
@@ -48,7 +49,7 @@
         <span>Isyarat<span class="text-orange-600">OK</span></span>
       </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Menu desktop -->
       <nav class="items-center hidden font-semibold gap-7 text-slate-600 md:flex text-sm" aria-label="Navigasi Utama">
         <a href="index.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Beranda</a>
         <a href="edukasi.html" class="py-1 text-orange-600 border-b-2 border-orange-600" aria-current="page">Edukasi</a>
@@ -57,7 +58,7 @@
         <a href="asisten.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Asisten AI</a>
       </nav>
 
-      <!-- Mobile Menu Button -->
+      <!-- Tombol menu di layar kecil -->
       <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi"
         class="p-2 transition rounded-xl text-slate-700 hover:text-orange-600 hover:bg-orange-50 md:hidden focus:outline-none">
         <svg id="iconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -69,7 +70,7 @@
       </button>
     </div>
 
-    <!-- Mobile Navigation Drawer -->
+    <!-- Menu untuk layar kecil -->
     <nav id="mobileMenu" class="hidden px-6 pt-2 pb-6 border-b border-orange-100 bg-white/95 md:hidden" aria-label="Menu Mobile">
       <div class="flex flex-col space-y-2.5 font-medium text-slate-700">
         <a href="index.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Beranda</a>
@@ -90,15 +91,15 @@
   </nav>
 
 
-  <!-- Main Content Landmark -->
+  <!-- Isi halaman -->
   <main id="main-content">
 
-    <!-- HERO SECTION -->
+    <!-- Pengantar halaman -->
     <section class="relative px-4 pt-8 pb-12 overflow-hidden bg-white sm:px-6 md:pt-12 md:pb-16 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div class="grid items-center gap-10 lg:grid-cols-12">
           
-          <!-- Left Text Hero -->
+          <!-- Teks pengantar -->
           <div class="lg:col-span-7">
             <h1 class="mb-5 text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
               Katalog Modul Belajar <br class="hidden sm:inline" /><span class="text-transparent bg-orange-600 bg-clip-text">Bahasa Isyarat <span class="relative inline-block">Lengkap
@@ -110,7 +111,7 @@
             </p>
           </div>
 
-          <!-- Right Hero Highlight Box -->
+          <!-- Ringkasan modul -->
           <div class="flex justify-center lg:col-span-5">
             <div class="w-full max-w-md p-6 bg-white border shadow-xl rounded-3xl border-slate-100">
               <div class="flex items-center justify-between p-4 mb-5 text-white bg-orange-500 shadow-md rounded-2xl shadow-orange-500/20">
@@ -121,7 +122,7 @@
                 <span class="px-3 py-1 text-xs font-bold bg-white rounded-full text-orange-950">100% Gratis</span>
               </div>
 
-              <!-- Quick Module Highlights -->
+              <!-- Ringkasan materi -->
               <div class="space-y-3 text-xs">
                 <div class="flex items-center justify-between p-3 transition border rounded-xl bg-slate-50 hover:bg-orange-50/80 border-slate-100">
                   <div class="flex items-center gap-3">
@@ -152,11 +153,11 @@
       </div>
     </section>
 
-    <!-- PENCARIAN & FILTER MODUL -->
+    <!-- Pencarian dan filter modul -->
     <section id="koleksi-modul" class="px-4 py-8 mx-auto sm:px-6 md:py-10 lg:px-8 max-w-7xl">
       <div class="p-6 bg-white border shadow-xl rounded-3xl border-slate-100 md:p-8">
         
-        <!-- Search Input Bar -->
+        <!-- Kotak pencarian -->
         <div class="relative mb-6">
           <label for="searchInput" class="sr-only">Cari judul modul atau materi</label>
           <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none text-slate-400">
@@ -169,7 +170,7 @@
           </button>
         </div>
 
-        <!-- Filter Buttons -->
+        <!-- Tombol filter -->
         <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
           <button type="button" data-filter="semua" class="tab-btn px-5 py-2.5 text-xs sm:text-sm font-bold rounded-full transition-all duration-200 bg-orange-600 text-white shadow-md shadow-orange-500/20 active:scale-95">
             <i class="mr-1.5 fa-solid fa-layer-group" aria-hidden="true"></i> Semua Modul
@@ -196,10 +197,10 @@
       </div>
     </section>
 
-    <!-- MODUL CARDS GRID SECTION -->
+    <!-- Daftar modul -->
     <section class="px-4 py-8 mx-auto sm:px-6 md:py-12 lg:px-8 max-w-7xl">
       
-      <!-- Empty State -->
+      <!-- Pesan saat hasil kosong -->
       <div id="noResultsMessage" class="hidden max-w-md p-10 mx-auto my-12 text-center bg-white border shadow-sm border-slate-100 rounded-3xl">
         <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 text-2xl text-orange-500 bg-orange-100 rounded-full">
           <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
@@ -210,16 +211,16 @@
         </p>
       </div>
 
-      <!-- Grid Cards -->
+      <!-- Kartu modul -->
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" id="modulContainer">
 
-        <!-- MODUL 1: Alfabet A-Z -->
+        <!-- Modul alfabet A sampai Z -->
         <div role="button" tabindex="0" data-category="dasar" data-keywords="alfabet abjad a-z huruf dasar fingerspelling"
              data-desc="Mengenal 26 bentuk tangan huruf alfabet BISINDO dari A sampai Z untuk mengeja nama dan istilah kata."
              data-action-url="artikel.html?modul=alfabet" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-orange-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white">
-            <img src="assets/images/G.BISINDO/A - wall white (1).jpg" alt="Modul Alfabet A-Z" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
+            <img src="assets/images/G.BISINDO/A - wall white (1).webp" alt="Modul Alfabet A-Z" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
             <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-orange-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Level 1: Dasar</span>
           </div>
           <div class="flex flex-col flex-1 p-6">
@@ -242,13 +243,13 @@
           </template>
         </div>
 
-        <!-- MODUL 2: Isyarat Angka 0 - 10 (NEW NUMBER SIGN MODULE!) -->
+        <!-- Modul angka 0 sampai 10 -->
         <div role="button" tabindex="0" data-category="angka" data-keywords="angka nombor bilangan 0 1 2 3 4 5 6 7 8 9 10 matematika hitung"
              data-desc="Pelajari pembentukan gestur jari untuk angka 0 sampai 10 dalam standar BISINDO dengan mudah."
              data-action-url="artikel.html?modul=angka-dasar" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-amber-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-white">
-            <img src="assets/images/G.BISINDO/D - wall white (1).jpg" alt="Modul Angka 0-10" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
+            <img src="assets/images/G.BISINDO/D - wall white (1).webp" alt="Modul Angka 0-10" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
             <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Level 1: Angka</span>
           </div>
           <div class="flex flex-col flex-1 p-6">
@@ -271,13 +272,13 @@
           </template>
         </div>
 
-        <!-- MODUL 3: Angka Puluhan & Ratusan -->
+        <!-- Modul angka puluhan dan ratusan -->
         <div role="button" tabindex="0" data-category="angka" data-keywords="angka nombor puluhan belasan ratusan berhitung nominal harga"
              data-desc="Memahami cara menyusun angka belasan (11-19), puluhan (20-90), dan ratusan untuk transaksi dan waktu."
              data-action-url="artikel.html?modul=bilangan-waktu" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-amber-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-amber-600 to-orange-500 flex items-center justify-center text-white">
-            <img src="assets/images/G.BISINDO/V - wall white (1).jpg" alt="Modul Angka Puluhan" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
+            <img src="assets/images/G.BISINDO/V - wall white (1).webp" alt="Modul Angka Puluhan" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
             <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Level 2: Angka</span>
           </div>
           <div class="flex flex-col flex-1 p-6">
@@ -300,13 +301,13 @@
           </template>
         </div>
 
-        <!-- MODUL 4: Salam & Ungkapan Harian -->
+        <!-- Modul salam dan ungkapan harian -->
         <div role="button" tabindex="0" data-category="ungkapan" data-keywords="salam sapaan terima kasih maaf tolong ungkapan harian sopan santun"
              data-desc="Kumpulan isyarat sapaan sopan santun: Halo, Selamat Pagi, Terima Kasih, Maaf, dan Tolong."
              data-action-url="artikel.html?modul=salam-ungkapan" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-emerald-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white">
-            <img src="assets/images/G.BISINDO/H - wall white (1).jpg" alt="Modul Salam & Ungkapan" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
+            <img src="assets/images/G.BISINDO/H - wall white (1).webp" alt="Modul Salam & Ungkapan" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
             <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Level 2: Ungkapan</span>
           </div>
           <div class="flex flex-col flex-1 p-6">
@@ -329,13 +330,13 @@
           </template>
         </div>
 
-        <!-- MODUL 5: Percakapan & Tanya Jawab -->
+        <!-- Modul percakapan dan tanya jawab -->
         <div role="button" tabindex="0" data-category="ungkapan" data-keywords="percakapan dialog tanya apa siapa di mana mengapa ekspresi wajah"
              data-desc="Membangun dialog kalimat tanya (5W1H) dan respons ekspresif dalam percakapan dua arah."
              data-action-url="artikel.html?modul=percakapan" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-emerald-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white">
-            <img src="assets/images/G.BISINDO/W - wall white (1).jpg" alt="Modul Percakapan Praktis" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
+            <img src="assets/images/G.BISINDO/W - wall white (1).webp" alt="Modul Percakapan Praktis" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
             <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-teal-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Level 3: Ungkapan</span>
           </div>
           <div class="flex flex-col flex-1 p-6">
@@ -358,13 +359,13 @@
           </template>
         </div>
 
-        <!-- MODUL 6: Keluarga & Hubungan Sosial -->
+        <!-- Modul keluarga dan hubungan sosial -->
         <div role="button" tabindex="0" data-category="ungkapan" data-keywords="keluarga ayah ibu kakak adik teman kawan hubungan sosial"
              data-desc="Isyarat seputar relasi keluarga, teman sebaya, dan lingkungan komunitas."
              data-action-url="artikel.html?modul=keluarga" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-emerald-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-emerald-600 to-green-500 flex items-center justify-center text-white">
-            <img src="assets/images/G.BISINDO/F - wall white (1).jpg" alt="Modul Isyarat Keluarga" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
+            <img src="assets/images/G.BISINDO/F - wall white (1).webp" alt="Modul Isyarat Keluarga" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
             <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Level 2: Sosial</span>
           </div>
           <div class="flex flex-col flex-1 p-6">
@@ -387,13 +388,13 @@
           </template>
         </div>
 
-        <!-- MODUL 7: Ramah Anak: Dunia Hewan -->
+        <!-- Modul ramah anak tentang hewan -->
         <div role="button" tabindex="0" data-category="anak" data-keywords="anak hewan binatang kucing anjing burung ikan satwa fauna"
              data-desc="Meniru ciri khas gerak dan karakteristik hewan seperti Kucing (kumis), Burung (sayap), dan Ikan."
              data-action-url="artikel.html?modul=hewan" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-indigo-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white">
-            <img src="assets/images/G.BISINDO/C - wall white (1).jpg" alt="Modul Ramah Anak Hewan" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
+            <img src="assets/images/G.BISINDO/C - wall white (1).webp" alt="Modul Ramah Anak Hewan" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
             <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-indigo-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Khusus Anak</span>
           </div>
           <div class="flex flex-col flex-1 p-6">
@@ -416,13 +417,13 @@
           </template>
         </div>
 
-        <!-- MODUL 8: Ramah Anak: Warna & Benda Rumah -->
+        <!-- Modul ramah anak tentang warna dan benda -->
         <div role="button" tabindex="0" data-category="anak" data-keywords="anak warna merah kuning hijau biru benda rumah buku meja"
              data-desc="Mengenal warna pelangi dan nama benda di sekitar rumah melalui isyarat visual yang ceria."
              data-action-url="artikel.html?modul=warna-benda" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-indigo-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white">
-            <img src="assets/images/G.BISINDO/R - wall white (1).jpg" alt="Modul Warna & Benda" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
+            <img src="assets/images/G.BISINDO/R - wall white (1).webp" alt="Modul Warna & Benda" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
             <span class="absolute top-3 left-3 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-purple-950 bg-white/90 rounded-full backdrop-blur-xs modul-badge">Khusus Anak</span>
           </div>
           <div class="flex flex-col flex-1 p-6">
@@ -453,30 +454,30 @@
    
   </main>
 
-  <!-- ACCESSIBLE MODAL DETAIL POPUP -->
+  <!-- Jendela detail modul -->
   <div id="popupModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle" class="fixed inset-0 z-50 items-center justify-center hidden p-4 bg-slate-900/80 backdrop-blur-xs">
     <div class="relative flex flex-col w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl p-6 sm:p-8 border border-slate-100">
 
-      <!-- Close Button -->
+      <!-- Tombol tutup -->
       <button id="closeBtn" type="button" aria-label="Tutup modul detail"
         class="absolute flex items-center justify-center rounded-full top-5 right-5 w-9 h-9 text-slate-400 hover:text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500">
         <i class="text-lg fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
 
-      <!-- Category Pill -->
+      <!-- Label kategori -->
       <div class="mb-2">
         <span id="modalCategory" class="inline-block px-3 py-1 text-[11px] font-bold tracking-wider text-orange-800 uppercase bg-orange-100 rounded-full"></span>
       </div>
 
-      <!-- Title -->
+      <!-- Judul modul -->
       <h2 id="modalTitle" class="pr-8 mb-4 text-2xl font-extrabold text-slate-900 sm:text-3xl"></h2>
 
-      <!-- Image Preview -->
+      <!-- Pratinjau gambar -->
       <div class="relative flex items-center justify-center mb-5 overflow-hidden border aspect-video bg-slate-50 rounded-2xl border-slate-100">
         <img id="modalImg" src="" alt="" class="object-cover w-full h-full" />
       </div>
 
-      <!-- Description & Curriculum -->
+      <!-- Deskripsi dan materi -->
       <div class="space-y-4 text-sm text-slate-600">
         <div class="p-4 border border-orange-100 bg-orange-50/70 rounded-2xl">
           <p class="font-bold text-orange-950 mb-1 flex items-center gap-1.5 text-xs uppercase tracking-wider">
@@ -490,7 +491,7 @@
         </div>
       </div>
 
-      <!-- Actions -->
+      <!-- Tombol tindakan -->
       <div class="flex items-center justify-end gap-3 pt-4 mt-6 border-t border-slate-100">
         <button id="closeModalAction" type="button" class="px-5 py-2.5 text-xs font-bold text-slate-700 bg-slate-100 rounded-full hover:bg-slate-200 transition">
           Tutup
@@ -503,7 +504,7 @@
     </div>
   </div>
 
-  <!-- FOOTER SECTION -->
+  <!-- Footer -->
   <footer class="mt-20 text-white border-t bg-gradient-to-br from-orange-600 via-orange-600 to-amber-700 border-orange-500/30">
     <div class="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="grid gap-10 md:grid-cols-12">

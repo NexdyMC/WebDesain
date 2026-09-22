@@ -6,6 +6,7 @@
 <title>Tebak Huruf Isyarat — Game 1</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link rel="stylesheet" href="../assets/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -27,7 +28,7 @@
 <div id="confetti-container" class="pointer-events-none fixed inset-0 overflow-hidden z-50"></div>
 
 <div class="min-h-screen flex flex-col">
-  <!-- Nav -->
+  <!-- Navigasi -->
   <header class="px-4 py-3 flex items-center justify-between gap-2 flex-wrap">
     <span class="font-heading text-xl md:text-2xl font-bold text-orange-700">🖐️ BelajarIsyarat</span>
     <nav class="flex gap-2 text-sm overflow-x-auto">
@@ -42,7 +43,7 @@
   <main class="flex-1 flex items-start justify-center px-4 pb-10">
     <div class="w-full max-w-lg">
 
-      <!-- Progress -->
+      <!-- Kemajuan permainan -->
       <div id="progress-wrap" class="mt-2 mb-4">
         <div class="flex justify-between items-center mb-1.5 text-orange-800 font-bold">
           <span id="progress-label">Soal 1 / 10</span>
@@ -53,7 +54,7 @@
         </div>
       </div>
 
-      <!-- Question card -->
+      <!-- Kartu pertanyaan -->
       <section id="question-card" class="bg-white rounded-3xl shadow-lg border-4 border-orange-200 p-6 text-center">
         <h1 class="font-heading text-xl md:text-2xl font-bold text-orange-800 mb-4">Isyarat tangan ini menunjukkan huruf apa?</h1>
         <div id="hand-display" class="flex justify-center items-center py-2"></div>
@@ -67,7 +68,7 @@
         </button>
       </section>
 
-      <!-- End screen -->
+      <!-- Layar hasil -->
       <section id="end-card" class="hidden bg-white rounded-3xl shadow-lg border-4 border-orange-200 p-8 text-center">
         <p class="text-5xl mb-3">🎉</p>
         <h2 class="font-heading text-2xl font-bold text-orange-800 mb-2">Selesai!</h2>
@@ -210,5 +211,6 @@ $('#restart-btn').on('click', startGame);
 
 startGame();
 </script>
+<script src="../assets/js/script.js"></script>
 </body>
 </html>

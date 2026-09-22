@@ -361,7 +361,7 @@ $(function () {
     });
   });
 
-  /* Scroll-Driven Text Reveal for Cultural Quote */
+  /* Menampilkan teks kutipan bertahap saat scroll */
   function initScrollDrivenQuoteReveal() {
     const quoteEl = document.getElementById("culturalQuoteText");
     const originalQuoteEl = document.getElementById("culturalQuoteOriginal");
@@ -385,7 +385,7 @@ $(function () {
 
       quoteEl.appendChild(span);
 
-      // Explicitly append a standard space text node so words never collapse together
+      // Spasi dibuat sebagai node sendiri agar kata tidak menempel
       if (index < words.length - 1) {
         quoteEl.appendChild(document.createTextNode(" "));
       }
@@ -401,8 +401,8 @@ $(function () {
       const winHeight =
         window.innerHeight || document.documentElement.clientHeight;
 
-      // Start reveal when quote reaches 82% from viewport top
-      // Fully revealed when quote reaches 35% from viewport top
+      // Mulai menampilkan teks ketika kutipan mendekati bagian bawah viewport
+      // Teks selesai ditampilkan ketika kutipan mendekati bagian atas viewport
       const startY = winHeight * 0.82;
       const endY = winHeight * 0.35;
 
@@ -419,7 +419,7 @@ $(function () {
           1,
         );
 
-        // Smoothly reveal from muted 0.22 opacity to crisp 1.0 white
+        // Naikkan opacity teks secara bertahap
         const opacity = 0.22 + 0.78 * wordProgress;
         const span = wordSpans[i];
 
@@ -456,7 +456,7 @@ $(function () {
     updateQuoteReveal();
   }
 
-  /* Cultural Quote Ribbon Slide-In Animation */
+  /* Animasi pita kutipan saat masuk viewport */
   function initCulturalQuoteRibbon() {
     const sectionEl = document.getElementById("cultural-quote");
     const ribbonBg = document.getElementById("culturalQuoteRibbonBg");
@@ -481,7 +481,7 @@ $(function () {
       const winHeight =
         window.innerHeight || document.documentElement.clientHeight;
 
-      // Saat mulai masuk scroll ke bawah (section masuk ke 88% viewport)
+      // Pita mulai bergerak ketika bagian ini masuk viewport
       if (rect.top <= winHeight * 0.88 && rect.bottom >= 0) {
         if (!isRevealed) {
           isRevealed = true;
@@ -493,7 +493,7 @@ $(function () {
           }
         }
       } else if (rect.top > winHeight * 0.95) {
-        // Sebelum masuk / scroll kembali ke atas: twibbon kembali diam di kiri
+        // Saat keluar viewport, pita kembali ke posisi awal
         if (isRevealed) {
           isRevealed = false;
           ribbonBg.classList.remove("translate-x-0");
@@ -530,6 +530,36 @@ $(function () {
 
   initCulturalQuoteRibbon();
   initScrollDrivenQuoteReveal();
+
+  function ensureAccessibilityPanel() {
+    if (document.body.dataset.noAccessibility === "true") return;
+    if (document.querySelector(".accessibility-float")) return;
+
+    const panel = document.createElement("div");
+    panel.className = "accessibility-float";
+    panel.setAttribute("aria-label", "Panel aksesibilitas");
+    panel.innerHTML = `
+      <button id="a11yToggle" class="accessibility-toggle" type="button" aria-expanded="false" aria-controls="a11yPanel" aria-label="Buka pengaturan aksesibilitas">
+        <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+      </button>
+      <div id="a11yPanel" class="accessibility-panel" aria-hidden="true">
+        <h3 class="accessibility-panel-title">Alat Aksesibilitas</h3>
+        <ul class="accessibility-menu">
+          <li><button type="button" data-a11y-action="increase-text" class="accessibility-item"><span class="accessibility-icon"><i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i></span><span>Meningkatkan Teks</span></button></li>
+          <li><button type="button" data-a11y-action="decrease-text" class="accessibility-item"><span class="accessibility-icon"><i class="fa-solid fa-magnifying-glass-minus" aria-hidden="true"></i></span><span>Kurangi Teks</span></button></li>
+          <li><button type="button" data-a11y-action="grayscale" class="accessibility-item"><span class="accessibility-icon"><i class="fa-solid fa-droplet-slash" aria-hidden="true"></i></span><span>Skala abu-abu</span></button></li>
+          <li><button type="button" data-a11y-action="high-contrast" class="accessibility-item"><span class="accessibility-icon"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></span><span>Kontras Tinggi</span></button></li>
+          <li><button type="button" data-a11y-action="negative-contrast" class="accessibility-item"><span class="accessibility-icon"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i></span><span>Kontras Negatif</span></button></li>
+          <li><button type="button" data-a11y-action="light-bg" class="accessibility-item"><span class="accessibility-icon"><i class="fa-solid fa-sun" aria-hidden="true"></i></span><span>Latar Belakang Cahaya</span></button></li>
+          <li><button type="button" data-a11y-action="underline-links" class="accessibility-item"><span class="accessibility-icon"><i class="fa-solid fa-underline" aria-hidden="true"></i></span><span>Tautan Garis Bawah</span></button></li>
+          <li><button type="button" data-a11y-action="readable-font" class="accessibility-item"><span class="accessibility-icon"><i class="fa-solid fa-font" aria-hidden="true"></i></span><span>Fonta Yang Dapat Dibaca</span></button></li>
+          <li><button type="button" data-a11y-action="reset" class="accessibility-item accessibility-item-reset"><span class="accessibility-icon"><i class="fa-solid fa-arrow-rotate-left" aria-hidden="true"></i></span><span>Reset</span></button></li>
+        </ul>
+      </div>`;
+    document.body.appendChild(panel);
+  }
+
+  ensureAccessibilityPanel();
 
   const a11yToggle = document.getElementById("a11yToggle");
   const a11yPanel = document.getElementById("a11yPanel");

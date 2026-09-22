@@ -1,4 +1,4 @@
-/* 1. CARD INTERACTIVE */
+/* Kartu yang bisa diklik */
 .card-interactive {
   height: 100%;
   border-color: #e2e8f0;
@@ -13,7 +13,7 @@
   transform: translateY(-5px);
 }
 
-/* 2. JQUERY SCROLL REVEAL */
+/* Animasi saat elemen masuk viewport */
 .fade-up-item {
   opacity: 0;
   transform: translate3d(0, 100px, 0);
@@ -28,7 +28,7 @@
   transform: translate3d(0, 0, 0);
 }
 
-/* 3. REALISTIC CULTURAL QUOTE RIBBON */
+/* Pita kutipan budaya */
 .quote-ribbon {
   isolation: isolate;
   overflow: hidden;
@@ -172,7 +172,7 @@
   }
 }
 
-/* 4. HERO ENTRANCE ANIMATION */
+/* Animasi masuk bagian pembuka */
 .hero-copy,
 .hero-visual-wrap,
 .hero-actions,
@@ -283,7 +283,7 @@
   }
 }
 
-/* 3. STAT FLIP CARD — Fix: hapus hardcoded height 280px */
+/* Kartu statistik yang bisa dibalik */
 .stat-flip-card {
   position: relative;
   min-height: 260px;
@@ -375,7 +375,7 @@
   outline-offset: 4px;
 }
 
-/* 4. STAT NUMBER */
+/* Angka pada kartu statistik */
 .stat-number {
   font-variant-numeric: tabular-nums;
   display: inline-block;
@@ -396,7 +396,7 @@
   }
 }
 
-/* 6. SECTION HEADING ICON */
+/* Ikon pada judul bagian */
 .why-heading-icon {
   display: inline-block;
   flex: 0 0 auto;
@@ -459,6 +459,10 @@ body.a11y-high-contrast * {
 }
 
 body.a11y-negative-contrast {
+  background: #111 !important;
+}
+
+body.a11y-negative-contrast > :not(.accessibility-float) {
   filter: invert(1) hue-rotate(180deg);
 }
 
@@ -641,7 +645,7 @@ body.a11y-underline-links .accessibility-item {
   }
 }
 
-/* 7. SCROLL CUE — Fix: sederhanakan dari 14 keyframe, hapus -webkit- prefix */
+/* Petunjuk scroll */
 .shake-vertical {
   animation: shake-vertical 2s ease-in-out infinite;
   will-change: transform;
@@ -657,7 +661,7 @@ body.a11y-underline-links .accessibility-item {
   }
 }
 
-/* 8. HEADING TEXT ANIMATION — Fix: hapus duplikasi @-webkit-keyframes */
+/* Animasi judul */
 .tracking-in-contract {
   animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
@@ -676,7 +680,7 @@ body.a11y-underline-links .accessibility-item {
   }
 }
 
-/* 9. JELLO CARD ANIMATION — Fix: hapus duplikasi @-webkit-keyframes */
+/* Animasi kartu */
 .jello-horizontal {
   animation: jello-horizontal 0.9s both;
 }
@@ -705,7 +709,7 @@ body.a11y-underline-links .accessibility-item {
   }
 }
 
-/* 11. SCROLL-DRIVEN QUOTE REVEAL */
+/* Kemunculan teks kutipan saat scroll */
 .scroll-word {
   display: inline;
   transition:
@@ -714,7 +718,7 @@ body.a11y-underline-links .accessibility-item {
   will-change: opacity, color;
 }
 
-/* 10. REDUCED MOTION */
+/* Hormati pengaturan minim gerakan */
 @media (prefers-reduced-motion: reduce) {
   .fade-in,
   .fade-up-item,

@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kumpulan Motif Card UI</title>
-  <!-- Tailwind CSS -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome untuk Icon -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <!-- Ikon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Font Quicksand untuk tampilan membulat mirip referensi -->
+  <!-- Font dengan bentuk huruf membulat -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700;900&display=swap" rel="stylesheet">
   
   <style>
@@ -17,7 +18,7 @@
       background-color: #e5e7eb; /* Warna latar belakang luar */
     }
 
-    /* KUMPULAN MOTIF CSS MURNI */
+    /* Motif latar untuk kartu */
     
     /* 1. Motif Grid Kotak (Graph Paper) */
     .motif-grid {
@@ -83,8 +84,8 @@
     }
 
     .motif-dots-halus {
-      /* Menggunakan warna oranye utama dengan titik putih transparan */
-      background-color: #f97316; /* Tailwind orange-500 */
+      /* Latar oranye dengan titik putih transparan */
+      background-color: #f97316; /* orange-500 */
       background-image: radial-gradient(rgba(255, 255, 255, 0.2) 2px, transparent 2px);
       background-size: 16px 16px;
     }
@@ -92,12 +93,12 @@
 </head>
 <body class="p-8">
 
-  <!-- Container Grid -->
+  <!-- Susunan kartu -->
   <div class="grid grid-cols-1 gap-10 mx-auto max-w-7xl md:grid-cols-2 lg:grid-cols-3">
 
-    <!-- FUNGSI UNTUK MERENDER CARD (Diulang 6 Kali dengan Motif Berbeda) -->
+    <!-- Enam kartu dengan motif berbeda -->
 
-    <!-- CARD 1: MOTIF GRID -->
+    <!-- Kartu dengan motif grid -->
     <div class="flex flex-col bg-[#f6f3eb] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       <div class="flex flex-col items-center p-8 text-center border-b-4 border-black motif-grid">
         <div class="w-12 h-12 bg-white border-2 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center mb-4 text-teal-800">
@@ -106,7 +107,7 @@
         <h2 class="mb-1 text-3xl font-black text-black">Motif Grid</h2>
         <p class="text-sm italic font-medium text-gray-600">Kuis Pilihan Ganda Adaptif</p>
       </div>
-      <!-- Konten Body Card -->
+      <!-- Isi kartu -->
       <div class="flex flex-col flex-grow p-6">
         <div class="flex items-start justify-between mb-8">
           <div>
@@ -133,7 +134,7 @@
       </div>
     </div>
 
-    <!-- CARD 2: MOTIF DOTS -->
+    <!-- Kartu dengan motif titik -->
     <div class="flex flex-col bg-[#f6f3eb] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       <div class="flex flex-col items-center p-8 text-center border-b-4 border-black motif-dots">
         <div class="w-12 h-12 bg-white border-2 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center mb-4 text-teal-800">
@@ -142,7 +143,7 @@
         <h2 class="mb-1 text-3xl font-black text-black">Motif Dots</h2>
         <p class="text-sm italic font-medium text-gray-600">Kuis Pilihan Ganda Adaptif</p>
       </div>
-      <!-- Konten Body Card (Sama seperti Card 1) -->
+      <!-- Isi kartu -->
       <div class="flex flex-col flex-grow p-6">
         <div class="flex items-start justify-between mb-8">
           <div>
@@ -161,7 +162,7 @@
       </div>
     </div>
 
-    <!-- CARD 3: MOTIF DIAGONAL -->
+    <!-- Kartu dengan motif diagonal -->
     <div class="flex flex-col bg-[#f6f3eb] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       <div class="flex flex-col items-center p-8 text-center border-b-4 border-black motif-diagonal">
         <div class="w-12 h-12 bg-white border-2 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center mb-4 text-teal-800">
@@ -188,7 +189,7 @@
       </div>
     </div>
 
-    <!-- CARD 4: MOTIF HORIZONTAL (BUKU TULIS) -->
+    <!-- Kartu dengan motif garis horizontal -->
     <div class="flex flex-col bg-[#f6f3eb] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       <div class="flex flex-col items-center p-8 text-center border-b-4 border-black motif-horizontal">
         <div class="w-12 h-12 bg-white border-2 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center mb-4 text-teal-800">
@@ -215,7 +216,7 @@
       </div>
     </div>
 
-    <!-- CARD 5: MOTIF CATUR (CHECKERBOARD) -->
+    <!-- Kartu dengan motif kotak-kotak -->
     <div class="flex flex-col bg-[#f6f3eb] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       <div class="flex flex-col items-center p-8 text-center border-b-4 border-black motif-checker">
         <div class="w-12 h-12 bg-white border-2 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center mb-4 text-teal-800">
@@ -242,7 +243,7 @@
       </div>
     </div>
 
-    <!-- CARD 6: MOTIF CROSS (PLUS) -->
+    <!-- Kartu dengan motif silang -->
     <div class="flex flex-col bg-[#f6f3eb] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       <div class="flex flex-col items-center p-8 text-center border-b-4 border-black motif-cross">
         <div class="w-12 h-12 bg-white border-2 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center mb-4 text-teal-800">
@@ -274,10 +275,10 @@
   <section class="flex items-center justify-center min-h-screen">
       <div class="w-full max-w-sm bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] overflow-hidden border border-gray-100">
     
-    <!-- HEADER KARTU (Dengan Motif Dots) -->
+    <!-- Header kartu -->
     <div class="relative flex flex-col items-center p-8 text-center motif-dots-halus">
       
-      <!-- Ikon Kuis/Latihan -->
+      <!-- Ikon latihan -->
       <div class="flex items-center justify-center w-16 h-16 mb-4 text-orange-500 bg-white shadow-sm rounded-2xl">
         <i class="text-2xl fa-solid fa-gamepad"></i>
       </div>
@@ -286,16 +287,16 @@
       <h2 class="mb-1 text-2xl font-bold text-white">Latihan Isyarat</h2>
       <p class="text-sm font-medium text-white/90">Kuis Pilihan Ganda Adaptif</p>
       
-      <!-- Dekorasi Gelombang (Opsional, memisahkan header dan body) -->
+      <!-- Pemisah antara header dan isi -->
       <svg class="absolute left-0 w-full text-white -bottom-1" viewBox="0 0 1440 120" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
       </svg>
     </div>
 
-    <!-- KONTEN KARTU -->
+    <!-- Isi kartu -->
     <div class="flex flex-col p-8 pt-6">
       
-      <!-- Info Level dan EXP -->
+      <!-- Level dan pengalaman -->
       <div class="flex items-center justify-between mb-8">
         <div>
           <span class="block mb-1 text-xs font-semibold tracking-wider text-gray-400 uppercase">Level Anda</span>
@@ -314,14 +315,14 @@
         </div>
       </div>
 
-      <!-- Tombol Aksi -->
+      <!-- Tombol tindakan -->
       <div class="space-y-3">
-        <!-- Tombol Utama (Primary) -->
+        <!-- Tombol utama -->
         <button class="w-full py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2">
           <i class="fa-solid fa-play"></i> Mulai Kuis
         </button>
         
-        <!-- Tombol Sekunder (Secondary) -->
+        <!-- Tombol sekunder -->
         <button class="w-full py-3.5 bg-white hover:bg-gray-50 text-orange-500 font-bold text-sm rounded-xl border-2 border-orange-200 hover:border-orange-300 transition-all duration-200 flex items-center justify-center gap-2">
           <i class="fa-solid fa-book"></i> Lihat Materi
         </button>
@@ -330,5 +331,7 @@
     </div>
   </div>
   </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../assets/js/script.js"></script>
 </body>
 </html>
