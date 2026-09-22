@@ -42,7 +42,7 @@
     </div>
 
     <!-- GRID -->
-    <div id="cardGrid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4"></div>
+    <div id="cardGrid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-1 md:gap-3 lg:gap-4"></div>
     <p id="noResults" class="hidden text-center text-slate-500 my-12">Isyarat tidak ditemukan. Coba kata kunci lain.</p>
 
     <!-- PAGINATION -->
@@ -130,8 +130,10 @@ function render(){
         <img src="${d.img}" alt="${d.alt}" class="w-full h-full object-cover" loading="lazy" />
         <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold rounded-md ${badgeColor(d.category)}">${d.badge}</span>
       </div>
-      <p class="font-extrabold text-slate-900">${d.title}</p>
-      <span class="text-[11px] text-slate-500">${d.subtitle}</span>
+      <div class="px-1 py-1 md:px-2 lg:px-4">
+        <p class="font-extrabold text-md text-slate-900">${d.title}</p>
+        <span class="text-xs text-slate-500">${d.subtitle}</span>
+      </div>
     </div>`).join('');
   $('#cardGrid').html(html);
 
