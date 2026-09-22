@@ -104,6 +104,38 @@
   transform: translateX(0.25rem);
 }
 
+.kosakata-card.filter-reveal {
+  animation: catalogCardReveal 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--filter-delay, 0ms);
+}
+
+@keyframes catalogCardReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.catalog-control-reveal {
+  animation: catalogControlReveal 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--filter-delay, 0ms);
+}
+
+@keyframes catalogControlReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
 .assistant-typing {
   display: inline-flex;
   align-items: center;
@@ -685,6 +717,8 @@ body.a11y-underline-links .accessibility-item {
 @media (prefers-reduced-motion: reduce) {
   .fade-in,
   .fade-up-item,
+  .kosakata-card.filter-reveal,
+  .catalog-control-reveal,
   .card-interactive,
   .stat-flip-inner,
   .why-heading-icon,

@@ -4,6 +4,10 @@ $(function () {
   let currentCategory = "all";
   let currentLanguage = "bisindo";
   const expandedContainers = new Set();
+  let hasInitializedFilters = false;
+  let previousQuery = "";
+  let previousCategory = "all";
+  let previousLanguage = "bisindo";
 
   const sibiLetterImages = {
     A: "A (4).jpg",
@@ -54,6 +58,7 @@ $(function () {
   $(".language-tab").on("click", function () {
     currentLanguage = $(this).data("language");
     const isSibi = currentLanguage === "sibi";
+    expandedContainers.clear();
 
     $(".language-tab")
       .removeClass("bg-orange-600 text-white shadow-sm")
@@ -84,6 +89,7 @@ $(function () {
   $(".category-tab").on("click", function () {
     const filter = $(this).data("filter");
     currentCategory = filter;
+    expandedContainers.clear();
 
     $(".category-tab")
       .removeClass("bg-orange-600 text-white shadow-md shadow-orange-500/20")
@@ -108,6 +114,15 @@ $(function () {
 
   function applyFilters() {
     const query = $searchInput.val().toLowerCase().trim();
+    const filterChanged =
+      hasInitializedFilters &&
+      (query !== previousQuery ||
+        currentCategory !== previousCategory ||
+        currentLanguage !== previousLanguage);
+
+    if (query) {
+      expandedContainers.clear();
+    }
 
     if (query.length > 0) {
       $clearSearchBtn.removeClass("hidden");
@@ -146,23 +161,55 @@ $(function () {
     $(".show-more-cards").each(function () {
       const $button = $(this);
       const containerId = $button.data("target");
+      const $container = $(`#${containerId}`);
       const $cards = $(`#${containerId} .kosakata-card`);
       const $matchingCards = $cards.filter(function () {
         return $(this).data("matches-filter") === true;
       });
-      const isExpanded = expandedContainers.has(containerId);
+      const hasMatchingCards = $matchingCards.length > 0;
+      const isExpanded = expandedContainers.has(containerId) && !query;
       const shouldLimit = !query && !isExpanded;
+      const $sectionHeader = $container.prev(".section-category-header");
+      const $showMoreWrapper = $button.parent();
+
+      $sectionHeader.toggleClass("hidden", !hasMatchingCards);
+      $container.toggleClass("hidden", !hasMatchingCards);
 
       $cards.addClass("hidden").removeClass("flex");
       $matchingCards.each(function (index) {
         if (!shouldLimit || index < 10) {
-          $(this).removeClass("hidden").addClass("flex");
+          const $card = $(this);
+          $card.removeClass("hidden").addClass("flex");
+
+          if (filterChanged) {
+            $card
+              .css("--filter-delay", `${Math.min(index, 8) * 35}ms`)
+              .removeClass("filter-reveal");
+            void $card[0].offsetWidth;
+            $card.addClass("filter-reveal");
+          }
         }
       });
 
       const canExpand = $matchingCards.length > 10 && !query;
-      $button.toggleClass("hidden", !canExpand && !isExpanded);
-      $button.toggleClass("flex", canExpand || isExpanded);
+      const shouldShowMore = hasMatchingCards && (canExpand || isExpanded);
+      $showMoreWrapper.toggleClass("hidden", !shouldShowMore);
+      $button.toggleClass("hidden", !shouldShowMore);
+      $button.toggleClass("flex", shouldShowMore);
+
+      if (filterChanged && shouldShowMore) {
+        $showMoreWrapper
+          .css(
+            "--filter-delay",
+            `${Math.min($matchingCards.length, 10) * 35 + 70}ms`,
+          )
+          .removeClass("catalog-control-reveal");
+        void $showMoreWrapper[0].offsetWidth;
+        $showMoreWrapper.addClass("catalog-control-reveal");
+      } else if (!shouldShowMore) {
+        $showMoreWrapper.removeClass("catalog-control-reveal");
+      }
+
       $button.attr("aria-expanded", String(isExpanded));
       $button.html(
         isExpanded
@@ -184,11 +231,10 @@ $(function () {
       currentLanguage !== "sibi" || visibleCount !== 0,
     );
 
-    if (currentCategory === "all" && !query) {
-      $(".section-category-header").removeClass("hidden");
-    } else {
-      $(".section-category-header").addClass("hidden");
-    }
+    hasInitializedFilters = true;
+    previousQuery = query;
+    previousCategory = currentCategory;
+    previousLanguage = currentLanguage;
   }
 
   $searchInput.on("input keyup", applyFilters);
