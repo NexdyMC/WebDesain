@@ -81,12 +81,20 @@
     </nav>
   </header>
 
+  <nav class="px-4 py-3 bg-white border-b border-slate-100 sm:px-6 lg:px-8" aria-label="Breadcrumb">
+    <div class="flex items-center gap-2 mx-auto text-xs max-w-7xl text-slate-500">
+      <a href="index.html" class="inline-flex items-center gap-2 transition hover:text-orange-600"><i class="fa-solid fa-house" aria-hidden="true"></i> Beranda</a>
+      <i class="text-[10px] text-slate-300 fa-solid fa-chevron-right" aria-hidden="true"></i>
+      <span class="font-semibold text-orange-600">Edukasi</span>
+    </div>
+  </nav>
+
 
   <!-- Main Content Landmark -->
   <main id="main-content">
 
     <!-- HERO SECTION -->
-    <section class="relative px-4 pt-8 pb-12 overflow-hidden sm:px-6 md:pt-12 md:pb-16 lg:px-8 bg-gradient-to-b from-orange-50/60 via-white to-transparent">
+    <section class="relative px-4 pt-8 pb-12 overflow-hidden bg-white sm:px-6 md:pt-12 md:pb-16 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div class="grid items-center gap-10 lg:grid-cols-12">
           
@@ -156,7 +164,7 @@
           </div>
           <input type="text" id="searchInput" placeholder="Cari materi modul... (contoh: Angka, Alfabet, Salam, Anak, Percakapan)"
             class="w-full py-4 pl-12 pr-12 text-sm transition-all border shadow-inner md:text-base border-slate-200 rounded-2xl bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-slate-800 placeholder-slate-400" />
-          <button id="clearSearchBtn" type="button" aria-label="Hapus pencarian" class="absolute inset-y-0 right-0 flex items-center hidden pr-5 text-slate-400 hover:text-slate-600 focus:outline-none">
+          <button id="clearSearchBtn" type="button" aria-label="Hapus pencarian" class="absolute inset-y-0 right-0 hidden pr-5 text-slate-400 hover:text-slate-600 focus:outline-none">
             <i class="text-lg fa-solid fa-circle-xmark" aria-hidden="true"></i>
           </button>
         </div>
@@ -208,7 +216,7 @@
         <!-- MODUL 1: Alfabet A-Z -->
         <div role="button" tabindex="0" data-category="dasar" data-keywords="alfabet abjad a-z huruf dasar fingerspelling"
              data-desc="Mengenal 26 bentuk tangan huruf alfabet BISINDO dari A sampai Z untuk mengeja nama dan istilah kata."
-             data-action-url="kosakata.html" data-action-text="Buka Kamus Abjad &rarr;"
+             data-action-url="artikel.html?modul=alfabet" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-orange-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white">
             <img src="assets/images/Gestur-Tangan/A/wall white (1).jpg" alt="Modul Alfabet A-Z" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
@@ -237,7 +245,7 @@
         <!-- MODUL 2: Isyarat Angka 0 - 10 (NEW NUMBER SIGN MODULE!) -->
         <div role="button" tabindex="0" data-category="angka" data-keywords="angka nombor bilangan 0 1 2 3 4 5 6 7 8 9 10 matematika hitung"
              data-desc="Pelajari pembentukan gestur jari untuk angka 0 sampai 10 dalam standar BISINDO dengan mudah."
-             data-action-url="kosakata.html" data-action-text="Lihat Panduan Angka di Kamus &rarr;"
+             data-action-url="artikel.html?modul=angka-dasar" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-amber-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-white">
             <img src="assets/images/Gestur-Tangan/D/wall white (1).jpg" alt="Modul Angka 0-10" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
@@ -266,7 +274,7 @@
         <!-- MODUL 3: Angka Puluhan & Ratusan -->
         <div role="button" tabindex="0" data-category="angka" data-keywords="angka nombor puluhan belasan ratusan berhitung nominal harga"
              data-desc="Memahami cara menyusun angka belasan (11-19), puluhan (20-90), dan ratusan untuk transaksi dan waktu."
-             data-action-url="kosakata.html" data-action-text="Latihan Angka &rarr;"
+             data-action-url="artikel.html?modul=bilangan-waktu" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-amber-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-amber-600 to-orange-500 flex items-center justify-center text-white">
             <img src="assets/images/Gestur-Tangan/V/wall white (1).jpg" alt="Modul Angka Puluhan" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
@@ -295,7 +303,7 @@
         <!-- MODUL 4: Salam & Ungkapan Harian -->
         <div role="button" tabindex="0" data-category="ungkapan" data-keywords="salam sapaan terima kasih maaf tolong ungkapan harian sopan santun"
              data-desc="Kumpulan isyarat sapaan sopan santun: Halo, Selamat Pagi, Terima Kasih, Maaf, dan Tolong."
-             data-action-url="kosakata.html" data-action-text="Buka Kosakata Salam &rarr;"
+             data-action-url="artikel.html?modul=salam-ungkapan" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-emerald-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white">
             <img src="assets/images/Gestur-Tangan/H/wall white (1).jpg" alt="Modul Salam & Ungkapan" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
@@ -324,7 +332,7 @@
         <!-- MODUL 5: Percakapan & Tanya Jawab -->
         <div role="button" tabindex="0" data-category="ungkapan" data-keywords="percakapan dialog tanya apa siapa di mana mengapa ekspresi wajah"
              data-desc="Membangun dialog kalimat tanya (5W1H) dan respons ekspresif dalam percakapan dua arah."
-             data-action-url="quiz.html" data-action-text="Uji di Kuis &rarr;"
+             data-action-url="artikel.html?modul=percakapan" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-emerald-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white">
             <img src="assets/images/Gestur-Tangan/W/wall white (1).jpg" alt="Modul Percakapan Praktis" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
@@ -353,7 +361,7 @@
         <!-- MODUL 6: Keluarga & Hubungan Sosial -->
         <div role="button" tabindex="0" data-category="ungkapan" data-keywords="keluarga ayah ibu kakak adik teman kawan hubungan sosial"
              data-desc="Isyarat seputar relasi keluarga, teman sebaya, dan lingkungan komunitas."
-             data-action-url="kosakata.html" data-action-text="Buka Kosakata Sosial &rarr;"
+             data-action-url="artikel.html?modul=keluarga" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-emerald-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-emerald-600 to-green-500 flex items-center justify-center text-white">
             <img src="assets/images/Gestur-Tangan/F/wall white (1).jpg" alt="Modul Isyarat Keluarga" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
@@ -382,7 +390,7 @@
         <!-- MODUL 7: Ramah Anak: Dunia Hewan -->
         <div role="button" tabindex="0" data-category="anak" data-keywords="anak hewan binatang kucing anjing burung ikan satwa fauna"
              data-desc="Modul visual bertema hewan peliharaan dan satwa alam yang sangat disukai anak-anak."
-             data-action-url="kosakata.html" data-action-text="Latihan Isyarat Hewan &rarr;"
+             data-action-url="artikel.html?modul=hewan" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-indigo-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white">
             <img src="assets/images/Gestur-Tangan/C/wall white (1).jpg" alt="Modul Ramah Anak Hewan" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />
@@ -411,7 +419,7 @@
         <!-- MODUL 8: Ramah Anak: Warna & Benda Rumah -->
         <div role="button" tabindex="0" data-category="anak" data-keywords="anak warna merah kuning hijau biru benda rumah buku meja"
              data-desc="Mengenal warna pelangi dan nama benda di sekitar rumah melalui isyarat visual yang ceria."
-             data-action-url="kosakata.html" data-action-text="Lihat Koleksi Benda &rarr;"
+             data-action-url="artikel.html?modul=warna-benda" data-action-text="Baca Modul &rarr;"
              class="flex flex-col overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-100 modul-item card-interactive hover:shadow-xl hover:border-indigo-200">
           <div class="relative overflow-hidden aspect-[4/3] bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white">
             <img src="assets/images/Gestur-Tangan/R/wall white (1).jpg" alt="Modul Warna & Benda" class="object-cover w-full h-full transition-transform duration-200 opacity-90 group-hover:scale-105" />

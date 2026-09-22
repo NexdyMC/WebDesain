@@ -1,0 +1,68 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.article-hero {
+  background: #ffffff;
+}
+
+.article-meta {
+  transform: rotate(1deg);
+}
+
+.article-content h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: #0f172a;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.article-content h2:first-child {
+  margin-top: 0;
+}
+
+.article-content p {
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.85;
+}
+
+.article-content ul,
+.article-content ol {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.article-content li::marker {
+  color: #f97316;
+  font-weight: 700;
+}
+
+.article-content .article-callout {
+  margin-top: 1.5rem;
+  padding: 1rem 1.15rem;
+  border-left: 4px solid #f97316;
+  border-radius: 0 1rem 1rem 0;
+  background: #fff7ed;
+  color: #7c2d12;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.article-content .article-example {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  background: #f8fafc;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-meta {
+    transform: none;
+  }
+}

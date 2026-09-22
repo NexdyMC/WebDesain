@@ -59,15 +59,16 @@ $(function () {
     currentLanguage = $(this).data("language");
     const isSibi = currentLanguage === "sibi";
     expandedContainers.clear();
+    $("#languageSwitcher").toggleClass("is-sibi", isSibi);
 
     $(".language-tab")
       .removeClass("bg-orange-600 text-white shadow-sm")
-      .addClass("text-slate-600 hover:bg-white")
+      .addClass("text-slate-600")
       .attr("aria-selected", "false");
 
     $(this)
-      .removeClass("text-slate-600 hover:bg-white")
-      .addClass("bg-orange-600 text-white shadow-sm")
+      .removeClass("text-slate-600")
+      .addClass("text-white")
       .attr("aria-selected", "true");
 
     $("#bisindoCollection").toggleClass("hidden", isSibi);

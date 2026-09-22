@@ -81,19 +81,24 @@
     </nav>
   </header>
 
+  <nav class="px-4 py-3 bg-white border-b border-slate-100 sm:px-6 lg:px-8" aria-label="Breadcrumb">
+    <div class="flex items-center gap-2 mx-auto text-xs max-w-7xl text-slate-500">
+      <a href="index.html" class="inline-flex items-center gap-2 transition hover:text-orange-600"><i class="fa-solid fa-house" aria-hidden="true"></i> Beranda</a>
+      <i class="text-[10px] text-slate-300 fa-solid fa-chevron-right" aria-hidden="true"></i>
+      <span class="font-semibold text-orange-600">Kamus</span>
+    </div>
+  </nav>
+
 
   <!-- Main Content Landmark -->
   <main id="main-content">
 
     <!-- HERO & SEARCH SECTION -->
-    <section class="relative px-4 pt-8 pb-12 overflow-hidden sm:px-6 md:pt-12 md:pb-16 lg:px-8 bg-gradient-to-b from-orange-50/60 via-white to-transparent">
+    <section class="relative px-4 pt-8 pb-6 overflow-hidden bg-white sm:px-6 md:pt-12 md:pb-8 lg:px-8">
       <div class="mx-auto max-w-7xl">
         
         <!-- Hero Header -->
         <div class="max-w-3xl mx-auto mb-10 text-center">
-          <span class="inline-flex items-center gap-2 px-3.5 py-1 mb-4 text-xs font-bold tracking-wider text-orange-700 uppercase bg-orange-100 rounded-full">
-            <i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Kamus Visual <span class="language-name">BISINDO</span>
-          </span>
           <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
             Eksplorasi <span class="text-transparent bg-orange-500 bg-clip-text">Kamus Isyarat</span>
           </h1>
@@ -106,14 +111,15 @@
         <div class="max-w-4xl p-6 mx-auto bg-white border shadow-xl rounded-3xl border-slate-100 md:p-8">
           
           <!-- Language Switcher -->
-          <div class="p-1 mb-6 bg-slate-100 rounded-2xl" role="tablist" aria-label="Pilih bahasa isyarat">
-            <div class="grid grid-cols-2 gap-1">
+          <div id="languageSwitcher" class="language-switcher p-1 mb-6 rounded-2xl" role="tablist" aria-label="Pilih bahasa isyarat">
+            <span class="language-switcher-thumb" aria-hidden="true"></span>
+            <div class="relative z-10 grid grid-cols-2 gap-1">
               <button type="button" data-language="bisindo" role="tab" aria-selected="true"
-                class="language-tab px-4 py-3 text-sm font-bold text-white transition rounded-xl bg-orange-600 shadow-sm">
+                class="language-tab px-4 py-3 text-sm font-bold text-white transition rounded-xl">
                 BISINDO
               </button>
               <button type="button" data-language="sibi" role="tab" aria-selected="false"
-                class="language-tab px-4 py-3 text-sm font-bold text-slate-600 transition rounded-xl hover:bg-white">
+                class="language-tab px-4 py-3 text-sm font-bold text-slate-600 transition rounded-xl">
                 SIBI
               </button>
             </div>
@@ -155,7 +161,9 @@
           <!-- Status Bar -->
           <div class="flex items-center justify-between pt-4 mt-6 text-xs border-t border-slate-100 text-slate-500">
             <span id="resultCount" class="font-medium text-slate-600">Menampilkan semua koleksi</span>
-            <span id="languageStatus" class="flex items-center gap-1.5 font-semibold text-orange-600"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Standar BISINDO</span>
+            <span class="inline-flex items-center gap-2 px-3.5 py-1 mb-4 text-xs font-bold tracking-wider text-orange-700 uppercase bg-orange-100 rounded-full">
+              <span id="languageStatus" class="flex items-center gap-1.5 font-semibold text-orange-600"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Standar BISINDO</span>
+            </span>
           </div>
 
         </div>
@@ -164,7 +172,7 @@
     </section>
 
     <!-- CONTENT DISPLAY SECTION -->
-    <section class="px-4 py-8 mx-auto sm:px-6 md:py-12 lg:px-8 max-w-7xl">
+    <section class="px-4 pt-2 pb-8 mx-auto sm:px-6 md:pt-4 md:pb-12 lg:px-8 max-w-7xl">
       
       <div id="bisindoCollection">
 
