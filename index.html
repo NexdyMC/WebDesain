@@ -20,166 +20,83 @@
 </head>
 <body class="font-sans antialiased text-slate-800 bg-white selection:bg-orange-500 selection:text-white">
 
-  <div id="scrollProgressContainer" class="fixed left-0 top-16 z-[60] h-1 w-full bg-transparent pointer-events-none md:top-20">
-    <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
-  </div>
-
   <!-- Navigation -->
   <header class="sticky top-0 z-50 border-b shadow-sm border-orange-100/70 backdrop-blur-md bg-white/95">
-    <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 md:h-20">
-      
+    <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 lg:h-20">
+
       <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center gap-2.5 text-xl font-extrabold tracking-tight md:text-2xl text-slate-900 group" aria-label="IsyaratOK">
-        <div class="flex items-center justify-center w-10 h-10">
-          <img src="assets/images/Logo.png" alt="" class="object-contain w-8 h-8" />
-        </div>
-        <span>Isyarat<span class="text-orange-600">OK</span></span>
+      <a href="index.html" class="flex items-center gap-2 text-lg font-extrabold tracking-tight shrink-0 sm:gap-2.5 sm:text-xl lg:text-2xl text-slate-900 group" aria-label="IsyaratOK">
+        <img src="assets/images/Logo.png" alt="IsyaratOK" class="object-contain w-9 h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
+        <span class="whitespace-nowrap">Isyarat<span class="text-orange-600">OK</span></span>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="items-center hidden font-semibold gap-7 text-slate-600 md:flex text-sm" aria-label="Navigasi Utama">
-        <a href="index.html" class="py-1 text-orange-600 border-b-2 border-orange-600" aria-current="page">Beranda</a>
-        <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Edukasi</a>
-        <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Kamus</a>
-        <a href="quiz.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Quiz</a>
-        <a href="asisten.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Asisten AI</a>
+      <nav class="items-center hidden font-semibold gap-5 text-slate-600 text-base xl:gap-7 xl:text-lg lg:flex" aria-label="Navigasi Utama">
+        <a href="index.html" class="py-1 text-orange-600 border-b-2 border-orange-600 whitespace-nowrap" aria-current="page">Beranda</a>
+        <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600 whitespace-nowrap">Edukasi</a>
+        <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600 whitespace-nowrap">Kamus</a>
+        <a href="quiz.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600 whitespace-nowrap">Quiz</a>
+        <a href="asisten.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600 whitespace-nowrap">Asisten AI</a>
       </nav>
 
-      <!-- Mobile Menu Button -->
+      <!-- Mobile/Tablet Menu Button -->
       <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi"
-        class="p-2 transition rounded-xl text-slate-700 hover:text-orange-600 hover:bg-orange-50 md:hidden focus:outline-none">
-        <svg id="iconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-        <svg id="iconClose" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
+        class="relative flex items-center justify-center w-10 h-10 p-2 z-50 shrink-0 transition rounded-xl text-slate-700 cursor-pointer hover:text-orange-600 hover:bg-orange-50 lg:hidden focus:outline-none">
+        <i id="iconOpen" class="fa-solid fa-bars absolute text-xl transition-all duration-300 ease-in-out opacity-100 rotate-0 scale-100" aria-hidden="true"></i>
+        <i id="iconClose" class="fa-solid fa-xmark absolute text-xl transition-all duration-300 ease-in-out opacity-0 -rotate-90 scale-75" aria-hidden="true"></i>
       </button>
     </div>
 
-    <!-- Mobile Navigation Drawer -->
-    <nav id="mobileMenu" class="hidden px-6 pt-2 pb-6 border-b border-orange-100 bg-white/95 md:hidden" aria-label="Menu Mobile">
-      <div class="flex flex-col space-y-2.5 font-medium text-slate-700">
-        <a href="index.html" class="px-3 py-2 font-bold text-orange-600 rounded-lg bg-orange-50">Beranda</a>
-        <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Edukasi</a>
-        <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Kamus</a>
-        <a href="quiz.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Quiz</a>
-        <a href="asisten.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Asisten AI</a>
+    <!-- Mobile/Tablet Navigation Drawer -->
+    <nav id="mobileMenu" class="hidden absolute top-full left-0 right-0 max-h-[calc(100vh-4rem)] overflow-y-auto px-4 py-4 sm:px-6 border-b border-orange-100 shadow-lg bg-white/95 backdrop-blur-md lg:hidden" aria-label="Menu Mobile">
+      <div class="flex flex-col space-y-2 font-medium text-slate-700 sm:space-y-2.5">
+        <a href="index.html" class="px-3 py-2.5 font-bold text-orange-600 rounded-lg bg-orange-100">Beranda</a>
+        <a href="edukasi.html" class="px-3 py-2.5 transition rounded-lg hover:bg-orange-100 hover:text-orange-600">Edukasi</a>
+        <a href="kosakata.html" class="px-3 py-2.5 transition rounded-lg hover:bg-orange-100 hover:text-orange-600">Kamus</a>
+        <a href="quiz.html" class="px-3 py-2.5 transition rounded-lg hover:bg-orange-100 hover:text-orange-600">Quiz</a>
+        <a href="asisten.html" class="px-3 py-2.5 transition rounded-lg hover:bg-orange-100 hover:text-orange-600">Asisten AI</a>
       </div>
     </nav>
-  </header>
 
+    <div id="scrollProgressContainer" class="fixed left-0 top-16 z-[60] h-1 w-full bg-transparent pointer-events-none md:top-20">
+      <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
+    </div>
+  </header>
+  
   <!-- Main Content -->
   <main id="main-content">
-    <section class="relative w-full h-screen overflow-hidden">
-      <div class="absolute inset-0">
+    <section class="relative w-full h-screen flex justify-center overflow-hidden">
+      <div class="absolute inset-0 blur">
         <img src="assets/images/hero-section.png" alt="Belajar bahasa isyarat dengan empati"
-          class="w-full h-full object-cover ">
+          class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/40"></div>
       </div>
 
       <!-- Content -->
-      <div class="relative z-10 h-full flex items-center">
-        <div class="container mx-auto px-6 md:px-12 lg:px-20">
-          <div class="max-w-xl">
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+      <div class="relative w-full max-w-7xl z-10 max-h-7xl px-4 py-5 sm:px-6 sm:py-10 lg:px-8">
+        <div class="flex flex-1 h-full items-center justify-start">
+          <div class="max-w-3xl flex flex-col gap-4">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-none"> 
               Isyarat bukan sekadar bentuk tangan, melainkan berbicara dengan empati.
             </h1>
-            <p class="text-sm md:text-base text-white/90 mb-6 leading-relaxed">
+            <p class="text-sm md:text-base text-white/90 leading-relaxed">
               Kebaikan adalah nyanyian indah yang bisa didengar oleh orang tuli, sekaligus bunga indah yang bisa dilihat
               oleh orang buta.
             </p>
-            <a href="edukasi.html"
-              class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full transition duration-300 shadow-lg">
-              Mulai Pelajari
-            </a>
+            <div class="flex md:flex-row flex-col gap-2">
+              <a href="edukasi.html" class="flex gap-4 border-2 border-orange-500 hover:bg-orange-500 text-white text-lg font-semibold px-6 py-3 rounded-full backdrop-blur-sm shadow-lg transition-all duration-300">
+                Mulai Pelajari
+                <i class="fa-arrow-right fa-solid text-3xl"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Wave shape bawah -->
       <div class="absolute bottom-0 left-0 w-full leading-none z-10">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full h-auto" preserveAspectRatio="none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full" preserveAspectRatio="none">
           <path fill="#ffffff" d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z"></path>
         </svg>
-      </div>
-    </section>
-
-    <!-- Hero Section -->
-    <section id="hero" class="relative overflow-hidden">
-      <div class="absolute inset-0 z-0 overflow-hidden">
-        <div class="absolute inset-0 z-10 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
-        <img src="assets/images/landingpage.webp" alt="landing page" class="object-cover w-full h-full bg-center">
-      </div>
-
-      <div class="relative z-10 px-4 pt-6 pb-6 m-auto max-w-7xl sm:px-6 sm:pt-8 sm:pb-8 md:pt-14 md:pb-12 lg:px-8">
-        <div class="relative overflow-hidden shadow-2xl rounded-3xl md:rounded-[2.5rem] bg-orange-500 p-5 sm:p-8 md:p-14 lg:p-16 text-white">
-          
-          <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:20px_20px]" aria-hidden="true"></div>
-          <div class="relative z-10 grid items-center gap-10 lg:grid-cols-12">
-            
-            <!-- Left Text Content -->
-            <div class="lg:col-span-7 hero-copy">
-              <h1 class="mb-5 text-3xl font-extrabold leading-tight tracking-tight hero-title sm:text-4xl md:text-5xl lg:leading-tight">
-                Belajar Isyarat, <br class="hidden sm:inline" />Bangun Koneksi Tanpa Batas
-              </h1>
-              <p class="max-w-xl mb-6 text-base leading-relaxed text-orange-50 hero-subtitle sm:mb-8 md:text-lg">
-                Setiap orang berhak didengar dan dipahami. Pelajari BISINDO dan SIBI secara interaktif, visual, dan menyenangkan untuk meruntuhkan tembok komunikasi.
-              </p>
-              
-              <!-- Action Buttons -->
-              <div class="flex flex-col items-stretch gap-3 hero-actions sm:flex-row sm:items-center sm:gap-4">
-                <div class="relative inline-flex items-center justify-center w-full gap-4 group sm:w-auto">
-                  <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 opacity-60 blur-lg transition-all duration-1000 group-hover:opacity-100 group-hover:duration-200" aria-hidden="true"></div>
-                  <a href="edukasi.html" role="button" class="relative inline-flex items-center justify-center w-full gap-2 px-8 py-3 text-base font-semibold text-orange-600 transition-all duration-200 bg-white rounded-xl sm:w-auto hover:bg-orange-50 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-500/30" title="Mulai belajar gratis">
-                    Mulai Belajar Gratis
-                    <svg aria-hidden="true" viewBox="0 0 10 10" height="10" width="10" fill="none" class="mt-0.5 -mr-1 stroke-orange-600 stroke-2">
-                      <path d="M0 5h7" class="transition opacity-0 group-hover:opacity-100"></path>
-                      <path d="M1 1l4 4-4 4" class="transition group-hover:translate-x-[3px]"></path>
-                    </svg>
-                  </a>
-                </div>
-                <a href="#fitur"
-                  class="inline-flex items-center justify-center w-full gap-2 px-6 py-3 text-base font-semibold text-white transition-all duration-200 border-2 rounded-xl sm:w-auto border-white/80 hover:bg-white/15 hover:border-white">
-                  Kenali Fitur <i class="text-xs fa-solid fa-arrow-down" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="flex justify-center lg:col-span-5 hero-visual-wrap">
-              <div class="w-full max-w-md p-4 border shadow-2xl rounded-3xl hero-visual sm:p-6 bg-white/10 backdrop-blur-md border-white/20">
-                    <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
-                      <div class="flex items-center min-w-0 gap-3">
-                        <div class="flex items-center justify-center w-10 h-10 text-orange-600 bg-white rounded-full shadow-md">
-                          <i class="text-lg fa-solid fa-hand-peace" aria-hidden="true"></i>
-                        </div>
-                        <div class="min-w-0">
-                          <p class="text-xs font-semibold tracking-wider text-orange-100 uppercase">Isyarat Hari Ini</p>
-                          <p class="text-lg font-bold text-white truncate">"Halo Semua"</p>
-                        </div>
-                      </div>
-                      <span class="px-2.5 py-1 text-xs font-semibold text-white rounded-full shrink-0 bg-white/20">Level Dasar</span>
-                    </div>
-
-                    <div class="p-4 mb-4 bg-white shadow-inner rounded-2xl text-slate-800 aspect-[4/3]">
-                      <img src="assets/images/test-img.jpeg" alt="Contoh isyarat tangan Halo Semua" loading="eager" class="object-cover w-full h-full border rounded-xl border-orange-200/60" />
-                    </div>
-
-                    <div class="flex items-center justify-between text-xs text-orange-100">
-                      <span class="flex items-center gap-1.5"><i class="text-green-300 fa-solid fa-circle-check" aria-hidden="true"></i> Modul Terverifikasi</span>
-                      <a href="kosakata.html" class="font-semibold text-white underline underline-offset-4 hover:text-amber-200">Lihat Kamus &rarr;</a>
-                    </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <!-- Icon Animasi Header -->
-        <a id="scrollCue" href="#fitur" aria-label="Lihat fitur selengkapnya"
-          class="fixed bottom-3 left-1/2 z-40 grid -translate-x-1/2 rounded-full border border-orange-100 bg-white/85 px-3 py-1.5 text-center text-orange-600 shadow-md backdrop-blur-sm transition-all duration-300 sm:relative sm:bottom-auto sm:left-auto sm:mt-10 sm:translate-x-0 sm:rounded-none sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none">
-          <i class="text-sm sm:text-xl shake-vertical fa-solid fa-angles-down"></i>
-          <span class="text-xs font-medium sm:text-xl sm:font-normal shake-vertical"><span class="sm:hidden">Geser untuk lanjut</span><span class="hidden sm:inline">Lihat Selengkapnya</span></span>
-        </a>
       </div>
     </section>
 

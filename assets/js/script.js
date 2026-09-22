@@ -20,15 +20,16 @@ $(function () {
           $(this).css("display", "");
         });
       $menuBtn.attr("aria-expanded", "true");
-      $iconOpen.addClass("hidden");
-      $iconClose.removeClass("hidden");
+      $iconOpen.removeClass("opacity-100 rotate-0 scale-100").addClass("opacity-0 -rotate-90 scale-75");
+      $iconClose.removeClass("opacity-0 rotate-90 scale-75").addClass("opacity-100 rotate-0 scale-100");
+
     } else {
       $mobileMenu.stop(true, true).slideUp(180, function () {
         $(this).addClass("hidden").css("display", "");
       });
       $menuBtn.attr("aria-expanded", "false");
-      $iconOpen.removeClass("hidden");
-      $iconClose.addClass("hidden");
+      $iconOpen.removeClass("opacity-0 -rotate-90 scale-75").addClass("opacity-100 rotate-0 scale-100");
+      $iconClose.removeClass("opacity-100 rotate-0 scale-100").addClass("opacity-0 rotate-90 scale-75");
     }
   }
 

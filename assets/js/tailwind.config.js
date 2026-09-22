@@ -19,7 +19,7 @@ tailwind.config = {
 
       // Konversi Tipografi / Font
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
+        sans: ["ui-sans-serif", "Poppins", "sans-serif"],
         serif: ["Playfair Display", "serif"],
       },
 
