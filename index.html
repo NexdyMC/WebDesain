@@ -15,9 +15,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
 
-  <!-- AOS via CDN -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
   <!-- Custom Styles & Transitions -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -45,7 +42,7 @@
         <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Edukasi</a>
         <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Kamus</a>
         <a href="quiz.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Quiz</a>
-        <a href="#asisten-ai" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Asisten AI</a>
+        <a href="asisten.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Asisten AI</a>
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -67,7 +64,7 @@
         <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Edukasi</a>
         <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Kamus</a>
         <a href="quiz.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Quiz</a>
-        <a href="#asisten-ai" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Asisten AI</a>
+        <a href="asisten.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Asisten AI</a>
       </div>
     </nav>
   </header>
@@ -345,7 +342,7 @@
       
       <!-- Animated Ribbon Background (Solid clean edge-to-edge on mobile, Swallowtail Ribbon Notch on desktop) -->
       <div id="culturalQuoteRibbonBg"
-           class="absolute inset-0 bg-orange-600 -translate-x-full transition-transform duration-[1100ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] will-change-transform
+         class="ribbon-shadow absolute inset-0 bg-orange-600 -translate-x-full transition-transform duration-[1100ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] will-change-transform
                   [clip-path:none]
                   md:[clip-path:polygon(0%_0%,100%_0%,calc(100%-6.5rem)_50%,100%_100%,0%_100%)]
                   lg:[clip-path:polygon(0%_0%,100%_0%,calc(100%-8rem)_50%,100%_100%,0%_100%)]">
@@ -851,96 +848,42 @@
       </div>
     </section>
 
-    <!-- Asisten AI (Clean & Consistent Solid Style) -->
+    <!-- Pengenalan Asisten AI -->
     <section id="asisten-ai" class="px-4 py-16 sm:px-6 md:py-24 lg:px-8 bg-white border-t border-slate-100">
       <div class="mx-auto max-w-7xl">
-        <!-- Section Header -->
-        <div class="text-center mb-12 sm:mb-14 fade-up-item" style="--delay: 60ms;">
-          <div class="flex items-center justify-center gap-2 heading-icon-layout sm:gap-4">
-            <i class="text-xl text-orange-500 why-heading-icon fa-solid fa-robot sm:text-3xl" aria-hidden="true"></i>
-            <h2 class="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Ruang Belajar <span class="text-orange-600">Asisten Pintar</span>
+        <div class="grid items-center gap-10 lg:grid-cols-12">
+          <div class="lg:col-span-7 fade-up-item" style="--delay: 60ms;">
+            <span class="inline-flex items-center gap-2 px-3 py-1 mb-5 text-xs font-bold tracking-wider text-orange-700 uppercase bg-orange-100 rounded-full">
+              <i class="text-orange-600 fa-solid fa-sparkles" aria-hidden="true"></i> Fitur Baru IsyaratOK
+            </span>
+            <h2 class="max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
+              Kenalan dengan <span class="text-orange-600">Asisten AI</span> IsyaratOK
             </h2>
+            <p class="max-w-2xl mt-5 text-base leading-relaxed text-slate-600 sm:text-lg">
+              Teman belajar digital untuk menjawab pertanyaan tentang BISINDO, SIBI, etika komunikasi, dan langkah belajar yang cocok untukmu.
+            </p>
+            <a href="asisten.html" class="inline-flex items-center gap-2 px-6 py-3.5 mt-8 text-sm font-bold text-white transition-all bg-orange-600 rounded-full shadow-sm hover:bg-orange-700 hover:shadow-md hover:-translate-y-0.5">
+              Coba Asisten AI <i class="text-xs fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
           </div>
-          <p class="max-w-2xl mx-auto mt-4 text-base text-slate-600 sm:text-lg">
-            Punya pertanyaan seputar materi isyarat atau ingin tahu perbedaan BISINDO dan SIBI? Tanya langsung kepada tutor digital kami.
-          </p>
-        </div>
-
-        <!-- 2-Column AI Assistant Cards -->
-        <div class="grid items-stretch gap-8 lg:grid-cols-12">
-          <!-- Left: Info & Prompts Card -->
-          <div class="flex flex-col justify-between p-7 sm:p-9 bg-white border border-slate-200/80 rounded-3xl shadow-sm lg:col-span-5 hover:border-orange-300 transition-colors">
-            <div>
-              <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold uppercase tracking-wider text-orange-700 bg-orange-100 rounded-full mb-4">
-                <i class="fa-solid fa-comments text-orange-600" aria-hidden="true"></i> Tanya Jawab Instan
-              </span>
-              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
-                Belajar Kapan Saja dengan Panduan Terverifikasi
-              </h3>
-              <p class="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
-                Dapatkan penjelasan arti kata, rekomendasi modul belajar yang pas untuk pemula, hingga tips praktis melatih kelenturan jari tangan.
-              </p>
-
-              <div class="mt-6 border-l-2 border-orange-400 pl-4 py-1">
-                <p class="mb-3 text-xs font-bold uppercase tracking-wider text-slate-500">Contoh Pertanyaan Populer:</p>
-                <div class="space-y-2 text-sm text-slate-700">
-                  <p class="flex items-center gap-2"><i class="text-orange-600 fa-solid fa-arrow-right text-xs" aria-hidden="true"></i> Apa beda utama BISINDO dan SIBI?</p>
-                  <p class="flex items-center gap-2"><i class="text-orange-600 fa-solid fa-arrow-right text-xs" aria-hidden="true"></i> Cara menyapa teman Tuli dengan benar?</p>
-                  <p class="flex items-center gap-2"><i class="text-orange-600 fa-solid fa-arrow-right text-xs" aria-hidden="true"></i> Rekomendasi modul untuk pemula dari nol</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="pt-8 mt-6 border-t border-slate-100">
-              <a href="edukasi.html" class="inline-flex items-center justify-center w-full gap-2 px-6 py-3.5 text-sm font-bold text-white transition-all bg-orange-600 rounded-full shadow-sm hover:bg-orange-700 hover:shadow-md sm:w-auto">
-                Eksplorasi Modul Edukasi <i class="text-xs fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right: Clean Flat Chat Interface Card -->
-          <div class="flex flex-col justify-between p-7 sm:p-9 bg-white border border-slate-200/80 rounded-3xl shadow-sm lg:col-span-7 hover:border-orange-300 transition-colors">
-            <!-- Chat Header -->
-            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-              <div class="flex items-center gap-3">
-                <div class="flex items-center justify-center w-10 h-10 text-orange-600 bg-orange-100 rounded-xl">
+          <div class="relative lg:col-span-5 fade-up-item" style="--delay: 160ms;">
+            <div class="absolute -inset-4 rounded-[2rem] bg-orange-100/70 rotate-3" aria-hidden="true"></div>
+            <div class="relative p-6 bg-white border shadow-xl rounded-3xl border-orange-100">
+              <div class="flex items-center gap-3 pb-5 border-b border-slate-100">
+                <div class="flex items-center justify-center w-11 h-11 text-orange-600 bg-orange-100 rounded-2xl">
                   <i class="fa-solid fa-robot" aria-hidden="true"></i>
                 </div>
                 <div>
-                  <p class="text-sm font-bold text-slate-900">IsyaratOK AI</p>
-                  <p class="text-xs text-slate-500"><span class="inline-block w-2 h-2 mr-1 rounded-full bg-emerald-500"></span> Online &bull; Tutor Digital</p>
+                  <p class="font-bold text-slate-900">IsyaratOK AI</p>
+                  <p class="text-xs text-slate-500"><span class="inline-block w-2 h-2 mr-1 rounded-full bg-emerald-500"></span> Siap menemani belajar</p>
                 </div>
               </div>
-              <span class="px-3 py-1 text-xs font-bold text-slate-600 bg-slate-100 rounded-full">
-                Interaktif
-              </span>
-            </div>
-
-            <!-- Chat Messages (Clean, solid bubbles, no gradients) -->
-            <div class="py-6 space-y-4">
-              <!-- AI Bubble -->
-              <div class="max-w-[85%] rounded-2xl rounded-bl-sm border border-orange-200 bg-orange-50 p-4 text-sm leading-relaxed text-slate-800">
-                Halo! Aku asisten IsyaratOK. Ada yang ingin kamu tanyakan seputar bahasa isyarat atau materi belajar hari ini?
+              <p class="p-4 mt-5 text-sm leading-relaxed border rounded-2xl rounded-tl-sm border-orange-200/80 bg-orange-50 text-slate-700">
+                “Apa perbedaan BISINDO dan SIBI?”
+              </p>
+              <div class="flex items-center gap-2 mt-4 text-xs font-semibold text-orange-600">
+                <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Jawaban belajar yang mudah dipahami
               </div>
-              <!-- User Bubble -->
-              <div class="ml-auto max-w-[85%] rounded-2xl rounded-br-sm bg-slate-900 text-white p-4 text-sm font-medium leading-relaxed">
-                Bantu saya membedakan BISINDO dan SIBI untuk pemula.
-              </div>
-              <!-- AI Bubble -->
-              <div class="max-w-[88%] rounded-2xl rounded-bl-sm border border-orange-200 bg-orange-50 p-4 text-sm leading-relaxed text-slate-800">
-                Tentu! <strong>BISINDO</strong> adalah bahasa isyarat alami komunitas Tuli Indonesia yang fleksibel dengan dua tangan. Sedangkan <strong>SIBI</strong> adalah sistem isyarat baku yang mengikuti tata bahasa formal. Mau coba contoh kosakata dasarnya?
-              </div>
-            </div>
-
-            <!-- Chat Input (Clean flat) -->
-            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
-              <div class="flex-1 px-4 py-3 text-xs text-slate-400 bg-slate-50 border border-slate-200 rounded-xl">
-                Ketik pertanyaan tentang bahasa isyarat...
-              </div>
-              <button type="button" class="flex items-center justify-center w-11 h-11 text-white bg-orange-600 rounded-xl transition hover:bg-orange-700" aria-label="Kirim pertanyaan">
-                <i class="fa-solid fa-paper-plane text-sm" aria-hidden="true"></i>
-              </button>
             </div>
           </div>
         </div>
@@ -1089,31 +1032,6 @@
   
   <!-- jQuery & Main Script -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('.fade-up-item').forEach(function (element) {
-        if (!element.hasAttribute('data-aos')) {
-          element.setAttribute('data-aos', 'fade-up');
-        }
-
-        var delayValue = element.style.getPropertyValue('--delay');
-        if (!element.hasAttribute('data-aos-delay') && delayValue) {
-          var numericDelay = parseInt(delayValue, 10) || 0;
-          if (!isNaN(numericDelay)) {
-            element.setAttribute('data-aos-delay', String(numericDelay));
-          }
-        }
-      });
-
-      AOS.init({
-        duration: 800,
-        once: true,
-        offset: 30,
-        easing: 'ease-out-cubic'
-      });
-    });
-  </script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>

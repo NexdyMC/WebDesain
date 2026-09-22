@@ -105,6 +105,126 @@ $(function () {
 
   initScrollCue();
 
+  function initScrollReveal() {
+    const $items = $(".fade-up-item");
+    if (!$items.length) return;
+
+    if (prefersReducedMotion) {
+      $items.addClass("is-visible");
+      return;
+    }
+
+    let isTicking = false;
+
+    function revealVisibleItems() {
+      const viewportBottom = $(window).scrollTop() + $(window).height();
+
+      $items.each(function () {
+        const $item = $(this);
+        if ($item.hasClass("is-visible")) return;
+
+        const itemTop = $item.offset().top;
+        if (viewportBottom >= itemTop - 30) {
+          const delay = parseInt($item.css("--delay"), 10) || 0;
+          $item.css("transition-delay", delay + "ms").addClass("is-visible");
+        }
+      });
+
+      isTicking = false;
+    }
+
+    function requestReveal() {
+      if (!isTicking) {
+        window.requestAnimationFrame(revealVisibleItems);
+        isTicking = true;
+      }
+    }
+
+    $(window).on("scroll resize", requestReveal);
+    requestReveal();
+  }
+
+  initScrollReveal();
+
+  function initAssistantChat() {
+    const $form = $("#assistantForm");
+    const $input = $("#assistantInput");
+    const $messages = $("#assistantMessages");
+    const $prompts = $("[data-chat-prompt]");
+
+    if (!$form.length || !$input.length || !$messages.length) return;
+
+    function addMessage(message, isUser) {
+      const $bubble = $("<div>", {
+        class: isUser
+          ? "ml-auto max-w-[85%] rounded-2xl rounded-br-sm bg-slate-900 text-white p-4 text-sm font-medium leading-relaxed"
+          : "max-w-[88%] rounded-2xl rounded-bl-sm border border-orange-200 bg-orange-50 p-4 text-sm leading-relaxed text-slate-800",
+      });
+      $bubble.text(message);
+      $messages.append($bubble);
+      $messages.scrollTop($messages[0].scrollHeight);
+    }
+
+    function getAssistantReply(question) {
+      const normalizedQuestion = question.toLowerCase();
+
+      if (
+        normalizedQuestion.includes("bisindo") ||
+        normalizedQuestion.includes("sibi")
+      ) {
+        return "BISINDO adalah bahasa isyarat alami yang berkembang di komunitas Tuli Indonesia. SIBI adalah sistem isyarat baku yang mengikuti struktur bahasa Indonesia. Mulai belajar dari kosakata dasar agar perbedaannya lebih mudah dipahami.";
+      }
+
+      if (
+        normalizedQuestion.includes("sapa") ||
+        normalizedQuestion.includes("panggil") ||
+        normalizedQuestion.includes("etika")
+      ) {
+        return "Untuk menyapa teman Tuli, gunakan lambaian tangan dalam bidang pandang, sentuhan ringan pada bahu bila sudah dekat, atau minta bantuan orang di sekitarnya. Hindari berteriak atau menarik tubuhnya tiba-tiba.";
+      }
+
+      if (
+        normalizedQuestion.includes("modul") ||
+        normalizedQuestion.includes("pemula") ||
+        normalizedQuestion.includes("mulai")
+      ) {
+        return "Untuk pemula, mulai dari Modul Edukasi: alfabet A-Z, angka dasar, lalu ungkapan harian. Setelah itu, gunakan Kamus untuk mengulang gestur dan Quiz untuk menguji pemahaman.";
+      }
+
+      return "Aku bisa membantu menjelaskan BISINDO dan SIBI, etika berkomunikasi dengan teman Tuli, atau memilih modul belajar untuk pemula. Coba tanyakan salah satunya, ya.";
+    }
+
+    function submitQuestion(question) {
+      const cleanQuestion = question.trim();
+      if (!cleanQuestion) return;
+
+      addMessage(cleanQuestion, true);
+      $input.val("").trigger("focus");
+
+      const $typing = $(
+        '<div class="assistant-typing max-w-[88%] rounded-2xl rounded-bl-sm border border-orange-200 bg-orange-50 p-4" aria-label="Asisten sedang mengetik"><span></span><span></span><span></span></div>',
+      );
+      $messages.append($typing);
+      $messages.scrollTop($messages[0].scrollHeight);
+
+      window.setTimeout(function () {
+        $typing.remove();
+        addMessage(getAssistantReply(cleanQuestion), false);
+      }, 650);
+    }
+
+    $form.on("submit", function (event) {
+      event.preventDefault();
+      submitQuestion($input.val());
+    });
+
+    $prompts.on("click", function () {
+      submitQuestion($(this).attr("data-chat-prompt"));
+    });
+  }
+
+  initAssistantChat();
+
   function animateRandomNumber($element) {
     if ($element.data("animated-done")) return;
     $element.data("animated-done", true);

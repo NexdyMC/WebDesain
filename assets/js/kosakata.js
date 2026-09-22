@@ -214,6 +214,16 @@ $(function () {
   const $modalImg = $("#modalImg");
   const $modalDescription = $("#modalDescription");
   const $modalTips = $("#modalTips");
+  let lastFocusedElement = null;
+
+  const focusableSelector = [
+    "a[href]",
+    "button:not([disabled])",
+    "input:not([disabled])",
+    "select:not([disabled])",
+    "textarea:not([disabled])",
+    '[tabindex]:not([tabindex="-1"])',
+  ].join(",");
 
   function openModal($card) {
     const title = $card.find(".card-title").text().trim();
@@ -235,22 +245,37 @@ $(function () {
     $modalDescription.text(desc);
     $modalTips.text(tips);
 
-    $popupModal.removeClass("hidden").addClass("flex");
+    $popupModal.removeClass("hidden").addClass("flex").attr({
+      "aria-hidden": "false",
+      role: "dialog",
+      "aria-modal": "true",
+    });
     $("body").addClass("overflow-hidden");
+    $("#closeBtn").trigger("focus");
   }
 
   function closeModal() {
-    $popupModal.addClass("hidden").removeClass("flex");
+    $popupModal
+      .addClass("hidden")
+      .removeClass("flex")
+      .attr("aria-hidden", "true");
     $("body").removeClass("overflow-hidden");
+
+    if (lastFocusedElement && document.contains(lastFocusedElement)) {
+      $(lastFocusedElement).trigger("focus");
+    }
+    lastFocusedElement = null;
   }
 
   $(document).on("click", ".kosakata-card", function () {
+    lastFocusedElement = this;
     openModal($(this));
   });
 
   $(document).on("keydown", ".kosakata-card", function (e) {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
+      lastFocusedElement = this;
       openModal($(this));
     }
   });
@@ -263,9 +288,33 @@ $(function () {
     }
   });
 
-  $(document).on("keydown", function (e) {
-    if (e.key === "Escape" && $popupModal.is(":visible")) {
+  $popupModal.on("keydown", function (e) {
+    if (e.key === "Escape") {
+      e.preventDefault();
       closeModal();
+      return;
+    }
+
+    if (e.key !== "Tab") return;
+
+    const $focusableElements = $popupModal
+      .find(focusableSelector)
+      .filter(":visible");
+    if (!$focusableElements.length) {
+      e.preventDefault();
+      $("#closeBtn").trigger("focus");
+      return;
+    }
+
+    const firstElement = $focusableElements[0];
+    const lastElement = $focusableElements[$focusableElements.length - 1];
+
+    if (e.shiftKey && document.activeElement === firstElement) {
+      e.preventDefault();
+      $(lastElement).trigger("focus");
+    } else if (!e.shiftKey && document.activeElement === lastElement) {
+      e.preventDefault();
+      $(firstElement).trigger("focus");
     }
   });
 

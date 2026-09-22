@@ -54,7 +54,7 @@
         <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Edukasi</a>
         <a href="kosakata.html" class="py-1 text-orange-600 border-b-2 border-orange-600" aria-current="page">Kamus</a>
         <a href="quiz.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Quiz</a>
-        <a href="index.html#isyarat-angka" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Asisten AI</a>
+        <a href="asisten.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Asisten AI</a>
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -76,7 +76,7 @@
         <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Edukasi</a>
         <a href="kosakata.html" class="px-3 py-2 font-bold text-orange-600 rounded-lg bg-orange-50">Kamus</a>
         <a href="quiz.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Quiz</a>
-        <a href="index.html#isyarat-angka" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Asisten AI</a>
+        <a href="asisten.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Asisten AI</a>
       </div>
     </nav>
   </header>
@@ -131,7 +131,7 @@
             </div>
             <input type="text" id="searchInput" placeholder="Ketik kata, huruf, atau angka... (contoh: A, 1, Halo, Terima Kasih)"
               class="w-full py-4 pl-12 pr-12 text-sm transition-all border shadow-inner md:text-base border-slate-200 rounded-2xl bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-slate-800 placeholder-slate-400" />
-            <button id="clearSearchBtn" type="button" aria-label="Hapus pencarian" class="absolute inset-y-0 right-0 flex items-center hidden pr-5 text-slate-400 hover:text-slate-600 focus:outline-none">
+            <button id="clearSearchBtn" type="button" aria-label="Hapus pencarian" class="absolute inset-y-0 right-0 hidden pr-5 text-slate-400 hover:text-slate-600 focus:outline-none">
               <i class="text-lg fa-solid fa-circle-xmark" aria-hidden="true"></i>
             </button>
           </div>
@@ -828,7 +828,7 @@
   </main>
 
   <!-- ACCESSIBLE DETAIL MODAL POPUP -->
-  <div id="popupModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" class="fixed inset-0 z-50 items-center justify-center hidden p-4 bg-slate-900/80 backdrop-blur-xs">
+  <div id="popupModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle" class="fixed inset-0 z-50 items-center justify-center hidden p-4 bg-slate-900/80 backdrop-blur-xs">
     <div class="relative flex flex-col w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl p-6 sm:p-8 border border-slate-100">
 
       <!-- Close Button -->
