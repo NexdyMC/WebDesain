@@ -5,16 +5,16 @@ $(function () {
     alfabet: {
       badge: "Level 1: Dasar",
       title: "Alfabet BISINDO (A - Z)",
-      lead: "Pelajari fondasi ejaan jari untuk mengeja nama, tempat, dan istilah baru dalam komunikasi sehari-hari.",
-      duration: "26 huruf | 15 menit",
+      lead: "Fondasi utama pembentukan ejaan jari (fingerspelling) untuk mengeja nama dan istilah baru.",
+      duration: "26 Materi Huruf",
       sections: [
         [
-          "Tujuan Belajar",
-          "Setelah menyelesaikan modul ini, kamu dapat mengenali dan membentuk huruf A sampai Z dengan posisi tangan yang lebih stabil.",
+          "Materi Detail",
+          "Modul ini adalah langkah pertama dan paling krusial dalam mempelajari bahasa isyarat. Di sini, pengguna akan diajak mengenal bentuk dasar tangan untuk meragakan setiap huruf abjad dari A hingga Z. Menguasai ejaan jari (fingerspelling) sangat penting karena teknik ini digunakan secara luas untuk mengeja nama orang, nama tempat, atau kata-kata asing yang belum memiliki isyarat bakunya sendiri. Modul ini dirancang sangat perlahan agar pemula bisa mengingat posisi jari dengan tepat.",
         ],
         [
-          "Materi Utama",
-          "Mulailah dari vokal A, I, U, E, dan O. Setelah itu, lanjutkan ke konsonan secara bertahap. Perhatikan arah telapak, posisi ibu jari, dan jarak antarjari.",
+          "Fokus Pembelajaran",
+          "Kenali bentuk tangan untuk huruf A sampai Z, mulai dari vokal hingga konsonan, dengan memperhatikan arah telapak, posisi ibu jari, dan jarak antarjari.",
         ],
         [
           "Cara Berlatih",
@@ -33,12 +33,12 @@ $(function () {
     "angka-dasar": {
       badge: "Level 1: Angka",
       title: "Isyarat Angka (0 - 10)",
-      lead: "Kenali bentuk jari untuk angka 0 sampai 10 dan gunakan dalam konteks hitungan sederhana.",
-      duration: "11 angka | 12 menit",
+      lead: "Panduan visual bentuk jari tangan untuk membilang angka 0 sampai 10 secara teratur.",
+      duration: "11 Materi Angka",
       sections: [
         [
-          "Tujuan Belajar",
-          "Kamu dapat menunjukkan angka dasar dengan telapak yang menghadap tepat dan bentuk jari yang mudah dibaca.",
+          "Materi Detail",
+          "Setelah mengenal huruf, pengguna akan beralih ke angka dasar. Modul ini fokus pada pengenalan angka nol hingga sepuluh. Angka merupakan elemen penting dalam komunikasi sehari-hari, mulai dari menunjukkan jumlah barang, urutan, hingga berhitung sederhana. Panduan visual yang disediakan akan memastikan bentuk tangan pengguna akurat dan mudah dipahami oleh teman Tuli.",
         ],
       ],
       callout:
@@ -53,12 +53,12 @@ $(function () {
     "bilangan-waktu": {
       badge: "Level 2: Angka",
       title: "Kombinasi Bilangan & Waktu",
-      lead: "Susun angka belasan, puluhan, dan informasi waktu agar percakapan sehari-hari terasa lebih lengkap.",
-      duration: "8 materi | 20 menit",
+      lead: "Mempelajari cara menyebutkan jam, umur, nomor telepon, dan nominal angka dalam percakapan.",
+      duration: "8 Materi Lanjutan",
       sections: [
         [
-          "Materi Utama",
-          "Latih pola angka 11 sampai 19, puluhan, nomor telepon, umur, harga, serta penyebutan jam dan menit.",
+          "Materi Detail",
+          "Naik ke level selanjutnya, modul ini akan memandu pengguna merangkai angka-angka dasar menjadi informasi yang lebih kompleks. Pengguna akan belajar bagaimana mengisyaratkan informasi penting sehari-hari seperti memberitahukan pukul berapa sekarang, menyebutkan usia, membagikan nomor telepon, hingga menyebutkan nominal uang saat bertransaksi.",
         ],
       ],
       callout:
@@ -74,12 +74,12 @@ $(function () {
     "salam-ungkapan": {
       badge: "Level 2: Ungkapan",
       title: "Salam & Ungkapan Sopan",
-      lead: "Pelajari gestur salam, terima kasih, maaf, dan tolong untuk membangun interaksi yang hangat dan santun.",
-      duration: "12 kosakata | 15 menit",
+      lead: "Kuasai gestur salam pembuka, terima kasih, permohonan maaf, dan permohonan tolong yang santun.",
+      duration: "12 Kosakata Kunci",
       sections: [
         [
-          "Materi Utama",
-          "Mulai dari sapaan waktu, lalu lanjutkan ke ungkapan terima kasih, sama-sama, permisi, maaf, dan tolong. Ekspresi wajah ikut menyampaikan maksud.",
+          "Materi Detail",
+          "Membangun interaksi yang hangat dimulai dari salam. Modul ini membekali pengguna dengan ungkapan-ungkapan krusial untuk berinteraksi sosial. Mulai dari sapaan sehari-hari (seperti Halo, Selamat Pagi), hingga kata-kata ajaib penanda kesopanan seperti Terima kasih, Maaf, dan Tolong. Menguasai isyarat ini akan membuat komunikasi menjadi jauh lebih ramah dan natural.",
         ],
         [
           "Etika Komunikasi",
@@ -98,12 +98,12 @@ $(function () {
     percakapan: {
       badge: "Level 3: Ungkapan",
       title: "Percakapan & Kalimat Tanya",
-      lead: "Bangun percakapan dua arah dengan kata tanya, jawaban singkat, dan ekspresi non-manual yang tepat.",
-      duration: "10 topik | 25 menit",
+      lead: "Membentuk kalimat tanya, ekspresi alis/wajah (non-manual markers), dan dialog praktis.",
+      duration: "10 Topik Dialog",
       sections: [
         [
-          "Kata Tanya",
-          "Latih Siapa, Apa, Kapan, Di Mana, Kenapa, dan Bagaimana dalam kalimat pendek.",
+          "Materi Detail",
+          "Modul tingkat lanjut ini mengajak pengguna masuk ke dalam percakapan dua arah. Tidak hanya sekadar gerakan tangan, pengguna akan mempelajari pentingnya non-manual markers atau ekspresi wajah (seperti mengangkat atau mengerutkan alis) yang berfungsi sebagai penentu apakah suatu kalimat itu adalah pertanyaan atau pernyataan. Modul ini dilengkapi dengan simulasi dialog praktis untuk melatih kelancaran berkomunikasi.",
         ],
         [
           "Ekspresi Non-Manual",
@@ -127,12 +127,12 @@ $(function () {
     keluarga: {
       badge: "Level 2: Sosial",
       title: "Keluarga & Relasi Sosial",
-      lead: "Kenali kosakata untuk keluarga, teman, dan hubungan sosial yang sering muncul dalam percakapan sehari-hari.",
-      duration: "9 isyarat | 15 menit",
+      lead: "Mengenal isyarat untuk Ayah, Ibu, Kakak, Adik, Kakek, Nenek, dan Teman akrab.",
+      duration: "9 Isyarat Keluarga",
       sections: [
         [
-          "Materi Utama",
-          "Pelajari Ayah, Ibu, Kakak, Adik, Kakek, Nenek, dan Teman dengan memperhatikan lokasi gerakan serta arah tangan.",
+          "Materi Detail",
+          "Keluarga dan teman adalah orang-orang terdekat di sekitar kita. Modul ini mengajarkan kosakata isyarat yang berkaitan dengan silsilah keluarga dan hubungan sosial. Pengguna akan bisa dengan mudah memperkenalkan anggota keluarga mereka, menyebutkan status saudara, hingga menceritakan sahabat-sahabat akrab mereka dalam bahasa isyarat.",
         ],
         [
           "Membangun Kalimat",
@@ -149,14 +149,14 @@ $(function () {
       dictionary: "kosakata.html?bahasa=bisindo&kategori=kata",
     },
     hewan: {
-      badge: "Level 3: Anak",
+      badge: "Khusus Anak",
       title: "Dunia Hewan & Alam",
-      lead: "Belajar kosakata hewan dan alam melalui asosiasi visual yang menyenangkan untuk pembelajar muda maupun pemula.",
-      duration: "8 kosakata | 15 menit",
+      lead: "Meniru ciri khas gerak dan karakteristik hewan seperti Kucing (kumis), Burung (sayap), dan Ikan.",
+      duration: "10 Isyarat Hewan",
       sections: [
         [
-          "Materi Utama",
-          "Hubungkan bentuk isyarat dengan gerak atau ciri khas hewan. Gunakan gambar sebagai pemantik, bukan pengganti pengamatan gerakan tangan.",
+          "Materi Detail",
+          "Dirancang khusus agar menyenangkan bagi anak-anak maupun pemula yang menyukai visual interaktif. Modul ini mengajarkan isyarat nama-nama binatang dengan meniru karakteristik unik mereka. Misalnya, mengisyaratkan kucing dengan memperagakan kumisnya, atau burung dengan mengepakkan sayap. Pendekatan visual dan gerak ini membuat proses menghafal kosakata menjadi seperti permainan yang seru.",
         ],
         [
           "Aktivitas",
@@ -173,14 +173,14 @@ $(function () {
       dictionary: "kosakata.html?bahasa=bisindo&kategori=kata",
     },
     "warna-benda": {
-      badge: "Level 3: Anak",
+      badge: "Khusus Anak",
       title: "Warna & Benda di Rumah",
-      lead: "Kenali warna dan benda di sekitar rumah melalui latihan menunjuk, mengamati, dan menyusun kalimat sederhana.",
-      duration: "10 kosakata | 15 menit",
+      lead: "Mempelajari isyarat warna (Merah, Kuning, Hijau, Biru) serta benda sehari-hari (Buku, Meja, Rumah).",
+      duration: "12 Kosakata Visual",
       sections: [
         [
-          "Materi Utama",
-          "Mulai dari warna dasar, lalu hubungkan dengan benda seperti buku, meja, pintu, dan kursi yang ada di sekitarmu.",
+          "Materi Detail",
+          "Modul yang sangat aplikatif untuk menggambarkan lingkungan sekitar. Pengguna akan diajarkan cara mengisyaratkan berbagai macam warna dasar dan juga benda-benda familiar yang ada di dalam rumah. Dengan menguasai modul ini, pengguna dapat dengan mudah mendeskripsikan suatu objek, misalnya buku merah atau meja biru.",
         ],
         [
           "Latihan Konteks",
