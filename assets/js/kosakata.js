@@ -140,6 +140,7 @@ $(function () {
       const title = ($card.find(".card-title").text() || "").toLowerCase();
       const keywords = ($card.data("keywords") || "").toLowerCase();
       const desc = ($card.data("desc") || "").toLowerCase();
+      const keywordTokens = keywords.split(/\s+/);
 
       const matchesCategory =
         currentCategory === "all" || cardCategory === currentCategory;
@@ -147,9 +148,11 @@ $(function () {
 
       const matchesSearch =
         !query ||
-        title.includes(query) ||
-        keywords.includes(query) ||
-        desc.includes(query);
+        (query.length === 1
+          ? keywordTokens.includes(query) || title === query
+          : title.includes(query) ||
+            keywords.includes(query) ||
+            desc.includes(query));
 
       const matchesFilter = matchesLanguage && matchesCategory && matchesSearch;
       $card.data("matches-filter", matchesFilter);
