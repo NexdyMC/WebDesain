@@ -15,19 +15,27 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
 
-  <!-- Custom Styles & Transitions -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- not file css external, internal and inline -->
+  <style>
+    .flash-ok { animation: ok .5s; }
+    .flash-no { animation: no .5s; }
+    @keyframes ok { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03); box-shadow:0 0 0 6px rgba(34,197,94,.35)} }
+    @keyframes no { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+    .pop { animation: pop .3s; }
+    @keyframes pop { from{transform:scale(.9);opacity:.4} to{transform:scale(1);opacity:1} }
+    #shell .screen.hidden { display: none; }
+  </style>
 </head>
 <body class="font-sans antialiased text-slate-800 bg-white selection:bg-orange-500 selection:text-white">
 
   <div id="scrollProgressContainer" class="fixed left-0 top-16 z-[60] h-1 w-full bg-transparent pointer-events-none md:top-20">
     <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
   </div>
-  
+
   <!-- Navigation -->
   <header class="sticky top-0 z-50 border-b shadow-sm border-orange-100/70 backdrop-blur-md bg-white/95">
     <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 md:h-20">
-      
+
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-2.5 text-xl font-extrabold tracking-tight md:text-2xl text-slate-900 group" aria-label="IsyaratOK">
         <div class="flex items-center justify-center w-10 h-10 text-xl text-white transition-transform shadow-md rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 group-hover:scale-105 shadow-orange-500/20">
@@ -80,115 +88,91 @@
   <div class="flex items-center justify-center h-16 px-4 bg-orange-400 border-b-2 border-orange-600 sm:px-6 md:px-8 md:h-20">
     <div class="w-full px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="flex items-center justify-between ">
-        
-        <a href="">Back to kosakata</a>
+
+        <a href="kosakata.html">Back to kosakata</a>
 
         <div class="items-center hidden gap-2 text-lg md:flex font-smallbold text-slate-950">
           <i class="fa-solid fa-gear" aria-hidden="true"></i>
           <h2>Latihan Isyarat BSINDO</h2>
         </div>
-        
-        <button>Reset Data</button>
+
+        <button id="btnReset" class="btn-start">Reset Data</button>
       </div>
     </div>
   </div>
 
-  <section class="relative min-h-screen overflow-hidden ">
-    
-    <!-- <div class="relative z-10 h-screen px-4 m-auto max-w-7xl sm:px-6 md:pt-14 md:pb-24 lg:px-8"> -->
-      <div class="grid items-center justify-center px-4 m-auto max-w-7xl sm:px-6 pt-14 md:pb-24 lg:px-8">
+  <main id="shell" class="flex items-center justify-center min-h-screen py-10">
 
-        <div class="w-full max-w-md bg-[#f9f6f0] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-          
-          <!-- TOP SECTION: HEADER DENGAN GRID LATAR -->
-          <div class="relative p-6 text-center border-b-4 border-black bg-grid-pattern">
-            
-            <!-- Tombol Kotak Kecil di Kanan Atas -->
-            <div class="absolute top-4 right-4 w-8 h-8 bg-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-              <div class="w-3 h-3 bg-teal-800 rounded-full"></div>
-            </div>
+    <!-- card game -->
+    <!-- screen game -->
+    <div class="w-full max-w-sm px-4">
 
-            <!-- Ikon Gulungan (Scroll) -->
-            <div class="inline-flex items-center justify-center w-12 h-12 bg-white border-2 border-black rounded-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-3 text-teal-800">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-            </div>
-
-            <!-- Judul -->
-            <h1 class="mb-1 text-3xl font-bold tracking-wide text-black">Latihan Katakana</h1>
-            <p class="text-sm italic text-gray-700">Kuis Pilihan Ganda Adaptif</p>
+      <!-- START SCREEN -->
+      <section id="start-screen" class="screen">
+        <div class="overflow-hidden bg-white border-2 shadow-xl rounded-3xl border-orange-100">
+          <div class="relative flex flex-col items-center justify-center h-48 px-4 text-center text-white bg-orange-500"
+               style="background-image:radial-gradient(rgba(255,255,255,.35) 2px, transparent 2px); background-size:28px 28px;">
+            <h1 class="text-3xl font-bold">Latihan Isyarat</h1>
+            <p class="mt-1 text-sm italic">Tebak Huruf BSINDO</p>
+            <i class="absolute text-8xl right-4 bottom-2 text-orange-700/30 fa-solid fa-hand" aria-hidden="true"></i>
           </div>
-
-          <!-- BOTTOM SECTION: KONTROL & STATISTIK -->
-          <div class="p-6 bg-[#f4efe6]">
-            
-            <!-- Baris Level & Badge SET -->
-            <div class="flex items-start justify-between mb-6">
-              <div>
-                <span class="text-[10px] font-bold tracking-widest text-gray-600 uppercase block mb-1">Level Saat Ini</span>
-                <div class="flex items-baseline gap-1 text-4xl font-extrabold tracking-tight text-black">
-                  <span>Lv.</span><span class="text-teal-800">1</span>
-                </div>
-              </div>
-              
-              <div class="text-right">
-                <div class="inline-block px-3 py-1 bg-white border-2 border-black text-teal-800 font-bold text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-2">
-                  SET 1
-                </div>
-                <div class="flex items-center justify-end gap-1 text-xs font-semibold text-gray-800">
-                  <span>⚡</span> <span>0 EXP</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Progress Bar EXP -->
-            <div class="mb-6">
-              <div class="flex justify-between text-[10px] font-bold tracking-wider text-gray-600 uppercase mb-1">
-                <span>Progres EXP</span>
-                <span>Menuju Level Berikutnya</span>
-              </div>
-              <div class="w-full h-4 bg-white border-2 border-black p-0.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                <div class="w-0 h-full bg-teal-800"></div> <!-- Ubah persentase lebar w-[x%] jika ada progress -->
-              </div>
-            </div>
-
-            <!-- Tombol Aksi 1: Mulai Latihan (Primary Button) -->
-            <button class="w-full py-3.5 px-4 bg-black text-white font-bold text-base border-2 border-black shadow-[4px_4px_0px_0px_rgba(100,100,100,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2 mb-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-              </svg>
-              Mulai Latihan
+          <div class="p-6">
+            <p class="text-sm font-medium">Level Saat Ini</p>
+            <p class="text-5xl font-light">Lv. <span id="levelText" class="text-orange-500">1</span></p>
+            <p class="mt-1 text-xs text-neutral-500">Skor terbaik: <span id="bestText">0</span></p>
+            <button class="btn-play w-full py-3 mt-6 font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded-xl">
+              <i class="fa-solid fa-play mr-1.5"></i>Mulai Latihan
             </button>
-
-            <!-- Tombol Aksi 2: Daftar Huruf Katakana (Secondary Button) -->
-            <button class="w-full py-3 px-4 bg-white text-black font-bold text-sm border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
-              Daftar Huruf Katakana
-            </button>
-
           </div>
         </div>
-        
-        <div id="final-screen" class="w-[400px] h-[300px] bg-blue-400 hidden">
-          <button class="btn-start">Start Screen</button>  
-        </div>
-        
-        <div id="start-screen" class="w-[400px] h-[300px] bg-orange-400 hidden">
-          <button class="btn-play">Play Screen</button>
-        </div>
+      </section>
 
-        <div id="play-screen" class="w-[400px] h-[300px] bg-emerald-400 hidden">  
-          <button class="btn-final">Final Screen</button>
+      <!-- PLAY SCREEN -->
+      <section id="play-screen" class="screen hidden">
+        <div class="overflow-hidden bg-white border-2 shadow-xl rounded-3xl border-orange-100">
+          <div class="flex items-center justify-between px-5 py-4 text-white bg-orange-500">
+            <button class="text-sm font-semibold btn-start"><i class="fa-solid fa-arrow-left mr-1"></i>Akhiri Sesi</button>
+            <span class="px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-orange-700/40">Sesi Latihan</span>
+          </div>
+          <div class="flex items-center gap-3 px-5 pt-4 text-xs text-neutral-500">
+            <span>Soal <b id="qNo" class="text-neutral-800">1</b>/<span id="qTotal">10</span></span>
+            <div class="flex-1 h-2 overflow-hidden bg-orange-100 rounded-full"><div id="bar" class="h-full transition-all bg-orange-500" style="width:0%"></div></div>
+            <span>Skor <b id="qScore" class="text-neutral-800">0</b></span>
+          </div>
+
+          <div class="p-5">
+            <div id="card" class="relative flex items-center justify-center border-2 border-orange-200 bg-orange-50 rounded-2xl min-h-[14rem]">
+              <span class="absolute text-xs font-medium text-orange-400 top-3 left-4">Isyarat huruf apa ini?</span>
+              <div id="soalIcon" class="text-orange-500 pop">
+                <i class="fa-solid fa-hand fa-8x" aria-hidden="true"></i>
+              </div>
+            </div>
+            <p class="mt-3 text-sm text-center text-neutral-500">Pilih huruf yang sesuai</p>
+            <div id="opsi" class="grid grid-cols-3 gap-3 mt-3"></div>
+          </div>
         </div>
+      </section>
 
-      </div>
-    <!-- </div> -->
-  </section>
+      <!-- FINAL SCREEN -->
+      <section id="final-screen" class="screen hidden">
+        <div class="overflow-hidden bg-white border-2 shadow-xl rounded-3xl border-orange-100">
+          <div class="flex items-center justify-center h-40 text-3xl font-bold text-white bg-orange-500"
+               style="background-image:radial-gradient(rgba(255,255,255,.35) 2px, transparent 2px); background-size:28px 28px;">
+            Hasil Latihan
+          </div>
+          <div class="p-6 text-center">
+            <p class="text-sm text-neutral-500">Skor kamu</p>
+            <p class="text-6xl font-light"><span id="rScore" class="text-orange-500">0</span><span class="text-2xl text-neutral-400">/<span id="rTotal">10</span></span></p>
+            <p id="rMsg" class="mt-2 text-sm font-medium"></p>
+            <button class="btn-play w-full py-3 mt-6 font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded-xl">Main Lagi</button>
+            <button class="w-full py-2.5 mt-3 font-semibold text-orange-500 border-2 border-orange-400 btn-start bg-orange-50 rounded-xl">Kembali</button>
+          </div>
+        </div>
+      </section>
 
-  <!-- Footer -->
+    </div>
+  </main>
+
   <!-- Footer -->
   <footer class="text-white border-t bg-gradient-to-br from-orange-600 via-orange-600 to-amber-700 border-orange-500/30">
     <div class="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -261,34 +245,153 @@
       </div>
     </div>
   </footer>
-	
+
   <!-- jQuery & Main Script -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/script.js"></script>
-  <script>
-$(function () {
 
-  function ScreenGame(screen) {
-    
-    const dataScreen = ["#start-screen", "#play-screen", "#final-screen"];
-    const targetScreen = screen.startsWith("#") ? screen : `#${screen}`;
-    
-    dataScreen.forEach(e => {
-      if (targetScreen === e) {
-        // console.log(screen, " == ", e )
-        $(e).removeClass("hidden");
-      } else {
-        // console.log(screen, " == ", e, "done" )
-        $(e).addClass("hidden");
+  <!-- Quiz Game Script -->
+  <script>
+    $(function () {
+
+      // ====== ScreenGame (kode buatan sendiri) ======
+      function ScreenGame(screen) {
+        const dataScreen = ["#start-screen", "#play-screen", "#final-screen"];
+        const targetScreen = screen.startsWith("#") ? screen : `#${screen}`;
+
+        dataScreen.forEach(e => {
+          if (targetScreen === e) {
+            $(e).removeClass("hidden");
+          } else {
+            $(e).addClass("hidden");
+          }
+        });
       }
+
+      $(".btn-play").on("click", function () { mulai(); });
+      $(".btn-final").on("click", function () { ScreenGame("final-screen"); });
+      $(".btn-start").on("click", function () { refreshHome(); ScreenGame("start-screen"); });
+
+      // ====== DATA: huruf BSINDO A-Z ======
+      // Ganti path "src" ke gambar isyarat asli di folder assets/img/bisindo/
+      const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map(h => ({
+        huruf: h,
+        src: `assets/img/bisindo/${h}.png`
+      }));
+
+      const TOTAL = 10;    // jumlah soal per sesi
+      const NUM_OPTS = 3;  // jumlah pilihan jawaban
+      let state = { no: 0, score: 0, answer: "", locked: false };
+
+      function randItem(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+      function shuffle(arr) {
+        const a = arr.slice();
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+
+      // soal: {src, huruf} | jawaban: [huruf1, huruf2, huruf3] | sebenarnya: huruf yang benar
+      function nextSoal(soal, jawaban, sebenarnya) {
+        state.answer = sebenarnya;
+        state.locked = false;
+        $("#card").removeClass("flash-ok flash-no");
+
+        $("#soalIcon").html(
+          `<img src="${soal.src}" alt="Isyarat huruf ${soal.huruf}" class="object-contain h-40 pop"
+                onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'text-orange-500 pop',innerHTML:'<i class=\\'fa-solid fa-hand fa-8x\\'></i>'}))">`
+        );
+
+        $("#opsi").html(jawaban.map(j =>
+          `<button class="opsi relative flex items-center justify-center py-4 text-2xl font-bold transition border-2 border-orange-300 bg-orange-50 hover:bg-orange-100 rounded-xl" data-val="${j}">
+             ${j}
+           </button>`
+        ).join(""));
+      }
+
+      function buatSoal() {
+        const item = randItem(ALPHABET);
+        const pengecoh = shuffle(ALPHABET.filter(h => h !== item)).slice(0, NUM_OPTS - 1);
+        const pilihan = shuffle([item, ...pengecoh]).map(h => h.huruf);
+
+        nextSoal(item, pilihan, item.huruf);
+        $("#qNo").text(state.no + 1);
+        $("#bar").css("width", (state.no / TOTAL * 100) + "%");
+      }
+
+      function tandai($el, benar) {
+        $el.removeClass("border-orange-300 bg-orange-50 hover:bg-orange-100")
+           .addClass(benar ? "border-green-500 bg-green-100" : "border-red-500 bg-red-100");
+      }
+
+      function jawab($el) {
+        if (state.locked) return;
+        state.locked = true;
+        const benar = $el.data("val") === state.answer;
+        if (benar) {
+          state.score++;
+          tandai($el, true);
+          $("#card").addClass("flash-ok");
+        } else {
+          tandai($el, false);
+          tandai($(".opsi").filter(function () { return $(this).data("val") === state.answer; }), true);
+          $("#card").addClass("flash-no");
+        }
+        $("#qScore").text(state.score);
+        state.no++;
+        setTimeout(function () {
+          if (state.no >= TOTAL) selesai(); else buatSoal();
+        }, benar ? 700 : 1200);
+      }
+
+      function mulai() {
+        state = { no: 0, score: 0, answer: "", locked: false };
+        $("#qScore").text(0);
+        $("#qTotal").text(TOTAL);
+        ScreenGame("play-screen");
+        buatSoal();
+      }
+
+      function selesai() {
+        let best = parseInt(localStorage.getItem("isyaratBest") || "0");
+        if (state.score > best) { best = state.score; localStorage.setItem("isyaratBest", best); }
+        let lv = parseInt(localStorage.getItem("isyaratLv") || "1");
+        const naik = state.score >= 8;
+        if (naik) { lv++; localStorage.setItem("isyaratLv", lv); }
+        $("#rScore").text(state.score);
+        $("#rTotal").text(TOTAL);
+        $("#rMsg").text(naik ? "Hebat! Level naik ke " + lv + " 🚀" : "Skor 8 atau lebih untuk naik level. Coba lagi 💪");
+        refreshHome();
+        ScreenGame("final-screen");
+      }
+
+      function refreshHome() {
+        $("#levelText").text(localStorage.getItem("isyaratLv") || "1");
+        $("#bestText").text(localStorage.getItem("isyaratBest") || "0");
+      }
+
+      $("#opsi").on("click", ".opsi", function () { jawab($(this)); });
+
+      $("#btnReset").on("click", function () {
+        if (confirm("Reset level dan skor terbaik?")) {
+          localStorage.removeItem("isyaratLv");
+          localStorage.removeItem("isyaratBest");
+          refreshHome();
+        }
+      });
+
+      // shortcut keyboard 1-3
+      $(document).on("keydown", function (e) {
+        if ($("#play-screen").hasClass("hidden")) return;
+        const n = parseInt(e.key);
+        if (n >= 1 && n <= NUM_OPTS) $("#opsi .opsi").eq(n - 1).trigger("click");
+      });
+
+      refreshHome();
+      ScreenGame("start-screen");
     });
-  }
-  
-  $(".btn-play").on("click", function () {ScreenGame("play-screen")})
-  $(".btn-final").on("click", function () {ScreenGame("final-screen")})
-  $(".btn-start").on("click", function () {ScreenGame("start-screen")})
-});
-    
   </script>
 </body>
 </html>
