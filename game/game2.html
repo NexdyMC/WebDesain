@@ -1,197 +1,310 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cocokkan Kartu Isyarat — Game 2</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  body{font-family:'Poppins',sans-serif;}
-  .font-heading{font-family:'Baloo 2',cursive;}
-  .nav-pill{transition:transform .15s ease;}
-  .nav-pill:hover{transform:translateY(-2px);}
-  .card-scene{perspective:1000px;}
-  .card-inner{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d;}
-  .card.flipped .card-inner{transform:rotateY(180deg);}
-  .card-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:1rem;display:flex;align-items:center;justify-content:center;}
-  .card-back{background:linear-gradient(135deg,#FB923C,#F59E0B);}
-  .card-front{background:#fff;transform:rotateY(180deg);}
-  .card.matched .card-front{background:#DCFCE7;}
-  .confetti{position:fixed;top:-10px;width:10px;height:10px;border-radius:2px;animation:fall linear forwards;}
-  @keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:.9}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Pilihan Ganda - Prototipe UI/UX</title>
+    <!-- CDN Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- CDN FontAwesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1e1e1e;
+        }
+        
+        /* Motif Titik-Titik Header Figma */
+        .bg-dots {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.35) 18%, transparent 18%);
+            background-size: 16px 16px;
+        }
+
+        /* Shadow Khusus & Efek Transisi Card */
+        .card-container {
+            transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
+        }
+
+        /* Slot Pertanyaan dan Pilihan Jawaban Soft Cream Background */
+        .bg-card-soft {
+            background-color: #fffbf2;
+        }
+
+        /* Hover Effect Pilihan Jawaban */
+        .option-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .option-card:hover {
+            transform: translateY(-2px);
+            background-color: #fff5e0;
+        }
+        .option-card.selected {
+            background-color: #ffedd5;
+            border-color: #f97316;
+            box-shadow: 0 0 0 2px #f97316;
+        }
+    </style>
 </head>
-<body class="min-h-screen bg-gradient-to-b from-yellow-50 via-orange-50 to-amber-100">
+<body class="min-h-screen flex items-center justify-center p-3 sm:p-6 text-gray-800">
 
-<div id="confetti-container" class="pointer-events-none fixed inset-0 overflow-hidden z-50"></div>
+    <!-- Kontainer Utama Card (Ukuran Otomatis Menyesuaikan Halaman Lobby vs Game) -->
+    <div id="main-card" class="card-container w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden relative border border-gray-100 my-auto">
 
-<div class="min-h-screen flex flex-col">
-  <header class="px-4 py-3 flex items-center justify-between gap-2 flex-wrap">
-    <span class="font-heading text-xl md:text-2xl font-bold text-orange-700">🖐️ BelajarIsyarat</span>
-    <nav class="flex gap-2 text-sm overflow-x-auto">
-      <a href="game1.html" class="nav-pill px-3 py-1.5 rounded-full bg-white border-2 border-orange-200 text-orange-700 font-bold whitespace-nowrap">1. Tebak Huruf</a>
-      <a href="game2.html" class="nav-pill px-3 py-1.5 rounded-full bg-orange-500 text-white font-bold whitespace-nowrap">2. Cocokkan</a>
-      <a href="game3.html" class="nav-pill px-3 py-1.5 rounded-full bg-white border-2 border-orange-200 text-orange-700 font-bold whitespace-nowrap">3. Susun Kata</a>
-      <a href="game4.html" class="nav-pill px-3 py-1.5 rounded-full bg-white border-2 border-orange-200 text-orange-700 font-bold whitespace-nowrap">4. Mode Cepat</a>
-      <a href="game5.html" class="nav-pill px-3 py-1.5 rounded-full bg-white border-2 border-orange-200 text-orange-700 font-bold whitespace-nowrap">5. Benar/Salah</a>
-    </nav>
-  </header>
+        <!-- ==================== HALAMAN 1: LOBBY / MENU (DIV) ==================== -->
+        <div id="page-lobby" class="w-full block">
+            
+            <!-- Header Kartu Orange -->
+            <div class="bg-orange-500 bg-dots p-7 sm:p-9 text-white relative rounded-b-3xl shadow-md overflow-hidden">
+                <div class="text-center relative z-10">
+                    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Test Pilihan Ganda</h1>
+                    <p class="text-xs sm:text-sm font-medium italic opacity-95 mt-1 tracking-wide">Kuis Pilihan Ganda Adaptif</p>
+                </div>
+                <!-- Watermark Tanda Tanya Figma -->
+                <div class="absolute -right-2 -bottom-4 text-orange-600 text-8xl sm:text-9xl font-black opacity-35 select-none pointer-events-none">
+                    ?
+                </div>
+            </div>
 
-  <main class="flex-1 flex items-start justify-center px-4 pb-10">
-    <div class="w-full max-w-xl">
+            <!-- Konten Utama Kartu Lobby -->
+            <div class="p-6 sm:p-8 space-y-6">
+                <!-- Info Level & EXP -->
+                <div>
+                    <span class="text-gray-900 font-bold text-sm sm:text-base">Level Saat Ini</span>
+                    <div class="flex items-baseline gap-1 mt-0.5">
+                        <span class="text-3xl sm:text-4xl font-black text-gray-900">Lv.</span>
+                        <span class="text-4xl sm:text-5xl font-black text-orange-500">1</span>
+                    </div>
+                    <div class="text-xs sm:text-sm font-semibold text-gray-800 mt-3">
+                        EXP: 0 / 30
+                    </div>
+                    <!-- Progress Bar EXP -->
+                    <div class="w-full bg-gray-100 rounded-full h-3.5 mt-2 overflow-hidden border border-orange-200 p-0.5">
+                        <div class="bg-gradient-to-r from-orange-400 to-orange-500 h-full rounded-full w-[15%] transition-all duration-500"></div>
+                    </div>
+                </div>
 
-      <div class="mt-2 mb-4 flex justify-between items-center text-orange-800 font-bold">
-        <span id="moves-label">Langkah: 0</span>
-        <h1 class="font-heading text-lg md:text-xl text-orange-800">Cocokkan isyarat dengan hurufnya!</h1>
-        <span id="pairs-label">0 / 6 pasang</span>
-      </div>
+                <!-- Tombol Aksi -->
+                <div class="space-y-3 pt-2">
+                    <button id="btn-start" class="w-full bg-orange-500 hover:bg-orange-600 active:scale-[0.98] text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg shadow-orange-500/30 transition flex items-center justify-center gap-2.5 text-base sm:text-lg">
+                        <i class="fa-solid fa-play text-sm"></i>
+                        <span>Mulai latihan</span>
+                    </button>
 
-      <section id="game-card" class="bg-white rounded-3xl shadow-lg border-4 border-orange-200 p-4 md:p-6">
-        <div id="board" class="grid grid-cols-3 sm:grid-cols-4 gap-3"></div>
-      </section>
-
-      <section id="end-card" class="hidden bg-white rounded-3xl shadow-lg border-4 border-orange-200 p-8 text-center">
-        <p class="text-5xl mb-3">🎉</p>
-        <h2 class="font-heading text-2xl font-bold text-orange-800 mb-2">Semua pasangan ketemu!</h2>
-        <p id="end-summary" class="text-lg text-orange-700 font-bold mb-6"></p>
-        <button id="restart-btn" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-heading font-bold text-lg rounded-2xl py-3">Main Lagi 🔁</button>
-      </section>
-
-      <p class="text-center text-orange-700/70 text-sm leading-relaxed mt-4">Catatan: gambar tangan adalah ilustrasi contoh. Ganti dengan foto isyarat BISINDO/SIBI asli untuk penggunaan nyata.</p>
-    </div>
-  </main>
-</div>
-
-<script>
-const SIGNS = [
-  { letter: 'A', pattern: [1,0,0,0,0] },
-  { letter: 'B', pattern: [0,1,1,1,1] },
-  { letter: 'C', pattern: [1,1,0,0,0] },
-  { letter: 'D', pattern: [0,1,0,0,0] },
-  { letter: 'E', pattern: [0,0,0,0,0] },
-  { letter: 'F', pattern: [1,0,1,1,1] },
-];
-
-function handSVG(pattern, size=90){
-  const cols = [40, 66, 92, 118];
-  let fingers = '';
-  [1,2,3,4].forEach((idx, i) => {
-    const up = pattern[idx];
-    const h = up ? 66 : 20;
-    const y = 100 - h;
-    fingers += `<rect x="${cols[i]-9}" y="${y}" width="18" height="${h}" rx="9" fill="#FFEDD5" stroke="#C2410C" stroke-width="2.5"/>`;
-  });
-  const thumbUp = pattern[0];
-  const thumbH = thumbUp ? 54 : 20;
-  fingers += `<rect x="4" y="${120-thumbH}" width="18" height="${thumbH}" rx="9" fill="#FFEDD5" stroke="#C2410C" stroke-width="2.5" transform="rotate(-35 13 120)"/>`;
-  return `<svg viewBox="0 0 160 190" width="${size}" height="${size*1.18}" xmlns="http://www.w3.org/2000/svg">
-    <rect x="18" y="100" width="124" height="82" rx="28" fill="#FB923C" stroke="#C2410C" stroke-width="3.5"/>
-    ${fingers}
-  </svg>`;
-}
-
-function shuffle(arr){ return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
-
-function confettiBurst(){
-  const colors = ['#FB923C','#FACC15','#F97316','#FDE047','#EA580C'];
-  const $c = $('#confetti-container').empty();
-  for(let i=0;i<60;i++){
-    $('<div class="confetti"></div>').css({
-      left: (Math.random()*100)+'vw',
-      background: colors[Math.floor(Math.random()*colors.length)],
-      animationDuration: (1.6+Math.random()*1.2)+'s',
-      animationDelay: (Math.random()*0.4)+'s'
-    }).appendTo($c);
-  }
-  setTimeout(()=>$c.empty(), 3200);
-}
-
-let moves = 0, matchedPairs = 0, lock = false, first = null;
-
-function buildDeck(){
-  let cards = [];
-  SIGNS.forEach((s, i) => {
-    cards.push({ pairId: i, type: 'hand', letter: s.letter, pattern: s.pattern });
-    cards.push({ pairId: i, type: 'letter', letter: s.letter });
-  });
-  return shuffle(cards);
-}
-
-function renderBoard(){
-  moves = 0; matchedPairs = 0; lock = false; first = null;
-  $('#moves-label').text('Langkah: 0');
-  $('#pairs-label').text(`0 / ${SIGNS.length} pasang`);
-  $('#end-card').addClass('hidden');
-  $('#game-card').removeClass('hidden');
-
-  const deck = buildDeck();
-  const $board = $('#board').empty();
-  deck.forEach((card, i) => {
-    const frontContent = card.type === 'hand'
-      ? handSVG(card.pattern, 70)
-      : `<span class="font-heading text-4xl font-bold text-orange-700">${card.letter}</span>`;
-    const $card = $(`
-      <button class="card card-scene aspect-square" data-index="${i}" data-pair="${card.pairId}" data-type="${card.type}">
-        <div class="card-inner">
-          <div class="card-face card-back border-2 border-orange-300 flex items-center justify-center">
-            <span class="text-white text-2xl">🖐️</span>
-          </div>
-          <div class="card-face card-front border-2 border-orange-200">${frontContent}</div>
+                    <button id="btn-kamus" class="w-full bg-orange-50 hover:bg-orange-100/80 active:scale-[0.98] border-2 border-orange-500 text-orange-600 font-bold py-3.5 px-6 rounded-2xl transition flex items-center justify-center gap-2.5 text-base sm:text-lg">
+                        <i class="fa-solid fa-book-open text-base"></i>
+                        <span>Daftar Kamus Isyarat</span>
+                    </button>
+                </div>
+            </div>
         </div>
-      </button>
-    `);
-    $board.append($card);
-  });
-}
 
-$(document).on('click', '.card', function(){
-  const $card = $(this);
-  if(lock || $card.hasClass('flipped') || $card.hasClass('matched')) return;
-  $card.addClass('flipped');
+        <!-- ==================== HALAMAN 2: PLAY SCREEN / GAME (DIV) ==================== -->
+        <div id="page-game" class="w-full hidden">
+            
+            <!-- Header Permainan Orange -->
+            <div class="bg-orange-500 px-5 sm:px-8 py-4 text-white flex justify-between items-center shadow-md">
+                <button id="btn-exit" class="flex items-center gap-2 font-bold text-xs sm:text-sm hover:opacity-80 transition active:scale-95">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Akhiri Sesi</span>
+                </button>
+                
+                <!-- Judul Tampil pada Tablet/Desktop -->
+                <h2 class="hidden md:block font-extrabold text-base lg:text-lg tracking-wide">Test Pilihan Ganda</h2>
+                
+                <div class="flex items-center gap-2 font-bold text-xs sm:text-sm bg-orange-600/40 px-3 py-1.5 rounded-xl border border-orange-400/40">
+                    <i class="fa-regular fa-clock text-amber-200"></i>
+                    <span>Time: <span id="timer-display">05:00</span></span>
+                </div>
+            </div>
 
-  if(!first){
-    first = $card;
-    return;
-  }
+            <!-- Konten Game -->
+            <div class="p-5 sm:p-8 space-y-5 sm:space-y-6">
+                <!-- Info Soal & Skor -->
+                <div>
+                    <div class="flex justify-between items-center font-bold text-xs sm:text-sm text-gray-900 mb-2">
+                        <span>Soal: <span id="current-question">2</span>/10</span>
+                        <span>Score: <span id="current-score">10</span></span>
+                    </div>
+                    <!-- Progress Bar Soal -->
+                    <div class="w-full bg-gray-100 rounded-full h-3 overflow-hidden border border-orange-200 p-0.5">
+                        <div id="quiz-progress-bar" class="bg-gradient-to-r from-orange-400 to-orange-500 h-full rounded-full w-[20%] transition-all duration-300"></div>
+                    </div>
+                </div>
 
-  moves++;
-  $('#moves-label').text('Langkah: ' + moves);
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-stretch">
+                    
+                    <!-- Kotak Pertanyaan Utama -->
+                    <div class="md:col-span-6 lg:col-span-7 bg-card-soft border-2 border-orange-400 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-sm min-h-[200px] md:min-h-[340px]">
+                        <div class="flex items-center justify-between border-b border-orange-200/80 pb-3">
+                            <span class="text-xs font-extrabold text-orange-600 uppercase tracking-wider bg-orange-100 px-2.5 py-1 rounded-lg">Pertanyaan #2</span>
+                            <i class="fa-solid fa-hands-asl-interpreting text-orange-400 text-lg"></i>
+                        </div>
+                        
+                        <!-- Gambar / Konten Soal Isyarat -->
+                        <div class="my-auto py-4 text-center">
+                            <div class="inline-flex items-center justify-center w-20 h-20 sm:w-28 sm:h-28 bg-orange-100/70 border-2 border-dashed border-orange-400 rounded-2xl text-orange-500 mb-3">
+                                <i class="fa-solid fa-hand text-4xl sm:text-5xl"></i>
+                            </div>
+                            <p class="text-sm sm:text-base font-bold text-gray-800">Manakah simbol isyarat yang menunjukkan kata <span class="text-orange-600 underline decoration-orange-400 font-extrabold">"BELAJAR"</span>?</p>
+                        </div>
 
-  const samePair = first.data('pair') === $card.data('pair');
-  const differentType = first.data('type') !== $card.data('type');
+                        <div class="text-right">
+                            <span class="text-[11px] text-gray-500 italic"><i class="fa-solid fa-circle-info mr-1"></i> Pilih salah satu jawaban di bawah</span>
+                        </div>
+                    </div>
 
-  if(samePair && differentType){
-    first.addClass('matched');
-    $card.addClass('matched');
-    matchedPairs++;
-    $('#pairs-label').text(`${matchedPairs} / ${SIGNS.length} pasang`);
-    first = null;
-    if(matchedPairs === SIGNS.length){
-      setTimeout(() => {
-        $('#game-card').addClass('hidden');
-        $('#end-card').removeClass('hidden');
-        $('#end-summary').text(`Selesai dalam ${moves} langkah!`);
-        confettiBurst();
-      }, 400);
-    }
-  } else {
-    lock = true;
-    const f = first;
-    setTimeout(() => {
-      f.removeClass('flipped');
-      $card.removeClass('flipped');
-      lock = false;
-      first = null;
-    }, 800);
-  }
-});
+                    <!-- Kotak Pilihan Jawaban -->
+                    <!-- Mobile: Grid 2x2 | Desktop: Stack Vertikal (1 Kolom) -->
+                    <div class="md:col-span-6 lg:col-span-5 grid grid-cols-2 md:grid-cols-1 gap-3 sm:gap-3.5 flex-col justify-between">
+                        
+                        <!-- Opsi A -->
+                        <div class="option-card cursor-pointer bg-card-soft border-2 border-orange-400 rounded-2xl p-3.5 sm:p-4 flex items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px]" data-option="A">
+                            <div class="w-8 h-8 rounded-xl bg-orange-500 text-white font-extrabold flex items-center justify-center text-sm shrink-0 shadow-sm">A</div>
+                            <div class="flex-1 text-xs sm:text-sm font-bold text-gray-800">Isyarat A</div>
+                            <div class="check-icon opacity-0 text-orange-500 text-sm"><i class="fa-solid fa-circle-check"></i></div>
+                        </div>
 
-$('#restart-btn').on('click', renderBoard);
+                        <!-- Opsi B -->
+                        <div class="option-card cursor-pointer bg-card-soft border-2 border-orange-400 rounded-2xl p-3.5 sm:p-4 flex items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px]" data-option="B">
+                            <div class="w-8 h-8 rounded-xl bg-orange-500 text-white font-extrabold flex items-center justify-center text-sm shrink-0 shadow-sm">B</div>
+                            <div class="flex-1 text-xs sm:text-sm font-bold text-gray-800">Isyarat B</div>
+                            <div class="check-icon opacity-0 text-orange-500 text-sm"><i class="fa-solid fa-circle-check"></i></div>
+                        </div>
 
-renderBoard();
-</script>
+                        <!-- Opsi C -->
+                        <div class="option-card cursor-pointer bg-card-soft border-2 border-orange-400 rounded-2xl p-3.5 sm:p-4 flex items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px]" data-option="C">
+                            <div class="w-8 h-8 rounded-xl bg-orange-500 text-white font-extrabold flex items-center justify-center text-sm shrink-0 shadow-sm">C</div>
+                            <div class="flex-1 text-xs sm:text-sm font-bold text-gray-800">Isyarat C</div>
+                            <div class="check-icon opacity-0 text-orange-500 text-sm"><i class="fa-solid fa-circle-check"></i></div>
+                        </div>
+
+                        <!-- Opsi D -->
+                        <div class="option-card cursor-pointer bg-card-soft border-2 border-orange-400 rounded-2xl p-3.5 sm:p-4 flex items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px]" data-option="D">
+                            <div class="w-8 h-8 rounded-xl bg-orange-500 text-white font-extrabold flex items-center justify-center text-sm shrink-0 shadow-sm">D</div>
+                            <div class="flex-1 text-xs sm:text-sm font-bold text-gray-800">Isyarat D</div>
+                            <div class="check-icon opacity-0 text-orange-500 text-sm"><i class="fa-solid fa-circle-check"></i></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal Kamus Isyarat -->
+    <div id="modal-kamus" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-orange-200 transform transition-all scale-95 opacity-0 duration-200" id="modal-content">
+            <div class="flex justify-between items-center border-b border-gray-100 pb-3">
+                <h3 class="font-bold text-lg text-gray-900 flex items-center gap-2">
+                    <i class="fa-solid fa-book-open text-orange-500"></i>
+                    <span>Daftar Kamus Isyarat</span>
+                </h3>
+                <button id="close-modal" class="text-gray-400 hover:text-gray-600 p-1">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                Kamus Isyarat Adaptif menyediakan panduan visual kosakata Bahasa Isyarat Indonesia (BISINDO) sesuai tingkat level kamu.
+            </p>
+            <div class="grid grid-cols-3 gap-2 pt-2 text-center text-xs font-bold">
+                <div class="p-3 bg-orange-50 border border-orange-200 rounded-xl text-orange-600">
+                    <i class="fa-solid fa-hand-holding text-xl mb-1 block"></i> A - Z
+                </div>
+                <div class="p-3 bg-orange-50 border border-orange-200 rounded-xl text-orange-600">
+                    <i class="fa-solid fa-hashtag text-xl mb-1 block"></i> Angka
+                </div>
+                <div class="p-3 bg-orange-50 border border-orange-200 rounded-xl text-orange-600">
+                    <i class="fa-solid fa-comments text-xl mb-1 block"></i> Kata Percakapan
+                </div>
+            </div>
+            <button id="btn-close-modal-2" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition mt-2">
+                Tutup Kamus
+            </button>
+        </div>
+    </div>
+
+    <!-- CDN jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            let timerInterval = null;
+            let secondsLeft = 300; // 05:00 minutes timer
+
+            // Function untuk format timer MM:SS
+            function formatTime(totalSeconds) {
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+
+            // Function Start Timer
+            function startTimer() {
+                clearInterval(timerInterval);
+                secondsLeft = 300;
+                $('#timer-display').text(formatTime(secondsLeft));
+                
+                timerInterval = setInterval(function() {
+                    if (secondsLeft > 0) {
+                        secondsLeft--;
+                        $('#timer-display').text(formatTime(secondsLeft));
+                    } else {
+                        clearInterval(timerInterval);
+                        alert("Waktu habis!");
+                    }
+                }, 1000);
+            }
+
+            // Logika perpindahan halaman: Lobby -> Game Screen
+            $('#btn-start').on('click', function() {
+                // Resize Card Container dari Max-W-MD menjadi Max-W-3XL/4XL di Desktop
+                $('#main-card').removeClass('max-w-md').addClass('max-w-md md:max-w-4xl');
+                
+                // Fade Out Lobby & Fade In Game
+                $('#page-lobby').fadeOut(200, function() {
+                    $('#page-game').fadeIn(250);
+                    startTimer();
+                });
+            });
+
+            // Logika perpindahan halaman: Game Screen -> Lobby
+            $('#btn-exit').on('click', function() {
+                clearInterval(timerInterval);
+                
+                // Kembalikan ukuran Card Container ke Max-W-MD
+                $('#main-card').removeClass('max-w-md md:max-w-4xl').addClass('max-w-md');
+
+                // Fade Out Game & Fade In Lobby
+                $('#page-game').fadeOut(200, function() {
+                    $('#page-lobby').fadeIn(250);
+                });
+            });
+
+            // Interaktivitas Pilihan Jawaban
+            $('.option-card').on('click', function() {
+                $('.option-card').removeClass('selected').find('.check-icon').addClass('opacity-0');
+                $(this).addClass('selected').find('.check-icon').removeClass('opacity-0');
+            });
+
+            // Modal Kamus Isyarat
+            $('#btn-kamus').on('click', function() {
+                $('#modal-kamus').removeClass('hidden');
+                setTimeout(() => {
+                    $('#modal-content').removeClass('scale-95 opacity-0').addClass('scale-100 opacity-100');
+                }, 10);
+            });
+
+            $('#close-modal, #btn-close-modal-2').on('click', function() {
+                $('#modal-content').removeClass('scale-100 opacity-100').addClass('scale-95 opacity-0');
+                setTimeout(() => {
+                    $('#modal-kamus').addClass('hidden');
+                }, 200);
+            });
+        });
+    </script>
 </body>
 </html>

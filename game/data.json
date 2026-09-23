@@ -1,0 +1,17 @@
+{
+  "levels": [
+    {"letters": ["A","B","C","D", "E"],"words": ["ABE","AEC","BAC","CBA","DAE", "EAC"]},
+    {"letters": ["C","D","E","F", "G"],"words": ["DFC","DFG","ECF","EDC","FEC", "GCE"]},
+    {"letters": ["E","F","G","H", "I"],"words": ["EGH","FEH","FGE","GIE","HEF", "IGH"]},
+    {"letters": ["G","H","I","J", "K"],"words": ["HGK","HKG","IGK","IHJ","IHK", "IJK"]},
+    {"letters": ["I","J","K","L", "M"],"words": ["IKJ","KIL","LMJ","LMK","MJK", "MKI"]},
+    {"letters": ["K","L","M","N", "O"],"words": ["LNK","LOM","NLO","NMK","OMN", "ONM"]},
+    {"letters": ["M","N","O","P", "Q"],"words": ["MOP","MPN","MQP","NPO","OMQ", "QPO"]},
+    {"letters": ["O","P","Q","R", "S"],"words": ["OQR","POQ","QOP","QPO","QPS", "RPS"]},
+    {"letters": ["Q","R","S","T", "U"],"words": ["QSR","RQT","STQ","TQS","UQS", "UQT"]},
+    {"letters": ["S","T","U","V", "W"],"words": ["TWU","UVW","VSW","VTW","WTU", "WVS"]},
+    {"letters": ["U","V","W","X", "Y"],"words": ["UVW","UVY","UWY","VUX","VUY", "YVX"]},
+    {"letters": ["W","X","Y","Z", "A"],"words": ["WAY","XZW","ZAW","ZAY","ZXY", "ZYX"]},
+    {"letters": ["Y","Z","A","B", "C"],"words": ["BAY","BZC","BZY","CBY","YCB", "ZCY"]}
+  ] 
+}
