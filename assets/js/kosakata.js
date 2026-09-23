@@ -18,7 +18,7 @@ $(function () {
     F: "F (3).jpg",
     G: "G (3).jpg",
     H: "H (4).jpg",
-    I: "I (1).jpg",
+    I: "I.jpg",
     J: "J (3).jpg",
     K: "K (3).jpg",
     L: "L (3).jpg",
