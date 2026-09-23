@@ -4,24 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IsyaratOK - Belajar Bahasa Isyarat Interaktif &amp; Inklusif</title>
-
+  
   <!-- Google Fonts & Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  
   <!-- Tailwind CSS CDN & Config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
-
+  
   <!-- Custom Styles & Transitions -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="font-sans antialiased bg-white text-slate-800 selection:bg-orange-500">
 
   <!-- Navigation -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 shadow-sm w-full backdrop-blur-md text-white bg-white/20">
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 w-full text-white shadow-sm backdrop-blur-md bg-white/20">
     <div id="scrollProgressContainer" class="fixed left-0 top-0 z-[60] h-1 w-full bg-transparent pointer-events-none">
       <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
     </div>
@@ -44,8 +44,8 @@
 
       <!-- Mobile/Tablet Menu Button -->
       <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi" class="relative z-50 flex items-center justify-center w-10 h-10 p-2 transition cursor-pointer shrink-0 rounded-xl hover:text-orange-600 hover:bg-white/80 lg:hidden focus:outline-none">
-        <i id="iconOpen" class="fa-solid fa-bars absolute text-xl transition-all duration-300 ease-in-out scale-100 rotate-0 opacity-100"></i>
-        <i id="iconClose" class="fa-solid fa-x absolute text-xl transition-all duration-300 ease-in-out scale-75 -rotate-90 opacity-0"></i>
+        <i id="iconOpen" class="absolute text-xl transition-all duration-300 ease-in-out scale-100 rotate-0 opacity-100 fa-solid fa-bars"></i>
+        <i id="iconClose" class="absolute text-xl transition-all duration-300 ease-in-out scale-75 -rotate-90 opacity-0 fa-solid fa-x"></i>
       </button>
     </div>
 
@@ -72,11 +72,11 @@
       <!-- Content -->
       <div class="relative z-10 w-full px-4 py-5 max-w-7xl sm:px-6 sm:py-10 lg:px-8">
         <div class="flex items-center justify-start flex-1 h-full">
-          <div class="flex flex-col max-w-3xl lg:max-w-4xl gap-4">
+          <div class="flex flex-col max-w-3xl gap-4 lg:max-w-4xl">
             <h1 class="text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl"> 
               Isyarat bukan sekadar tangan, melainkan berbicara dengan empati.
             </h1>
-            <p class="text-sm md:text-base text-white/90 leading-tight">
+            <p class="text-sm leading-tight md:text-base text-white/90">
               Kebaikan adalah nyanyian indah yang bisa didengar oleh orang tuli, sekaligus bunga indah yang bisa dilihat oleh orang buta.
             </p>
             <div class="flex gap-2 md:flex-row">
@@ -423,7 +423,7 @@
         <div class="grid grid-cols-2 gap-6 lg:grid-cols-4">
 
           <!-- Card 1 -->
-          <a href="edukasi.html" class="flex flex-col h-full overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-300 fade-up-item duration-100">
+          <a href="edukasi.html" class="flex flex-col h-full overflow-hidden duration-100 bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-300 fade-up-item">
             <div class="relative aspect-[4/3] bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white overflow-hidden">
               <i class="text-6xl transition-transform duration-200 fa-solid fa-font text-white/80 group-hover:scale-110" aria-hidden="true"></i>
               <span class="absolute px-3 py-1 text-xs font-bold tracking-wider text-orange-900 uppercase rounded-full top-3 left-3 bg-white/90 backdrop-blur-xs">Level 1</span>
@@ -435,7 +435,7 @@
           </a>
 
           <!-- Card 2 -->
-          <a href="edukasi.html" class="flex flex-col h-full overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 fade-up-item duration-150">
+          <a href="edukasi.html" class="flex flex-col h-full overflow-hidden duration-150 bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 fade-up-item">
             <div class="relative aspect-[4/3] bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-white overflow-hidden">
               <i class="text-6xl transition-transform duration-200 fa-solid fa-comments text-white/80 group-hover:scale-110" aria-hidden="true"></i>
               <span class="absolute px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full top-3 left-3 text-amber-950 bg-white/90 backdrop-blur-xs">Level 2</span>
@@ -447,7 +447,7 @@
           </a>
 
           <!-- Card 3 -->
-          <a href="edukasi.html" class="flex flex-col h-full overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-300 fade-up-item duration-200">
+          <a href="edukasi.html" class="flex flex-col h-full overflow-hidden duration-200 bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-300 fade-up-item">
             <div class="relative aspect-[4/3] bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white overflow-hidden">
               <i class="text-6xl transition-transform duration-200 fa-solid fa-people-arrows text-white/80 group-hover:scale-110" aria-hidden="true"></i>
               <span class="absolute px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full top-3 left-3 text-emerald-950 bg-white/90 backdrop-blur-xs">Level 3</span>
@@ -459,7 +459,7 @@
           </a>
 
           <!-- Card 4 -->
-          <a href="edukasi.html" class="flex flex-col h-full overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 fade-up-item duration-300">
+          <a href="edukasi.html" class="flex flex-col h-full overflow-hidden duration-300 bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 fade-up-item">
             <div class="relative aspect-[4/3] bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white overflow-hidden">
               <i class="text-6xl transition-transform duration-200 fa-solid fa-child-reaching text-white/80 group-hover:scale-110" aria-hidden="true"></i>
               <span class="absolute px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full top-3 left-3 text-indigo-950 bg-white/90 backdrop-blur-xs">Khusus Anak</span>
@@ -759,6 +759,7 @@
     </section>
   </main>
 
+  <!-- Mode Accessibility -->
   <div class="accessibility-float" aria-label="Panel aksesibilitas">
     <button id="a11yToggle" class="accessibility-toggle" type="button" aria-expanded="false" aria-controls="a11yPanel" aria-label="Buka pengaturan aksesibilitas">
       <i class="fa-solid fa-universal-access" aria-hidden="true"></i>

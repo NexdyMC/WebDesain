@@ -1,516 +1,544 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test Susun Kata — Kosakata Bahasa Isyarat</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<style>
-  @font-face {
-    font-family: 'SignFont';
-    src: url('../assets/fonts/MccidFslFont2-Regular.ttf') format('truetype');
-    font-display: swap;
-  }
-  .font-sign { font-family: 'SignFont', sans-serif; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Susun Kata — Kosakata Bahasa Isyarat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    @font-face {
+      font-family: "SignFont";
+      src: url("../assets/fonts/MccidFslFont2-Regular.ttf") format("truetype");
+      font-display: swap;
+    }
 
-  .screen { display: none; }
-  .screen.active { display: block; }
+    .font-sign {
+      font-family: "SignFont", sans-serif;
+    }
 
-  .slot-empty { border-style: dashed; }
-  .slot-filled { border-style: solid; background-color: #FFF3E0; }
+    body {
+      font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
 
-  .block-pill {
-    cursor: grab;
-    user-select: none;
-    transition: transform .12s ease, opacity .12s ease, box-shadow .12s ease;
-  }
-  .block-pill:active { cursor: grabbing; }
-  .block-pill.selected {
-    box-shadow: 0 0 0 3px #3B82F6;
-    transform: translateY(-2px);
-  }
-  .block-pill.used { display: none; }
-  .block-pill.dragging { opacity: .35; }
+    .screen {
+      display: none;
+    }
 
-  .box-flash-correct { animation: flashGreen .6s ease; }
-  .box-flash-wrong { animation: flashRed .6s ease; }
-  @keyframes flashGreen {
-    0% { background-color: #FFF3E0; }
-    40% { background-color: #BBF7D0; border-color: #22C55E; }
-    100% { background-color: #FFF3E0; }
-  }
-  @keyframes flashRed {
-    0% { background-color: #FFF3E0; }
-    40% { background-color: #FECACA; border-color: #EF4444; }
-    100% { background-color: #FFF3E0; }
-  }
+    .screen.active {
+      display: block;
+    }
 
-  #time-display.low { color: #EF4444; }
+    .slot-empty {
+      border-style: dashed;
+    }
 
-  .dropzone-over { outline: 3px solid #3B82F6; outline-offset: 2px; }
+    .slot-filled {
+      border-style: solid;
+      background-color: #fff3e0;
+    }
 
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-thumb { background: #FDBA74; border-radius: 3px; }
-</style>
+    .block-pill {
+      cursor: grab;
+      user-select: none;
+      transition:
+        transform 0.12s ease,
+        opacity 0.12s ease,
+        box-shadow 0.12s ease;
+    }
+
+    .block-pill:active {
+      cursor: grabbing;
+    }
+
+    .block-pill.selected {
+      box-shadow: 0 0 0 3px #3b82f6;
+      transform: translateY(-2px);
+    }
+
+    .block-pill.used {
+      display: none;
+    }
+
+    .block-pill.dragging {
+      opacity: 0.35;
+    }
+
+    .box-flash-correct {
+      animation: flashGreen 0.6s ease;
+    }
+
+    .box-flash-wrong {
+      animation: flashRed 0.6s ease;
+    }
+
+    @keyframes flashGreen {
+      0% {
+        background-color: #fff3e0;
+      }
+
+      40% {
+        background-color: #bbf7d0;
+        border-color: #22c55e;
+      }
+
+      100% {
+        background-color: #fff3e0;
+      }
+    }
+
+    @keyframes flashRed {
+      0% {
+        background-color: #fff3e0;
+      }
+
+      40% {
+        background-color: #fecaca;
+        border-color: #ef4444;
+      }
+
+      100% {
+        background-color: #fff3e0;
+      }
+    }
+
+    #time-display.low {
+      color: #ef4444;
+    }
+
+    .dropzone-over {
+      outline: 3px solid #3b82f6;
+      outline-offset: 2px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #fdba74;
+      border-radius: 3px;
+    }
+  </style>
 </head>
-<body class="bg-black min-h-screen flex items-center justify-center p-4">
 
-<div class="w-full max-w-sm mx-auto">
-
-  <!-- ============ SCREEN: START ============ -->
-  <div id="screen-start" class="screen active bg-white rounded-3xl overflow-hidden shadow-2xl">
-    <div class="relative bg-orange-500 px-6 pt-8 pb-10">
-      <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 16px 16px;"></div>
-      <div class="relative">
-        <h1 class="text-white text-2xl font-extrabold">Test Susun Kata</h1>
-        <p class="text-orange-100 text-sm mt-1 italic">Kuis Susun Kata Adaptif</p>
+<body class="flex items-center justify-center min-h-screen p-4 bg-black">
+  <div class="w-full max-w-sm mx-auto">
+    <!-- ============ SCREEN: START ============ -->
+    <div id="screen-start" class="overflow-hidden bg-white shadow-2xl screen active rounded-3xl">
+      <div class="relative px-6 pt-8 pb-10 bg-orange-500">
+        <div class="absolute inset-0 opacity-10" style="
+              background-image: radial-gradient(
+                circle,
+                #fff 1px,
+                transparent 1px
+              );
+              background-size: 16px 16px;"></div>
+        <div class="relative">
+          <h1 class="text-2xl font-extrabold text-white">Test Susun Kata</h1>
+          <p class="mt-1 text-sm italic text-orange-100"> Kuis Susun Kata Adaptif </p>
+        </div>
+        <div class="absolute text-6xl font-black text-orange-400 right-5 top-6 opacity-40"> ? </div>
       </div>
-      <div class="absolute right-5 top-6 text-orange-400 text-6xl font-black opacity-40">?</div>
-    </div>
-
-    <div class="px-6 pt-6 pb-6">
-      <p class="text-gray-500 text-sm mb-1">Level Saat Ini</p>
-      <p class="text-4xl font-extrabold text-gray-900">Lv. <span id="start-level" class="text-orange-500">1</span></p>
-      <p class="text-xs text-gray-400 mt-1">XP: <span id="start-xp">0</span> / <span id="start-xp-req">35</span></p>
-
-      <button id="btn-mulai" class="mt-6 w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-2xl flex items-center justify-center gap-2 transition">
-        <span>▶</span> Mulai latihan
-      </button>
-      <button id="btn-kamus" class="mt-3 w-full border-2 border-orange-400 text-orange-500 font-semibold py-3 rounded-2xl flex items-center justify-center gap-2 hover:bg-orange-50 transition">
-        <span>📖</span> Daftar Kamus Isyarat
-      </button>
-
-      <p id="data-status" class="text-xs text-gray-400 mt-4 text-center"></p>
-    </div>
-  </div>
-
-  <!-- ============ SCREEN: PLAY ============ -->
-  <div id="screen-play" class="screen bg-white rounded-3xl overflow-hidden shadow-2xl">
-    <div class="bg-orange-500 px-4 py-3 flex items-center justify-between">
-      <button id="btn-akhiri" class="text-white text-sm font-semibold flex items-center gap-1">← Akhiri Sesi</button>
-      <span class="text-white font-bold text-sm">Test Susun Kata</span>
-      <span id="time-display" class="text-white text-sm font-mono font-bold">⏱ 01:00</span>
-    </div>
-    <div class="h-1.5 bg-orange-100">
-      <div id="time-bar" class="h-full bg-orange-500 transition-all duration-1000 ease-linear" style="width:100%"></div>
-    </div>
-
-    <div class="px-4 pt-3 flex items-center justify-between text-xs text-gray-500">
-      <span>Soal ke-<span id="soal-index">1</span></span>
-      <span>Level <span id="play-level">1</span> · Skor: <span id="score-display">0</span></span>
-    </div>
-
-    <div class="px-5 pt-5 pb-2">
-      <p class="text-center text-[11px] uppercase tracking-wide text-gray-400 mb-2" id="prompt-hint">Tirukan kata berikut:</p>
-      <div id="prompt-row" class="flex justify-center gap-3 mb-2"></div>
-      <div id="slot-row" class="flex justify-center gap-3 mb-6"></div>
-
-      <p class="text-center text-[11px] uppercase tracking-wide text-gray-400 mb-2">Tarik atau ketuk balok jawaban:</p>
-      <div id="pool-row" class="flex flex-wrap justify-center gap-3 min-h-[56px]"></div>
-
-      <p id="feedback-text" class="text-center text-sm font-semibold h-6 mt-4"></p>
-    </div>
-  </div>
-
-  <!-- ============ SCREEN: END ============ -->
-  <div id="screen-end" class="screen bg-white rounded-3xl overflow-hidden shadow-2xl">
-    <div class="relative bg-orange-500 px-6 pt-8 pb-10">
-      <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 16px 16px;"></div>
-      <div class="relative">
-        <h1 class="text-white text-2xl font-extrabold">Sesi Selesai</h1>
-        <p class="text-orange-100 text-sm mt-1">Hasil latihan tersimpan di browser ini.</p>
+      <div class="px-6 pt-6 pb-6">
+        <p class="mb-1 text-sm text-gray-500">Level Saat Ini</p>
+        <p class="text-4xl font-extrabold text-gray-900"> Lv. <span id="start-level" class="text-orange-500">1</span>
+        </p>
+        <p class="mt-1 text-xs text-gray-400"> XP: <span id="start-xp">0</span> / <span id="start-xp-req">35</span>
+        </p>
+        <button id="btn-mulai" class="flex items-center justify-center w-full gap-2 py-3 mt-6 font-bold text-white transition bg-orange-500 hover:bg-orange-600 rounded-2xl">
+          <span>▶</span> Mulai latihan </button>
+        <button id="btn-kamus" class="flex items-center justify-center w-full gap-2 py-3 mt-3 font-semibold text-orange-500 transition border-2 border-orange-400 rounded-2xl hover:bg-orange-50">
+          <span>📖</span> Daftar Kamus Isyarat </button>
+        <p id="data-status" class="mt-4 text-xs text-center text-gray-400"></p>
       </div>
     </div>
-    <div class="px-6 pt-6 pb-6">
-      <div class="flex justify-between items-center gap-3">
-        <div class="flex-1 text-center">
-          <p class="text-gray-400 text-xs">BENAR</p>
-          <p class="text-3xl font-extrabold text-gray-900" id="end-correct">0</p>
-        </div>
-        <div class="flex-1 text-center">
-          <p class="text-gray-400 text-xs">SALAH</p>
-          <p class="text-3xl font-extrabold text-gray-900" id="end-wrong">0</p>
-        </div>
-        <div class="flex-1 text-center bg-orange-50 rounded-2xl py-2">
-          <p class="text-gray-400 text-xs">EXP</p>
-          <p class="text-3xl font-extrabold text-orange-500">+<span id="end-exp">0</span></p>
+    <!-- ============ SCREEN: PLAY ============ -->
+    <div id="screen-play" class="overflow-hidden bg-white shadow-2xl screen rounded-3xl">
+      <div class="flex items-center justify-between px-4 py-3 bg-orange-500">
+        <button id="btn-akhiri" class="flex items-center gap-1 text-sm font-semibold text-white"> ← Akhiri Sesi </button>
+        <span class="text-sm font-bold text-white">Test Susun Kata</span>
+        <span id="time-display" class="font-mono text-sm font-bold text-white">⏱ 01:00</span>
+      </div>
+      <div class="h-1.5 bg-orange-100">
+        <div id="time-bar" class="h-full transition-all duration-1000 ease-linear bg-orange-500" style="width: 100%"></div>
+      </div>
+      <div class="flex items-center justify-between px-4 pt-3 text-xs text-gray-500">
+        <span>Soal ke-<span id="soal-index">1</span></span>
+        <span>Level <span id="play-level">1</span> · Skor: <span id="score-display">0</span></span>
+      </div>
+      <div class="px-5 pt-5 pb-2">
+        <p class="text-center text-[11px] uppercase tracking-wide text-gray-400 mb-2" id="prompt-hint"> Tirukan kata berikut: </p>
+        <div id="prompt-row" class="flex justify-center gap-3 mb-2"></div>
+        <div id="slot-row" class="flex justify-center gap-3 mb-6"></div>
+        <p class="text-center text-[11px] uppercase tracking-wide text-gray-400 mb-2"> Tarik atau ketuk balok jawaban: </p>
+        <div id="pool-row" class="flex flex-wrap justify-center gap-3 min-h-[56px]"></div>
+        <p id="feedback-text" class="h-6 mt-4 text-sm font-semibold text-center"></p>
+      </div>
+    </div>
+    <!-- ============ SCREEN: END ============ -->
+    <div id="screen-end" class="overflow-hidden bg-white shadow-2xl screen rounded-3xl">
+      <div class="relative px-6 pt-8 pb-10 bg-orange-500">
+        <div class="absolute inset-0 opacity-10" style="
+              background-image: radial-gradient(
+                circle,
+                #fff 1px,
+                transparent 1px
+              );
+              background-size: 16px 16px;
+            "></div>
+        <div class="relative">
+          <h1 class="text-2xl font-extrabold text-white">Sesi Selesai</h1>
+          <p class="mt-1 text-sm text-orange-100"> Hasil latihan tersimpan di browser ini. </p>
         </div>
       </div>
-      <p id="end-levelup" class="text-center text-sm text-green-600 font-semibold mt-4 hidden"></p>
-
-      <button id="btn-lagi" class="mt-6 w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-2xl flex items-center justify-center gap-2 transition">
-        <span>▶</span> Mulai latihan
-      </button>
+      <div class="px-6 pt-6 pb-6">
+        <div class="flex items-center justify-between gap-3">
+          <div class="flex-1 text-center">
+            <p class="text-xs text-gray-400">BENAR</p>
+            <p class="text-3xl font-extrabold text-gray-900" id="end-correct"> 0 </p>
+          </div>
+          <div class="flex-1 text-center">
+            <p class="text-xs text-gray-400">SALAH</p>
+            <p class="text-3xl font-extrabold text-gray-900" id="end-wrong"> 0 </p>
+          </div>
+          <div class="flex-1 py-2 text-center bg-orange-50 rounded-2xl">
+            <p class="text-xs text-gray-400">EXP</p>
+            <p class="text-3xl font-extrabold text-orange-500"> +<span id="end-exp">0</span>
+            </p>
+          </div>
+        </div>
+        <p id="end-levelup" class="hidden mt-4 text-sm font-semibold text-center text-green-600"></p>
+        <button id="btn-lagi" class="flex items-center justify-center w-full gap-2 py-3 mt-6 font-bold text-white transition bg-orange-500 hover:bg-orange-600 rounded-2xl">
+          <span>▶</span> Mulai latihan </button>
+      </div>
     </div>
   </div>
-
-</div>
-
-<!-- ============ MODAL: KAMUS ISYARAT ============ -->
-<div id="modal-dict" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4 z-50">
-  <div class="bg-white rounded-3xl w-full max-w-sm max-h-[80vh] flex flex-col overflow-hidden">
-    <div class="bg-orange-500 px-5 py-4 flex items-center justify-between">
-      <span class="text-white font-bold">Kamus Isyarat A–Z</span>
-      <button id="btn-close-dict" class="text-white text-xl leading-none">&times;</button>
+  <!-- ============ MODAL: KAMUS ISYARAT ============ -->
+  <div id="modal-dict" class="fixed inset-0 z-50 items-center justify-center hidden p-4 bg-black/60">
+    <div class="bg-white rounded-3xl w-full max-w-sm max-h-[80vh] flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4 bg-orange-500">
+        <span class="font-bold text-white">Kamus Isyarat A–Z</span>
+        <button id="btn-close-dict" class="text-xl leading-none text-white"> &times; </button>
+      </div>
+      <div class="grid grid-cols-4 gap-3 p-4 overflow-y-auto" id="dict-grid"></div>
     </div>
-    <div class="overflow-y-auto p-4 grid grid-cols-4 gap-3" id="dict-grid"></div>
   </div>
-</div>
+  <script>
+    $(function() {
+      // ---------- CONFIG ----------
+      var XP_BASE = 30,
+        XP_STEP = 5; // xpRequired(level) = 30 + level*XP_STEP
+      var SESSION_MINUTES = 1; // default session time: 1 minute
+      var MAX_BLOCKS = 4; // maximum draggable blocks per question
+      function xpRequired(level) {
+        return XP_BASE + level * XP_STEP;
+      }
+      // ---------- STATE (localStorage) ----------
+      var STORAGE_KEY = "sslGameState";
 
-<script>
-$(function () {
+      function loadState() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {}
+        return {
+          level: 1,
+          xp: 0
+        };
+      }
 
-  // ---------- CONFIG ----------
-  var XP_BASE = 30, XP_STEP = 5;       // xpRequired(level) = 30 + level*XP_STEP
-  var SESSION_MINUTES = 1;             // default session time: 1 minute
-  var MAX_BLOCKS = 4;                  // maximum draggable blocks per question
+      function saveState(state) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      }
+      var state = loadState();
 
-  function xpRequired(level) { return XP_BASE + level * XP_STEP; }
+      function addXp(n) {
+        state.xp += n;
+        var leveledUp = 0;
+        while (state.xp >= xpRequired(state.level)) {
+          state.xp -= xpRequired(state.level);
+          state.level += 1;
+          leveledUp++;
+        }
+        saveState(state);
+        return leveledUp;
+      }
+      // ---------- DATA (AJAX) ----------
+      var GAME_DATA = null;
 
-  // ---------- STATE (localStorage) ----------
-  var STORAGE_KEY = 'sslGameState';
+      function fetchData() {
+        $("#data-status").text("Memuat data.json…");
+        $.ajax({
+          url: "data.json",
+          dataType: "json",
+          cache: false,
+        }).done(function(res) {
+          GAME_DATA = res;
+          $("#data-status").text("");
+          $("#btn-mulai").prop("disabled", false);
+        }).fail(function() {
+          $("#data-status").html("Gagal memuat data.json.<br>Jalankan lewat server lokal (bukan dibuka langsung sebagai file), contoh: <code>python3 -m http.server</code>, lalu buka game8.html dari http://localhost.", );
+          $("#btn-mulai").prop("disabled", true);
+        });
+      }
+      // level (1-indexed) -> data.levels index (13-letter window, repeated and wrapped)
+      function levelDataFor(level) {
+        var idx = (level - 1) % GAME_DATA.levels.length;
+        return GAME_DATA.levels[idx];
+      }
+      // ---------- UTIL ----------
+      function shuffle(arr) {
+        var a = arr.slice();
+        for (var i = a.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var t = a[i];
+          a[i] = a[j];
+          a[j] = t;
+        }
+        return a;
+      }
 
-  function loadState() {
-    try {
-      var raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) return JSON.parse(raw);
-    } catch (e) {}
-    return { level: 1, xp: 0 };
-  }
-  function saveState(state) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  }
-  var state = loadState();
+      function pad2(n) {
+        return (n < 10 ? "0" : "") + n;
+      }
+      // ---------- SESSION VARS ----------
+      var session = null;
+      var timerHandle = null;
+      var blockIdSeq = 0;
 
-  function addXp(n) {
-    state.xp += n;
-    var leveledUp = 0;
-    while (state.xp >= xpRequired(state.level)) {
-      state.xp -= xpRequired(state.level);
-      state.level += 1;
-      leveledUp++;
-    }
-    saveState(state);
-    return leveledUp;
-  }
-
-  // ---------- DATA (AJAX) ----------
-  var GAME_DATA = null;
-
-  function fetchData() {
-    $('#data-status').text('Memuat data.json…');
-    $.ajax({
-      url: 'data.json',
-      dataType: 'json',
-      cache: false
-    }).done(function (res) {
-      GAME_DATA = res;
-      $('#data-status').text('');
-      $('#btn-mulai').prop('disabled', false);
-    }).fail(function () {
-      $('#data-status').html(
-        'Gagal memuat data.json.<br>Jalankan lewat server lokal (bukan dibuka langsung sebagai file), contoh: <code>python3 -m http.server</code>, lalu buka game8.html dari http://localhost.'
-      );
-      $('#btn-mulai').prop('disabled', true);
-    });
-  }
-
-  // level (1-indexed) -> data.levels index (13-letter window, repeated and wrapped)
-  function levelDataFor(level) {
-    var idx = (level - 1) % GAME_DATA.levels.length;
-    return GAME_DATA.levels[idx];
-  }
-
-  // ---------- UTIL ----------
-  function shuffle(arr) {
-    var a = arr.slice();
-    for (var i = a.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var t = a[i]; a[i] = a[j]; a[j] = t;
-    }
-    return a;
-  }
-  function pad2(n) { return (n < 10 ? '0' : '') + n; }
-
-  // ---------- SESSION VARS ----------
-  var session = null;
-  var timerHandle = null;
-  var blockIdSeq = 0;
-
-  function goScreen(name) {
-    $('.screen').removeClass('active');
-    $('#screen-' + name).addClass('active');
-  }
-
-  // ---------- TIMER: session time (minutes) ----------
-  function stoptime(menit) {
-    menit = menit || SESSION_MINUTES;
-    var totalDetik = Math.round(menit * 60);
-    var sisa = totalDetik;
-    clearInterval(timerHandle);
-    renderTimer(sisa, totalDetik);
-    timerHandle = setInterval(function () {
-      sisa--;
-      renderTimer(sisa, totalDetik);
-      if (sisa <= 0) {
+      function goScreen(name) {
+        $(".screen").removeClass("active");
+        $("#screen-" + name).addClass("active");
+      }
+      // ---------- TIMER: session time (minutes) ----------
+      function stoptime(menit) {
+        menit = menit || SESSION_MINUTES;
+        var totalDetik = Math.round(menit * 60);
+        var sisa = totalDetik;
         clearInterval(timerHandle);
-        endSession();
+        renderTimer(sisa, totalDetik);
+        timerHandle = setInterval(function() {
+          sisa--;
+          renderTimer(sisa, totalDetik);
+          if (sisa <= 0) {
+            clearInterval(timerHandle);
+            endSession();
+          }
+        }, 1000);
       }
-    }, 1000);
-  }
-  function renderTimer(sisa, total) {
-    var m = Math.floor(Math.max(sisa, 0) / 60), s = Math.max(sisa, 0) % 60;
-    $('#time-display').text('⏱ ' + pad2(m) + ':' + pad2(s)).toggleClass('low', sisa <= 10);
-    $('#time-bar').css('width', Math.max(sisa / total * 100, 0) + '%');
-  }
 
-  // ---------- START SESSION ----------
-  function startSession() {
-    var levelData = levelDataFor(state.level);
-    session = {
-      levelData: levelData,
-      wordQueue: shuffle(levelData.words),
-      soalIndex: 0,
-      correct: 0,
-      wrong: 0,
-      sessionXp: 0,
-      currentWord: null,
-      currentPromptIsSign: false,
-      selectedBlockId: null
-    };
-    $('#play-level').text(state.level);
-    goScreen('play');
-    nextSoal();
-    stoptime(SESSION_MINUTES);
-  }
-
-  // ---------- NEXT QUESTION ----------
-  function nextSoal() {
-    if (session.wordQueue.length === 0) {
-      session.wordQueue = shuffle(session.levelData.words);
-    }
-    var word = session.wordQueue.pop();
-    session.currentWord = word;
-    session.soalIndex++;
-    session.selectedBlockId = null;
-
-    var promptIsSign = Math.random() < 0.5;
-    session.currentPromptIsSign = promptIsSign;
-    // Answer blocks always use the OPPOSITE representation of the prompt,
-    // so the player matches the sign shape with the text letter.
-    var poolIsSign = !promptIsSign;
-
-    renderPrompt(word, promptIsSign);
-    renderSlots(word.length);
-    renderPool(word, session.levelData.letters, poolIsSign);
-
-    $('#prompt-hint').text(promptIsSign ? 'Tirukan isyarat berikut dengan huruf yang sesuai:' : 'Susun ulang kata berikut:');
-    $('#soal-index').text(session.soalIndex);
-    $('#score-display').text(session.sessionXp);
-    $('#feedback-text').text('');
-  }
-
-  function renderPrompt(word, isSign) {
-    var $row = $('#prompt-row').empty();
-    word.split('').forEach(function (ch) {
-      $('<div>')
-        .addClass('w-16 h-16 flex items-center justify-center rounded-xl border-2 border-orange-300 bg-white text-3xl font-extrabold text-gray-800')
-        .addClass(isSign ? 'font-sign' : '')
-        .text(ch)
-        .appendTo($row);
-    });
-  }
-
-  function renderSlots(n) {
-    var $row = $('#slot-row').empty();
-    for (var i = 0; i < n; i++) {
-      $('<div>')
-        .addClass('slot slot-empty w-16 h-10 rounded-lg border-2 border-orange-300 flex items-center justify-center text-lg font-bold text-gray-700')
-        .attr('data-slot', i)
-        .attr('data-filled', '')
-        .appendTo($row);
-    }
-  }
-
-  function renderPool(word, levelLetters, isSign) {
-    var correctLetters = word.split('');
-    var others = levelLetters.filter(function (l) { return correctLetters.indexOf(l) === -1; });
-    var decoyCount = Math.max(0, Math.min(MAX_BLOCKS - correctLetters.length, others.length));
-    var decoys = shuffle(others).slice(0, decoyCount);
-    var blocks = shuffle(correctLetters.concat(decoys)).slice(0, MAX_BLOCKS);
-
-    var $pool = $('#pool-row').empty();
-    blocks.forEach(function (letter) {
-      var id = 'blk' + (blockIdSeq++);
-      $('<div>')
-        .addClass('block-pill rounded-full border-2 border-orange-300 bg-orange-50 px-4 py-2 text-lg font-bold text-gray-800')
-        .addClass(isSign ? 'font-sign' : '')
-        .attr('draggable', 'true')
-        .attr('data-block-id', id)
-        .attr('data-letter', letter)
-        .text(letter)
-        .appendTo($pool);
-    });
-  }
-
-  // ---------- DRAG & DROP (native) + TAP FALLBACK ----------
-  $(document)
-    .on('dragstart', '.block-pill', function (e) {
-      $(this).addClass('dragging');
-      e.originalEvent.dataTransfer.setData('text/plain', $(this).attr('data-block-id'));
-    })
-    .on('dragend', '.block-pill', function () {
-      $(this).removeClass('dragging');
-    })
-    .on('dragover', '.slot', function (e) {
-      e.preventDefault();
-      $(this).addClass('dropzone-over');
-    })
-    .on('dragleave', '.slot', function () {
-      $(this).removeClass('dropzone-over');
-    })
-    .on('drop', '.slot', function (e) {
-      e.preventDefault();
-      $(this).removeClass('dropzone-over');
-      var blockId = e.originalEvent.dataTransfer.getData('text/plain');
-      placeBlockInSlot(blockId, $(this));
-    })
-    // tap-to-select block
-    .on('click', '.block-pill', function () {
-      $('.block-pill').removeClass('selected');
-      if (session.selectedBlockId === $(this).attr('data-block-id')) {
+      function renderTimer(sisa, total) {
+        var m = Math.floor(Math.max(sisa, 0) / 60),
+          s = Math.max(sisa, 0) % 60;
+        $("#time-display").text("⏱ " + pad2(m) + ":" + pad2(s)).toggleClass("low", sisa <= 10);
+        $("#time-bar").css("width", Math.max((sisa / total) * 100, 0) + "%");
+      }
+      // ---------- START SESSION ----------
+      function startSession() {
+        var levelData = levelDataFor(state.level);
+        session = {
+          levelData: levelData,
+          wordQueue: shuffle(levelData.words),
+          soalIndex: 0,
+          correct: 0,
+          wrong: 0,
+          sessionXp: 0,
+          currentWord: null,
+          currentPromptIsSign: false,
+          selectedBlockId: null,
+        };
+        $("#play-level").text(state.level);
+        goScreen("play");
+        nextSoal();
+        stoptime(SESSION_MINUTES);
+      }
+      // ---------- NEXT QUESTION ----------
+      function nextSoal() {
+        if (session.wordQueue.length === 0) {
+          session.wordQueue = shuffle(session.levelData.words);
+        }
+        var word = session.wordQueue.pop();
+        session.currentWord = word;
+        session.soalIndex++;
         session.selectedBlockId = null;
-        return;
+        var promptIsSign = Math.random() < 0.5;
+        session.currentPromptIsSign = promptIsSign;
+        // Answer blocks always use the OPPOSITE representation of the prompt,
+        // so the player matches the sign shape with the text letter.
+        var poolIsSign = !promptIsSign;
+        renderPrompt(word, promptIsSign);
+        renderSlots(word.length);
+        renderPool(word, session.levelData.letters, poolIsSign);
+        $("#prompt-hint").text(promptIsSign ? "Tirukan isyarat berikut dengan huruf yang sesuai:" : "Susun ulang kata berikut:", );
+        $("#soal-index").text(session.soalIndex);
+        $("#score-display").text(session.sessionXp);
+        $("#feedback-text").text("");
       }
-      session.selectedBlockId = $(this).attr('data-block-id');
-      $(this).addClass('selected');
-    })
-    // tap slot to place selected block, or clear a filled slot
-    .on('click', '.slot', function () {
-      var $slot = $(this);
-      var filledId = $slot.attr('data-filled');
-      if (filledId) {
-        returnBlockToPool(filledId, $slot);
-        return;
+
+      function renderPrompt(word, isSign) {
+        var $row = $("#prompt-row").empty();
+        word.split("").forEach(function(ch) {
+          $("<div>").addClass("w-16 h-16 flex items-center justify-center rounded-xl border-2 border-orange-300 bg-white text-3xl font-extrabold text-gray-800", ).addClass(isSign ? "font-sign" : "").text(ch).appendTo($row);
+        });
       }
-      if (session.selectedBlockId) {
-        placeBlockInSlot(session.selectedBlockId, $slot);
+
+      function renderSlots(n) {
+        var $row = $("#slot-row").empty();
+        for (var i = 0; i < n; i++) {
+          $("<div>").addClass("slot slot-empty w-16 h-10 rounded-lg border-2 border-orange-300 flex items-center justify-center text-lg font-bold text-gray-700", ).attr("data-slot", i).attr("data-filled", "").appendTo($row);
+        }
       }
+
+      function renderPool(word, levelLetters, isSign) {
+        var correctLetters = word.split("");
+        var others = levelLetters.filter(function(l) {
+          return correctLetters.indexOf(l) === -1;
+        });
+        var decoyCount = Math.max(0, Math.min(MAX_BLOCKS - correctLetters.length, others.length), );
+        var decoys = shuffle(others).slice(0, decoyCount);
+        var blocks = shuffle(correctLetters.concat(decoys)).slice(0, MAX_BLOCKS, );
+        var $pool = $("#pool-row").empty();
+        blocks.forEach(function(letter) {
+          var id = "blk" + blockIdSeq++;
+          $("<div>").addClass("block-pill rounded-full border-2 border-orange-300 bg-orange-50 px-4 py-2 text-lg font-bold text-gray-800", ).addClass(isSign ? "font-sign" : "").attr("draggable", "true").attr("data-block-id", id).attr("data-letter", letter).text(letter).appendTo($pool);
+        });
+      }
+      // ---------- DRAG & DROP (native) + TAP FALLBACK ----------
+      $(document).on("dragstart", ".block-pill", function(e) {
+          $(this).addClass("dragging");
+          e.originalEvent.dataTransfer.setData("text/plain", $(this).attr("data-block-id"), );
+        }).on("dragend", ".block-pill", function() {
+          $(this).removeClass("dragging");
+        }).on("dragover", ".slot", function(e) {
+          e.preventDefault();
+          $(this).addClass("dropzone-over");
+        }).on("dragleave", ".slot", function() {
+          $(this).removeClass("dropzone-over");
+        }).on("drop", ".slot", function(e) {
+          e.preventDefault();
+          $(this).removeClass("dropzone-over");
+          var blockId = e.originalEvent.dataTransfer.getData("text/plain");
+          placeBlockInSlot(blockId, $(this));
+        })
+        // tap-to-select block
+        .on("click", ".block-pill", function() {
+          $(".block-pill").removeClass("selected");
+          if (session.selectedBlockId === $(this).attr("data-block-id")) {
+            session.selectedBlockId = null;
+            return;
+          }
+          session.selectedBlockId = $(this).attr("data-block-id");
+          $(this).addClass("selected");
+        })
+        // tap slot to place selected block, or clear a filled slot
+        .on("click", ".slot", function() {
+          var $slot = $(this);
+          var filledId = $slot.attr("data-filled");
+          if (filledId) {
+            returnBlockToPool(filledId, $slot);
+            return;
+          }
+          if (session.selectedBlockId) {
+            placeBlockInSlot(session.selectedBlockId, $slot);
+          }
+        });
+
+      function placeBlockInSlot(blockId, $slot) {
+        var $block = $('.block-pill[data-block-id="' + blockId + '"]');
+        if (!$block.length || $block.hasClass("used")) return;
+        if ($slot.attr("data-filled")) return; // slot sudah terisi
+        $slot.attr("data-filled", blockId).attr("data-letter", $block.attr("data-letter")).removeClass("slot-empty").addClass("slot-filled").toggleClass("font-sign", $block.hasClass("font-sign")).text($block.attr("data-letter"));
+        $block.addClass("used").removeClass("selected");
+        session.selectedBlockId = null;
+        checkIfComplete();
+      }
+
+      function returnBlockToPool(blockId, $slot) {
+        $('.block-pill[data-block-id="' + blockId + '"]').removeClass("used");
+        $slot.removeAttr("data-filled").removeClass("slot-filled font-sign").addClass("slot-empty").text("");
+      }
+
+      function checkIfComplete() {
+        var $slots = $("#slot-row .slot");
+        var filled = $slots.filter("[data-filled]");
+        if (filled.length < $slots.length) return;
+        var answer = "";
+        $slots.each(function() {
+          answer += $(this).attr("data-letter");
+        });
+        var isCorrect = answer === session.currentWord;
+        if (isCorrect) {
+          session.correct++;
+          session.sessionXp += 5;
+          addXp(5);
+          $slots.addClass("box-flash-correct");
+          $("#feedback-text").text("Benar! +5 EXP").removeClass("text-red-500").addClass("text-green-600");
+        } else {
+          session.wrong++;
+          $slots.addClass("box-flash-wrong");
+          $("#feedback-text").text("Kurang tepat. Jawaban: " + session.currentWord).removeClass("text-green-600").addClass("text-red-500");
+        }
+        $("#score-display").text(session.sessionXp);
+        setTimeout(function() {
+          $slots.removeClass("box-flash-correct box-flash-wrong");
+          nextSoal();
+        }, 800);
+      }
+      // ---------- SESSION COMPLETE ----------
+      function endSession() {
+        clearInterval(timerHandle);
+        $("#end-correct").text(session.correct);
+        $("#end-wrong").text(session.wrong);
+        $("#end-exp").text(session.sessionXp);
+        var $lvup = $("#end-levelup");
+        $lvup.addClass("hidden").text("");
+        // (level-up is already recorded in real time by addXp; this only updates the display)
+        goScreen("end");
+      }
+      // ---------- SIGN DICTIONARY ----------
+      function buildDictionary() {
+        var $grid = $("#dict-grid").empty();
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(function(ch) {
+          var $cell = $("<div>").addClass("flex flex-col items-center gap-1 border border-orange-200 rounded-xl py-3", );
+          $("<span>").addClass("font-sign text-2xl text-orange-500").text(ch).appendTo($cell);
+          $("<span>").addClass("text-xs text-gray-500 font-semibold").text(ch).appendTo($cell);
+          $cell.appendTo($grid);
+        });
+      }
+      // ---------- HOME SCREEN REFRESH ----------
+      function refreshHome() {
+        $("#start-level").text(state.level);
+        $("#start-xp").text(state.xp);
+        $("#start-xp-req").text(xpRequired(state.level));
+      }
+      // ---------- EVENTS ----------
+      $("#btn-mulai").on("click", function() {
+        if (!GAME_DATA) return;
+        startSession();
+      });
+      $("#btn-lagi").on("click", function() {
+        refreshHome();
+        goScreen("start");
+      });
+      $("#btn-akhiri").on("click", function() {
+        endSession();
+      });
+      $("#btn-kamus").on("click", function() {
+        buildDictionary();
+        $("#modal-dict").removeClass("hidden").addClass("flex");
+      });
+      $("#btn-close-dict").on("click", function() {
+        $("#modal-dict").removeClass("flex").addClass("hidden");
+      });
+      // ---------- INIT ----------
+      $("#btn-mulai").prop("disabled", true);
+      refreshHome();
+      fetchData();
     });
-
-  function placeBlockInSlot(blockId, $slot) {
-    var $block = $('.block-pill[data-block-id="' + blockId + '"]');
-    if (!$block.length || $block.hasClass('used')) return;
-    if ($slot.attr('data-filled')) return; // slot sudah terisi
-
-    $slot
-      .attr('data-filled', blockId)
-      .attr('data-letter', $block.attr('data-letter'))
-      .removeClass('slot-empty').addClass('slot-filled')
-      .toggleClass('font-sign', $block.hasClass('font-sign'))
-      .text($block.attr('data-letter'));
-
-    $block.addClass('used').removeClass('selected');
-    session.selectedBlockId = null;
-
-    checkIfComplete();
-  }
-
-  function returnBlockToPool(blockId, $slot) {
-    $('.block-pill[data-block-id="' + blockId + '"]').removeClass('used');
-    $slot
-      .removeAttr('data-filled')
-      .removeClass('slot-filled font-sign').addClass('slot-empty')
-      .text('');
-  }
-
-  function checkIfComplete() {
-    var $slots = $('#slot-row .slot');
-    var filled = $slots.filter('[data-filled]');
-    if (filled.length < $slots.length) return;
-
-    var answer = '';
-    $slots.each(function () { answer += $(this).attr('data-letter'); });
-
-    var isCorrect = answer === session.currentWord;
-    if (isCorrect) {
-      session.correct++;
-      session.sessionXp += 5;
-      addXp(5);
-      $slots.addClass('box-flash-correct');
-      $('#feedback-text').text('Benar! +5 EXP').removeClass('text-red-500').addClass('text-green-600');
-    } else {
-      session.wrong++;
-      $slots.addClass('box-flash-wrong');
-      $('#feedback-text').text('Kurang tepat. Jawaban: ' + session.currentWord).removeClass('text-green-600').addClass('text-red-500');
-    }
-    $('#score-display').text(session.sessionXp);
-
-    setTimeout(function () {
-      $slots.removeClass('box-flash-correct box-flash-wrong');
-      nextSoal();
-    }, 800);
-  }
-
-  // ---------- SESSION COMPLETE ----------
-  function endSession() {
-    clearInterval(timerHandle);
-    $('#end-correct').text(session.correct);
-    $('#end-wrong').text(session.wrong);
-    $('#end-exp').text(session.sessionXp);
-
-    var $lvup = $('#end-levelup');
-    $lvup.addClass('hidden').text('');
-    // (level-up is already recorded in real time by addXp; this only updates the display)
-    goScreen('end');
-  }
-
-  // ---------- SIGN DICTIONARY ----------
-  function buildDictionary() {
-    var $grid = $('#dict-grid').empty();
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(function (ch) {
-      var $cell = $('<div>').addClass('flex flex-col items-center gap-1 border border-orange-200 rounded-xl py-3');
-      $('<span>').addClass('font-sign text-2xl text-orange-500').text(ch).appendTo($cell);
-      $('<span>').addClass('text-xs text-gray-500 font-semibold').text(ch).appendTo($cell);
-      $cell.appendTo($grid);
-    });
-  }
-
-  // ---------- HOME SCREEN REFRESH ----------
-  function refreshHome() {
-    $('#start-level').text(state.level);
-    $('#start-xp').text(state.xp);
-    $('#start-xp-req').text(xpRequired(state.level));
-  }
-
-  // ---------- EVENTS ----------
-  $('#btn-mulai').on('click', function () {
-    if (!GAME_DATA) return;
-    startSession();
-  });
-  $('#btn-lagi').on('click', function () {
-    refreshHome();
-    goScreen('start');
-  });
-  $('#btn-akhiri').on('click', function () {
-    endSession();
-  });
-  $('#btn-kamus').on('click', function () {
-    buildDictionary();
-    $('#modal-dict').removeClass('hidden').addClass('flex');
-  });
-  $('#btn-close-dict').on('click', function () {
-    $('#modal-dict').removeClass('flex').addClass('hidden');
-  });
-
-  // ---------- INIT ----------
-  $('#btn-mulai').prop('disabled', true);
-  refreshHome();
-  fetchData();
-});
-</script>
-
+  </script>
 </body>
+
 </html>
