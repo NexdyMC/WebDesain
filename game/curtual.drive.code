@@ -1,0 +1,39 @@
+    <!-- Cultural Quote -->
+    <section id="cultural-quote" class="relative w-full px-5 overflow-hidden text-white py-14 sm:px-10 sm:py-20 md:py-28 lg:px-16">
+      <div id="culturalQuoteRibbonBg"
+          class="ribbon-shadow absolute inset-0 bg-orange-600 -translate-x-full transition-transform duration-[1100ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] will-change-transform
+                  [clip-path:none]
+                  md:[clip-path:polygon(0%_0%,100%_0%,calc(100%-6.5rem)_50%,100%_100%,0%_100%)]
+                  lg:[clip-path:polygon(0%_0%,100%_0%,calc(100%-8rem)_50%,100%_100%,0%_100%)]">
+      </div>
+
+      <!-- Content Container (Fades & slides in smoothly alongside the ribbon) -->
+      <div id="culturalQuoteContent" class="relative z-10 max-w-4xl mx-auto text-center opacity-0 -translate-x-8 transition-all duration-[1000ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] delay-200 will-change-transform">
+
+        <!-- Quote Icon -->
+        <div class="flex items-center justify-center w-12 h-12 mx-auto mb-6 text-xl rounded-full shadow-inner sm:w-16 sm:h-16 text-amber-300 bg-white/10 backdrop-blur-md sm:mb-8 sm:text-2xl">
+          <i class="fas fa-quote-left" aria-hidden="true"></i>
+        </div>
+
+        <!-- Main Quote Text with Scroll-Driven Reveal (ID & Functionality Dipertahankan) -->
+        <blockquote id="culturalQuoteText" class="mb-5 font-serif text-xl font-medium leading-relaxed text-white break-words sm:text-3xl md:text-4xl sm:mb-6 drop-shadow-sm">
+          &ldquo;Orang tuli bisa melakukan apa saja yang bisa dilakukan orang yang bisa mendengar, kecuali mendengar.&rdquo;
+        </blockquote>
+
+        <!-- Original Quote & Author Attribution -->
+        <p id="culturalQuoteOriginal" class="mb-2 text-sm italic font-light transition-opacity duration-300 text-amber-200 sm:text-base md:text-lg">
+          &ldquo;Deaf people can do anything hearing people can do except hear.&rdquo;
+        </p>
+        <p class="mb-8 text-xs font-semibold tracking-wide uppercase text-amber-300 sm:text-sm sm:mb-10">
+          &mdash; Dr. I. King Jordan (Presiden Tuli Pertama di Gallaudet University)
+        </p>
+
+        <!-- Glassmorphism Card Explainer -->
+        <div class="p-5 text-center border shadow-2xl bg-white/15 backdrop-blur-md border-white/20 rounded-2xl md:p-8 sm:rounded-3xl">
+          <p class="text-xs leading-relaxed sm:text-sm md:text-base text-orange-50">
+            Kami percaya bahwa setiap bahasa adalah jendela untuk saling mengerti. Dengan mempelajari bahasa isyarat, kita turut serta meruntuhkan stigma, membangun empati, dan mewujudkan masyarakat yang ramah disabilitas.
+          </p>
+        </div>
+
+      </div>
+    </section>

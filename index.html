@@ -65,26 +65,24 @@
   
   <!-- Main Content -->
   <main id="main-content">
-    <section class="relative flex justify-center w-full h-screen overflow-hidden">
-      <div class="absolute inset-0 blur">
-        <img src="assets/images/hero-section.png" alt="Belajar bahasa isyarat dengan empati"
-          class="object-cover w-full h-full">
+    <section class="relative flex justify-center w-full h-[calc(100vh-96px)] overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="assets/images/hero-section.png" alt="Belajar bahasa isyarat dengan empati" class="object-cover object-right w-full h-full md:object-center">
         <div class="absolute inset-0 bg-black/40"></div>
       </div>
 
       <!-- Content -->
-      <div class="relative z-10 w-full px-4 py-5 max-w-7xl max-h-7xl sm:px-6 sm:py-10 lg:px-8">
+      <div class="relative z-10 w-full px-4 py-5 max-w-7xl sm:px-6 sm:py-10 lg:px-8">
         <div class="flex items-center justify-start flex-1 h-full">
           <div class="flex flex-col max-w-3xl gap-4">
-            <h1 class="text-4xl font-bold leading-none text-white md:text-5xl lg:text-6xl"> 
+            <h1 class="text-4xl font-bold text-white md:text-5xl lg:text-6xl"> 
               Isyarat bukan sekadar bentuk tangan, melainkan berbicara dengan empati.
             </h1>
-            <p class="text-sm md:text-base text-white/90 leading-relaxed">
-              Kebaikan adalah nyanyian indah yang bisa didengar oleh orang tuli, sekaligus bunga indah yang bisa dilihat
-              oleh orang buta.
+            <p class="text-sm md:text-base text-white/90 leading-tight">
+              Kebaikan adalah nyanyian indah yang bisa didengar oleh orang tuli, sekaligus bunga indah yang bisa dilihat oleh orang buta.
             </p>
             <div class="flex flex-col gap-2 md:flex-row">
-              <a href="edukasi.html" class="flex gap-4 px-6 py-3 text-lg font-semibold text-white transition-all duration-300 border-2 border-orange-500 rounded-full shadow-lg hover:bg-orange-500 backdrop-blur-sm">
+              <a href="edukasi.html" class="flex items-center gap-4 px-4 py-2 font-semibold text-white transition-all duration-300 border-2 border-orange-500 rounded-full shadow-lg md:px-6 md:py-3 text-md lg:text-lg w-fit backdrop-blur-sm hover:bg-orange-500">
                 Mulai Pelajari
                 <i class="text-3xl fa-arrow-right fa-solid"></i>
               </a>
@@ -94,7 +92,7 @@
       </div>
 
       <div class="absolute bottom-0 left-0 z-10 w-full leading-none">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full" preserveAspectRatio="none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 110" class="w-full" preserveAspectRatio="none">
           <path fill="#ffffff" d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z"></path>
         </svg>
       </div>
@@ -283,46 +281,6 @@
       </div>
     </section>
 
-    <!-- Cultural Quote -->
-    <section id="cultural-quote" class="relative w-full px-5 overflow-hidden text-white py-14 sm:px-10 sm:py-20 md:py-28 lg:px-16">
-      <div id="culturalQuoteRibbonBg"
-          class="ribbon-shadow absolute inset-0 bg-orange-600 -translate-x-full transition-transform duration-[1100ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] will-change-transform
-                  [clip-path:none]
-                  md:[clip-path:polygon(0%_0%,100%_0%,calc(100%-6.5rem)_50%,100%_100%,0%_100%)]
-                  lg:[clip-path:polygon(0%_0%,100%_0%,calc(100%-8rem)_50%,100%_100%,0%_100%)]">
-      </div>
-
-      <!-- Content Container (Fades & slides in smoothly alongside the ribbon) -->
-      <div id="culturalQuoteContent" class="relative z-10 max-w-4xl mx-auto text-center opacity-0 -translate-x-8 transition-all duration-[1000ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] delay-200 will-change-transform">
-
-        <!-- Quote Icon -->
-        <div class="flex items-center justify-center w-12 h-12 mx-auto mb-6 text-xl rounded-full shadow-inner sm:w-16 sm:h-16 text-amber-300 bg-white/10 backdrop-blur-md sm:mb-8 sm:text-2xl">
-          <i class="fas fa-quote-left" aria-hidden="true"></i>
-        </div>
-
-        <!-- Main Quote Text with Scroll-Driven Reveal (ID & Functionality Dipertahankan) -->
-        <blockquote id="culturalQuoteText" class="mb-5 font-serif text-xl font-medium leading-relaxed text-white break-words sm:text-3xl md:text-4xl sm:mb-6 drop-shadow-sm">
-          &ldquo;Orang tuli bisa melakukan apa saja yang bisa dilakukan orang yang bisa mendengar, kecuali mendengar.&rdquo;
-        </blockquote>
-
-        <!-- Original Quote & Author Attribution -->
-        <p id="culturalQuoteOriginal" class="mb-2 text-sm italic font-light transition-opacity duration-300 text-amber-200 sm:text-base md:text-lg">
-          &ldquo;Deaf people can do anything hearing people can do except hear.&rdquo;
-        </p>
-        <p class="mb-8 text-xs font-semibold tracking-wide uppercase text-amber-300 sm:text-sm sm:mb-10">
-          &mdash; Dr. I. King Jordan (Presiden Tuli Pertama di Gallaudet University)
-        </p>
-
-        <!-- Glassmorphism Card Explainer -->
-        <div class="p-5 text-center border shadow-2xl bg-white/15 backdrop-blur-md border-white/20 rounded-2xl md:p-8 sm:rounded-3xl">
-          <p class="text-xs leading-relaxed sm:text-sm md:text-base text-orange-50">
-            Kami percaya bahwa setiap bahasa adalah jendela untuk saling mengerti. Dengan mempelajari bahasa isyarat, kita turut serta meruntuhkan stigma, membangun empati, dan mewujudkan masyarakat yang ramah disabilitas.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
     <!-- Isyarat Dalam Angka -->
     <section id="isyarat-angka" class="px-4 py-16 bg-white sm:px-6 md:py-24 lg:px-8">
       <div class="mx-auto max-w-7xl">
@@ -341,7 +299,7 @@
         </div>
 
         <!-- Animated Random Number Stats Grid -->
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="grid grid-cols-2 gap-6 lg:grid-cols-4">
           
           <!-- Stat 1: Kosa Kata -->
           <div class="stat-flip-card card-interactive fade-up-item" style="--delay: 100ms;" role="button" tabindex="0" aria-pressed="false" aria-label="Lihat informasi Kosakata Dasar">
@@ -454,97 +412,61 @@
         <div class="text-center mb-14 fade-up-item" style="--delay: 60ms;">
           <div class="flex items-center justify-center gap-2 heading-icon-layout sm:gap-4">
             <i class="text-xl text-orange-500 why-heading-icon fa-solid fa-graduation-cap sm:text-3xl" aria-hidden="true"></i>
-            <h2 class="text-2xl font-extrabold tracking-tight tracking-in-contract text-slate-900 sm:text-4xl">
-              Modul Belajar <span class="text-transparent bg-orange-600 bg-clip-text">Pilihan</span>
-            </h2>
+            <h2 class="text-2xl font-extrabold tracking-tight tracking-in-contract text-slate-900 sm:text-4xl">Modul Belajar <span class="text-transparent bg-orange-600 bg-clip-text">Pilihan</span></h2>
           </div>
           <p class="max-w-2xl mx-auto mt-4 text-base text-slate-600 sm:text-lg">
             Pelajari materi terstruktur langkah demi langkah, mulai dari abjad dasar, ungkapan harian, percakapan praktis, hingga kategori ramah anak.
           </p>
         </div>
-
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="grid grid-cols-2 gap-6 lg:grid-cols-4">
 
           <!-- Card 1 -->
-          <a href="edukasi.html"
-            class="flex flex-col h-full overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-300 fade-up-item"
-            style="--delay: 100ms;">
-            <div
-              class="relative aspect-[4/3] bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white overflow-hidden">
-              <i class="text-6xl transition-transform duration-200 fa-solid fa-font text-white/80 group-hover:scale-110"
-                aria-hidden="true"></i>
-              <span
-                class="absolute px-3 py-1 text-xs font-bold tracking-wider text-orange-900 uppercase rounded-full top-3 left-3 bg-white/90 backdrop-blur-xs">Level
-                1</span>
+          <a href="edukasi.html" class="flex flex-col h-full overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-300 fade-up-item duration-100">
+            <div class="relative aspect-[4/3] bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white overflow-hidden">
+              <i class="text-6xl transition-transform duration-200 fa-solid fa-font text-white/80 group-hover:scale-110" aria-hidden="true"></i>
+              <span class="absolute px-3 py-1 text-xs font-bold tracking-wider text-orange-900 uppercase rounded-full top-3 left-3 bg-white/90 backdrop-blur-xs">Level 1</span>
             </div>
             <div class="flex flex-col flex-1 p-6">
-              <h3 class="text-lg font-bold transition-colors text-slate-900 group-hover:text-orange-600">Alfabet A-Z
-              </h3>
-              <p class="text-xs leading-relaxed mt-1.5 text-slate-500">Fondasi utama pembentukan huruf dan ejaan tangan
-                (fingerspelling).</p>
+              <h3 class="text-lg font-bold transition-colors text-slate-900 group-hover:text-orange-600">Alfabet A-Z</h3>
+              <p class="text-xs leading-relaxed mt-1.5 text-slate-500">Fondasi utama pembentukan huruf dan ejaan tangan (fingerspelling).</p>
             </div>
           </a>
 
           <!-- Card 2 -->
-          <a href="edukasi.html"
-            class="flex flex-col h-full overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 fade-up-item"
-            style="--delay: 180ms;">
-            <div
-              class="relative aspect-[4/3] bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-white overflow-hidden">
-              <i class="text-6xl transition-transform duration-200 fa-solid fa-comments text-white/80 group-hover:scale-110"
-                aria-hidden="true"></i>
-              <span
-                class="absolute px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full top-3 left-3 text-amber-950 bg-white/90 backdrop-blur-xs">Level
-                2</span>
+          <a href="edukasi.html" class="flex flex-col h-full overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 fade-up-item duration-150">
+            <div class="relative aspect-[4/3] bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-white overflow-hidden">
+              <i class="text-6xl transition-transform duration-200 fa-solid fa-comments text-white/80 group-hover:scale-110" aria-hidden="true"></i>
+              <span class="absolute px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full top-3 left-3 text-amber-950 bg-white/90 backdrop-blur-xs">Level 2</span>
             </div>
             <div class="flex flex-col flex-1 p-6">
-              <h3 class="text-lg font-bold transition-colors text-slate-900 group-hover:text-amber-600">Ungkapan Harian
-              </h3>
-              <p class="text-xs leading-relaxed mt-1.5 text-slate-500">Salam pembuka, terima kasih, permohonan maaf, dan
-                sapaan akrab.</p>
+              <h3 class="text-lg font-bold transition-colors text-slate-900 group-hover:text-amber-600">Ungkapan Harian</h3>
+              <p class="text-xs leading-relaxed mt-1.5 text-slate-500">Salam pembuka, terima kasih, permohonan maaf, dan sapaan akrab.</p>
             </div>
           </a>
 
           <!-- Card 3 -->
-          <a href="edukasi.html"
-            class="flex flex-col h-full overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-300 fade-up-item"
-            style="--delay: 260ms;">
-            <div
-              class="relative aspect-[4/3] bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white overflow-hidden">
-              <i class="text-6xl transition-transform duration-200 fa-solid fa-people-arrows text-white/80 group-hover:scale-110"
-                aria-hidden="true"></i>
-              <span
-                class="absolute px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full top-3 left-3 text-emerald-950 bg-white/90 backdrop-blur-xs">Level
-                3</span>
+          <a href="edukasi.html" class="flex flex-col h-full overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-300 fade-up-item duration-200">
+            <div class="relative aspect-[4/3] bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white overflow-hidden">
+              <i class="text-6xl transition-transform duration-200 fa-solid fa-people-arrows text-white/80 group-hover:scale-110" aria-hidden="true"></i>
+              <span class="absolute px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full top-3 left-3 text-emerald-950 bg-white/90 backdrop-blur-xs">Level 3</span>
             </div>
             <div class="flex flex-col flex-1 p-6">
-              <h3 class="text-lg font-bold transition-colors text-slate-900 group-hover:text-emerald-600">Percakapan
-                Praktis</h3>
-              <p class="text-xs leading-relaxed mt-1.5 text-slate-500">Membangun kalimat tanya, ekspresi wajah, dan
-                dialog sehari-hari.</p>
+              <h3 class="text-lg font-bold transition-colors text-slate-900 group-hover:text-emerald-600">Percakapan Praktis</h3>
+              <p class="text-xs leading-relaxed mt-1.5 text-slate-500">Membangun kalimat tanya, ekspresi wajah, dan dialog sehari-hari.</p>
             </div>
           </a>
 
           <!-- Card 4 -->
-          <a href="edukasi.html"
-            class="flex flex-col h-full overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 fade-up-item"
-            style="--delay: 340ms;">
-            <div
-              class="relative aspect-[4/3] bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white overflow-hidden">
-              <i class="text-6xl transition-transform duration-200 fa-solid fa-child-reaching text-white/80 group-hover:scale-110"
-                aria-hidden="true"></i>
-              <span
-                class="absolute px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full top-3 left-3 text-indigo-950 bg-white/90 backdrop-blur-xs">Khusus
-                Anak</span>
+          <a href="edukasi.html" class="flex flex-col h-full overflow-hidden bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 fade-up-item duration-300">
+            <div class="relative aspect-[4/3] bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white overflow-hidden">
+              <i class="text-6xl transition-transform duration-200 fa-solid fa-child-reaching text-white/80 group-hover:scale-110" aria-hidden="true"></i>
+              <span class="absolute px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full top-3 left-3 text-indigo-950 bg-white/90 backdrop-blur-xs">Khusus Anak</span>
             </div>
             <div class="flex flex-col flex-1 p-6">
-              <h3 class="text-lg font-bold transition-colors text-slate-900 group-hover:text-indigo-600">Kategori Ramah
-                Anak</h3>
-              <p class="text-xs leading-relaxed mt-1.5 text-slate-500">Materi visual bertema hewan, warna, dan benda di
-                sekitar rumah.</p>
+              <h3 class="text-lg font-bold transition-colors text-slate-900 group-hover:text-indigo-600">Kategori Ramah Anak</h3>
+              <p class="text-xs leading-relaxed mt-1.5 text-slate-500">Materi visual bertema hewan, warna, dan benda di sekitar rumah.</p>
             </div>
           </a>
-
         </div>
 
         <!-- CTA to All Modules -->
@@ -903,7 +825,7 @@
 
   <!-- Footer -->
   <footer class="text-white border-t bg-gradient-to-br from-orange-600 via-orange-600 to-amber-700 border-orange-500/30">
-    <div class="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-0">
       <div class="grid gap-10 md:grid-cols-12">
 
         <!-- Col : Brand -->
