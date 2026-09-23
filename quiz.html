@@ -26,7 +26,7 @@
     #shell .screen.hidden { display: none; }
   </style>
 </head>
-<body class="font-sans antialiased text-slate-800 bg-white selection:bg-orange-500 selection:text-white">
+<body class="font-sans antialiased bg-white text-slate-800 selection:bg-orange-500 selection:text-white">
 
   <div id="scrollProgressContainer" class="fixed left-0 top-16 z-[60] h-1 w-full bg-transparent pointer-events-none md:top-20">
     <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
@@ -45,7 +45,7 @@
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="items-center hidden font-semibold gap-7 text-slate-600 md:flex text-sm" aria-label="Navigasi Utama">
+      <nav class="items-center hidden text-sm font-semibold gap-7 text-slate-600 md:flex" aria-label="Navigasi Utama">
         <a href="index.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Beranda</a>
         <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Edukasi</a>
         <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Kamus</a>
@@ -103,13 +103,12 @@
 
   <main id="shell" class="flex items-center justify-center min-h-screen py-10">
 
-    <!-- card game -->
     <!-- screen game -->
     <div class="w-full max-w-sm px-4">
 
       <!-- START SCREEN -->
       <section id="start-screen" class="screen">
-        <div class="overflow-hidden bg-white border-2 shadow-xl rounded-3xl border-orange-100">
+        <div class="overflow-hidden bg-white border-2 border-orange-100 shadow-xl rounded-3xl">
           <div class="relative flex flex-col items-center justify-center h-48 px-4 text-center text-white bg-orange-500"
                style="background-image:radial-gradient(rgba(255,255,255,.35) 2px, transparent 2px); background-size:28px 28px;">
             <h1 class="text-3xl font-bold">Latihan Isyarat</h1>
@@ -120,7 +119,7 @@
             <p class="text-sm font-medium">Level Saat Ini</p>
             <p class="text-5xl font-light">Lv. <span id="levelText" class="text-orange-500">1</span></p>
             <p class="mt-1 text-xs text-neutral-500">Skor terbaik: <span id="bestText">0</span></p>
-            <button class="btn-play w-full py-3 mt-6 font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded-xl">
+            <button class="w-full py-3 mt-6 font-semibold text-white bg-orange-500 btn-play hover:bg-orange-600 rounded-xl">
               <i class="fa-solid fa-play mr-1.5"></i>Mulai Latihan
             </button>
           </div>
@@ -128,11 +127,11 @@
       </section>
 
       <!-- PLAY SCREEN -->
-      <section id="play-screen" class="screen hidden">
-        <div class="overflow-hidden bg-white border-2 shadow-xl rounded-3xl border-orange-100">
+      <section id="play-screen" class="hidden screen">
+        <div class="overflow-hidden bg-white border-2 border-orange-100 shadow-xl rounded-3xl">
           <div class="flex items-center justify-between px-5 py-4 text-white bg-orange-500">
-            <button class="text-sm font-semibold btn-start"><i class="fa-solid fa-arrow-left mr-1"></i>Akhiri Sesi</button>
-            <span class="px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-orange-700/40">Sesi Latihan</span>
+            <button class="text-sm font-semibold btn-start"><i class="mr-1 fa-solid fa-arrow-left"></i>Akhiri Sesi</button>
+            <span class="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-orange-700/40">Sesi Latihan</span>
           </div>
           <div class="flex items-center gap-3 px-5 pt-4 text-xs text-neutral-500">
             <span>Soal <b id="qNo" class="text-neutral-800">1</b>/<span id="qTotal">10</span></span>
@@ -154,8 +153,8 @@
       </section>
 
       <!-- FINAL SCREEN -->
-      <section id="final-screen" class="screen hidden">
-        <div class="overflow-hidden bg-white border-2 shadow-xl rounded-3xl border-orange-100">
+      <section id="final-screen" class="hidden screen">
+        <div class="overflow-hidden bg-white border-2 border-orange-100 shadow-xl rounded-3xl">
           <div class="flex items-center justify-center h-40 text-3xl font-bold text-white bg-orange-500"
                style="background-image:radial-gradient(rgba(255,255,255,.35) 2px, transparent 2px); background-size:28px 28px;">
             Hasil Latihan
@@ -164,7 +163,7 @@
             <p class="text-sm text-neutral-500">Skor kamu</p>
             <p class="text-6xl font-light"><span id="rScore" class="text-orange-500">0</span><span class="text-2xl text-neutral-400">/<span id="rTotal">10</span></span></p>
             <p id="rMsg" class="mt-2 text-sm font-medium"></p>
-            <button class="btn-play w-full py-3 mt-6 font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded-xl">Main Lagi</button>
+            <button class="w-full py-3 mt-6 font-semibold text-white bg-orange-500 btn-play hover:bg-orange-600 rounded-xl">Main Lagi</button>
             <button class="w-full py-2.5 mt-3 font-semibold text-orange-500 border-2 border-orange-400 btn-start bg-orange-50 rounded-xl">Kembali</button>
           </div>
         </div>
@@ -190,13 +189,13 @@
             Platform edukasi bahasa isyarat interaktif yang dirancang inklusif untuk semua usia. Bersama membangun masyarakat yang ramah dan saling memahami.
           </p>
           <div class="flex space-x-3">
-            <a href="#" class="flex items-center justify-center transition-all duration-200 w-9 h-9 text-white bg-white/15 border border-white/20 shadow-sm rounded-xl hover:bg-white hover:text-orange-600" aria-label="Twitter">
+            <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Twitter">
               <i class="fab fa-twitter" aria-hidden="true"></i>
             </a>
-            <a href="#" class="flex items-center justify-center transition-all duration-200 w-9 h-9 text-white bg-white/15 border border-white/20 shadow-sm rounded-xl hover:bg-white hover:text-orange-600" aria-label="Instagram">
+            <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Instagram">
               <i class="fab fa-instagram" aria-hidden="true"></i>
             </a>
-            <a href="#" class="flex items-center justify-center transition-all duration-200 w-9 h-9 text-white bg-white/15 border border-white/20 shadow-sm rounded-xl hover:bg-white hover:text-orange-600" aria-label="Youtube">
+            <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Youtube">
               <i class="fab fa-youtube" aria-hidden="true"></i>
             </a>
           </div>
@@ -204,7 +203,7 @@
 
         <!-- Col : Navigation -->
         <div class="md:col-span-3">
-          <h3 class="mb-4 text-sm font-bold tracking-wider text-amber-200 uppercase">Navigasi Utama</h3>
+          <h3 class="mb-4 text-sm font-bold tracking-wider uppercase text-amber-200">Navigasi Utama</h3>
           <ul class="space-y-2.5 text-sm text-orange-100">
             <li><a href="index.html" class="transition-colors hover:text-white">Beranda</a></li>
             <li><a href="edukasi.html" class="transition-colors hover:text-white">Modul Edukasi</a></li>
@@ -216,7 +215,7 @@
 
         <!-- Col : Contact -->
         <div class="md:col-span-4" id="kontak">
-          <h3 class="mb-4 text-sm font-bold tracking-wider text-amber-200 uppercase">Hubungi Kami</h3>
+          <h3 class="mb-4 text-sm font-bold tracking-wider uppercase text-amber-200">Hubungi Kami</h3>
           <div class="space-y-3 text-sm text-orange-100">
             <div class="flex items-center gap-3">
               <i class="text-amber-300 fa-solid fa-location-dot" aria-hidden="true"></i>
@@ -235,7 +234,7 @@
       </div>
 
       <!-- Copyright Bar -->
-      <div class="flex flex-col items-center justify-between gap-4 pt-8 mt-12 text-xs border-t border-white/20 sm:flex-row text-orange-200">
+      <div class="flex flex-col items-center justify-between gap-4 pt-8 mt-12 text-xs text-orange-200 border-t border-white/20 sm:flex-row">
         <p>&copy; 2026 IsyaratOK. Seluruh hak cipta dilindungi.</p>
         <div class="flex space-x-6">
           <a href="#" class="transition-colors hover:text-white">Kebijakan Privasi</a>
@@ -254,7 +253,6 @@
   <script>
     $(function () {
 
-      // ====== ScreenGame (kode buatan sendiri) ======
       function ScreenGame(screen) {
         const dataScreen = ["#start-screen", "#play-screen", "#final-screen"];
         const targetScreen = screen.startsWith("#") ? screen : `#${screen}`;
@@ -272,15 +270,13 @@
       $(".btn-final").on("click", function () { ScreenGame("final-screen"); });
       $(".btn-start").on("click", function () { refreshHome(); ScreenGame("start-screen"); });
 
-      // ====== DATA: huruf BSINDO A-Z ======
-      // Ganti path "src" ke gambar isyarat asli di folder assets/img/bisindo/
       const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map(h => ({
         huruf: h,
-        src: `assets/img/bisindo/${h}.png`
+        src: `assets/images/bisindo/${h}.png`
       }));
 
-      const TOTAL = 10;    // jumlah soal per sesi
-      const NUM_OPTS = 3;  // jumlah pilihan jawaban
+      const TOTAL = 10;    // jumlah soal
+      const NUM_OPTS = 4;  // jumlah pilihan jawaban
       let state = { no: 0, score: 0, answer: "", locked: false };
 
       function randItem(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
@@ -292,8 +288,6 @@
         }
         return a;
       }
-
-      // soal: {src, huruf} | jawaban: [huruf1, huruf2, huruf3] | sebenarnya: huruf yang benar
       function nextSoal(soal, jawaban, sebenarnya) {
         state.answer = sebenarnya;
         state.locked = false;
@@ -305,7 +299,7 @@
         );
 
         $("#opsi").html(jawaban.map(j =>
-          `<button class="opsi relative flex items-center justify-center py-4 text-2xl font-bold transition border-2 border-orange-300 bg-orange-50 hover:bg-orange-100 rounded-xl" data-val="${j}">
+          `<button class="relative flex items-center justify-center py-4 text-2xl font-bold transition border-2 border-orange-300 opsi bg-orange-50 hover:bg-orange-100 rounded-xl" data-val="${j}">
              ${j}
            </button>`
         ).join(""));
