@@ -63,7 +63,7 @@
   
   <!-- Main Content -->
   <main id="main-content">
-    <section class="relative flex justify-center w-full h-screen overflow-hidden">
+    <section class="relative flex justify-center w-full h-[calc(100vh-20px)] lg:h-screen overflow-hidden">
       <div class="absolute inset-0">
         <img src="assets/images/hero-section.webp" alt="Belajar bahasa isyarat dengan empati" class="object-cover object-right w-full h-full md:object-center">
         <div class="absolute inset-0 bg-slate-900/40"></div>
@@ -73,20 +73,18 @@
       <div class="relative z-10 w-full px-4 py-5 max-w-7xl sm:px-6 sm:py-10 lg:px-8">
         <div class="flex items-center justify-start flex-1 h-full">
           <div class="flex flex-col max-w-3xl gap-4 lg:max-w-4xl">
-            <h1 class="text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl"> 
+            <h1 class="text-2xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl"> 
               Isyarat bukan sekadar tangan, melainkan berbicara dengan empati.
             </h1>
             <p class="text-sm leading-tight md:text-base text-white/90">
               Kebaikan adalah nyanyian indah yang bisa didengar oleh orang tuli, sekaligus bunga indah yang bisa dilihat oleh orang buta.
             </p>
-            <div class="flex gap-2 md:flex-row">
-              <a href="edukasi.html" class="flex items-center gap-4 px-4 py-2 font-semibold text-white transition-all duration-300 bg-orange-500 border-2 border-orange-500 rounded-full shadow-lg hover:text-orange-600 hover:bg-white md:px-5 md:py-2 text-md lg:text-lg w-fit backdrop-blur-sm hover:bg-orange-500">
-                Mulai Pelajari
-                <i class="text-3xl fa-arrow-right fa-solid"></i>
+            <div class="flex flex-col gap-2 md:flex-row">
+              <a href="edukasi.html" class="flex text-sm items-center gap-4 px-3 py-1.5 font-semibold text-white transition-all duration-300 bg-orange-500 border-2 border-orange-500 rounded-full shadow-lg hover:text-orange-600 hover:bg-white md:px-5 md:py-2 text-md lg:text-lg w-fit backdrop-blur-sm hover:bg-orange-500">
+                Mulai Pelajari<i class="text-sm lg:text-3xl fa-arrow-right fa-solid"></i>
               </a>
-              <a href="edukasi.html" class="flex items-center gap-4 px-4 py-2 font-semibold text-white transition-all duration-300 border-2 border-orange-500 rounded-full shadow-lg md:px-5 md:py-2 text-md lg:text-lg w-fit backdrop-blur-sm hover:bg-white hover:text-orange-600">
-                Tes Kuis
-                <i class="text-3xl fa-arrow-right fa-solid"></i>
+              <a href="edukasi.html" class="flex text-sm items-center gap-4 px-3 py-1.5 font-semibold text-white transition-all duration-300 border-2 border-orange-500 rounded-full shadow-lg md:px-5 md:py-2 text-md lg:text-lg w-fit backdrop-blur-sm hover:bg-white hover:text-orange-600">
+                Tes Kuis<i class="text-sm lg:text-3xl fa-arrow-right fa-solid"></i>
               </a>
             </div>
           </div>
@@ -94,34 +92,65 @@
       </div>
 
       <div class="absolute bottom-0 left-0 z-10 w-full leading-none">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 110" class="w-full" preserveAspectRatio="none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full" preserveAspectRatio="none">
           <path fill="#ffffff" d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z"></path>
         </svg>
       </div>
     </section>
 
-    <!-- Benefits Summary -->
-    <section class="px-4 py-5 bg-white sm:px-6 sm:py-10 lg:px-8" aria-label="Manfaat belajar di IsyaratOK">
-      <div class="grid grid-cols-3 gap-2 py-3 mx-auto border-orange-100 max-w-7xl border-y sm:grid-cols-3 sm:divide-x sm:divide-orange-100 sm:gap-0 sm:py-2">
-        <div class="flex flex-col items-center justify-center gap-2 px-1 text-center sm:flex-row sm:gap-3 sm:px-4 sm:text-left">
-          <i class="flex items-center justify-center text-sm text-orange-600 bg-orange-100 rounded-full w-9 h-9 shrink-0 sm:w-10 sm:h-10 sm:text-base fa-solid fa-hands-asl-interpreting" aria-hidden="true"></i>
-          <div>
-            <p class="text-xs font-bold leading-tight text-slate-800 sm:text-sm">BISINDO &amp; SIBI</p>
-            <p class="text-[10px] leading-tight text-slate-600 sm:text-xs">Dua sistem bahasa isyarat</p>
+    <!-- About Us -->
+    <section class="px-6 py-16 bg-white md:px-12" id="tentang-kami">
+      <div class="max-w-6xl mx-auto space-y-24">
+
+        <div class="flex flex-col items-center gap-10 md:flex-row">
+          <div class="w-full md:w-1/2">
+            <img src="assets/images/Logo.png" alt="Definisi IsyaratOK" class="object-cover w-full shadow-lg rounded-2xl">
           </div>
-        </div>
-        <div class="flex flex-col items-center justify-center gap-2 px-1 text-center sm:flex-row sm:gap-3 sm:px-4 sm:text-left">
-          <i class="flex items-center justify-center text-sm rounded-full w-9 h-9 text-amber-600 shrink-0 bg-amber-100 sm:w-10 sm:h-10 sm:text-base fa-solid fa-spell-check" aria-hidden="true"></i>
-          <div>
-            <p class="text-xs font-bold leading-tight text-slate-800 sm:text-sm">Alfabet A-Z</p>
-            <p class="text-[10px] leading-tight text-slate-600 sm:text-xs">Mulai dari gestur dasar</p>
+          
+          <!-- Sisi Teks -->
+          <div class="w-full space-y-4 md:w-1/2">
+            <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+              Apa itu <span class="text-orange-600">IsyaratOK?</span>
+            </h2>
+            <!-- Tempat Paragraf Definisi (Teks Sementara) -->
+            <p class="text-lg leading-relaxed text-gray-600">
+              [Di sini nanti kamu bisa menaruh paragraf definisinya. Gunakan teks ini sementara untuk melihat tampilan UI-nya. Platform edukasi bahasa isyarat interaktif yang dirancang inklusif untuk semua usia.]
+            </p>
           </div>
+
         </div>
-        <div class="flex flex-col items-center justify-center gap-2 px-1 text-center sm:flex-row sm:gap-3 sm:px-4 sm:text-left">
-          <i class="flex items-center justify-center text-sm rounded-full w-9 h-9 text-emerald-600 shrink-0 bg-emerald-100 sm:w-10 sm:h-10 sm:text-base fa-solid fa-puzzle-piece" aria-hidden="true"></i>
-          <div>
-            <p class="text-xs font-bold leading-tight text-slate-800 sm:text-sm">Belajar Interaktif</p>
-            <p class="text-[10px] leading-tight text-slate-600 sm:text-xs">Materi, kamus, dan kuis</p>
+
+        <!-- BARIS 2: TUJUAN (Teks Kiri, Gambar Kanan) -->
+        <!-- Perhatikan penambahan md:flex-row-reverse untuk membalik posisi di layar besar -->
+        <div class="flex flex-col items-center gap-10 md:flex-row-reverse">
+          
+          <!-- Sisi Gambar -->
+          <div class="w-full md:w-96 ">
+            <img src="assets/images/Logo.jpg" alt="Tujuan IsyaratOK" class="object-cover w-[100px] border-4 border-orange-100 shadow-lg rounded-2xl">
+          </div>
+          
+          <!-- Sisi Teks -->
+          <div class="w-full space-y-4 md:w-1/2">
+            <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+              Tujuan & <span class="text-orange-600">Misi Kami</span>
+            </h2>
+            <!-- Tempat Paragraf Tujuan (Teks Sementara) -->
+            <p class="text-lg leading-relaxed text-gray-600">
+              [Tempatkan paragraf atau poin-poin tujuan di sini. Contoh: Bersama membangun masyarakat yang ramah, inklusif, dan saling memahami melalui teknologi yang menjembatani komunikasi.]
+            </p>
+            
+            <!-- Contoh jika tujuan ingin dibuat poin-poin agar rapi -->
+            <ul class="mt-4 space-y-3">
+              <li class="flex items-center text-gray-700">
+                <!-- Ikon Centang Oranye -->
+                <svg class="w-6 h-6 mr-3 text-orange-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                [Poin Tujuan 1: Mempermudah akses belajar]
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-6 h-6 mr-3 text-orange-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                [Poin Tujuan 2: Menyediakan kurikulum terstruktur]
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -827,10 +856,17 @@
   </div>
 
   <!-- Footer -->
-  <footer class="text-white border-t bg-gradient-to-br from-orange-600 via-orange-600 to-amber-700 border-orange-500/30">
-    <div class="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-0">
+  <footer class="relative overflow-hidden text-white bg-orange-600">
+    <!-- Background Glombang  -->
+    <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true">
+      <path class="fill-footer-color-2" d="M0 80 C60 60 110 60 170 130 C260 240 350 340 450 330 C560 320 620 190 720 190 C800 190 850 250 900 245 C970 240 1010 165 1075 165 C1150 165 1220 300 1290 320 C1340 335 1400 280 1440 290 L1440 600 L0 600 Z" />
+      <path class="fill-footer-color-3" d="M0 355 C100 355 230 450 345 458 C480 465 600 330 750 328 C880 326 980 395 1085 385 C1200 375 1290 280 1355 280 C1400 280 1425 300 1440 290 L1440 600 L0 600 Z" />
+      <path class="fill-footer-color-4" d="M0 490 C50 520 100 545 160 520 C230 485 290 440 360 455 C450 475 520 505 710 505 C800 505 880 590 985 590 C1100 590 1200 520 1440 510 L1440 600 L0 600 Z" />
+    </svg>
+    
+    <div class="relative z-10 px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-0">
       <div class="grid gap-10 md:grid-cols-12">
-
+        
         <!-- Col : Brand -->
         <div class="md:col-span-5">
           <a href="index.html" class="flex items-center mb-4 text-2xl font-extrabold tracking-tight text-white gap-2.5 group" aria-label="IsyaratOK Footer">
@@ -839,19 +875,11 @@
             </div>
             <span>Isyarat<span class="text-amber-300">OK</span></span>
           </a>
-          <p class="max-w-md mb-6 text-sm leading-relaxed text-orange-100">
-            Platform edukasi bahasa isyarat interaktif yang dirancang inklusif untuk semua usia. Bersama membangun masyarakat yang ramah dan saling memahami.
-          </p>
+          <p class="max-w-md mb-6 text-sm leading-relaxed text-orange-100"> Platform edukasi bahasa isyarat interaktif yang dirancang inklusif untuk semua usia. Bersama membangun masyarakat yang ramah dan saling memahami. </p>
           <div class="flex space-x-3">
-            <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Twitter">
-              <i class="fab fa-twitter" aria-hidden="true"></i>
-            </a>
-            <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Instagram">
-              <i class="fab fa-instagram" aria-hidden="true"></i>
-            </a>
-            <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Youtube">
-              <i class="fab fa-youtube" aria-hidden="true"></i>
-            </a>
+            <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Youtube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
           </div>
         </div>
 
@@ -866,7 +894,7 @@
             <li><a href="index.html#isyarat-angka" class="transition-colors hover:text-white">Statistik Isyarat</a></li>
           </ul>
         </div>
-
+        
         <!-- Col : Contact -->
         <div class="md:col-span-4" id="kontak">
           <h3 class="mb-4 text-sm font-bold tracking-wider uppercase text-amber-200">Hubungi Kami</h3>
@@ -879,17 +907,13 @@
               <i class="text-amber-300 fas fa-envelope" aria-hidden="true"></i>
               <span>halo@isyaratok.id</span>
             </div>
-            <p class="pt-2 text-xs leading-relaxed text-orange-200/90">
-              Mendukung pembelajaran BISINDO dan SIBI yang inklusif di sekolah &amp; ruang publik.
-            </p>
+            <p class="pt-2 text-xs leading-relaxed text-orange-200/90"> Mendukung pembelajaran BISINDO dan SIBI yang inklusif di sekolah &amp; ruang publik. </p>
           </div>
         </div>
-
       </div>
-
       <!-- Copyright Bar -->
       <div class="flex flex-col items-center justify-between gap-4 pt-8 mt-12 text-xs text-orange-200 border-t border-white/20 sm:flex-row">
-        <p>&copy; 2026 IsyaratOK. Seluruh hak cipta dilindungi.</p>
+        <p>&copy; <span id="footer-year">2026</span> IsyaratOK. Seluruh hak cipta dilindungi.</p>
         <div class="flex space-x-6">
           <a href="#" class="transition-colors hover:text-white">Kebijakan Privasi</a>
           <a href="#" class="transition-colors hover:text-white">Aksesibilitas</a>

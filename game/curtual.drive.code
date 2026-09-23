@@ -37,3 +37,55 @@
 
       </div>
     </section>
+
+
+
+
+
+    
+    <!-- Benefits Summary -->
+    <section class="px-4 py-5 bg-white sm:px-6 sm:py-10 lg:px-8" aria-label="Manfaat belajar di IsyaratOK">
+      <div class="grid grid-cols-3 gap-2 py-3 mx-auto border-orange-100 max-w-7xl border-y sm:grid-cols-3 sm:divide-x sm:divide-orange-100 sm:gap-0 sm:py-2">
+        <div class="flex flex-col items-center justify-center gap-2 px-1 text-center sm:flex-row sm:gap-3 sm:px-4 sm:text-left">
+          <i class="flex items-center justify-center text-sm text-orange-600 bg-orange-100 rounded-full w-9 h-9 shrink-0 sm:w-10 sm:h-10 sm:text-base fa-solid fa-hands-asl-interpreting" aria-hidden="true"></i>
+          <div>
+            <p class="text-xs font-bold leading-tight text-slate-800 sm:text-sm">BISINDO &amp; SIBI</p>
+            <p class="text-[10px] leading-tight text-slate-600 sm:text-xs">Dua sistem bahasa isyarat</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center gap-2 px-1 text-center sm:flex-row sm:gap-3 sm:px-4 sm:text-left">
+          <i class="flex items-center justify-center text-sm rounded-full w-9 h-9 text-amber-600 shrink-0 bg-amber-100 sm:w-10 sm:h-10 sm:text-base fa-solid fa-spell-check" aria-hidden="true"></i>
+          <div>
+            <p class="text-xs font-bold leading-tight text-slate-800 sm:text-sm">Alfabet A-Z</p>
+            <p class="text-[10px] leading-tight text-slate-600 sm:text-xs">Mulai dari gestur dasar</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center gap-2 px-1 text-center sm:flex-row sm:gap-3 sm:px-4 sm:text-left">
+          <i class="flex items-center justify-center text-sm rounded-full w-9 h-9 text-emerald-600 shrink-0 bg-emerald-100 sm:w-10 sm:h-10 sm:text-base fa-solid fa-puzzle-piece" aria-hidden="true"></i>
+          <div>
+            <p class="text-xs font-bold leading-tight text-slate-800 sm:text-sm">Belajar Interaktif</p>
+            <p class="text-[10px] leading-tight text-slate-600 sm:text-xs">Materi, kamus, dan kuis</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+1. Ikon untuk Bagian "Definisi / Apa itu IsyaratOK?"
+Area ini membutuhkan ikon yang melambangkan identitas inti aplikasi.
+<i class="fa-solid fa-hands-asl-interpreting"></i> : Ini adalah ikon yang paling akurat! Menampilkan dua tangan yang sedang berisyarat. Sangat cocok diletakkan di sebelah judul "Apa itu IsyaratOK?".
+<i class="fa-solid fa-users-viewfinder"></i> atau <i class="fa-solid fa-users"></i> : Melambangkan komunitas dan inklusivitas untuk semua usia.
+<i class="fa-solid fa-book-open-reader"></i> : Menekankan bahwa ini adalah platform edukasi atau pembelajaran.
+
+2. Ikon untuk Bagian "Tujuan & Misi Kami"
+Tujuan utama aplikasi ini adalah menjembatani komunikasi dan membangun empati.
+<i class="fa-solid fa-bullseye"></i> : Ikon klasik dan paling universal untuk merepresentasikan "Tujuan" atau "Target".
+<i class="fa-solid fa-hand-holding-heart"></i> : Sangat kuat untuk menyampaikan pesan empati, kepedulian, dan membangun masyarakat yang ramah.
+<i class="fa-solid fa-bridge-water"></i> : Metafora visual yang bagus jika salah satu poin misimu adalah "Menjembatani komunikasi antara teman Tuli dan Dengar".
+
+3. Ikon untuk Poin-Poin Misi (Pengganti Centang Biasa)
+Jika kamu menggunakan layout yang menampilkan poin-poin tujuan (seperti pada metode Accordion atau Tab sebelumnya), mengganti ikon centang biasa dengan ikon spesifik akan membuat UI terasa jauh lebih matang:
+Aksesibilitas (Mudah diakses): <i class="fa-solid fa-universal-access"></i>
+Interaktif / Seru (Karena ada kuis & modul): <i class="fa-solid fa-gamepad"></i> atau <i class="fa-solid fa-laptop-code"></i>
+Perkembangan Belajar: <i class="fa-solid fa-chart-line"></i> atau <i class="fa-solid fa-seedling"></i> (melambangkan pertumbuhan/proses belajar dari nol).

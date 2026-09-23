@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IsyaratOK - Eksperimen UI About Us</title>
+    <!-- Memuat Tailwind CSS melalui CDN untuk eksperimen cepat -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'isyarat-base': '#FFF7ED',
+                        'isyarat-surface': '#FFEDD5',
+                        'isyarat-accent': '#EA580C',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="p-6 space-y-16 font-sans text-gray-800 bg-isyarat-base md:p-12">
+
+    <!-- HEADER HALAMAN -->
+    <header class="text-center">
+        <h1 class="text-3xl font-bold text-gray-900">Eksperimen UI <span class="text-isyarat-accent">IsyaratOK</span></h1>
+        <p class="mt-2 text-gray-600">3 Metode Progressive Disclosure untuk menghemat section.</p>
+    </header>
+
+    <!-- ==========================================
+         METODE 1: SISTEM TAB (TABULASI)
+         ========================================== -->
+    <section class="max-w-3xl mx-auto overflow-hidden bg-white border border-orange-100 shadow-sm rounded-2xl">
+        <!-- Header / Tombol Navigasi Tab -->
+        <div class="flex border-b border-orange-100">
+            <button onclick="bukaTab('tab-definisi')" id="btn-tab-definisi" class="w-1/2 py-4 font-semibold text-center transition-colors border-b-2 text-isyarat-accent border-isyarat-accent bg-orange-50">
+                Kenali Kami
+            </button>
+            <button onclick="bukaTab('tab-tujuan')" id="btn-tab-tujuan" class="w-1/2 py-4 font-semibold text-center text-gray-500 transition-colors hover:text-isyarat-accent">
+                Misi & Tujuan
+            </button>
+        </div>
+
+        <!-- Konten Tab -->
+        <div class="p-8">
+            <!-- Konten Definisi (Aktif secara default) -->
+            <div id="tab-definisi" class="block animate-fade-in">
+                <h2 class="mb-4 text-2xl font-bold">Apa itu IsyaratOK?</h2>
+                <p class="leading-relaxed text-gray-600">
+                    IsyaratOK adalah platform edukasi bahasa isyarat interaktif yang dirancang inklusif untuk semua usia. Kami percaya bahwa bahasa isyarat bukan sekadar gerakan tangan, melainkan cara berbicara dengan empati.
+                </p>
+            </div>
+            
+            <!-- Konten Tujuan (Disembunyikan secara default menggunakan class 'hidden') -->
+            <div id="tab-tujuan" class="hidden animate-fade-in">
+                <h2 class="mb-4 text-2xl font-bold">Misi & Tujuan Kami</h2>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 mt-1 mr-3 text-isyarat-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Membangun masyarakat yang ramah dan saling memahami.
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 mt-1 mr-3 text-isyarat-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Menyediakan materi BISINDO dan SIBI yang mudah diakses siapa saja.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         METODE 2: ACCORDION (BUKA-TUTUP)
+         ========================================== -->
+    <section class="max-w-3xl mx-auto space-y-4">
+        <h2 class="mb-6 text-xl font-bold text-center">Atau gunakan gaya Accordion:</h2>
+        
+        <!-- Accordion Item 1 -->
+        <div class="overflow-hidden bg-white border border-orange-100 shadow-sm rounded-xl">
+            <button onclick="toggleAccordion('acc-1', 'icon-1')" class="flex items-center justify-between w-full p-5 font-semibold text-left text-gray-800 hover:bg-orange-50 focus:outline-none">
+                <span>Apa itu IsyaratOK?</span>
+                <!-- Ikon Panah -->
+                <svg id="icon-1" class="w-5 h-5 transition-transform duration-300 transform text-isyarat-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="acc-1" class="hidden px-5 pt-0 pb-5 text-gray-600">
+                <hr class="mb-4 border-orange-100">
+                Platform edukasi bahasa isyarat interaktif yang dirancang inklusif untuk semua usia.
+            </div>
+        </div>
+
+        <!-- Accordion Item 2 -->
+        <div class="overflow-hidden bg-white border border-orange-100 shadow-sm rounded-xl">
+            <button onclick="toggleAccordion('acc-2', 'icon-2')" class="flex items-center justify-between w-full p-5 font-semibold text-left text-gray-800 hover:bg-orange-50 focus:outline-none">
+                <span>Apa tujuan platform ini dibuat?</span>
+                <svg id="icon-2" class="w-5 h-5 transition-transform duration-300 transform text-isyarat-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="acc-2" class="hidden px-5 pt-0 pb-5 text-gray-600">
+                <hr class="mb-4 border-orange-100">
+                Kami ingin meruntuhkan dinding pembatas komunikasi dan membangun ruang inklusif melalui teknologi.
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         METODE 3: MODAL / POP-UP DIALOG
+         ========================================== -->
+    <section class="max-w-3xl py-10 mx-auto text-center">
+        <h2 class="mb-6 text-xl font-bold">Atau gunakan tombol khusus (Modal):</h2>
+        
+        <!-- Tombol Pemicu Modal -->
+        <button onclick="toggleModal('modal-about')" class="px-8 py-3 font-semibold text-white transition-transform transform rounded-full shadow-lg bg-isyarat-accent hover:bg-orange-700 hover:-translate-y-1">
+            Baca Tentang Kami
+        </button>
+
+        <!-- Latar Belakang Gelap (Overlay) & Konten Modal -->
+        <!-- Fixed inset-0 membuat modal menutupi seluruh layar -->
+        <div id="modal-about" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+            
+            <!-- Area gelap yang bisa diklik untuk menutup modal -->
+            <div onclick="toggleModal('modal-about')" class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+            
+            <!-- Kotak Konten Modal -->
+            <div class="relative z-10 w-full max-w-lg p-8 mx-4 text-left bg-white shadow-2xl rounded-2xl animate-fade-in">
+                
+                <!-- Tombol Tutup (X) -->
+                <button onclick="toggleModal('modal-about')" class="absolute text-gray-400 top-4 right-4 hover:text-red-500">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+
+                <h2 class="mb-2 text-2xl font-bold text-gray-900">Tentang <span class="text-isyarat-accent">IsyaratOK</span></h2>
+                <p class="mb-4 text-sm text-gray-600">Menjembatani Komunikasi, Membangun Empati.</p>
+                <hr class="mb-4 border-orange-100">
+                
+                <p class="mb-6 leading-relaxed text-gray-700">
+                    IsyaratOK adalah inisiatif digital yang memadukan teknologi rekayasa perangkat lunak dengan metode pembelajaran visual. Kami menyediakan alat dan modul agar siapa saja, di mana saja, dapat belajar bahasa isyarat dengan mudah dan menyenangkan.
+                </p>
+                
+                <button onclick="toggleModal('modal-about')" class="w-full py-3 font-semibold text-orange-900 transition-colors rounded-lg bg-isyarat-surface hover:bg-orange-200">
+                    Tutup Jendela Ini
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         JAVASCRIPT LOGIC
+         ========================================== -->
+    <script>
+        // Logika untuk Metode 1: Sistem Tab
+        function bukaTab(tabId) {
+            // Sembunyikan semua konten tab
+            document.getElementById('tab-definisi').classList.add('hidden');
+            document.getElementById('tab-tujuan').classList.add('hidden');
+            
+            // Reset gaya tombol (kembali ke abu-abu)
+            const btnDefinisi = document.getElementById('btn-tab-definisi');
+            const btnTujuan = document.getElementById('btn-tab-tujuan');
+            
+            btnDefinisi.className = "w-1/2 py-4 text-center font-semibold text-gray-500 hover:text-isyarat-accent transition-colors";
+            btnTujuan.className = "w-1/2 py-4 text-center font-semibold text-gray-500 hover:text-isyarat-accent transition-colors";
+
+            // Tampilkan tab yang dipilih
+            document.getElementById(tabId).classList.remove('hidden');
+
+            // Berikan gaya aktif (garis bawah oranye) pada tombol yang diklik
+            if (tabId === 'tab-definisi') {
+                btnDefinisi.className = "w-1/2 py-4 text-center font-semibold text-isyarat-accent border-b-2 border-isyarat-accent bg-orange-50 transition-colors";
+            } else {
+                btnTujuan.className = "w-1/2 py-4 text-center font-semibold text-isyarat-accent border-b-2 border-isyarat-accent bg-orange-50 transition-colors";
+            }
+        }
+
+        // Logika untuk Metode 2: Accordion
+        function toggleAccordion(contentId, iconId) {
+            const content = document.getElementById(contentId);
+            const icon = document.getElementById(iconId);
+            
+            // Toggle class 'hidden' pada area konten
+            content.classList.toggle('hidden');
+            
+            // Putar ikon panah 180 derajat jika konten terbuka
+            if (content.classList.contains('hidden')) {
+                icon.classList.remove('rotate-180');
+            } else {
+                icon.classList.add('rotate-180');
+            }
+        }
+
+        // Logika untuk Metode 3: Modal Dialog
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

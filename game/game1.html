@@ -3,150 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuis Susun Kata</title>
-    <!-- CDN Tailwind CSS -->
+    <title>Prototype Game Pilihan Ganda - Responsive</title>
+    <!-- Import Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- CDN FontAwesome / Lucide icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Import jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+        /* Mendefinisikan custom font bahasa isyarat (FSL)[cite: 2] */
+        @font-face {
+            font-family: 'SignLanguageFont';
+            /* Sesuaikan URL di bawah dengan path lokasi file MccidFslFont2-Regular.ttf Anda[cite: 2] */
+            src: local('Mccid Fsl Font 2 Regular'); 
         }
-        /* Header dot pattern */
-        .bg-dots {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.3) 15%, transparent 15%);
-            background-size: 16px 16px;
+        
+        .font-fsl {
+            font-family: 'SignLanguageFont', sans-serif;
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-800 min-h-screen flex items-center justify-center p-4">
+<body class="bg-gray-800 flex items-center justify-center min-h-screen font-sans p-4">
 
-    <section>
-      
-    </section>
-    <div class="w-full max-w-md md:max-w-xl lg:max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden transition-all duration-300">
+    <!-- Container Utama: Akan menyesuaikan ukuran antara Mobile (max-w-sm) dan Desktop (max-w-4xl) -->
+    <div class="bg-white w-full max-w-[360px] md:max-w-[900px] h-[640px] md:h-[600px] rounded-[2rem] overflow-hidden shadow-2xl flex flex-col relative transition-all duration-300">
 
-        <!-- ==================== PAGE 1: LOBBY / MENU (DIV) ==================== -->
-        <div id="page-lobby" class="w-full block">
-            <!-- Card header -->
-            <div class="bg-amber-500 bg-dots p-8 md:p-10 text-white relative rounded-b-3xl shadow-md">
-                <div class="text-center relative z-10">
-                    <h1 class="text-2xl md:text-3xl font-extrabold tracking-wide">Test Susun Kata</h1>
-                    <p class="text-sm md:text-base font-medium italic opacity-90 mt-1">Kuis Susun Kata Adaptif</p>
-                </div>
-                <!-- Question mark watermark -->
-                <div class="absolute right-4 bottom-2 text-amber-600 text-7xl md:text-8xl font-black opacity-30 select-none pointer-events-none">
-                    ?
-                </div>
+        <!-- Header Bar -->
+        <div class="bg-[#ff7a00] text-white px-5 py-4 grid grid-cols-2 md:grid-cols-3 items-center">
+            <div class="flex items-center space-x-2 cursor-pointer font-bold text-sm md:text-base justify-self-start">
+                <span>&larr;</span>
+                <span>Akhiri Sesi</span>
+            </div>
+            
+            <!-- Judul Header: Hanya muncul di Desktop -->
+            <div class="hidden md:block font-bold text-2xl text-center justify-self-center">
+                Test Pilihan Ganda
             </div>
 
-            <!-- Main card content -->
-            <div class="p-6 md:p-8 space-y-6">
-                <!-- Level and XP information -->
-                <div>
-                    <span class="text-gray-900 font-bold text-sm md:text-base">Level Saat Ini</span>
-                    <div class="flex items-baseline gap-1 mt-1">
-                        <span class="text-3xl md:text-4xl font-extrabold text-gray-900">Lv.</span>
-                        <span class="text-4xl md:text-5xl font-extrabold text-amber-500">1</span>
-                    </div>
-                    <div class="text-xs md:text-sm font-semibold text-gray-900 mt-2">
-                        EXP: 0 / 30
-                    </div>
-                    <!-- XP progress bar -->
-                    <div class="w-full bg-gray-100 rounded-full h-3.5 mt-2 overflow-hidden border border-amber-200">
-                        <div class="bg-gradient-to-r from-amber-400 to-amber-500 h-full rounded-full w-0 transition-all duration-500"></div>
-                    </div>
-                </div>
-
-                <!-- Action buttons -->
-                <div class="space-y-3 pt-2">
-                    <button id="btn-start" class="w-full bg-amber-500 hover:bg-amber-600 active:scale-[0.99] text-white font-bold py-3.5 px-6 rounded-2xl shadow-md transition flex items-center justify-center gap-2 text-base md:text-lg">
-                        <i class="fa-solid fa-play"></i>
-                        <span>Mulai latihan</span>
-                    </button>
-
-                    <button class="w-full bg-amber-50 hover:bg-amber-100 border-2 border-amber-500 text-amber-600 font-bold py-3.5 px-6 rounded-2xl transition flex items-center justify-center gap-2 text-base md:text-lg">
-                        <i class="fa-solid fa-book-open"></i>
-                        <span>Daftar Kamus Isyarat</span>
-                    </button>
-                </div>
+            <div class="flex items-center space-x-1 font-bold text-sm md:text-base justify-self-end">
+                <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>Time: 05:00</span>
             </div>
         </div>
 
-        <!-- ==================== PAGE 2: GAME / QUIZ (DIV) ==================== -->
-        <div id="page-game" class="w-full hidden">
-            <!-- Game header -->
-            <div class="bg-amber-500 px-6 py-4 text-white flex justify-between items-center shadow-md">
-                <button id="btn-exit" class="flex items-center gap-2 font-bold text-xs md:text-sm hover:opacity-80 transition">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Akhiri Sesi</span>
-                </button>
-                <h2 class="font-bold text-sm md:text-lg tracking-wide">Test Susun Kata</h2>
-                <div class="flex items-center gap-1.5 font-bold text-xs md:text-sm">
-                    <i class="fa-regular fa-clock"></i>
-                    <span>Time: 05:00</span>
-                </div>
+        <!-- Status Progress -->
+        <div class="px-6 pt-5 pb-2">
+            <div class="flex justify-between text-sm md:text-base font-bold text-gray-800 mb-2">
+                <span id="soal-counter">Soal: 2/10</span>
+                <span>Score: 10</span>
+            </div>
+            <!-- Progress Bar -->
+            <div class="w-full bg-orange-200 rounded-full h-3 md:h-4">
+                <div class="bg-[#ffb000] h-3 md:h-4 rounded-full transition-all duration-300" style="width: 20%"></div>
+            </div>
+        </div>
+
+        <!-- Area Konten Responsif (Soal & Opsi)[cite: 3] -->
+        <!-- Mobile: flex-col (atas bawah), Desktop: md:flex-row (kiri kanan) -->
+        <div class="px-6 mt-4 pb-6 flex-1 flex flex-col md:flex-row gap-4 md:gap-6">
+            
+            <!-- Area Soal (Kiri pada Desktop, Atas pada Mobile) -->
+            <div class="bg-orange-50 border-2 border-[#ff7a00] rounded-2xl flex items-center justify-center w-full h-48 md:h-full md:w-1/2 shadow-sm">
+                <h1 id="question-text" class="text-6xl md:text-8xl text-black text-center break-words px-4">Hand</h1>
             </div>
 
-            <!-- Game content -->
-            <div class="p-6 md:p-8 space-y-6">
-                <!-- Question and score information -->
-                <div>
-                    <div class="flex justify-between items-center font-bold text-xs md:text-sm text-gray-800 mb-2">
-                        <span>Soal: 2/10</span>
-                        <span>Score: 10</span>
-                    </div>
-                    <!-- Question progress bar -->
-                    <div class="w-full bg-gray-100 rounded-full h-3 overflow-hidden border border-amber-200">
-                        <div class="bg-gradient-to-r from-amber-400 to-amber-500 h-full rounded-full w-[20%] transition-all duration-300"></div>
-                    </div>
-                </div>
-
-                <!-- Question / character cards -->
-                <div class="grid grid-cols-3 gap-3 md:gap-4 pt-2">
-                    <!-- Card A -->
-                    <div class="bg-amber-50/60 border-2 border-amber-400 rounded-2xl p-3 flex flex-col items-center justify-between shadow-sm min-h-[140px] md:min-h-[180px]">
-                        <span class="text-4xl md:text-6xl font-black text-gray-900 my-auto">A</span>
-                        <div class="w-full border-2 border-dashed border-amber-400 rounded-xl h-10 md:h-12 bg-amber-100/40"></div>
-                    </div>
-                    <!-- Card B -->
-                    <div class="bg-amber-50/60 border-2 border-amber-400 rounded-2xl p-3 flex flex-col items-center justify-between shadow-sm min-h-[140px] md:min-h-[180px]">
-                        <span class="text-4xl md:text-6xl font-black text-gray-900 my-auto">B</span>
-                        <div class="w-full border-2 border-dashed border-amber-400 rounded-xl h-10 md:h-12 bg-amber-100/40"></div>
-                    </div>
-                    <!-- Card C -->
-                    <div class="bg-amber-50/60 border-2 border-amber-400 rounded-2xl p-3 flex flex-col items-center justify-between shadow-sm min-h-[140px] md:min-h-[180px]">
-                        <span class="text-4xl md:text-6xl font-black text-gray-900 my-auto">C</span>
-                        <div class="w-full border-2 border-dashed border-amber-400 rounded-xl h-10 md:h-12 bg-amber-100/40"></div>
-                    </div>
-                </div>
-
-                <!-- Empty answer slots -->
-                <div class="grid grid-cols-3 gap-3 md:gap-4 pt-4">
-                    <div class="bg-amber-50/50 border-2 border-amber-400 rounded-2xl h-12 md:h-14"></div>
-                    <div class="bg-amber-50/50 border-2 border-amber-400 rounded-2xl h-12 md:h-14"></div>
-                    <div class="bg-amber-50/50 border-2 border-amber-400 rounded-2xl h-12 md:h-14"></div>
-                </div>
+            <!-- Area Pilihan Ganda (Kanan pada Desktop, Bawah pada Mobile)[cite: 3] -->
+            <!-- Mobile: grid 2 kolom, Desktop: flex vertikal -->
+            <div class="grid grid-cols-2 md:flex md:flex-col gap-4 md:w-1/2 h-full">
+                <button class="option-btn bg-orange-50 border-2 border-[#ff7a00] rounded-2xl h-24 md:flex-1 text-5xl md:text-4xl text-black flex items-center justify-center transition-all duration-200 focus:outline-none hover:bg-orange-100">A</button>
+                <button class="option-btn bg-orange-50 border-2 border-[#ff7a00] rounded-2xl h-24 md:flex-1 text-5xl md:text-4xl text-black flex items-center justify-center transition-all duration-200 focus:outline-none hover:bg-orange-100">B</button>
+                <button class="option-btn bg-orange-50 border-2 border-[#ff7a00] rounded-2xl h-24 md:flex-1 text-5xl md:text-4xl text-black flex items-center justify-center transition-all duration-200 focus:outline-none hover:bg-orange-100">C</button>
+                <button class="option-btn bg-orange-50 border-2 border-[#ff7a00] rounded-2xl h-24 md:flex-1 text-5xl md:text-4xl text-black flex items-center justify-center transition-all duration-200 focus:outline-none hover:bg-orange-100">D</button>
             </div>
         </div>
 
     </div>
 
-    <!-- CDN jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Logika jQuery -->
     <script>
         $(document).ready(function() {
-            // Switch page divs using jQuery
-            $('#btn-start').on('click', function() {
-                $('#page-lobby').addClass('hidden');
-                $('#page-game').removeClass('hidden');
-            });
+            let currentQuestion = 2;
+            const totalQuestions = 10;
 
-            $('#btn-exit').on('click', function() {
-                $('#page-game').addClass('hidden');
-                $('#page-lobby').removeClass('hidden');
+            // Fungsi untuk mengacak format soal dan jawaban[cite: 2]
+            function randomizeDisplay() {
+                // Reset styling validasi pada tombol kembali ke default oranye
+                $('.option-btn')
+                    .removeClass('border-green-500 bg-green-100 border-4')
+                    .addClass('border-[#ff7a00] bg-orange-50 border-2');
+
+                // Mengacak angka 0 atau 1
+                let mode = Math.floor(Math.random() * 2);
+
+                if (mode === 0) {
+                    // Mode 0: Soal Text Normal, Jawaban Font Isyarat (FSL)[cite: 2]
+                    $('#question-text').removeClass('font-fsl').text('Hand');
+                    $('.option-btn').addClass('font-fsl');
+                } else {
+                    // Mode 1: Soal Font Isyarat (FSL), Jawaban Text Normal[cite: 2]
+                    $('#question-text').addClass('font-fsl').text('Hand');
+                    $('.option-btn').removeClass('font-fsl');
+                }
+                
+                // Update text counter soal dan progress bar
+                $('#soal-counter').text('Soal: ' + currentQuestion + '/' + totalQuestions);
+                let progressPercentage = (currentQuestion / totalQuestions) * 100;
+                $('.bg-\\[\\#ffb000\\]').css('width', progressPercentage + '%');
+            }
+
+            // Jalankan pengacakan saat halaman pertama kali dimuat
+            randomizeDisplay();
+
+            // Event saat tombol jawaban diklik
+            $('.option-btn').on('click', function() {
+                // 1. Reset border di semua tombol untuk menghindari multiple selection
+                $('.option-btn')
+                    .removeClass('border-green-500 bg-green-100 border-4')
+                    .addClass('border-[#ff7a00] bg-orange-50 border-2');
+
+                // 2. Berikan efek validasi (border berubah tebal & hijau) pada tombol yang diklik
+                $(this)
+                    .removeClass('border-[#ff7a00] bg-orange-50 border-2')
+                    .addClass('border-green-500 bg-green-100 border-4');
+
+                // 3. Logika "Pindah Screen" (Simulasi transisi setelah 1 detik)
+                setTimeout(function() {
+                    if(currentQuestion < totalQuestions) {
+                        currentQuestion++;
+                    } else {
+                        currentQuestion = 1; // Reset saat mencapai akhir (hanya prototipe)
+                    }
+                    randomizeDisplay();
+                }, 1000); 
             });
         });
     </script>
