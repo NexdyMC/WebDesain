@@ -1,3 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'MccidFslFont2'; /* Nama ini akan dipanggil di config */
+    /* Sesuaikan path url() dengan lokasi folder tempat Anda menyimpan font tersebut */
+    src: url('../fonts/MccidFslFont2-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
 /* 1. CARD INTERACTIVE */
 .card-interactive {
   height: 100%;

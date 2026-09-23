@@ -16,6 +16,7 @@
   <script src="assets/js/tailwind.config.js"></script>
 
   <!-- not file css external, internal and inline -->
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .flash-ok { animation: ok .5s; }
     .flash-no { animation: no .5s; }
@@ -37,7 +38,7 @@
     <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 md:h-20">
 
       <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center gap-2.5 text-xl font-extrabold tracking-tight md:text-2xl text-slate-900 group" aria-label="IsyaratOK">
+      <a href="index.html" class="flex items-center text-xl font-extrabold tracking-tight gap-2.5 md:text-2xl text-slate-800 group" aria-label="IsyaratOK">
         <div class="flex items-center justify-center w-10 h-10">
           <img src="assets/images/Logo.png" alt="" class="object-contain w-8 h-8" />
         </div>
@@ -67,7 +68,7 @@
 
     <!-- Mobile Navigation Drawer -->
     <nav id="mobileMenu" class="hidden px-6 pt-2 pb-6 border-b border-orange-100 bg-white/95 md:hidden" aria-label="Menu Mobile">
-      <div class="flex flex-col space-y-2.5 font-medium text-slate-700">
+      <div class="flex flex-col font-medium space-y-2.5 text-slate-700">
         <a href="index.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Beranda</a>
         <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Edukasi</a>
         <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Kamus</a>
@@ -102,74 +103,59 @@
   </div>
 
   <main id="shell" class="flex items-center justify-center min-h-screen py-10">
-
-    <!-- screen game -->
-    <div class="w-full max-w-sm px-4">
-
-      <!-- START SCREEN -->
-      <section id="start-screen" class="screen">
-        <div class="overflow-hidden bg-white border-2 border-orange-100 shadow-xl rounded-3xl">
-          <div class="relative flex flex-col items-center justify-center h-48 px-4 text-center text-white bg-orange-500"
-               style="background-image:radial-gradient(rgba(255,255,255,.35) 2px, transparent 2px); background-size:28px 28px;">
-            <h1 class="text-3xl font-bold">Latihan Isyarat</h1>
-            <p class="mt-1 text-sm italic">Tebak Huruf BSINDO</p>
-            <i class="absolute text-8xl right-4 bottom-2 text-orange-700/30 fa-solid fa-hand" aria-hidden="true"></i>
-          </div>
-          <div class="p-6">
-            <p class="text-sm font-medium">Level Saat Ini</p>
-            <p class="text-5xl font-light">Lv. <span id="levelText" class="text-orange-500">1</span></p>
-            <p class="mt-1 text-xs text-neutral-500">Skor terbaik: <span id="bestText">0</span></p>
-            <button class="w-full py-3 mt-6 font-semibold text-white bg-orange-500 btn-play hover:bg-orange-600 rounded-xl">
-              <i class="fa-solid fa-play mr-1.5"></i>Mulai Latihan
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- PLAY SCREEN -->
-      <section id="play-screen" class="hidden screen">
-        <div class="overflow-hidden bg-white border-2 border-orange-100 shadow-xl rounded-3xl">
-          <div class="flex items-center justify-between px-5 py-4 text-white bg-orange-500">
-            <button class="text-sm font-semibold btn-start"><i class="mr-1 fa-solid fa-arrow-left"></i>Akhiri Sesi</button>
-            <span class="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-orange-700/40">Sesi Latihan</span>
-          </div>
-          <div class="flex items-center gap-3 px-5 pt-4 text-xs text-neutral-500">
-            <span>Soal <b id="qNo" class="text-neutral-800">1</b>/<span id="qTotal">10</span></span>
-            <div class="flex-1 h-2 overflow-hidden bg-orange-100 rounded-full"><div id="bar" class="h-full transition-all bg-orange-500" style="width:0%"></div></div>
-            <span>Skor <b id="qScore" class="text-neutral-800">0</b></span>
-          </div>
-
-          <div class="p-5">
-            <div id="card" class="relative flex items-center justify-center border-2 border-orange-200 bg-orange-50 rounded-2xl min-h-[14rem]">
-              <span class="absolute text-xs font-medium text-orange-400 top-3 left-4">Isyarat huruf apa ini?</span>
-              <div id="soalIcon" class="text-orange-500 pop">
-                <i class="fa-solid fa-hand fa-8x" aria-hidden="true"></i>
-              </div>
+    
+    <!-- START SCREEN -->
+    <section id="start-screen" class="px-4 py-5 bg-white sm:px-6 sm:py-10 lg:px-8">
+      <div class="w-full max-w-7xl">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <!-- Card 1: Test Pilihan Ganda -->
+          <div class="w-full max-w-sm overflow-hidden bg-white shadow-xl quiz-card rounded-3xl" data-quiz="pilihan-ganda">
+            <div class="relative px-6 pt-8 pb-10 overflow-hidden text-center bg-orange-600 dot-pattern">
+              <i class="fa-solid fa-list-check absolute -right-2 top-1/2 -translate-y-1/2 text-8xl text-white/15"></i>
+              <h1 class="relative text-2xl font-extrabold text-white">Test Pilihan Ganda</h1>
+              <p class="relative text-sm italic text-white/90 mt-1">Kuis Pilihan Ganda Adaptif</p>
             </div>
-            <p class="mt-3 text-sm text-center text-neutral-500">Pilih huruf yang sesuai</p>
-            <div id="opsi" class="grid grid-cols-3 gap-3 mt-3"></div>
+            <div class="px-6 pt-6 pb-6">
+              <p class="text-sm text-neutral-600">Level Saat Ini</p>
+              <p class="mt-1 text-4xl font-extrabold text-neutral-900">
+                Lv. <span class="text-orange-600 level-value">1</span>
+              </p>
+              <button class="btn-mulai mt-6 w-full flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 active:scale-[0.98] transition text-white font-semibold py-3.5 rounded-full shadow-md shadow-orange-200">
+                <i class="text-sm fa-solid fa-play"></i>
+                Mulai latihan
+              </button>
+              <button class="btn-kamus mt-3 w-full flex items-center justify-center gap-2 bg-orange-50 hover:bg-orange-100 active:scale-[0.98] transition text-orange-600 font-semibold py-3.5 rounded-full border border-orange-400">
+                <i class="text-sm fa-solid fa-book-open"></i>
+                Daftar Kamus Isyarat
+              </button>
+            </div>
+          </div>
+          
+          <!-- Card 2: Test Susun Kata -->
+          <div class="w-full max-w-sm overflow-hidden bg-white shadow-xl quiz-card rounded-3xl" data-quiz="susun-kata">
+            <div class="relative px-6 pt-8 pb-10 overflow-hidden text-center bg-orange-500 dot-pattern">
+              <i class="fa-solid fa-puzzle-piece absolute -right-2 top-1/2 -translate-y-1/2 text-8xl text-white/15"></i>
+              <h1 class="relative text-2xl font-extrabold text-white">Test Susun Kata</h1>
+              <p class="relative text-sm italic text-white/90 mt-1">Kuis Susun Kata Adaptif</p>
+            </div>
+            <div class="px-6 pt-6 pb-6">
+              <p class="text-sm text-neutral-600">Level Saat Ini</p>
+              <p class="mt-1 text-4xl font-extrabold text-neutral-900">
+                Lv. <span class="text-orange-500 level-value">1</span>
+              </p>
+              <button class="btn-mulai mt-6 w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 active:scale-[0.98] transition text-white font-semibold py-3.5 rounded-full shadow-md shadow-orange-200">
+                <i class="text-sm fa-solid fa-play"></i>
+                Mulai latihan
+              </button>
+              <button class="btn-kamus mt-3 w-full flex items-center justify-center gap-2 bg-orange-50 hover:bg-orange-100 active:scale-[0.98] transition text-orange-600 font-semibold py-3.5 rounded-full border border-orange-300">
+                <i class="text-sm fa-solid fa-book-open"></i>
+                Daftar Kamus Isyarat
+              </button>
+            </div>
           </div>
         </div>
-      </section>
-
-      <!-- FINAL SCREEN -->
-      <section id="final-screen" class="hidden screen">
-        <div class="overflow-hidden bg-white border-2 border-orange-100 shadow-xl rounded-3xl">
-          <div class="flex items-center justify-center h-40 text-3xl font-bold text-white bg-orange-500"
-               style="background-image:radial-gradient(rgba(255,255,255,.35) 2px, transparent 2px); background-size:28px 28px;">
-            Hasil Latihan
-          </div>
-          <div class="p-6 text-center">
-            <p class="text-sm text-neutral-500">Skor kamu</p>
-            <p class="text-6xl font-light"><span id="rScore" class="text-orange-500">0</span><span class="text-2xl text-neutral-400">/<span id="rTotal">10</span></span></p>
-            <p id="rMsg" class="mt-2 text-sm font-medium"></p>
-            <button class="w-full py-3 mt-6 font-semibold text-white bg-orange-500 btn-play hover:bg-orange-600 rounded-xl">Main Lagi</button>
-            <button class="w-full py-2.5 mt-3 font-semibold text-orange-500 border-2 border-orange-400 btn-start bg-orange-50 rounded-xl">Kembali</button>
-          </div>
-        </div>
-      </section>
-
-    </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -179,7 +165,7 @@
 
         <!-- Col : Brand -->
         <div class="md:col-span-5">
-          <a href="index.html" class="flex items-center gap-2.5 mb-4 text-2xl font-extrabold tracking-tight text-white group" aria-label="IsyaratOK Footer">
+          <a href="index.html" class="flex items-center mb-4 text-2xl font-extrabold tracking-tight text-white gap-2.5 group" aria-label="IsyaratOK Footer">
             <div class="flex items-center justify-center w-10 h-10">
               <img src="assets/images/Logo.png" alt="" class="object-contain w-8 h-8" />
             </div>
@@ -204,7 +190,7 @@
         <!-- Col : Navigation -->
         <div class="md:col-span-3">
           <h3 class="mb-4 text-sm font-bold tracking-wider uppercase text-amber-200">Navigasi Utama</h3>
-          <ul class="space-y-2.5 text-sm text-orange-100">
+          <ul class="text-sm text-orange-100 space-y-2.5">
             <li><a href="index.html" class="transition-colors hover:text-white">Beranda</a></li>
             <li><a href="edukasi.html" class="transition-colors hover:text-white">Modul Edukasi</a></li>
             <li><a href="kosakata.html" class="transition-colors hover:text-white">Kamus Kosakata</a></li>
@@ -245,6 +231,9 @@
     </div>
   </footer>
 
+  <p class="text-slate-800 font-isyarat"> 
+    a
+  </p>
   <!-- jQuery & Main Script -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/script.js"></script>

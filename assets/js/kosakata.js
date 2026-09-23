@@ -48,7 +48,7 @@ $(function () {
               <img src="${imagePath}" alt="Isyarat huruf ${letter} dalam SIBI" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-sky-900 bg-sky-100 rounded-md card-badge">Abjad</span>
             </div>
-            <p class="text-base font-bold text-slate-900 group-hover:text-sky-600 card-title">${letter}</p>
+            <p class="text-base font-bold text-slate-800 group-hover:text-sky-600 card-title">${letter}</p>
             <span class="text-xs font-medium text-slate-500">SIBI</span>
           </div>`;
       })
