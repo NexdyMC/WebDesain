@@ -442,7 +442,7 @@
     });
   });
 
-  /* Menampilkan teks kutipan bertahap saat scroll */
+  /* Reveal the quote text gradually while scrolling */
   function initScrollDrivenQuoteReveal() {
     const quoteEl = document.getElementById("culturalQuoteText");
     const originalQuoteEl = document.getElementById("culturalQuoteOriginal");
@@ -466,7 +466,7 @@
 
       quoteEl.appendChild(span);
 
-      // Spasi dibuat sebagai node sendiri agar kata tidak menempel
+      // Add spaces as separate nodes so words do not stick together
       if (index < words.length - 1) {
         quoteEl.appendChild(document.createTextNode(" "));
       }
@@ -482,8 +482,8 @@
       const winHeight =
         window.innerHeight || document.documentElement.clientHeight;
 
-      // Mulai menampilkan teks ketika kutipan mendekati bagian bawah viewport
-      // Teks selesai ditampilkan ketika kutipan mendekati bagian atas viewport
+      // Start revealing the text when the quote nears the bottom of the viewport
+      // Finish revealing the text when the quote nears the top of the viewport
       const startY = winHeight * 0.82;
       const endY = winHeight * 0.35;
 
@@ -500,7 +500,7 @@
           1,
         );
 
-        // Naikkan opacity teks secara bertahap
+        // Increase text opacity gradually
         const opacity = 0.22 + 0.78 * wordProgress;
         const span = wordSpans[i];
 
@@ -537,7 +537,7 @@
     updateQuoteReveal();
   }
 
-  /* Animasi pita kutipan saat masuk viewport */
+  /* Animate the quote ribbon when it enters the viewport */
   function initCulturalQuoteRibbon() {
     const sectionEl = document.getElementById("cultural-quote");
     const ribbonBg = document.getElementById("culturalQuoteRibbonBg");
@@ -562,7 +562,7 @@
       const winHeight =
         window.innerHeight || document.documentElement.clientHeight;
 
-      // Pita mulai bergerak ketika bagian ini masuk viewport
+      // Start moving the ribbon when this section enters the viewport
       if (rect.top <= winHeight * 0.88 && rect.bottom >= 0) {
         if (!isRevealed) {
           isRevealed = true;
@@ -574,7 +574,7 @@
           }
         }
       } else if (rect.top > winHeight * 0.95) {
-        // Saat keluar viewport, pita kembali ke posisi awal
+        // Return the ribbon to its starting position when it leaves the viewport
         if (isRevealed) {
           isRevealed = false;
           ribbonBg.classList.remove("translate-x-0");

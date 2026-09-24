@@ -4,8 +4,8 @@
 
 @layer base {
   @font-face {
-    font-family: 'MccidFslFont2'; /* Nama ini akan dipanggil di config */
-    /* Sesuaikan path url() dengan lokasi folder tempat Anda menyimpan font tersebut */
+    font-family: 'MccidFslFont2'; /* This name is used in the config */
+    /* Adjust the url() path to the folder where the font is stored */
     src: url('../fonts/MccidFslFont2-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -297,7 +297,7 @@
   }
 }
 
-/* 3. STAT FLIP CARD — Fix: hapus hardcoded height 280px */
+/* 3. STAT FLIP CARD - Fix: remove the hardcoded 280px height */
 .stat-flip-card {
   position: relative;
   min-height: 260px;
@@ -655,7 +655,7 @@ body.a11y-underline-links .accessibility-item {
   }
 }
 
-/* 7. SCROLL CUE — Fix: sederhanakan dari 14 keyframe, hapus -webkit- prefix */
+/* 7. SCROLL CUE - Fix: simplify from 14 keyframes and remove the -webkit- prefix */
 .shake-vertical {
   animation: shake-vertical 2s ease-in-out infinite;
   will-change: transform;
@@ -671,7 +671,7 @@ body.a11y-underline-links .accessibility-item {
   }
 }
 
-/* 8. HEADING TEXT ANIMATION — Fix: hapus duplikasi @-webkit-keyframes */
+/* 8. HEADING TEXT ANIMATION - Fix: remove duplicate @-webkit-keyframes */
 .tracking-in-contract {
   animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
@@ -690,7 +690,7 @@ body.a11y-underline-links .accessibility-item {
   }
 }
 
-/* 9. JELLO CARD ANIMATION — Fix: hapus duplikasi @-webkit-keyframes */
+/* 9. JELLO CARD ANIMATION - Fix: remove duplicate @-webkit-keyframes */
 .jello-horizontal {
   animation: jello-horizontal 0.9s both;
 }

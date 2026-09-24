@@ -497,7 +497,7 @@ $(function () {
       const winHeight =
         window.innerHeight || document.documentElement.clientHeight;
 
-      // Saat mulai masuk scroll ke bawah (section masuk ke 88% viewport)
+      // Start when scrolling down and the section reaches 88% of the viewport
       if (rect.top <= winHeight * 0.88 && rect.bottom >= 0) {
         if (!isRevealed) {
           isRevealed = true;

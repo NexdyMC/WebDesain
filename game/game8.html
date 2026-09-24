@@ -164,8 +164,8 @@ $(function () {
 
   // ---------- CONFIG ----------
   var XP_BASE = 30, XP_STEP = 5;       // xpRequired(level) = 30 + level*XP_STEP
-  var SESSION_MINUTES = 1;             // stoptime default: 1 menit
-  var MAX_BLOCKS = 4;                  // maksimal balok draggable per soal
+  var SESSION_MINUTES = 1;             // default session time: 1 minute
+  var MAX_BLOCKS = 4;                  // maximum draggable blocks per question
 
   function xpRequired(level) { return XP_BASE + level * XP_STEP; }
 
@@ -217,7 +217,7 @@ $(function () {
     });
   }
 
-  // level (1-indexed) -> index data.levels (13 window huruf, berulang & wrap)
+  // level (1-indexed) -> data.levels index (13-letter window, repeated and wrapped)
   function levelDataFor(level) {
     var idx = (level - 1) % GAME_DATA.levels.length;
     return GAME_DATA.levels[idx];
@@ -244,7 +244,7 @@ $(function () {
     $('#screen-' + name).addClass('active');
   }
 
-  // ---------- TIMER: stoptime(menit) ----------
+  // ---------- TIMER: session time (minutes) ----------
   function stoptime(menit) {
     menit = menit || SESSION_MINUTES;
     var totalDetik = Math.round(menit * 60);
@@ -266,7 +266,7 @@ $(function () {
     $('#time-bar').css('width', Math.max(sisa / total * 100, 0) + '%');
   }
 
-  // ---------- SESI: MULAI ----------
+  // ---------- START SESSION ----------
   function startSession() {
     var levelData = levelDataFor(state.level);
     session = {
@@ -286,7 +286,7 @@ $(function () {
     stoptime(SESSION_MINUTES);
   }
 
-  // ---------- SOAL BERIKUTNYA ----------
+  // ---------- NEXT QUESTION ----------
   function nextSoal() {
     if (session.wordQueue.length === 0) {
       session.wordQueue = shuffle(session.levelData.words);
@@ -298,8 +298,8 @@ $(function () {
 
     var promptIsSign = Math.random() < 0.5;
     session.currentPromptIsSign = promptIsSign;
-    // balok jawaban selalu tampil dalam representasi KEBALIKAN dari prompt,
-    // supaya pemain mencocokkan bentuk isyarat <-> huruf teks.
+    // Answer blocks always use the OPPOSITE representation of the prompt,
+    // so the player matches the sign shape with the text letter.
     var poolIsSign = !promptIsSign;
 
     renderPrompt(word, promptIsSign);
@@ -454,7 +454,7 @@ $(function () {
     }, 800);
   }
 
-  // ---------- SESI: SELESAI ----------
+  // ---------- SESSION COMPLETE ----------
   function endSession() {
     clearInterval(timerHandle);
     $('#end-correct').text(session.correct);
@@ -463,11 +463,11 @@ $(function () {
 
     var $lvup = $('#end-levelup');
     $lvup.addClass('hidden').text('');
-    // (level-up sudah tercatat real-time lewat addXp; di sini hanya info tampilan)
+    // (level-up is already recorded in real time by addXp; this only updates the display)
     goScreen('end');
   }
 
-  // ---------- KAMUS ISYARAT ----------
+  // ---------- SIGN DICTIONARY ----------
   function buildDictionary() {
     var $grid = $('#dict-grid').empty();
     'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(function (ch) {

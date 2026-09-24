@@ -6,7 +6,7 @@
     <title>Kuis Susun Kata</title>
     <!-- CDN Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- CDN FontAwesome / Lucide untuk Icon -->
+    <!-- CDN FontAwesome / Lucide icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts: Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
-        /* Motif Titik-Titik Header */
+        /* Header dot pattern */
         .bg-dots {
             background-image: radial-gradient(rgba(255, 255, 255, 0.3) 15%, transparent 15%);
             background-size: 16px 16px;
@@ -28,23 +28,23 @@
     </section>
     <div class="w-full max-w-md md:max-w-xl lg:max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden transition-all duration-300">
 
-        <!-- ==================== HALAMAN 1: LOBBY / MENU (DIV) ==================== -->
+        <!-- ==================== PAGE 1: LOBBY / MENU (DIV) ==================== -->
         <div id="page-lobby" class="w-full block">
-            <!-- Header Kartu -->
+            <!-- Card header -->
             <div class="bg-amber-500 bg-dots p-8 md:p-10 text-white relative rounded-b-3xl shadow-md">
                 <div class="text-center relative z-10">
                     <h1 class="text-2xl md:text-3xl font-extrabold tracking-wide">Test Susun Kata</h1>
                     <p class="text-sm md:text-base font-medium italic opacity-90 mt-1">Kuis Susun Kata Adaptif</p>
                 </div>
-                <!-- Watermark Tanda Tanya -->
+                <!-- Question mark watermark -->
                 <div class="absolute right-4 bottom-2 text-amber-600 text-7xl md:text-8xl font-black opacity-30 select-none pointer-events-none">
                     ?
                 </div>
             </div>
 
-            <!-- Konten Utama Kartu -->
+            <!-- Main card content -->
             <div class="p-6 md:p-8 space-y-6">
-                <!-- Info Level & EXP -->
+                <!-- Level and XP information -->
                 <div>
                     <span class="text-gray-900 font-bold text-sm md:text-base">Level Saat Ini</span>
                     <div class="flex items-baseline gap-1 mt-1">
@@ -54,13 +54,13 @@
                     <div class="text-xs md:text-sm font-semibold text-gray-900 mt-2">
                         EXP: 0 / 30
                     </div>
-                    <!-- Progress Bar EXP -->
+                    <!-- XP progress bar -->
                     <div class="w-full bg-gray-100 rounded-full h-3.5 mt-2 overflow-hidden border border-amber-200">
                         <div class="bg-gradient-to-r from-amber-400 to-amber-500 h-full rounded-full w-0 transition-all duration-500"></div>
                     </div>
                 </div>
 
-                <!-- Tombol Aksi -->
+                <!-- Action buttons -->
                 <div class="space-y-3 pt-2">
                     <button id="btn-start" class="w-full bg-amber-500 hover:bg-amber-600 active:scale-[0.99] text-white font-bold py-3.5 px-6 rounded-2xl shadow-md transition flex items-center justify-center gap-2 text-base md:text-lg">
                         <i class="fa-solid fa-play"></i>
@@ -75,9 +75,9 @@
             </div>
         </div>
 
-        <!-- ==================== HALAMAN 2: GAME / KUIS (DIV) ==================== -->
+        <!-- ==================== PAGE 2: GAME / QUIZ (DIV) ==================== -->
         <div id="page-game" class="w-full hidden">
-            <!-- Header Permainan -->
+            <!-- Game header -->
             <div class="bg-amber-500 px-6 py-4 text-white flex justify-between items-center shadow-md">
                 <button id="btn-exit" class="flex items-center gap-2 font-bold text-xs md:text-sm hover:opacity-80 transition">
                     <i class="fa-solid fa-arrow-left"></i>
@@ -90,21 +90,21 @@
                 </div>
             </div>
 
-            <!-- Konten Game -->
+            <!-- Game content -->
             <div class="p-6 md:p-8 space-y-6">
-                <!-- Info Soal & Skor -->
+                <!-- Question and score information -->
                 <div>
                     <div class="flex justify-between items-center font-bold text-xs md:text-sm text-gray-800 mb-2">
                         <span>Soal: 2/10</span>
                         <span>Score: 10</span>
                     </div>
-                    <!-- Progress Bar Soal -->
+                    <!-- Question progress bar -->
                     <div class="w-full bg-gray-100 rounded-full h-3 overflow-hidden border border-amber-200">
                         <div class="bg-gradient-to-r from-amber-400 to-amber-500 h-full rounded-full w-[20%] transition-all duration-300"></div>
                     </div>
                 </div>
 
-                <!-- Kartu Pertanyaan / Karakter -->
+                <!-- Question / character cards -->
                 <div class="grid grid-cols-3 gap-3 md:gap-4 pt-2">
                     <!-- Card A -->
                     <div class="bg-amber-50/60 border-2 border-amber-400 rounded-2xl p-3 flex flex-col items-center justify-between shadow-sm min-h-[140px] md:min-h-[180px]">
@@ -123,7 +123,7 @@
                     </div>
                 </div>
 
-                <!-- Slot Jawaban Kosong -->
+                <!-- Empty answer slots -->
                 <div class="grid grid-cols-3 gap-3 md:gap-4 pt-4">
                     <div class="bg-amber-50/50 border-2 border-amber-400 rounded-2xl h-12 md:h-14"></div>
                     <div class="bg-amber-50/50 border-2 border-amber-400 rounded-2xl h-12 md:h-14"></div>
@@ -138,7 +138,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Logika perpindahan div halaman menggunakan jQuery
+            // Switch page divs using jQuery
             $('#btn-start').on('click', function() {
                 $('#page-lobby').addClass('hidden');
                 $('#page-game').removeClass('hidden');

@@ -17,23 +17,23 @@
             background-color: #1e1e1e;
         }
         
-        /* Motif Titik-Titik Header Figma */
+        /* Figma header dot pattern */
         .bg-dots {
             background-image: radial-gradient(rgba(255, 255, 255, 0.35) 18%, transparent 18%);
             background-size: 16px 16px;
         }
 
-        /* Shadow Khusus & Efek Transisi Card */
+        /* Custom card shadow and transition effect */
         .card-container {
             transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
         }
 
-        /* Slot Pertanyaan dan Pilihan Jawaban Soft Cream Background */
+        /* Soft cream background for question and answer options */
         .bg-card-soft {
             background-color: #fffbf2;
         }
 
-        /* Hover Effect Pilihan Jawaban */
+        /* Answer option hover effect */
         .option-card {
             transition: all 0.2s ease-in-out;
         }
@@ -50,27 +50,27 @@
 </head>
 <body class="min-h-screen flex items-center justify-center p-3 sm:p-6 text-gray-800">
 
-    <!-- Kontainer Utama Card (Ukuran Otomatis Menyesuaikan Halaman Lobby vs Game) -->
+    <!-- Main card container (size adjusts between lobby and game pages) -->
     <div id="main-card" class="card-container w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden relative border border-gray-100 my-auto">
 
-        <!-- ==================== HALAMAN 1: LOBBY / MENU (DIV) ==================== -->
+        <!-- ==================== PAGE 1: LOBBY / MENU (DIV) ==================== -->
         <div id="page-lobby" class="w-full block">
             
-            <!-- Header Kartu Orange -->
+            <!-- Orange card header -->
             <div class="bg-orange-500 bg-dots p-7 sm:p-9 text-white relative rounded-b-3xl shadow-md overflow-hidden">
                 <div class="text-center relative z-10">
                     <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Test Pilihan Ganda</h1>
                     <p class="text-xs sm:text-sm font-medium italic opacity-95 mt-1 tracking-wide">Kuis Pilihan Ganda Adaptif</p>
                 </div>
-                <!-- Watermark Tanda Tanya Figma -->
+                <!-- Figma question mark watermark -->
                 <div class="absolute -right-2 -bottom-4 text-orange-600 text-8xl sm:text-9xl font-black opacity-35 select-none pointer-events-none">
                     ?
                 </div>
             </div>
 
-            <!-- Konten Utama Kartu Lobby -->
+            <!-- Main lobby card content -->
             <div class="p-6 sm:p-8 space-y-6">
-                <!-- Info Level & EXP -->
+                <!-- Level and XP information -->
                 <div>
                     <span class="text-gray-900 font-bold text-sm sm:text-base">Level Saat Ini</span>
                     <div class="flex items-baseline gap-1 mt-0.5">
@@ -80,13 +80,13 @@
                     <div class="text-xs sm:text-sm font-semibold text-gray-800 mt-3">
                         EXP: 0 / 30
                     </div>
-                    <!-- Progress Bar EXP -->
+                    <!-- XP progress bar -->
                     <div class="w-full bg-gray-100 rounded-full h-3.5 mt-2 overflow-hidden border border-orange-200 p-0.5">
                         <div class="bg-gradient-to-r from-orange-400 to-orange-500 h-full rounded-full w-[15%] transition-all duration-500"></div>
                     </div>
                 </div>
 
-                <!-- Tombol Aksi -->
+                <!-- Action buttons -->
                 <div class="space-y-3 pt-2">
                     <button id="btn-start" class="w-full bg-orange-500 hover:bg-orange-600 active:scale-[0.98] text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg shadow-orange-500/30 transition flex items-center justify-center gap-2.5 text-base sm:text-lg">
                         <i class="fa-solid fa-play text-sm"></i>
@@ -101,17 +101,17 @@
             </div>
         </div>
 
-        <!-- ==================== HALAMAN 2: PLAY SCREEN / GAME (DIV) ==================== -->
+        <!-- ==================== PAGE 2: PLAY SCREEN / GAME (DIV) ==================== -->
         <div id="page-game" class="w-full hidden">
             
-            <!-- Header Permainan Orange -->
+            <!-- Orange game header -->
             <div class="bg-orange-500 px-5 sm:px-8 py-4 text-white flex justify-between items-center shadow-md">
                 <button id="btn-exit" class="flex items-center gap-2 font-bold text-xs sm:text-sm hover:opacity-80 transition active:scale-95">
                     <i class="fa-solid fa-arrow-left"></i>
                     <span>Akhiri Sesi</span>
                 </button>
                 
-                <!-- Judul Tampil pada Tablet/Desktop -->
+                <!-- Title shown on tablet/desktop -->
                 <h2 class="hidden md:block font-extrabold text-base lg:text-lg tracking-wide">Test Pilihan Ganda</h2>
                 
                 <div class="flex items-center gap-2 font-bold text-xs sm:text-sm bg-orange-600/40 px-3 py-1.5 rounded-xl border border-orange-400/40">
@@ -120,15 +120,15 @@
                 </div>
             </div>
 
-            <!-- Konten Game -->
+            <!-- Game content -->
             <div class="p-5 sm:p-8 space-y-5 sm:space-y-6">
-                <!-- Info Soal & Skor -->
+                <!-- Question and score information -->
                 <div>
                     <div class="flex justify-between items-center font-bold text-xs sm:text-sm text-gray-900 mb-2">
                         <span>Soal: <span id="current-question">2</span>/10</span>
                         <span>Score: <span id="current-score">10</span></span>
                     </div>
-                    <!-- Progress Bar Soal -->
+                    <!-- Question progress bar -->
                     <div class="w-full bg-gray-100 rounded-full h-3 overflow-hidden border border-orange-200 p-0.5">
                         <div id="quiz-progress-bar" class="bg-gradient-to-r from-orange-400 to-orange-500 h-full rounded-full w-[20%] transition-all duration-300"></div>
                     </div>
@@ -136,14 +136,14 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-stretch">
                     
-                    <!-- Kotak Pertanyaan Utama -->
+                    <!-- Main question box -->
                     <div class="md:col-span-6 lg:col-span-7 bg-card-soft border-2 border-orange-400 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-sm min-h-[200px] md:min-h-[340px]">
                         <div class="flex items-center justify-between border-b border-orange-200/80 pb-3">
                             <span class="text-xs font-extrabold text-orange-600 uppercase tracking-wider bg-orange-100 px-2.5 py-1 rounded-lg">Pertanyaan #2</span>
                             <i class="fa-solid fa-hands-asl-interpreting text-orange-400 text-lg"></i>
                         </div>
                         
-                        <!-- Gambar / Konten Soal Isyarat -->
+                        <!-- Sign question image / content -->
                         <div class="my-auto py-4 text-center">
                             <div class="inline-flex items-center justify-center w-20 h-20 sm:w-28 sm:h-28 bg-orange-100/70 border-2 border-dashed border-orange-400 rounded-2xl text-orange-500 mb-3">
                                 <i class="fa-solid fa-hand text-4xl sm:text-5xl"></i>
@@ -156,8 +156,8 @@
                         </div>
                     </div>
 
-                    <!-- Kotak Pilihan Jawaban -->
-                    <!-- Mobile: Grid 2x2 | Desktop: Stack Vertikal (1 Kolom) -->
+                    <!-- Answer option boxes -->
+                    <!-- Mobile: 2x2 grid | Desktop: vertical stack (1 column) -->
                     <div class="md:col-span-6 lg:col-span-5 grid grid-cols-2 md:grid-cols-1 gap-3 sm:gap-3.5 flex-col justify-between">
                         
                         <!-- Opsi A -->
@@ -235,7 +235,7 @@
             let timerInterval = null;
             let secondsLeft = 300; // 05:00 minutes timer
 
-            // Function untuk format timer MM:SS
+            // Format the timer as MM:SS
             function formatTime(totalSeconds) {
                 const minutes = Math.floor(totalSeconds / 60);
                 const seconds = totalSeconds % 60;
@@ -259,7 +259,7 @@
                 }, 1000);
             }
 
-            // Logika perpindahan halaman: Lobby -> Game Screen
+            // Switch pages: Lobby -> Game Screen
             $('#btn-start').on('click', function() {
                 // Resize Card Container dari Max-W-MD menjadi Max-W-3XL/4XL di Desktop
                 $('#main-card').removeClass('max-w-md').addClass('max-w-md md:max-w-4xl');
@@ -271,7 +271,7 @@
                 });
             });
 
-            // Logika perpindahan halaman: Game Screen -> Lobby
+            // Switch pages: Game Screen -> Lobby
             $('#btn-exit').on('click', function() {
                 clearInterval(timerInterval);
                 
@@ -284,13 +284,13 @@
                 });
             });
 
-            // Interaktivitas Pilihan Jawaban
+            // Answer option interactions
             $('.option-card').on('click', function() {
                 $('.option-card').removeClass('selected').find('.check-icon').addClass('opacity-0');
                 $(this).addClass('selected').find('.check-icon').removeClass('opacity-0');
             });
 
-            // Modal Kamus Isyarat
+            // Sign dictionary modal
             $('#btn-kamus').on('click', function() {
                 $('#modal-kamus').removeClass('hidden');
                 setTimeout(() => {

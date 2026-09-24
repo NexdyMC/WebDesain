@@ -1,7 +1,7 @@
 tailwind.config = {
   theme: {
     extend: {
-      // Konversi Variabel Warna
+      // Convert color variables
       colors: {
         primary: {
           50: "#fff7ed",
@@ -17,14 +17,14 @@ tailwind.config = {
         }
       },
 
-      // Konversi Tipografi / Font
+      // Convert typography and fonts
       fontFamily: {
         sans: ["ui-sans-serif", "Poppins", "sans-serif"],
         serif: ["Playfair Display", "serif"],
         isyarat: ["MccidFslFont2"],
       },
 
-      // Konversi Animasi Keyframes
+      // Convert keyframe animations
       keyframes: {
         'pulse-signal': {
           '0%': {
@@ -48,7 +48,7 @@ tailwind.config = {
         'dots': '18px 18px',
       },
       
-      // Mendaftarkan class animasi
+      // Register animation classes
       animation: {
         'pulse-signal': 'pulse-signal 2s infinite',
       }

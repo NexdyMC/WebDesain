@@ -135,7 +135,7 @@ $(function () {
 
     $(".kosakata-card").each(function () {
       const $card = $(this);
-      const cardCategory = $card.data("category"); // 'abjad', 'angka', 'kata'
+      const cardCategory = $card.data("category"); // 'alphabet', 'number', 'word'
       const cardLanguage = $card.data("language") || "bisindo";
       const title = ($card.find(".card-title").text() || "").toLowerCase();
       const keywords = ($card.data("keywords") || "").toLowerCase();

@@ -6,20 +6,20 @@
   <title>Kumpulan Motif Card UI</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome untuk Icon -->
+  <!-- Font Awesome icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Font Quicksand untuk tampilan membulat mirip referensi -->
+  <!-- Quicksand font for a rounded look -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700;900&display=swap" rel="stylesheet">
   
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
-      background-color: #e5e7eb; /* Warna latar belakang luar */
+      background-color: #e5e7eb; /* Outer background color */
     }
 
-    /* KUMPULAN MOTIF CSS MURNI */
+    /* PURE CSS PATTERN COLLECTION */
     
-    /* 1. Motif Grid Kotak (Graph Paper) */
+    /* 1. Square grid pattern (graph paper) */
     .motif-grid {
       background-color: #f6f3eb;
       background-image: 
@@ -28,14 +28,14 @@
       background-size: 15px 15px;
     }
 
-    /* 2. Motif Titik (Polka Dots) */
+    /* 2. Dot pattern (polka dots) */
     .motif-dots {
       background-color: #f6f3eb;
       background-image: radial-gradient(rgba(0, 0, 0, 0.15) 2px, transparent 2px);
       background-size: 20px 20px;
     }
 
-    /* 3. Motif Garis Diagonal (Diagonal Stripes) */
+    /* 3. Diagonal line pattern (diagonal stripes) */
     .motif-diagonal {
       background-color: #f6f3eb;
       background-image: repeating-linear-gradient(
@@ -47,7 +47,7 @@
       );
     }
 
-    /* 4. Motif Garis Horizontal (Buku Tulis) */
+    /* 4. Horizontal line pattern (notebook) */
     .motif-horizontal {
       background-color: #f6f3eb;
       background-image: repeating-linear-gradient(
@@ -59,7 +59,7 @@
       );
     }
 
-    /* 5. Motif Catur Halus (Checkerboard) */
+    /* 5. Subtle checkerboard pattern */
     .motif-checker {
       background-color: #f6f3eb;
       background-image: 
@@ -71,7 +71,7 @@
       background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     }
 
-    /* 6. Motif Tanda Plus (Cross) */
+    /* 6. Plus sign pattern (cross) */
     .motif-cross {
       background-color: #f6f3eb;
       background-image: 
@@ -83,7 +83,7 @@
     }
 
     .motif-dots-halus {
-      /* Menggunakan warna oranye utama dengan titik putih transparan */
+      /* Use the main orange color with transparent white dots */
       background-color: #f97316; /* Tailwind orange-500 */
       background-image: radial-gradient(rgba(255, 255, 255, 0.2) 2px, transparent 2px);
       background-size: 16px 16px;
@@ -95,9 +95,9 @@
   <!-- Container Grid -->
   <div class="grid grid-cols-1 gap-10 mx-auto max-w-7xl md:grid-cols-2 lg:grid-cols-3">
 
-    <!-- FUNGSI UNTUK MERENDER CARD (Diulang 6 Kali dengan Motif Berbeda) -->
+    <!-- Function to render cards (repeated six times with different patterns) -->
 
-    <!-- CARD 1: MOTIF GRID -->
+    <!-- CARD 1: GRID PATTERN -->
     <div class="flex flex-col bg-[#f6f3eb] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       <div class="flex flex-col items-center p-8 text-center border-b-4 border-black motif-grid">
         <div class="w-12 h-12 bg-white border-2 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center mb-4 text-teal-800">
@@ -106,7 +106,7 @@
         <h2 class="mb-1 text-3xl font-black text-slate-800">Motif Grid</h2>
         <p class="text-sm italic font-medium text-gray-600">Kuis Pilihan Ganda Adaptif</p>
       </div>
-      <!-- Konten Body Card -->
+      <!-- Card body content -->
       <div class="flex flex-col flex-grow p-6">
         <div class="flex items-start justify-between mb-8">
           <div>
@@ -133,7 +133,7 @@
       </div>
     </div>
 
-    <!-- CARD 2: MOTIF DOTS -->
+    <!-- CARD 2: DOT PATTERN -->
     <div class="flex flex-col bg-[#f6f3eb] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       <div class="flex flex-col items-center p-8 text-center border-b-4 border-black motif-dots">
         <div class="w-12 h-12 bg-white border-2 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center mb-4 text-teal-800">
@@ -142,7 +142,7 @@
         <h2 class="mb-1 text-3xl font-black text-slate-800">Motif Dots</h2>
         <p class="text-sm italic font-medium text-gray-600">Kuis Pilihan Ganda Adaptif</p>
       </div>
-      <!-- Konten Body Card (Sama seperti Card 1) -->
+      <!-- Card body content (same as Card 1) -->
       <div class="flex flex-col flex-grow p-6">
         <div class="flex items-start justify-between mb-8">
           <div>
@@ -161,7 +161,7 @@
       </div>
     </div>
 
-    <!-- CARD 3: MOTIF DIAGONAL -->
+    <!-- CARD 3: DIAGONAL PATTERN -->
     <div class="flex flex-col bg-[#f6f3eb] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       <div class="flex flex-col items-center p-8 text-center border-b-4 border-black motif-diagonal">
         <div class="w-12 h-12 bg-white border-2 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center mb-4 text-teal-800">
@@ -188,7 +188,7 @@
       </div>
     </div>
 
-    <!-- CARD 4: MOTIF HORIZONTAL (BUKU TULIS) -->
+    <!-- CARD 4: HORIZONTAL PATTERN (NOTEBOOK) -->
     <div class="flex flex-col bg-[#f6f3eb] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       <div class="flex flex-col items-center p-8 text-center border-b-4 border-black motif-horizontal">
         <div class="w-12 h-12 bg-white border-2 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center mb-4 text-teal-800">
@@ -215,7 +215,7 @@
       </div>
     </div>
 
-    <!-- CARD 5: MOTIF CATUR (CHECKERBOARD) -->
+    <!-- CARD 5: CHECKERBOARD PATTERN -->
     <div class="flex flex-col bg-[#f6f3eb] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       <div class="flex flex-col items-center p-8 text-center border-b-4 border-black motif-checker">
         <div class="w-12 h-12 bg-white border-2 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center mb-4 text-teal-800">
@@ -242,7 +242,7 @@
       </div>
     </div>
 
-    <!-- CARD 6: MOTIF CROSS (PLUS) -->
+    <!-- CARD 6: CROSS PATTERN (PLUS) -->
     <div class="flex flex-col bg-[#f6f3eb] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       <div class="flex flex-col items-center p-8 text-center border-b-4 border-black motif-cross">
         <div class="w-12 h-12 bg-white border-2 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center mb-4 text-teal-800">
@@ -274,28 +274,28 @@
   <section class="flex items-center justify-center min-h-screen">
       <div class="w-full max-w-sm bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] overflow-hidden border border-gray-100">
     
-    <!-- HEADER KARTU (Dengan Motif Dots) -->
+    <!-- CARD HEADER (with dot pattern) -->
     <div class="relative flex flex-col items-center p-8 text-center motif-dots-halus">
       
-      <!-- Ikon Kuis/Latihan -->
+      <!-- Quiz/practice icon -->
       <div class="flex items-center justify-center w-16 h-16 mb-4 text-orange-500 bg-white shadow-sm rounded-2xl">
         <i class="text-2xl fa-solid fa-gamepad"></i>
       </div>
       
-      <!-- Judul -->
+      <!-- Title -->
       <h2 class="mb-1 text-2xl font-bold text-white">Latihan Isyarat</h2>
       <p class="text-sm font-medium text-white/90">Kuis Pilihan Ganda Adaptif</p>
       
-      <!-- Dekorasi Gelombang (Opsional, memisahkan header dan body) -->
+      <!-- Wave decoration (optional, separates the header and body) -->
       <svg class="absolute left-0 w-full text-white -bottom-1" viewBox="0 0 1440 120" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
       </svg>
     </div>
 
-    <!-- KONTEN KARTU -->
+    <!-- CARD CONTENT -->
     <div class="flex flex-col p-8 pt-6">
       
-      <!-- Info Level dan EXP -->
+      <!-- Level and XP information -->
       <div class="flex items-center justify-between mb-8">
         <div>
           <span class="block mb-1 text-xs font-semibold tracking-wider text-gray-400 uppercase">Level Anda</span>
@@ -314,14 +314,14 @@
         </div>
       </div>
 
-      <!-- Tombol Aksi -->
+      <!-- Action buttons -->
       <div class="space-y-3">
-        <!-- Tombol Utama (Primary) -->
+        <!-- Primary button -->
         <button class="w-full py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2">
           <i class="fa-solid fa-play"></i> Mulai Kuis
         </button>
         
-        <!-- Tombol Sekunder (Secondary) -->
+        <!-- Secondary button -->
         <button class="w-full py-3.5 bg-white hover:bg-gray-50 text-orange-500 font-bold text-sm rounded-xl border-2 border-orange-200 hover:border-orange-300 transition-all duration-200 flex items-center justify-center gap-2">
           <i class="fa-solid fa-book"></i> Lihat Materi
         </button>
