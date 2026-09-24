@@ -58,7 +58,7 @@
       <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi"
         class="p-2 transition rounded-xl text-slate-700 hover:text-orange-600 hover:bg-orange-50 md:hidden focus:outline-none">
         <svg id="iconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h26M4 12h26M4 18h26"></path>
         </svg>
         <svg id="iconClose" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
@@ -103,72 +103,75 @@
   </div>
 
   <main id="shell" class="flex items-center justify-center min-h-screen py-10">
-
-    <!-- screen game -->
-    <div class="w-full max-w-sm px-4">
-
-      <!-- START SCREEN -->
-      <section id="start-screen" class="screen">
-        <div class="overflow-hidden bg-white border-2 border-orange-100 shadow-xl rounded-3xl">
-          <div class="relative flex flex-col items-center justify-center h-48 px-4 text-center text-white bg-orange-500"
-               style="background-image:radial-gradient(rgba(255,255,255,.35) 2px, transparent 2px); background-size:28px 28px;">
-            <h1 class="text-3xl font-bold">Latihan Isyarat</h1>
-            <p class="mt-1 text-sm italic">Tebak Huruf BSINDO</p>
-            <i class="absolute text-8xl right-4 bottom-2 text-orange-700/30 fa-solid fa-hand" aria-hidden="true"></i>
-          </div>
-          <div class="p-6">
-            <p class="text-sm font-medium">Level Saat Ini</p>
-            <p class="text-5xl font-light">Lv. <span id="levelText" class="text-orange-500">1</span></p>
-            <p class="mt-1 text-xs text-neutral-500">Skor terbaik: <span id="bestText">0</span></p>
-            <button class="w-full py-3 mt-6 font-semibold text-white bg-orange-500 btn-play hover:bg-orange-600 rounded-xl">
-              <i class="fa-solid fa-play mr-1.5"></i>Mulai Latihan
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- PLAY SCREEN -->
-      <section id="play-screen" class="hidden screen">
-        <div class="overflow-hidden bg-white border-2 border-orange-100 shadow-xl rounded-3xl">
-          <div class="flex items-center justify-between px-5 py-4 text-white bg-orange-500">
-            <button class="text-sm font-semibold btn-start"><i class="mr-1 fa-solid fa-arrow-left"></i>Akhiri Sesi</button>
-            <span class="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-orange-700/40">Sesi Latihan</span>
-          </div>
-          <div class="flex items-center gap-3 px-5 pt-4 text-xs text-neutral-500">
-            <span>Soal <b id="qNo" class="text-neutral-800">1</b>/<span id="qTotal">10</span></span>
-            <div class="flex-1 h-2 overflow-hidden bg-orange-100 rounded-full"><div id="bar" class="h-full transition-all bg-orange-500" style="width:0%"></div></div>
-            <span>Skor <b id="qScore" class="text-neutral-800">0</b></span>
-          </div>
-
-          <div class="p-5">
-            <div id="card" class="relative flex items-center justify-center border-2 border-orange-200 bg-orange-50 rounded-2xl min-h-[14rem]">
-              <span class="absolute text-xs font-medium text-orange-400 top-3 left-4">Isyarat huruf apa ini?</span>
-              <div id="soalIcon" class="text-orange-500 pop">
-                <i class="fa-solid fa-hand fa-8x" aria-hidden="true"></i>
+    
+    <!-- START SCREEN -->
+    <section id="start-screen" class="px-4 py-5 bg-white sm:px-6 sm:py-10 lg:px-8">
+      <div class="w-full max-w-7xl">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          
+          <!-- Card 1: Test Pilihan Ganda -->
+          <div class="w-full max-w-xl overflow-hidden duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl hover:scale-105" data-quiz="pilihan-ganda">
+            <div class="relative p-10 overflow-hidden text-center bg-orange-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
+              <i class="fa-solid fa-list-check absolute -right-2 top-1/2 -translate-y-1/2 text-8xl text-white/40"></i>
+              <h2 class="relative text-3xl font-extrabold text-white">Misi Pilihan Ganda</h2>
+              <p class="relative text-md italic text-white/90 mt-1">Kuis Pilihan Ganda Adaptif</p>
+            </div>
+            <div class="px-6 pt-6 pb-6 space-y-4">
+              <div class="space-y-2 text-sm font-semibold text-slate-800 ">
+                <p class="font-medium ">Level Saat Ini</p>
+                <p class="text-5xl font-extrabold text-neutral-900">Lv. <span class="text-orange-500 level-value">1</span></p>
               </div>
+              <div>
+                <p id="exp-game1" class="text-sm font-semibold text-slate-800">EXP: 5 / 10</p>
+                <div class="w-full mt-2 overflow-hidden border-2 border-orange-600 rounded-lg">
+                  <div class="h-2 bg-gradient-to-l from-orange-400 to-orange-600 rounded-lg w-[50%]"></div>
+                </div>
+              </div>
+              <button class="w-full text-md px-8 flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 active:scale-[0.98] transition text-white font-semibold py-3.5 rounded-full shadow-md shadow-orange-200">
+                <i class="text-sm fa-solid fa-play"></i>
+                Mulai latihan
+              </button>
+              <button class="w-full text-md px-8 flex items-center justify-center gap-2 bg-orange-50 hover:bg-orange-100 active:scale-[0.98] transition text-orange-600 font-semibold py-3.5 rounded-full border border-orange-400">
+                <i class="fa-solid fa-trash-can"></i>
+                Hapus Data
+              </button>
+            </div>
+          </div>
+          
+          <!-- Card 2: Misi Susun Kata -->
+          <div class="w-full max-w-xl overflow-hidden duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl hover:scale-105" data-quiz="susun-kata">
+            <div class="relative p-10 overflow-hidden text-center bg-amber-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
+              <i class="fa-solid fa-puzzle-piece absolute -right-2 top-1/2 -translate-y-1/2 text-8xl text-white/40 scale-105"></i>
+              <h2 class="relative text-3xl font-extrabold text-white">Misi Susun Kata</h2>
+              <p class="relative text-md italic text-white/90 mt-1">Kuis Susun Kata Adaptif</p>
+            </div>
+            <div class="px-6 pt-6 pb-6 space-y-4">
+              <div class="space-y-2 text-sm font-semibold text-slate-800 ">
+                <p class="font-medium ">Level Saat Ini</p>
+                <p class="text-5xl font-extrabold text-neutral-900">Lv. <span class="text-amber-500 level-value">1</span></p>
+              </div>
+              <div>
+                <p id="exp-game2" class="text-sm font-semibold text-slate-800">EXP: 5 / 10</p>
+                <div class="w-full mt-2 overflow-hidden border-2 rounded-lg border-amber-500">
+                  <div class="h-2 bg-gradient-to-l from-amber-400 to-amber-500 rounded-lg w-[50%]"></div>
+                </div>
+              </div>
+              <button class="w-full text-md px-8 flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition text-white font-semibold py-3.5 rounded-full shadow-md shadow-amber-200">
+                <i class="text-sm fa-solid fa-play"></i>
+                Mulai latihan
+              </button>
+              <button class="w-full text-md px-8 flex items-center justify-center gap-2 bg-amber-50 hover:bg-amber-100 active:scale-[0.98] transition text-amber-600 font-semibold py-3.5 rounded-full border border-amber-400">
+                <i class="fa-solid fa-trash-can"></i>
+                Hapus Data
+              </button>
             </div>
           </div>
         </div>
-      </section>
-
-      <!-- FINAL SCREEN -->
-      <section id="final-screen" class="hidden screen">
-        <div class="overflow-hidden bg-white border-2 border-orange-100 shadow-xl rounded-3xl">
-          <div class="flex items-center justify-center h-40 text-3xl font-bold text-white bg-orange-500"
-               style="background-image:radial-gradient(rgba(255,255,255,.35) 2px, transparent 2px); background-size:28px 28px;">
-            Hasil Latihan
-          </div>
-          <div class="p-6 text-center">
-            <p class="text-sm text-neutral-500">Skor kamu</p>
-            <p class="text-6xl font-light"><span id="rScore" class="text-orange-500">0</span><span class="text-2xl text-neutral-400">/<span id="rTotal">10</span></span></p>
-            <p id="rMsg" class="mt-2 text-sm font-medium"></p>
-            <button class="w-full py-3 mt-6 font-semibold text-white bg-orange-500 btn-play hover:bg-orange-600 rounded-xl">Main Lagi</button>
-            <button class="w-full py-2.5 mt-3 font-semibold text-orange-500 border-2 border-orange-400 btn-start bg-orange-50 rounded-xl">Kembali</button>
-          </div>
-        </div>
-      </section>
-
-    </div>
+      </div>
+    </section>
+    
+    <!-- play kuiz -->
+    <section></section>
   </main>
 
   <!-- Footer -->
@@ -203,7 +206,7 @@
         <!-- Col : Navigation -->
         <div class="md:col-span-3">
           <h3 class="mb-4 text-sm font-bold tracking-wider uppercase text-amber-200">Navigasi Utama</h3>
-          <ul class="space-y-2.5 text-sm text-orange-100">
+          <ul class="text-sm text-orange-100 space-y-2.5">
             <li><a href="index.html" class="transition-colors hover:text-white">Beranda</a></li>
             <li><a href="edukasi.html" class="transition-colors hover:text-white">Modul Edukasi</a></li>
             <li><a href="kosakata.html" class="transition-colors hover:text-white">Kamus Kosakata</a></li>
@@ -243,10 +246,7 @@
       </div>
     </div>
   </footer>
-
-  <p class="text-slate-800 font-isyarat"> 
-    a
-  </p>
+  
   <!-- jQuery & Main Script -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/script.js"></script>

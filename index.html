@@ -18,94 +18,89 @@
   <!-- Custom Styles & Transitions -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="font-sans antialiased bg-white text-slate-800 selection:bg-orange-500 selection:text-white">
-
-  <div id="scrollProgressContainer" class="fixed left-0 top-16 z-[60] h-1 w-full bg-transparent pointer-events-none md:top-20">
-    <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
-  </div>
+<body class="font-sans antialiased bg-white text-slate-800 selection:bg-orange-500">
 
   <!-- Navigation -->
-  <header class="sticky top-0 z-50 border-b shadow-sm border-orange-100/70 backdrop-blur-md bg-white/95">
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 shadow-sm w-full backdrop-blur-md text-white bg-white/20">
+    <div id="scrollProgressContainer" class="fixed left-0 top-0 z-[60] h-1 w-full bg-transparent pointer-events-none">
+      <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
+    </div>
     <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 lg:h-20">
 
       <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center gap-2 text-lg font-extrabold tracking-tight shrink-0 sm:gap-2.5 sm:text-xl lg:text-2xl text-slate-800 group" aria-label="IsyaratOK">
+      <a href="index.html" class="flex items items-center gap-2 text-lg font-bold tracking-tight shrink-0 sm:gap-2.5 sm:text-xl lg:text-2xl" aria-label="IsyaratOK">
         <img src="assets/images/Logo.png" alt="IsyaratOK" class="object-contain w-9 h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
-        <span class="whitespace-nowrap">Isyarat<span class="text-orange-600">OK</span></span>
+        <span class="text-2xl">Isyarat<span class="text-orange-600 ">OK</span></span>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="items-center hidden text-sm font-semibold gap-7 text-slate-600 md:flex" aria-label="Navigasi Utama">
-        <a href="index.html" class="py-1 text-orange-600 border-b-2 border-orange-600" aria-current="page">Beranda</a>
-        <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Edukasi</a>
-        <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Kamus</a>
-        <a href="quiz.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Quiz</a>
-        <a href="asisten.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Asisten AI</a>
+      <nav class="items-center hidden gap-5 text-base font-semibold xl:gap-7 xl:text-lg lg:flex" aria-label="Navigasi Utama">
+        <a href="index.html" class="py-1 text-orange-600 border-b-2 border-orange-600 whitespace-nowrap" aria-current="page">Beranda</a>
+        <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600 whitespace-nowrap">Edukasi</a>
+        <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600 whitespace-nowrap">Kamus</a>
+        <a href="quiz.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600 whitespace-nowrap">Quiz</a>
+        <a href="asisten.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600 whitespace-nowrap">Asisten AI</a>
       </nav>
 
       <!-- Mobile/Tablet Menu Button -->
-      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi"
-        class="relative z-50 flex items-center justify-center w-10 h-10 p-2 transition cursor-pointer shrink-0 rounded-xl text-slate-700 hover:text-orange-600 hover:bg-orange-50 lg:hidden focus:outline-none">
-        <i id="iconOpen" class="absolute text-xl transition-all duration-300 ease-in-out scale-100 rotate-0 opacity-100 fa-solid fa-bars" aria-hidden="true"></i>
-        <i id="iconClose" class="absolute text-xl transition-all duration-300 ease-in-out scale-75 -rotate-90 opacity-0 fa-solid fa-xmark" aria-hidden="true"></i>
+      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi" class="relative z-50 flex items-center justify-center w-10 h-10 p-2 transition cursor-pointer shrink-0 rounded-xl hover:text-orange-600 hover:bg-white/80 lg:hidden focus:outline-none">
+        <i id="iconOpen" class="fa-solid fa-bars absolute text-xl transition-all duration-300 ease-in-out scale-100 rotate-0 opacity-100"></i>
+        <i id="iconClose" class="fa-solid fa-x absolute text-xl transition-all duration-300 ease-in-out scale-75 -rotate-90 opacity-0"></i>
       </button>
     </div>
 
     <!-- Mobile/Tablet Navigation Drawer -->
-    <nav id="mobileMenu" class="hidden absolute top-full left-0 right-0 max-h-[calc(100vh-4rem)] overflow-y-auto px-4 py-4 sm:px-6 border-b border-orange-100 shadow-lg bg-white/95 backdrop-blur-md lg:hidden" aria-label="Menu Mobile">
-      <div class="flex flex-col space-y-2 font-medium text-slate-700 sm:space-y-2.5">
-        <a href="index.html" class="px-3 font-bold text-orange-600 bg-orange-100 rounded-lg py-2.5">Beranda</a>
-        <a href="edukasi.html" class="px-3 transition rounded-lg py-2.5 hover:bg-orange-100 hover:text-orange-600">Edukasi</a>
-        <a href="kosakata.html" class="px-3 transition rounded-lg py-2.5 hover:bg-orange-100 hover:text-orange-600">Kamus</a>
-        <a href="quiz.html" class="px-3 transition rounded-lg py-2.5 hover:bg-orange-100 hover:text-orange-600">Quiz</a>
-        <a href="asisten.html" class="px-3 transition rounded-lg py-2.5 hover:bg-orange-100 hover:text-orange-600">Asisten AI</a>
+    <nav id="mobileMenu" class="hidden absolute top-full left-0 right-0 max-h-[calc(100vh-4rem)] overflow-y-auto px-4 py-4 sm:px-6 border-b border-orange-100 shadow-lg bg-white/20 lg:hidden" aria-label="Menu Mobile">
+      <div class="flex flex-col space-y-2 font-medium sm:space-y-2.5">
+        <a href="index.html" class="px-3  text-orange-600 bg-white rounded-lg py-2.5">Beranda</a>
+        <a href="edukasi.html" class="px-3 transition rounded-lg py-2.5 hover:bg-white hover:text-orange-600">Edukasi</a>
+        <a href="kosakata.html" class="px-3 transition rounded-lg py-2.5 hover:bg-white hover:text-orange-600">Kamus</a>
+        <a href="quiz.html" class="px-3 transition rounded-lg py-2.5 hover:bg-white hover:text-orange-600">Quiz</a>
+        <a href="asisten.html" class="px-3 transition rounded-lg py-2.5 hover:bg-white hover:text-orange-600">Asisten AI</a>
       </div>
     </nav>
-
-    <div id="scrollProgressContainer" class="fixed left-0 top-16 z-[60] h-1 w-full bg-transparent pointer-events-none md:top-20">
-      <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
-    </div>
   </header>
   
   <!-- Main Content -->
   <main id="main-content">
-
-    <!-- Hero Section -->
-    <section class="relative w-full h-screen overflow-hidden">
-      <!-- Background Image -->
+    <section class="relative flex justify-center w-full h-screen overflow-hidden">
       <div class="absolute inset-0">
-        <img src="assets/images/hero-section.webp" alt="Belajar bahasa isyarat dengan empati" class="object-cover w-full h-full">
-        <!-- Overlay gelap agar teks lebih terbaca -->
-        <div class="absolute inset-0 bg-black/40"></div>
+        <img src="assets/images/hero-section.webp" alt="Belajar bahasa isyarat dengan empati" class="object-cover object-right w-full h-full md:object-center">
+        <div class="absolute inset-0 bg-slate-900/40"></div>
       </div>
 
       <!-- Content -->
-      <div class="relative z-10 flex items-center h-full">
-        <div class="container px-6 mx-auto max-w-7xl">
-          <div class="max-w-xl">
-            <h1 class="mb-4 text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
-              Isyarat bukan sekadar bentuk tangan, melainkan berbicara dengan empati.
+      <div class="relative z-10 w-full px-4 py-5 max-w-7xl sm:px-6 sm:py-10 lg:px-8">
+        <div class="flex items-center justify-start flex-1 h-full">
+          <div class="flex flex-col max-w-3xl lg:max-w-4xl gap-4">
+            <h1 class="text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl"> 
+              Isyarat bukan sekadar tangan, melainkan berbicara dengan empati.
             </h1>
-            <p class="mb-6 text-sm leading-relaxed md:text-base text-white/90">
+            <p class="text-sm md:text-base text-white/90 leading-tight">
               Kebaikan adalah nyanyian indah yang bisa didengar oleh orang tuli, sekaligus bunga indah yang bisa dilihat oleh orang buta.
             </p>
-            <a href="edukasi.html"
-              class="inline-block px-6 py-3 font-semibold text-white transition duration-300 bg-orange-500 rounded-full shadow-lg hover:bg-orange-600">
-              Mulai Pelajari
-            </a>
+            <div class="flex gap-2 md:flex-row">
+              <a href="edukasi.html" class="flex items-center gap-4 px-4 py-2 font-semibold text-white transition-all duration-300 bg-orange-500 border-2 border-orange-500 rounded-full shadow-lg hover:text-orange-600 hover:bg-white md:px-5 md:py-2 text-md lg:text-lg w-fit backdrop-blur-sm hover:bg-orange-500">
+                Mulai Pelajari
+                <i class="text-3xl fa-arrow-right fa-solid"></i>
+              </a>
+              <a href="edukasi.html" class="flex items-center gap-4 px-4 py-2 font-semibold text-white transition-all duration-300 border-2 border-orange-500 rounded-full shadow-lg md:px-5 md:py-2 text-md lg:text-lg w-fit backdrop-blur-sm hover:bg-white hover:text-orange-600">
+                Tes Kuis
+                <i class="text-3xl fa-arrow-right fa-solid"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Wave shape bawah -->
       <div class="absolute bottom-0 left-0 z-10 w-full leading-none">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full h-auto" preserveAspectRatio="none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 110" class="w-full" preserveAspectRatio="none">
           <path fill="#ffffff" d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z"></path>
         </svg>
       </div>
     </section>
 
-    <!-- Ringkasan Manfaat -->
+    <!-- Benefits Summary -->
     <section class="px-4 py-5 bg-white sm:px-6 sm:py-10 lg:px-8" aria-label="Manfaat belajar di IsyaratOK">
       <div class="grid grid-cols-3 gap-2 py-3 mx-auto border-orange-100 max-w-7xl border-y sm:grid-cols-3 sm:divide-x sm:divide-orange-100 sm:gap-0 sm:py-2">
         <div class="flex flex-col items-center justify-center gap-2 px-1 text-center sm:flex-row sm:gap-3 sm:px-4 sm:text-left">
@@ -132,7 +127,7 @@
       </div>
     </section>
 
-    <!-- Eksporasi Fitur -->
+    <!-- Explore Features -->
     <section id="fitur" class="px-4 py-16 bg-white sm:px-6 md:py-24 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <!-- Section Header -->
@@ -169,7 +164,7 @@
             </a>
           </div>
   
-          <!-- Card 2: Kamus Kosakata -->
+          <!-- Card 2: Sign Dictionary -->
           <div class="flex flex-col h-full bg-white border shadow-sm p-7 border-slate-200/80 rounded-3xl card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 group fade-up-item" style="--delay: 180ms;">
             <div class="flex items-center justify-center mb-6 text-xl text-white transition-transform duration-200 shadow-md w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-500 group-hover:scale-110 shadow-amber-500/20">
               <i class="fas fa-spell-check" aria-hidden="true"></i>
@@ -230,7 +225,7 @@
       </div>
     </section>
 
-    <!-- Kenapa Belajar IsyaratOK -->
+    <!-- Why Learn with IsyaratOK -->
     <section class="px-4 py-16 bg-white sm:px-6 md:py-24 lg:px-8">
       <div class="mx-auto max-w-7xl">
 
@@ -288,49 +283,7 @@
       </div>
     </section>
 
-    <!-- Cultural Quote -->
-    <section id="cultural-quote" class="relative w-full px-5 overflow-hidden text-white py-14 sm:px-10 sm:py-20 md:py-28 lg:px-16">
-      
-      <!-- Animated Ribbon Background (Solid clean edge-to-edge on mobile, Swallowtail Ribbon Notch on desktop) -->
-      <div id="culturalQuoteRibbonBg"
-         class="ribbon-shadow absolute inset-0 bg-orange-600 -translate-x-full transition-transform duration-[1100ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] will-change-transform
-                  [clip-path:none]
-                  md:[clip-path:polygon(0%_0%,100%_0%,calc(100%-6.5rem)_50%,100%_100%,0%_100%)]
-                  lg:[clip-path:polygon(0%_0%,100%_0%,calc(100%-8rem)_50%,100%_100%,0%_100%)]">
-      </div>
-
-      <!-- Content Container (Fades & slides in smoothly alongside the ribbon) -->
-      <div id="culturalQuoteContent" class="relative z-10 max-w-4xl mx-auto text-center opacity-0 -translate-x-8 transition-all duration-[1000ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] delay-200 will-change-transform">
-
-        <!-- Quote Icon -->
-        <div class="flex items-center justify-center w-12 h-12 mx-auto mb-6 text-xl rounded-full shadow-inner sm:w-16 sm:h-16 text-amber-300 bg-white/10 backdrop-blur-md sm:mb-8 sm:text-2xl">
-          <i class="fas fa-quote-left" aria-hidden="true"></i>
-        </div>
-
-        <!-- Main Quote Text with Scroll-Driven Reveal (ID & Functionality Dipertahankan) -->
-        <blockquote id="culturalQuoteText" class="mb-5 font-serif text-xl font-medium leading-relaxed text-white break-words sm:text-3xl md:text-4xl sm:mb-6 drop-shadow-sm">
-          &ldquo;Orang tuli bisa melakukan apa saja yang bisa dilakukan orang yang bisa mendengar, kecuali mendengar.&rdquo;
-        </blockquote>
-
-        <!-- Original Quote & Author Attribution -->
-        <p id="culturalQuoteOriginal" class="mb-2 text-sm italic font-light transition-opacity duration-300 text-amber-200 sm:text-base md:text-lg">
-          &ldquo;Deaf people can do anything hearing people can do except hear.&rdquo;
-        </p>
-        <p class="mb-8 text-xs font-semibold tracking-wide uppercase text-amber-300 sm:text-sm sm:mb-10">
-          &mdash; Dr. I. King Jordan (Presiden Tuli Pertama di Gallaudet University)
-        </p>
-
-        <!-- Glassmorphism Card Explainer -->
-        <div class="p-5 text-center border shadow-2xl bg-white/15 backdrop-blur-md border-white/20 rounded-2xl md:p-8 sm:rounded-3xl">
-          <p class="text-xs leading-relaxed sm:text-sm md:text-base text-orange-50">
-            Kami percaya bahwa setiap bahasa adalah jendela untuk saling mengerti. Dengan mempelajari bahasa isyarat, kita turut serta meruntuhkan stigma, membangun empati, dan mewujudkan masyarakat yang ramah disabilitas.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Data Angka -->
+    <!-- Sign Language in Numbers -->
     <section id="isyarat-angka" class="px-4 py-16 bg-white sm:px-6 md:py-24 lg:px-8">
       <div class="mx-auto max-w-7xl">
         
@@ -455,7 +408,7 @@
       </div>
     </section>
 
-    <!-- Modul Edukasi -->
+    <!-- Education Module -->
     <section class="px-4 py-16 bg-white sm:px-6 md:py-24 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div class="text-center mb-14 fade-up-item" style="--delay: 60ms;">
@@ -551,12 +504,12 @@
           <!-- Word 1: Halo -->
           <a href="kosakata.html" class="flex flex-col h-full p-3 sm:p-3.5 bg-white border shadow-sm border-slate-200/80 rounded-2xl card-interactive hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-300 group gesture-card fade-up-item transition-all duration-200">
             <div class="relative w-full mb-3 overflow-hidden border aspect-square rounded-xl bg-slate-50 border-slate-100">
-              <img src="assets/images/-Tangan/H/wall white (1).jpg" alt="Gestur tangan Halo" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+              <img src="assets/images/BISINDO/H - wall white.jpg" alt="Gestur tangan Halo" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-800 bg-white/95 rounded-md shadow-sm backdrop-blur-sm">Sapaan</span>
               <span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-semibold uppercase rounded bg-slate-900/70 text-white backdrop-blur-sm">BISINDO</span>
             </div>
             <div class="flex flex-col flex-1 text-center">
-              <h3 class="text-base font-bold transition-colors text-slate-900 group-hover:text-orange-600">Halo</h3>
+              <h3 class="text-base font-bold transition-colors text-slate-800 group-hover:text-orange-600">Halo</h3>
               <p class="text-[11px] leading-snug text-slate-500 mt-1 line-clamp-2">Lambaikan tangan terbuka di samping pelipis atau dahi</p>
             </div>
             <div class="text-center border-t pt-2.5 mt-2.5 border-slate-100">
@@ -569,12 +522,12 @@
           <!-- Word 2: Terima Kasih -->
           <a href="kosakata.html" class="flex flex-col h-full p-3 sm:p-3.5 bg-white border shadow-sm border-slate-200/80 rounded-2xl card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 group gesture-card fade-up-item transition-all duration-200">
             <div class="relative w-full mb-3 overflow-hidden border aspect-square rounded-xl bg-slate-50 border-slate-100">
-              <img src="assets/images/BISINDO/T/wall white (1).jpg" alt="Gestur tangan Terima Kasih" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+              <img src="assets/images/BISINDO/T - wall white.jpg" alt="Gestur tangan Terima Kasih" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-800 bg-white/95 rounded-md shadow-sm backdrop-blur-sm">Ungkapan</span>
               <span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-semibold uppercase rounded bg-slate-900/70 text-white backdrop-blur-sm">BISINDO</span>
             </div>
             <div class="flex flex-col flex-1 text-center">
-              <h3 class="text-base font-bold transition-colors text-slate-900 group-hover:text-amber-600">Terima Kasih</h3>
+              <h3 class="text-base font-bold transition-colors text-slate-800 group-hover:text-amber-600">Terima Kasih</h3>
               <p class="text-[11px] leading-snug text-slate-500 mt-1 line-clamp-2">Sentuh dagu dengan ujung jari lalu arahkan ke depan</p>
             </div>
             <div class="text-center border-t pt-2.5 mt-2.5 border-slate-100">
@@ -587,12 +540,12 @@
           <!-- Word 3: Sama-Sama -->
           <a href="kosakata.html" class="flex flex-col h-full p-3 sm:p-3.5 bg-white border shadow-sm border-slate-200/80 rounded-2xl card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 group gesture-card fade-up-item transition-all duration-200">
             <div class="relative w-full mb-3 overflow-hidden border aspect-square rounded-xl bg-slate-50 border-slate-100">
-              <img src="assets/images/BISINDO/S/wall white (1).jpg" alt="Gestur tangan Sama-Sama" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+              <img src="assets/images/BISINDO/S - wall white.jpg" alt="Gestur tangan Sama-Sama" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-800 bg-white/95 rounded-md shadow-sm backdrop-blur-sm">Ungkapan</span>
               <span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-semibold uppercase rounded bg-slate-900/70 text-white backdrop-blur-sm">BISINDO</span>
             </div>
             <div class="flex flex-col flex-1 text-center">
-              <h3 class="text-base font-bold transition-colors text-slate-900 group-hover:text-amber-600">Sama-Sama</h3>
+              <h3 class="text-base font-bold transition-colors text-slate-800 group-hover:text-amber-600">Sama-Sama</h3>
               <p class="text-[11px] leading-snug text-slate-500 mt-1 line-clamp-2">Kedua tangan terbuka telapak atas digerakkan ke depan</p>
             </div>
             <div class="text-center border-t pt-2.5 mt-2.5 border-slate-100">
@@ -605,12 +558,12 @@
           <!-- Word 4: Maaf -->
           <a href="kosakata.html" class="flex flex-col h-full p-3 sm:p-3.5 bg-white border shadow-sm border-slate-200/80 rounded-2xl card-interactive hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-300 group gesture-card fade-up-item transition-all duration-200">
             <div class="relative w-full mb-3 overflow-hidden border aspect-square rounded-xl bg-slate-50 border-slate-100">
-              <img src="assets/images/BISINDO/M/wall white (1).jpg" alt="Gestur tangan Maaf" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+              <img src="assets/images/BISINDO/M - wall white.jpg" alt="Gestur tangan Maaf" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-800 bg-white/95 rounded-md shadow-sm backdrop-blur-sm">Ungkapan</span>
               <span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-semibold uppercase rounded bg-slate-900/70 text-white backdrop-blur-sm">BISINDO</span>
             </div>
             <div class="flex flex-col flex-1 text-center">
-              <h3 class="text-base font-bold transition-colors text-slate-900 group-hover:text-orange-600">Maaf</h3>
+              <h3 class="text-base font-bold transition-colors text-slate-800 group-hover:text-orange-600">Maaf</h3>
               <p class="text-[11px] leading-snug text-slate-500 mt-1 line-clamp-2">Putar kepalan tangan melingkar lembut di atas dada</p>
             </div>
             <div class="text-center border-t pt-2.5 mt-2.5 border-slate-100">
@@ -623,12 +576,12 @@
           <!-- Word 5: Tolong -->
           <a href="kosakata.html" class="flex flex-col h-full p-3 sm:p-3.5 bg-white border shadow-sm border-slate-200/80 rounded-2xl card-interactive hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-300 group gesture-card fade-up-item transition-all duration-200">
             <div class="relative w-full mb-3 overflow-hidden border aspect-square rounded-xl bg-slate-50 border-slate-100">
-              <img src="assets/images/BISINDO/T/wall white (1).jpg" alt="Gestur tangan Tolong" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+              <img src="assets/images/BISINDO/T - wall white.jpg" alt="Gestur tangan Tolong" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-emerald-800 bg-white/95 rounded-md shadow-sm backdrop-blur-sm">Bantuan</span>
               <span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-semibold uppercase rounded bg-slate-900/70 text-white backdrop-blur-sm">BISINDO</span>
             </div>
             <div class="flex flex-col flex-1 text-center">
-              <h3 class="text-base font-bold transition-colors text-slate-900 group-hover:text-emerald-600">Tolong</h3>
+              <h3 class="text-base font-bold transition-colors text-slate-800 group-hover:text-emerald-600">Tolong</h3>
               <p class="text-[11px] leading-snug text-slate-500 mt-1 line-clamp-2">Satu tangan menopang tangan terbuka ke arah atas</p>
             </div>
             <div class="text-center border-t pt-2.5 mt-2.5 border-slate-100">
@@ -641,12 +594,12 @@
           <!-- Word 6: Teman -->
           <a href="kosakata.html" class="flex flex-col h-full p-3 sm:p-3.5 bg-white border shadow-sm border-slate-200/80 rounded-2xl card-interactive hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 group gesture-card fade-up-item transition-all duration-200">
             <div class="relative w-full mb-3 overflow-hidden border aspect-square rounded-xl bg-slate-50 border-slate-100">
-              <img src="assets/images/BISINDO/X/wall white (1).jpg" alt="Gestur tangan Teman" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+              <img src="assets/images/BISINDO/X - wall white.jpg" alt="Gestur tangan Teman" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-indigo-800 bg-white/95 rounded-md shadow-sm backdrop-blur-sm">Sosial</span>
               <span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-semibold uppercase rounded bg-slate-900/70 text-white backdrop-blur-sm">BISINDO</span>
             </div>
             <div class="flex flex-col flex-1 text-center">
-              <h3 class="text-base font-bold transition-colors text-slate-900 group-hover:text-indigo-600">Teman</h3>
+              <h3 class="text-base font-bold transition-colors text-slate-800 group-hover:text-indigo-600">Teman</h3>
               <p class="text-[11px] leading-snug text-slate-500 mt-1 line-clamp-2">Kaitkan jari telunjuk kedua tangan secara bergantian</p>
             </div>
             <div class="text-center border-t pt-2.5 mt-2.5 border-slate-100">
@@ -668,7 +621,7 @@
       </div>
     </section>
 
-    <!-- Quiz Call To Action (Clean & Consistent Solid Style) -->
+    <!-- Quiz Call To Action -->
     <section class="px-4 py-16 bg-white border-t sm:px-6 md:py-24 lg:px-8 border-slate-100" id="quiz">
       <div class="mx-auto max-w-7xl">
         <!-- Section Header -->
@@ -692,7 +645,7 @@
               <span class="inline-flex items-center gap-2 px-3 py-1 mb-4 text-xs font-bold tracking-wider text-orange-700 uppercase bg-orange-100 rounded-full">
                 <i class="text-orange-600 fa-solid fa-trophy" aria-hidden="true"></i> Tantangan Singkat
               </span>
-              <h3 class="text-xl font-bold leading-snug sm:text-2xl text-slate-900">
+              <h3 class="text-xl font-bold leading-snug sm:text-2xl text-slate-800">
                 Asah Pengetahuan Budaya Tuli &amp; Etika Berbahasa
               </h3>
               <p class="mt-3 text-sm leading-relaxed sm:text-base text-slate-600">
@@ -738,16 +691,16 @@
             </div>
 
             <div class="py-6 my-auto">
-              <p class="text-lg font-bold leading-relaxed sm:text-xl text-slate-900">
+              <p class="text-lg font-bold leading-relaxed sm:text-xl text-slate-800">
                 Apa etika yang tepat saat ingin memanggil perhatian teman Tuli di dalam ruangan?
               </p>
 
               <div class="grid gap-3 mt-6 sm:grid-cols-2">
                 <div class="flex items-center justify-between p-4 text-sm border text-slate-600 bg-slate-50 border-slate-200 rounded-2xl">
-                  <span><b class="mr-2 text-slate-900">A.</b> Berteriak lebih keras</span>
+                  <span><b class="mr-2 text-slate-800">A.</b> Berteriak lebih keras</span>
                   <i class="fa-regular fa-circle text-slate-300" aria-hidden="true"></i>
                 </div>
-                <div class="flex items-center justify-between p-4 text-sm font-bold border-2 border-orange-500 shadow-sm text-slate-900 bg-orange-50 rounded-2xl">
+                <div class="flex items-center justify-between p-4 text-sm font-bold border-2 border-orange-500 shadow-sm text-slate-800 bg-orange-50 rounded-2xl">
                   <span><b class="mr-2 text-orange-600">B.</b> Melambaikan tangan sopan</span>
                   <i class="text-orange-600 fa-solid fa-circle-check" aria-hidden="true"></i>
                 </div>
@@ -904,7 +857,7 @@
         <!-- Col : Navigation -->
         <div class="md:col-span-3">
           <h3 class="mb-4 text-sm font-bold tracking-wider uppercase text-amber-200">Navigasi Utama</h3>
-          <ul class="space-y-2.5 text-sm text-orange-100">
+          <ul class="text-sm text-orange-100 space-y-2.5">
             <li><a href="index.html" class="transition-colors hover:text-white">Beranda</a></li>
             <li><a href="edukasi.html" class="transition-colors hover:text-white">Modul Edukasi</a></li>
             <li><a href="kosakata.html" class="transition-colors hover:text-white">Kamus Kosakata</a></li>

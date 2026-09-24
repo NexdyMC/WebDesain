@@ -59,6 +59,21 @@ $(function () {
     }
   });
 
+
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', () => {
+    
+    const heroHeight = window.innerHeight; 
+    if (window.scrollY >= heroHeight) {
+      navbar.classList.remove('bg-white/20', 'text-white');
+      navbar.classList.add('bg-white/80', 'text-slate-800', 'shadow-md');
+    } else {
+      navbar.classList.add('bg-white/0', 'text-white');
+      navbar.classList.remove('bg-white/80', 'text-slate-800', 'shadow-md');
+    }
+  });
+
   function initScrollProgress() {
     const progressBar = document.getElementById("scrollProgressBar");
     if (!progressBar) return;
