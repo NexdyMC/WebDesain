@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IsyaratOK - Kamus &amp; Kosakata Isyarat Interaktif</title>
+<meta name="description" content="Kamus visual Bahasa Isyarat Indonesia (BISINDO). Cari abjad A-Z, angka 0-12, dan kosakata sehari-hari dengan foto panduan gestur tangan jelas." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/js/tailwind.config.js"></script>
+<link rel="stylesheet" href="assets/css/kosakata.css" />
+<style>
+  body{font-family:'Poppins',sans-serif}
+  .kosakata-card{transition:transform .15s}
+  .kosakata-card:active{transform:scale(.97)}
+  .category-tab.active{background:#ea580c!important;color:#fff!important;box-shadow:0 4px 10px rgba(234,88,12,.25)}
+</style>
+</head>
+<body class="antialiased bg-white text-slate-800 selection:bg-orange-500 selection:text-white">
+
+  <header class="sticky top-0 z-50 border-b shadow-sm border-orange-100/70 backdrop-blur-md bg-white/95">
+    <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 md:h-20">
+      <a href="index.html" class="flex items-center text-xl font-extrabold tracking-tight gap-2.5 md:text-2xl text-slate-800">
+        <img src="assets/images/Logo.png" alt="" class="object-contain w-8 h-8" />
+        <span>Isyarat<span class="text-orange-600">OK</span></span>
+      </a>
+      <nav class="items-center hidden text-sm font-semibold gap-7 text-slate-600 md:flex">
+        <a href="index.html" class="hover:text-orange-600">Beranda</a>
+        <a href="edukasi.html" class="hover:text-orange-600">Edukasi</a>
+        <a href="kosakata.html" class="py-1 text-orange-600 border-b-2 border-orange-600">Kamus</a>
+        <a href="quiz.html" class="hover:text-orange-600">Quiz</a>
+        <a href="asisten.html" class="hover:text-orange-600">Asisten AI</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="px-4 pt-8 pb-6 bg-white sm:px-6 md:pt-12 md:pb-8 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl mx-auto mb-10 text-center">
+          <h1 class="text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl md:text-5xl">
+            Eksplorasi <span class="text-orange-500">Kamus Isyarat</span>
+          </h1>
+          <p class="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
+            Temukan visualisasi bentuk gerakan tangan untuk abjad, angka, dan kosakata sehari-hari. Klik kartu mana saja untuk melihat panduan detailnya.
+          </p>
+        </div>
+
+        <div class="max-w-4xl p-6 mx-auto bg-white border shadow-xl rounded-3xl border-slate-100 md:p-8">
+          <div class="relative mb-6">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-5 text-slate-400"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <input type="text" id="searchInput" placeholder="Ketik kata, huruf, atau angka... (contoh: A, 1, Halo, Terima Kasih)"
+              class="w-full py-4 pl-12 pr-4 text-sm border shadow-inner md:text-base border-slate-200 rounded-2xl bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3" id="filterTabs">
+            <button data-filter="all" class="px-5 text-xs font-bold border rounded-full category-tab active py-2.5 sm:text-sm border-slate-200"><i class="mr-1.5 fa-solid fa-layer-group"></i> Semua Koleksi</button>
+            <button data-filter="angka" class="px-5 text-xs font-semibold bg-white border rounded-full category-tab py-2.5 sm:text-sm border-slate-200 text-slate-700"><i class="mr-1.5 fa-solid fa-arrow-down-1-9 text-amber-500"></i> Angka (0-12)</button>
+            <button data-filter="abjad" class="px-5 text-xs font-semibold bg-white border rounded-full category-tab py-2.5 sm:text-sm border-slate-200 text-slate-700"><i class="text-orange-500 mr-1.5 fa-solid fa-font"></i> Abjad (A-Z)</button>
+            <button data-filter="kata" class="px-5 text-xs font-semibold bg-white border rounded-full category-tab py-2.5 sm:text-sm border-slate-200 text-slate-700"><i class="mr-1.5 fa-solid fa-comments text-emerald-500"></i> Kosakata Harian</button>
+          </div>
+          <div class="flex items-center justify-between pt-4 mt-6 text-xs border-t border-slate-100 text-slate-500">
+            <span id="resultCount">Memuat data...</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 pt-2 pb-8 mx-auto sm:px-6 md:pt-4 md:pb-12 lg:px-8 max-w-7xl">
+      <div id="noResultsMessage" class="hidden max-w-md p-10 mx-auto my-12 text-center bg-white border shadow-sm border-slate-100 rounded-3xl">
+        <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 text-2xl text-orange-500 bg-orange-100 rounded-full"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <h3 class="text-lg font-bold text-slate-800">Isyarat Tidak Ditemukan</h3>
+        <p class="mt-2 text-xs leading-relaxed text-slate-500">Coba cari dengan kata kunci lain seperti abjad "A", angka "1", atau kata "Halo".</p>
+      </div>
+      <div id="cardsGrid" class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6 md:gap-4"></div>
+    </section>
+  </main>
+
+  <!-- MODAL DETAIL -->
+  <div id="popupModal" class="fixed inset-0 z-50 items-center justify-center hidden p-4 bg-slate-900/80 backdrop-blur-xs">
+    <div class="relative flex flex-col w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl p-6 sm:p-8 border border-slate-100">
+      <button id="closeBtn" class="absolute flex items-center justify-center rounded-full top-5 right-5 w-9 h-9 text-slate-400 hover:text-slate-700 hover:bg-slate-100"><i class="text-lg fa-solid fa-xmark"></i></button>
+      <span id="modalCategory" class="inline-block w-fit mb-2 px-3 py-1 text-[11px] font-bold tracking-wider text-orange-800 uppercase bg-orange-100 rounded-full"></span>
+      <h2 id="modalTitle" class="pr-8 mb-4 text-2xl font-extrabold text-slate-800 sm:text-3xl"></h2>
+      <div class="relative flex items-center justify-center mb-5 overflow-hidden border aspect-video bg-slate-50 rounded-2xl border-slate-100">
+        <img id="modalImg" src="" alt="" class="object-contain w-full h-full p-2" />
+      </div>
+      <div class="space-y-4 text-sm text-slate-600">
+        <div class="p-4 border border-orange-100 bg-orange-50/70 rounded-2xl">
+          <p class="flex items-center mb-1 text-xs font-bold tracking-wider uppercase text-orange-950 gap-1.5"><i class="text-orange-600 fa-solid fa-hand-sparkles"></i> Cara Melakukan Gerakan</p>
+          <p id="modalDescription" class="leading-relaxed"></p>
+        </div>
+        <div class="p-4 border bg-slate-50 border-slate-200/60 rounded-2xl">
+          <p class="flex items-center mb-1 text-xs font-bold tracking-wider uppercase text-slate-800 gap-1.5"><i class="fa-solid fa-lightbulb text-amber-500"></i> Tips Posisi Jari &amp; Wajah</p>
+          <p id="modalTips" class="text-xs leading-relaxed text-slate-600"></p>
+        </div>
+      </div>
+      <div class="flex items-center justify-end gap-3 pt-4 mt-6 border-t border-slate-100">
+        <button id="closeModalAction" class="px-5 text-xs font-bold rounded-full py-2.5 text-slate-700 bg-slate-100 hover:bg-slate-200">Tutup</button>
+        <a href="edukasi.html" class="px-5 py-2.5 text-xs font-bold text-white bg-orange-600 rounded-full hover:bg-orange-700 shadow-md shadow-orange-500/20">Latihan di Modul Edukasi &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="mt-20 text-white border-t bg-gradient-to-br from-orange-600 via-orange-600 to-amber-700 border-orange-500/30">
+    <div class="px-4 py-10 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
+      <p class="text-sm text-orange-100">&copy; 2026 IsyaratOK. Seluruh hak cipta dilindungi.</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  $(function () {
+    const IMG_BASE = '../assets/images/BISINDO/';
+    const BADGE = { angka: ['Angka', 'text-amber-900 bg-amber-100'], abjad: ['Abjad', 'text-orange-900 bg-orange-100'], kata: [null, 'text-emerald-900 bg-emerald-100'] };
+    let DATA = { angka: [], abjad: [], kata: [] };
+    let items = []; // flattened list with category
+
+    function flatten(data) {
+      const out = [];
+      ['angka', 'abjad', 'kata'].forEach(cat => (data[cat] || []).forEach(it => out.push({ ...it, category: cat })));
+      return out;
+    }
+
+    function cardHtml(it) {
+      const badgeText = it.badge || BADGE[it.category][0];
+      const badgeClass = BADGE[it.category][1];
+      return `
+        <div role="button" tabindex="0" data-cat="${it.category}" data-keywords="${(it.keywords || '').toLowerCase()}"
+            class="flex flex-col p-3 text-center bg-white border shadow-sm cursor-pointer kosakata-card group border-slate-100 rounded-2xl hover:shadow-lg">
+          <div class="relative overflow-hidden mb-2.5 rounded-xl aspect-square bg-slate-50">
+            <img src="${IMG_BASE}${it.img}" alt="Isyarat ${it.title}" class="object-cover w-full h-full" />
+            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold rounded-md ${badgeClass}">${badgeText}</span>
+          </div>
+          <p class="text-base font-extrabold text-slate-800 group-hover:text-orange-600">${it.title}</p>
+          <span class="text-[11px] font-medium text-slate-500">${it.sub}</span>
+        </div>`;
+    }
+
+    function render(list) {
+      const $grid = $('#cardsGrid').empty();
+      list.forEach((it, i) => $grid.append(cardHtml(it)).children().last().data('idx', items.indexOf(it)));
+      $('#noResultsMessage').toggleClass('hidden', list.length > 0);
+      $('#resultCount').text(list.length ? `Menampilkan ${list.length} isyarat` : 'Tidak ada hasil');
+    }
+
+    function applyFilter() {
+      const q = $('#searchInput').val().trim().toLowerCase();
+      const cat = $('.category-tab.active').data('filter');
+      const filtered = items.filter(it =>
+        (cat === 'all' || it.category === cat) &&
+        (!q || it.title.toLowerCase().includes(q) || (it.keywords || '').toLowerCase().includes(q))
+      );
+      render(filtered);
+    }
+
+    // Ambil data via AJAX dari data.json
+    $.ajax({ url: './data.json', dataType: 'json' })
+      .done(function (data) {
+        DATA = data;
+        items = flatten(DATA);
+        applyFilter();
+      })
+      .fail(function () {
+        $('#resultCount').text('Gagal memuat data.json');
+      });
+
+    $('#searchInput').on('input', applyFilter);
+
+    $('#filterTabs').on('click', '.category-tab', function () {
+      $('.category-tab').removeClass('active bg-orange-600 text-white').addClass('bg-white text-slate-700');
+      $(this).addClass('active bg-orange-600 text-white').removeClass('bg-white text-slate-700');
+      applyFilter();
+    });
+
+    $('#cardsGrid').on('click', '.kosakata-card', function () {
+      const it = items[$(this).data('idx')];
+      $('#modalCategory').text(it.badge || BADGE[it.category][0]);
+      $('#modalTitle').text(it.title + (it.sub && it.category !== 'kata' ? ' — ' + it.sub : ''));
+      $('#modalImg').attr('src', IMG_BASE + it.img).attr('alt', 'Isyarat ' + it.title);
+      $('#modalDescription').text(it.desc);
+      $('#modalTips').text(it.tips);
+      $('#popupModal').removeClass('hidden').addClass('flex');
+    });
+
+    $('#closeBtn, #closeModalAction, #popupModal').on('click', function (e) {
+      if (e.target.id === 'popupModal' || e.target.id === 'closeBtn' || e.target.id === 'closeModalAction' || $(e.target).closest('#closeBtn,#closeModalAction').length) {
+        $('#popupModal').addClass('hidden').removeClass('flex');
+      }
+    });
+  });
+  </script>
+</body>
+</html>

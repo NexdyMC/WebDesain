@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IsyaratOK - Kamus Kosakata Isyarat</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-white text-slate-800 font-sans">
+
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-orange-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <span class="text-xl font-extrabold text-slate-900">Isyarat<span class="text-orange-600">OK</span></span>
+      <span class="text-xs font-semibold text-slate-500 hidden sm:block">Kamus &amp; Kosakata Isyarat</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8">
+
+    <!-- HERO -->
+    <div class="max-w-2xl mx-auto text-center mb-8">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Eksplorasi <span class="text-orange-500">Kamus Isyarat</span></h1>
+      <p class="mt-3 text-slate-600">Cari abjad, angka, dan kosakata sehari-hari. Klik kartu untuk melihat detail gestur.</p>
+    </div>
+
+    <!-- SEARCH & FILTER -->
+    <div class="max-w-4xl mx-auto bg-white border border-slate-100 shadow-xl rounded-3xl p-6 mb-10">
+      <div class="relative mb-5">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+        <input id="searchInput" type="text" placeholder="Ketik kata, huruf, atau angka..."
+          class="w-full pl-11 pr-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
+      </div>
+      <div class="flex flex-wrap justify-center gap-2" id="filterTabs">
+        <button data-filter="all" class="ftab px-4 py-2 text-sm font-bold rounded-full bg-orange-600 text-white">Semua</button>
+        <button data-filter="abjad" class="ftab px-4 py-2 text-sm font-semibold rounded-full bg-white text-slate-700 border border-slate-200">Abjad (A-Z)</button>
+        <button data-filter="angka" class="ftab px-4 py-2 text-sm font-semibold rounded-full bg-white text-slate-700 border border-slate-200">Angka (0-12)</button>
+        <button data-filter="kata" class="ftab px-4 py-2 text-sm font-semibold rounded-full bg-white text-slate-700 border border-slate-200">Kosakata Harian</button>
+      </div>
+      <p id="resultCount" class="text-center text-xs text-slate-500 mt-4"></p>
+    </div>
+
+    <!-- GRID -->
+    <div id="cardGrid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-1 md:gap-3 lg:gap-4"></div>
+    <p id="noResults" class="hidden text-center text-slate-500 my-12">Isyarat tidak ditemukan. Coba kata kunci lain.</p>
+
+    <!-- PAGINATION -->
+    <div id="pagination" class="hidden flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-8"></div>
+  </main>
+
+  <!-- MODAL -->
+  <div id="modal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 bg-slate-900/80">
+    <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-6 max-h-[90vh] overflow-y-auto">
+      <button id="closeModal" class="absolute top-5 right-5 w-9 h-9 rounded-full text-slate-400 hover:bg-slate-100"><i class="fa-solid fa-xmark"></i></button>
+      <span id="mBadge" class="inline-block px-3 py-1 text-[11px] font-bold uppercase bg-orange-100 text-orange-800 rounded-full mb-2"></span>
+      <h2 id="mTitle" class="text-2xl font-extrabold mb-4"></h2>
+      <div class="aspect-video bg-slate-50 rounded-2xl overflow-hidden mb-5 border border-slate-100">
+        <img id="mImg" src="" alt="" class="w-full h-full object-contain p-2" />
+      </div>
+      <div class="bg-orange-50 border border-orange-100 rounded-2xl p-4 mb-3 text-sm">
+        <p class="font-bold text-orange-950 text-xs uppercase mb-1"><i class="fa-solid fa-hand-sparkles text-orange-600 mr-1"></i>Cara Melakukan Gerakan</p>
+        <p id="mDesc"></p>
+      </div>
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-xs">
+        <p class="font-bold text-slate-800 uppercase mb-1"><i class="fa-solid fa-lightbulb text-amber-500 mr-1"></i>Tips Posisi Jari &amp; Wajah</p>
+        <p id="mTips"></p>
+      </div>
+    </div>
+  </div>
+
+<script>
+let DATA = [], filter = 'all', query = '', page = 1;
+const ROWS_PER_PAGE = 5;
+
+function badgeColor(cat){
+  return {angka:'bg-amber-100 text-amber-900', abjad:'bg-orange-100 text-orange-900', kata:'bg-emerald-100 text-emerald-900'}[cat] || 'bg-slate-100 text-slate-700';
+}
+
+function getCols(){
+  const w = window.innerWidth;
+  return w >= 768 ? 6 : w >= 640 ? 3 : 2;
+}
+
+function renderPagination(totalItems, perPage){
+  const totalPages = Math.ceil(totalItems / perPage);
+  const $p = $('#pagination');
+
+  if (totalPages <= 1) { $p.addClass('hidden').removeClass('flex').empty(); return; }
+
+  if (page > totalPages) page = totalPages;
+
+  // Susun daftar nomor halaman: selalu tampilkan 1, halaman aktif, tetangganya, dan halaman terakhir; sisanya "..."
+  const nums = new Set([1, totalPages, page, page - 1, page + 1]);
+  let last = 0;
+  let html = `<button data-p="prev" class="pbtn px-3 sm:px-4 py-2 text-xs sm:text-sm font-bold rounded-xl bg-amber-300 text-slate-900 hover:bg-amber-400 transition ${page === 1 ? 'opacity-50 pointer-events-none' : ''}">Prev</button>`;
+
+  [...nums].filter(n => n >= 1 && n <= totalPages).sort((a,b) => a-b).forEach(n => {
+    if (last && n - last > 1) html += `<span class="px-1 text-slate-400 text-xs sm:text-sm">...</span>`;
+    html += n === page
+      ? `<button data-p="${n}" class="pbtn w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-xs sm:text-sm font-bold rounded-xl bg-emerald-900 text-white">${n}</button>`
+      : `<button data-p="${n}" class="pbtn w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-xs sm:text-sm font-semibold text-slate-700 hover:text-orange-600 transition">${n}</button>`;
+    last = n;
+  });
+
+  html += `<button data-p="next" class="pbtn px-3 sm:px-4 py-2 text-xs sm:text-sm font-bold rounded-xl bg-amber-300 text-slate-900 hover:bg-amber-400 transition ${page === totalPages ? 'opacity-50 pointer-events-none' : ''}">Next</button>`;
+
+  $p.html(html).removeClass('hidden').addClass('flex');
+}
+
+function render(){
+  const q = query.toLowerCase();
+  const items = DATA.filter(d =>
+    (filter === 'all' || d.category === filter) &&
+    (!q || d.keywords.toLowerCase().includes(q) || d.title.toLowerCase().includes(q))
+  );
+
+  $('#resultCount').text(items.length + ' isyarat ditemukan');
+  $('#noResults').toggleClass('hidden', items.length > 0);
+
+  const perPage = getCols() * ROWS_PER_PAGE;
+  const totalPages = Math.max(1, Math.ceil(items.length / perPage));
+  if (page > totalPages) page = totalPages;
+  const pageItems = items.slice((page - 1) * perPage, page * perPage);
+
+  const html = pageItems.map(d => `
+    <div data-i="${DATA.indexOf(d)}" class="card cursor-pointer overflow-hidden bg-white border-2 border-slate-100 rounded-2xl p-0 md:p-2 lg:p-3 text-center shadow-sm hover:shadow-lg hover:border-orange-300 transition">
+      <div class="relative aspect-square bg-slate-50 rounded-xl overflow-hidden mb-2.5">
+        <img src="${d.img}" alt="${d.alt}" class="w-full h-full object-cover" loading="lazy" />
+        <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold rounded-md ${badgeColor(d.category)}">${d.badge}</span>
+      </div>
+      <div class="px-1 py-1 md:px-2 lg:px-4">
+        <p class="font-extrabold text-md text-slate-900">${d.title}</p>
+        <span class="text-xs text-slate-500">${d.subtitle}</span>
+      </div>
+    </div>`).join('');
+  $('#cardGrid').html(html);
+
+  renderPagination(items.length, perPage);
+}
+
+function openModal(d){
+  $('#mBadge').text(d.badge);
+  $('#mTitle').text(d.title);
+  $('#mImg').attr('src', d.img).attr('alt', d.alt);
+  $('#mDesc').text(d.desc);
+  $('#mTips').text(d.tips);
+  $('#modal').removeClass('hidden').addClass('flex');
+}
+
+$(function(){
+  $.getJSON('data.json', function(data){
+    DATA = data;
+    render();
+  }).fail(function(){
+    $('#cardGrid').html('<p class="col-span-full text-center text-red-500">Gagal memuat data.json</p>');
+  });
+
+  $('#searchInput').on('input', function(){ query = $(this).val(); page = 1; render(); });
+
+  $('#filterTabs').on('click', '.ftab', function(){
+    filter = $(this).data('filter');
+    page = 1;
+    $('.ftab').removeClass('bg-orange-600 text-white').addClass('bg-white text-slate-700 border border-slate-200');
+    $(this).removeClass('bg-white text-slate-700 border border-slate-200').addClass('bg-orange-600 text-white');
+    render();
+  });
+
+  $('#pagination').on('click', '.pbtn', function(){
+    const p = $(this).data('p');
+    if (p === 'prev') page -= 1;
+    else if (p === 'next') page += 1;
+    else page = Number(p);
+    render();
+    $('html, body').animate({ scrollTop: $('#cardGrid').offset().top - 80 }, 200);
+  });
+
+  $('#cardGrid').on('click', '.card', function(){ openModal(DATA[$(this).data('i')]); });
+  $('#closeModal, #modal').on('click', function(e){ if(e.target === this) $('#modal').addClass('hidden').removeClass('flex'); });
+
+  // Re-hitung jumlah kolom & halaman saat ukuran layar berubah (responsif)
+  let resizeTimer;
+  $(window).on('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(render, 150);
+  });
+});
+</script>
+</body>
+</html>

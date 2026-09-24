@@ -14,13 +14,14 @@ tailwind.config = {
           700: "#c2410c",
           800: "#9a3412",
           900: "#7c2d12",
-        },
+        }
       },
 
       // Konversi Tipografi / Font
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
+        sans: ["ui-sans-serif", "Poppins", "sans-serif"],
         serif: ["Playfair Display", "serif"],
+        isyarat: ["MccidFslFont2"],
       },
 
       // Konversi Animasi Keyframes
@@ -37,7 +38,16 @@ tailwind.config = {
           },
         }
       },
+      backgroundImage: {
+        'dots': 'radial-gradient(rgba(255,255,255,0.35) 1.5px, transparent 1.5px)',
+        'dots-light': 'radial-gradient(rgba(249,115,22,0.2) 1.5px, transparent 1.5px)',
+        'dots-dark': 'radial-gradient(rgba(255,255,255,0.25) 1.5px, transparent 1.5px)',
+      },
 
+      backgroundSize: {
+        'dots': '18px 18px',
+      },
+      
       // Mendaftarkan class animasi
       animation: {
         'pulse-signal': 'pulse-signal 2s infinite',

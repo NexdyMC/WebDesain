@@ -16,6 +16,7 @@
   <script src="assets/js/tailwind.config.js"></script>
 
   <!-- not file css external, internal and inline -->
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .flash-ok { animation: ok .5s; }
     .flash-no { animation: no .5s; }
@@ -37,7 +38,7 @@
     <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 md:h-20">
 
       <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center gap-2.5 text-xl font-extrabold tracking-tight md:text-2xl text-slate-900 group" aria-label="IsyaratOK">
+      <a href="index.html" class="flex items-center text-xl font-extrabold tracking-tight gap-2.5 md:text-2xl text-slate-800 group" aria-label="IsyaratOK">
         <div class="flex items-center justify-center w-10 h-10">
           <img src="assets/images/Logo.png" alt="" class="object-contain w-8 h-8" />
         </div>
@@ -67,7 +68,7 @@
 
     <!-- Mobile Navigation Drawer -->
     <nav id="mobileMenu" class="hidden px-6 pt-2 pb-6 border-b border-orange-100 bg-white/95 md:hidden" aria-label="Menu Mobile">
-      <div class="flex flex-col space-y-2.5 font-medium text-slate-700">
+      <div class="flex flex-col font-medium space-y-2.5 text-slate-700">
         <a href="index.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Beranda</a>
         <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Edukasi</a>
         <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Kamus</a>
@@ -146,8 +147,6 @@
                 <i class="fa-solid fa-hand fa-8x" aria-hidden="true"></i>
               </div>
             </div>
-            <p class="mt-3 text-sm text-center text-neutral-500">Pilih huruf yang sesuai</p>
-            <div id="opsi" class="grid grid-cols-3 gap-3 mt-3"></div>
           </div>
         </div>
       </section>
@@ -179,7 +178,7 @@
 
         <!-- Col : Brand -->
         <div class="md:col-span-5">
-          <a href="index.html" class="flex items-center gap-2.5 mb-4 text-2xl font-extrabold tracking-tight text-white group" aria-label="IsyaratOK Footer">
+          <a href="index.html" class="flex items-center mb-4 text-2xl font-extrabold tracking-tight text-white gap-2.5 group" aria-label="IsyaratOK Footer">
             <div class="flex items-center justify-center w-10 h-10">
               <img src="assets/images/Logo.png" alt="" class="object-contain w-8 h-8" />
             </div>
@@ -245,6 +244,9 @@
     </div>
   </footer>
 
+  <p class="text-slate-800 font-isyarat"> 
+    a
+  </p>
   <!-- jQuery & Main Script -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/script.js"></script>
