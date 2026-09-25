@@ -69,7 +69,7 @@ $(function () {
       navbar.classList.remove('bg-white/20', 'text-white');
       navbar.classList.add('bg-white/80', 'text-slate-800', 'shadow-md');
     } else {
-      navbar.classList.add('bg-white/0', 'text-white');
+      navbar.classList.add('bg-white/10', 'text-white');
       navbar.classList.remove('bg-white/80', 'text-slate-800', 'shadow-md');
     }
   });
