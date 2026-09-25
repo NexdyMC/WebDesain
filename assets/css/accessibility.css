@@ -1,0 +1,144 @@
+/* filepath: d:\FEBRI\WebDesain\assets\css\accessibility.css */
+
+:root {
+  --isyaratok-font-scale: 1;
+}
+
+/* Panel aksesibilitas */
+.accessibility-float {
+  position: fixed !important;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 9999 !important;
+  transform: none !important;
+}
+
+.accessibility-toggle {
+  position: relative;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  border-radius: 9999px;
+  color: #fff;
+  background: #f97316;
+  box-shadow: 0 8px 20px rgb(249 115 22 / 30%);
+  cursor: pointer;
+}
+
+.accessibility-toggle:hover {
+  background: #ea580c;
+}
+
+.accessibility-panel {
+  position: absolute;
+  right: 0;
+  bottom: 4rem;
+  z-index: 10001;
+  display: none;
+  width: min(18rem, calc(100vw - 2rem));
+  padding: 1rem;
+  border: 1px solid #fed7aa;
+  border-radius: 1rem;
+  background: #fff;
+  color: #1e293b;
+  box-shadow: 0 15px 35px rgb(15 23 42 / 18%);
+}
+
+.accessibility-panel.is-open {
+  display: block;
+}
+
+.accessibility-panel-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.accessibility-menu {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.accessibility-menu button {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.65rem;
+  background: #fff;
+  color: #334155;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accessibility-menu button:hover,
+.accessibility-menu button:focus-visible {
+  border-color: #fb923c;
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+/* Skala teks */
+body {
+  font-size: calc(1rem * var(--isyaratok-font-scale));
+}
+
+/* Mode aksesibilitas */
+body.a11y-grayscale {
+  filter: grayscale(1);
+}
+
+body.a11y-high-contrast {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+body.a11y-high-contrast #main-content,
+body.a11y-high-contrast #main-content section {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+body.a11y-negative-contrast {
+  filter: none !important;
+}
+
+/*
+  Filter tidak diterapkan ke body agar position: fixed
+  pada tombol aksesibilitas tidak berpindah ke footer.
+*/
+body.a11y-negative-contrast #main-content,
+body.a11y-negative-contrast footer {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+body.a11y-light-bg,
+body.a11y-light-bg #main-content,
+body.a11y-light-bg #main-content section {
+  background: #fffbe6 !important;
+}
+
+body.a11y-underline-links a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+body.a11y-readable-font,
+body.a11y-readable-font button,
+body.a11y-readable-font input,
+body.a11y-readable-font textarea {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+@media (max-width: 640px) {
+  .accessibility-float {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
