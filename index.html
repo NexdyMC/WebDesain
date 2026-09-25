@@ -30,17 +30,19 @@
 
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-2 text-lg font-bold tracking-tight shrink-0 sm:gap-2.5 sm:text-xl lg:text-2xl" aria-label="IsyaratOK">
-        <img src="assets/images/Logo.png" alt="IsyaratOK" class="object-contain w-9 h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
-        <span class="text-2xl">Isyarat<span class="text-orange-600 ">OK</span></span>
+        <div class="p-1 bg-white rounded-full">
+          <img src="assets/images/Logo.png" alt="IsyaratOK" class="object-contain w-9 h-9" />
+        </div>
+        <span class="text-2xl">Isyarat<span class="text-orange-600">OK</span></span>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="items-center hidden gap-5 text-base font-semibold xl:gap-7 xl:text-lg lg:flex" aria-label="Navigasi Utama">
-        <a href="index.html" class="py-1 text-orange-600 border-b-2 border-orange-600 whitespace-nowrap" aria-current="page">Beranda</a>
-        <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600 whitespace-nowrap">Edukasi</a>
-        <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600 whitespace-nowrap">Kamus</a>
-        <a href="quiz.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600 whitespace-nowrap">Quiz</a>
-        <a href="asisten.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600 whitespace-nowrap">Asisten AI</a>
+      <nav class="items-center hidden gap-5 text-base font-semibold xl:text-md lg:flex" aria-label="Navigasi Utama">
+        <a href="index.html" class="px-2 py-1 rounded-full text-orange-600 border-2 border-orange-600 bg-white whitespace-nowrap" aria-current="page">Beranda</a>
+        <a href="edukasi.html" class="px-2 py-1 rounded-full transition border-2 border-transparent hover:text-orange-600 hover:border-orange-600 hover:bg-white whitespace-nowrap">Edukasi</a>
+        <a href="kosakata.html" class="px-2 py-1 rounded-full transition border-2 border-transparent hover:text-orange-600 hover:border-orange-600 hover:bg-white whitespace-nowrap">Kamus</a>
+        <a href="quiz.html" class="px-2 py-1 rounded-full transition border-2 border-transparent hover:text-orange-600 hover:border-orange-600 hover:bg-white whitespace-nowrap">Quiz</a>
+        <a href="asisten.html" class="px-2 py-1 rounded-full transition border-2 border-transparent hover:text-orange-600 hover:border-orange-600 hover:bg-white whitespace-nowrap">Asisten AI</a>
       </nav>
 
       <!-- Mobile/Tablet Menu Button -->
@@ -203,7 +205,7 @@
           </div>
   
           <!-- Card 2: Sign Dictionary -->
-          <div class="flex flex-col h-full bg-white border shadow-sm p-7 border-slate-200/80 rounded-3xl card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 group fade-up-item" style="--delay: 180ms;">
+          <div class="flex flex-col h-full bg-white border shadow-sm p-7 border-slate-200/80 rounded-3xl card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-white group fade-up-item" style="--delay: 180ms;">
             <div class="flex items-center justify-center mb-6 text-xl text-white transition-transform duration-200 shadow-md w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-500 group-hover:scale-110 shadow-amber-500/20">
               <i class="fas fa-spell-check" aria-hidden="true"></i>
             </div>
@@ -766,25 +768,23 @@
 
   <!-- Footer -->
   <footer class="relative overflow-hidden text-white bg-orange-600">
-    <!-- Background Glombang  -->
     <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true">
       <path class="fill-footer-color-2" d="M0 80 C60 60 110 60 170 130 C260 240 350 340 450 330 C560 320 620 190 720 190 C800 190 850 250 900 245 C970 240 1010 165 1075 165 C1150 165 1220 300 1290 320 C1340 335 1400 280 1440 290 L1440 600 L0 600 Z" />
       <path class="fill-footer-color-3" d="M0 355 C100 355 230 450 345 458 C480 465 600 330 750 328 C880 326 980 395 1085 385 C1200 375 1290 280 1355 280 C1400 280 1425 300 1440 290 L1440 600 L0 600 Z" />
       <path class="fill-footer-color-4" d="M0 490 C50 520 100 545 160 520 C230 485 290 440 360 455 C450 475 520 505 710 505 C800 505 880 590 985 590 C1100 590 1200 520 1440 510 L1440 600 L0 600 Z" />
     </svg>
-    
     <div class="relative z-10 px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-0">
       <div class="grid gap-10 md:grid-cols-12">
-        
+
         <!-- Col : Brand -->
         <div class="md:col-span-5">
           <a href="index.html" class="flex items-center mb-4 text-2xl font-extrabold tracking-tight text-white gap-2.5 group" aria-label="IsyaratOK Footer">
-            <div class="flex items-center justify-center w-10 h-10">
+            <div class="flex items-center justify-center w-10 h-10 bg-white rounded-full">
               <img src="assets/images/Logo.png" alt="" class="object-contain w-8 h-8" />
             </div>
-            <span>Isyarat<span class="text-amber-300">OK</span></span>
+            <span>Isyarat<span class="text-orange-200">OK</span></span>
           </a>
-          <p class="max-w-md mb-6 text-sm leading-relaxed text-orange-100"> Platform edukasi bahasa isyarat interaktif yang dirancang inklusif untuk semua usia. Bersama membangun masyarakat yang ramah dan saling memahami. </p>
+          <p class="max-w-md mb-6 text-sm leading-relaxed text-white"> Platform edukasi bahasa isyarat interaktif yang dirancang inklusif untuk semua usia. Bersama membangun masyarakat yang ramah dan saling memahami. </p>
           <div class="flex space-x-3">
             <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
             <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
@@ -794,34 +794,35 @@
 
         <!-- Col : Navigation -->
         <div class="md:col-span-3">
-          <h3 class="mb-4 text-sm font-bold tracking-wider uppercase text-amber-200">Navigasi Utama</h3>
-          <ul class="text-sm text-orange-100 space-y-2.5">
-            <li><a href="index.html" class="transition-colors hover:text-white">Beranda</a></li>
-            <li><a href="edukasi.html" class="transition-colors hover:text-white">Modul Edukasi</a></li>
-            <li><a href="kosakata.html" class="transition-colors hover:text-white">Kamus Kosakata</a></li>
-            <li><a href="#quiz" class="transition-colors hover:text-white">Kuis Interaktif</a></li>
-            <li><a href="index.html#isyarat-angka" class="transition-colors hover:text-white">Statistik Isyarat</a></li>
+          <h3 class="mb-4 text-md font-bold tracking-wider uppercase text-white">Navigasi Utama</h3>
+          <ul class="text-sm text-white space-y-2.5">
+            <li><a href="index.html" class="transition-colors hover:underline">Beranda</a></li>
+            <li><a href="edukasi.html" class="transition-colors hover:underline">Modul Edukasi</a></li>
+            <li><a href="kosakata.html" class="transition-colors hover:underline">Kamus Kosakata</a></li>
+            <li><a href="#quiz" class="transition-colors hover:underline">Kuis Interaktif</a></li>
+            <li><a href="index.html#isyarat-angka" class="transition-colors hover:underline">Statistik Isyarat</a></li>
           </ul>
         </div>
-        
+
         <!-- Col : Contact -->
         <div class="md:col-span-4" id="kontak">
-          <h3 class="mb-4 text-sm font-bold tracking-wider uppercase text-amber-200">Hubungi Kami</h3>
-          <div class="space-y-3 text-sm text-orange-100">
+          <h3 class="mb-4 text-md font-bold tracking-wider uppercase text-white">Hubungi Kami</h3>
+          <div class="space-y-3 text-sm text-white">
             <div class="flex items-center gap-3">
-              <i class="text-amber-300 fa-solid fa-location-dot" aria-hidden="true"></i>
+              <i class="text-white fa-solid fa-location-dot" aria-hidden="true"></i>
               <span>Indonesia &mdash; Untuk Seluruh Nusantara</span>
             </div>
             <div class="flex items-center gap-3">
-              <i class="text-amber-300 fas fa-envelope" aria-hidden="true"></i>
-              <span>halo@isyaratok.id</span>
+              <i class="text-white fas fa-envelope" aria-hidden="true"></i>
+              <span>isyaratok@gmail.id</span>
             </div>
-            <p class="pt-2 text-xs leading-relaxed text-orange-200/90"> Mendukung pembelajaran BISINDO dan SIBI yang inklusif di sekolah &amp; ruang publik. </p>
+            <p class="pt-2 text-xs leading-relaxed text-white"> Mendukung pembelajaran BISINDO dan SIBI yang inklusif di sekolah &amp; ruang publik. </p>
           </div>
         </div>
       </div>
+
       <!-- Copyright Bar -->
-      <div class="flex flex-col items-center justify-between gap-4 pt-8 mt-12 text-xs text-orange-200 border-t border-white/20 sm:flex-row">
+      <div class="flex flex-col items-center justify-between gap-4 pt-8 mt-12 text-xs text-white border-t border-white/20 sm:flex-row">
         <p>&copy; <span id="footer-year">2026</span> IsyaratOK. Seluruh hak cipta dilindungi.</p>
         <div class="flex space-x-6">
           <a href="#" class="transition-colors hover:text-white">Kebijakan Privasi</a>
@@ -831,7 +832,7 @@
       </div>
     </div>
   </footer>
-  
+
   <!-- jQuery & Main Script -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/script.js"></script>
