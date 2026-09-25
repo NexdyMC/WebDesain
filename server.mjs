@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 const root = fileURLToPath(new URL(".", import.meta.url));
 const port = Number(process.env.PORT) || 3000;
 const groqApiKey = process.env.GROQ_API_KEY;
+const groqModel = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 const groqEndpoint = "https://api.groq.com/openai/v1/chat/completions";
 
 const contentTypes = {
@@ -20,7 +21,10 @@ const contentTypes = {
 };
 
 function sendJson(response, status, payload) {
-  response.writeHead(status, { "Content-Type": "application/json; charset=utf-8" });
+  response.writeHead(status, {
+    "Content-Type": "application/json; charset=utf-8",
+    "X-IsyaratOK-Server": "groq-proxy",
+  });
   response.end(JSON.stringify(payload));
 }
 
@@ -62,7 +66,7 @@ async function handleChat(request, response) {
       Authorization: `Bearer ${groqApiKey}`,
     },
     body: JSON.stringify({
-      model: "llama-3.3-70b-versatile",
+      model: groqModel,
       messages: payload.messages,
       temperature: 0.4,
       max_tokens: 500,
@@ -77,6 +81,21 @@ async function handleChat(request, response) {
   } catch {
     result = {
       error: `Groq mengembalikan respons non-JSON (HTTP ${groqResponse.status}).`,
+    };
+  }
+
+  if (!groqResponse.ok) {
+    const groqMessage =
+      result.error && typeof result.error === "object"
+        ? result.error.message
+        : result.error;
+    result = {
+      error:
+        typeof groqMessage === "string" && groqMessage.trim()
+          ? groqMessage
+          : `Groq menolak permintaan (HTTP ${groqResponse.status}, model ${groqModel}).`,
+      status: groqResponse.status,
+      model: groqModel,
     };
   }
 
@@ -143,5 +162,5 @@ const server = createServer(async (request, response) => {
 });
 
 server.listen(port, () => {
-  console.log(`IsyaratOK berjalan di http://localhost:${port}`);
+  console.log(`IsyaratOK berjalan di http://localhost:${port} menggunakan model ${groqModel}`);
 });

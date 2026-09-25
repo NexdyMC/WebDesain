@@ -91,7 +91,9 @@
         ? payload.error
         : payload.error && payload.error.message
           ? payload.error.message
-        : `Permintaan Groq gagal (${response.status}).`;
+        : response.status === 404
+          ? "Endpoint Groq atau model tidak ditemukan. Pastikan server.mjs terbaru sedang berjalan dan GROQ_MODEL valid."
+          : `Permintaan Groq gagal (${response.status}).`;
       throw new Error(detail);
     }
 
