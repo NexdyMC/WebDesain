@@ -474,6 +474,10 @@ body.a11y-high-contrast * {
 }
 
 body.a11y-negative-contrast {
+  filter: none;
+}
+
+body.a11y-negative-contrast > :not(.accessibility-float) {
   filter: invert(1) hue-rotate(180deg);
 }
 
@@ -532,7 +536,9 @@ body.a11y-underline-links .accessibility-item {
 }
 
 .accessibility-panel {
-  position: relative;
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.75rem);
   display: none;
   width: min(18rem, calc(100vw - 6rem));
   max-height: min(30rem, 70vh);
@@ -754,15 +760,4 @@ body.a11y-underline-links .accessibility-item {
   .stat-flip-back {
     display: none;
   }
-}
-
-/* Jangan gunakan filter langsung pada body karena merusak position: fixed */
-body.negative-contrast {
-  filter: none !important;
-}
-
-/* Terapkan efek hanya ke konten halaman */
-body.negative-contrast #main-content,
-body.negative-contrast footer {
-  filter: invert(1) hue-rotate(180deg);
 }
