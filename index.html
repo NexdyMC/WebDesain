@@ -320,7 +320,44 @@
         </div>
       </div>
     </section>
+    <section id="cultural-quote" class="relative w-full px-5 overflow-hidden text-white py-14 sm:px-10 sm:py-20 md:py-28 lg:px-16">
+      <div id="culturalQuoteRibbonBg"
+          class="ribbon-shadow absolute inset-0 bg-orange-600 -translate-x-full transition-transform duration-[1100ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] will-change-transform
+                  [clip-path:none]
+                  md:[clip-path:polygon(0%_0%,100%_0%,calc(100%-6.5rem)_50%,100%_100%,0%_100%)]
+                  lg:[clip-path:polygon(0%_0%,100%_0%,calc(100%-8rem)_50%,100%_100%,0%_100%)]">
+      </div>
 
+      <!-- Content Container (Fades & slides in smoothly alongside the ribbon) -->
+      <div id="culturalQuoteContent" class="relative z-10 max-w-4xl mx-auto text-center opacity-0 -translate-x-8 transition-all duration-[1000ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] delay-200 will-change-transform">
+
+        <!-- Quote Icon -->
+        <div class="flex items-center justify-center w-12 h-12 mx-auto mb-6 text-xl rounded-full shadow-inner sm:w-16 sm:h-16 text-amber-300 bg-white/10 backdrop-blur-md sm:mb-8 sm:text-2xl">
+          <i class="fas fa-quote-left" aria-hidden="true"></i>
+        </div>
+
+        <!-- Main Quote Text with Scroll-Driven Reveal (ID & Functionality Dipertahankan) -->
+        <blockquote id="culturalQuoteText" class="mb-5 font-serif text-xl font-medium leading-relaxed text-white break-words sm:text-3xl md:text-4xl sm:mb-6 drop-shadow-sm">
+          &ldquo;Orang tuli bisa melakukan apa saja yang bisa dilakukan orang yang bisa mendengar, kecuali mendengar.&rdquo;
+        </blockquote>
+
+        <!-- Original Quote & Author Attribution -->
+        <p id="culturalQuoteOriginal" class="mb-2 text-sm italic font-light transition-opacity duration-300 text-amber-200 sm:text-base md:text-lg">
+          &ldquo;Deaf people can do anything hearing people can do except hear.&rdquo;
+        </p>
+        <p class="mb-8 text-xs font-semibold tracking-wide uppercase text-amber-300 sm:text-sm sm:mb-10">
+          &mdash; Dr. I. King Jordan (Presiden Tuli Pertama di Gallaudet University)
+        </p>
+
+        <!-- Glassmorphism Card Explainer -->
+        <div class="p-5 text-center border shadow-2xl bg-white/15 backdrop-blur-md border-white/20 rounded-2xl md:p-8 sm:rounded-3xl">
+          <p class="text-xs leading-relaxed sm:text-sm md:text-base text-orange-50">
+            Kami percaya bahwa setiap bahasa adalah jendela untuk saling mengerti. Dengan mempelajari bahasa isyarat, kita turut serta meruntuhkan stigma, membangun empati, dan mewujudkan masyarakat yang ramah disabilitas.
+          </p>
+        </div>
+
+      </div>
+    </section>
     <!-- Sign Language in Numbers -->
     <section id="isyarat-angka" class="px-4 py-16 bg-white sm:px-6 md:py-24 lg:px-8">
       <div class="mx-auto max-w-7xl">
@@ -655,143 +692,6 @@
             class="inline-flex items-center justify-center gap-2 py-3 text-sm font-bold text-orange-600 transition-all duration-200 bg-white border border-orange-200 rounded-full shadow-sm px-7 hover:bg-orange-600 hover:text-white hover:border-orange-600 hover:shadow-md hover:scale-105 active:scale-95">
             Jelajahi Seluruh Kosakata di Kamus <i class="text-xs fas fa-arrow-right" aria-hidden="true"></i>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quiz Call To Action -->
-    <section class="px-4 py-16 bg-white border-t sm:px-6 md:py-24 lg:px-8 border-slate-100" id="quiz">
-      <div class="mx-auto max-w-7xl">
-        <!-- Section Header -->
-        <div class="mb-12 text-center sm:mb-14 fade-up-item" style="--delay: 60ms;">
-          <div class="flex items-center justify-center gap-2 heading-icon-layout sm:gap-4">
-            <i class="text-xl text-orange-500 why-heading-icon fa-solid fa-gamepad sm:text-3xl" aria-hidden="true"></i>
-            <h2 class="text-2xl font-extrabold tracking-tight text-slate-800 sm:text-4xl">
-              Uji Pemahaman <span class="text-orange-600">Budaya &amp; Isyarat Tuli</span>
-            </h2>
-          </div>
-          <p class="max-w-2xl mx-auto mt-4 text-base text-slate-600 sm:text-lg">
-            Seberapa jauh kamu mengenal teman Tuli? Uji etika berkomunikasi, alfabet BISINDO dan SIBI, serta kosakata sehari-hari lewat kuis singkat.
-          </p>
-        </div>
-
-        <!-- 2-Column Quiz Cards -->
-        <div class="grid items-stretch gap-8 lg:grid-cols-12">
-          <!-- Left: Info Card -->
-          <div class="flex flex-col justify-between transition-colors bg-white border shadow-sm p-7 sm:p-9 border-slate-200/80 rounded-3xl lg:col-span-5 hover:border-orange-300">
-            <div>
-              <span class="inline-flex items-center gap-2 px-3 py-1 mb-4 text-xs font-bold tracking-wider text-orange-700 uppercase bg-orange-100 rounded-full">
-                <i class="text-orange-600 fa-solid fa-trophy" aria-hidden="true"></i> Tantangan Singkat
-              </span>
-              <h3 class="text-xl font-bold leading-snug sm:text-2xl text-slate-800">
-                Asah Pengetahuan Budaya Tuli &amp; Etika Berbahasa
-              </h3>
-              <p class="mt-3 text-sm leading-relaxed sm:text-base text-slate-600">
-                Kuis interaktif berbasis situasi nyata untuk melatih tata krama memanggil perhatian teman Tuli, gestur sopan, serta pemahaman komunikasi inklusif.
-              </p>
-
-              <div class="mt-6 space-y-3 text-sm text-slate-700">
-                <div class="flex items-center gap-2.5">
-                  <i class="text-orange-600 fa-solid fa-circle-check" aria-hidden="true"></i>
-                  <span>Skor otomatis &amp; evaluasi langsung</span>
-                </div>
-                <div class="flex items-center gap-2.5">
-                  <i class="text-orange-600 fa-solid fa-circle-check" aria-hidden="true"></i>
-                  <span>Materi etika dasar hingga kosakata terapan</span>
-                </div>
-                <div class="flex items-center gap-2.5">
-                  <i class="text-orange-600 fa-solid fa-circle-check" aria-hidden="true"></i>
-                  <span>Ramah untuk pemula dan pembelajar mandiri</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="pt-8 mt-6 border-t border-slate-100">
-              <a href="quiz.html" class="inline-flex items-center justify-center w-full gap-2 px-6 text-sm font-bold text-white transition-all bg-orange-600 rounded-full shadow-sm py-3.5 hover:bg-orange-700 hover:shadow-md sm:w-auto">
-                Mulai Kuis Sekarang <i class="text-xs fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right: Interactive Question Preview Card -->
-          <div class="flex flex-col justify-between transition-colors bg-white border shadow-sm p-7 sm:p-9 border-slate-200/80 rounded-3xl lg:col-span-7 hover:border-orange-300">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-              <div class="flex items-center gap-3">
-                <span class="flex items-center justify-center text-sm font-bold text-white bg-orange-600 shadow-sm w-9 h-9 rounded-xl">01</span>
-                <div>
-                  <span class="text-xs font-bold tracking-wider uppercase text-slate-500">Contoh Pertanyaan</span>
-                  <p class="text-[11px] text-slate-400">Pertanyaan 1 dari 5</p>
-                </div>
-              </div>
-              <span class="px-3 py-1 text-xs font-bold text-orange-600 border border-orange-200 rounded-full bg-orange-50">
-                +10 poin
-              </span>
-            </div>
-
-            <div class="py-6 my-auto">
-              <p class="text-lg font-bold leading-relaxed sm:text-xl text-slate-800">
-                Apa etika yang tepat saat ingin memanggil perhatian teman Tuli di dalam ruangan?
-              </p>
-
-              <div class="grid gap-3 mt-6 sm:grid-cols-2">
-                <div class="flex items-center justify-between p-4 text-sm border text-slate-600 bg-slate-50 border-slate-200 rounded-2xl">
-                  <span><b class="mr-2 text-slate-800">A.</b> Berteriak lebih keras</span>
-                  <i class="fa-regular fa-circle text-slate-300" aria-hidden="true"></i>
-                </div>
-                <div class="flex items-center justify-between p-4 text-sm font-bold border-2 border-orange-500 shadow-sm text-slate-800 bg-orange-50 rounded-2xl">
-                  <span><b class="mr-2 text-orange-600">B.</b> Melambaikan tangan sopan</span>
-                  <i class="text-orange-600 fa-solid fa-circle-check" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between pt-4 text-xs font-semibold border-t border-dashed border-slate-200 text-slate-500">
-              <span>Kategori: Etika Komunikasi Dasar</span>
-              <span class="flex items-center text-emerald-600 gap-1.5"><i class="fa-solid fa-check" aria-hidden="true"></i> Jawaban Tepat</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AI Assistant Introduction -->
-    <section id="asisten-ai" class="px-4 py-16 bg-white border-t sm:px-6 md:py-24 lg:px-8 border-slate-100">
-      <div class="mx-auto max-w-7xl">
-        <div class="grid items-center gap-10 lg:grid-cols-12">
-          <div class="lg:col-span-7 fade-up-item" style="--delay: 60ms;">
-            <span class="inline-flex items-center gap-2 px-3 py-1 mb-5 text-xs font-bold tracking-wider text-orange-700 uppercase bg-orange-100 rounded-full">
-              <i class="text-orange-600 fa-solid fa-sparkles" aria-hidden="true"></i> Fitur Baru IsyaratOK
-            </span>
-            <h2 class="max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-800 sm:text-5xl">
-              Kenalan dengan <span class="text-orange-600">Asisten AI</span> IsyaratOK
-            </h2>
-            <p class="max-w-2xl mt-5 text-base leading-relaxed text-slate-600 sm:text-lg">
-              Teman belajar digital untuk menjawab pertanyaan tentang BISINDO, SIBI, etika komunikasi, dan langkah belajar yang cocok untukmu.
-            </p>
-            <a href="asisten.html" class="inline-flex items-center gap-2 px-6 mt-8 text-sm font-bold text-white transition-all bg-orange-600 rounded-full shadow-sm py-3.5 hover:bg-orange-700 hover:shadow-md hover:-translate-y-0.5">
-              Coba Asisten AI <i class="text-xs fas fa-arrow-right" aria-hidden="true"></i>
-            </a>
-          </div>
-          <div class="relative lg:col-span-5 fade-up-item" style="--delay: 160ms;">
-            <div class="absolute -inset-4 rounded-[2rem] bg-orange-100/70 rotate-3" aria-hidden="true"></div>
-            <div class="relative p-6 bg-white border border-orange-100 shadow-xl rounded-3xl">
-              <div class="flex items-center gap-3 pb-5 border-b border-slate-100">
-                <div class="flex items-center justify-center text-orange-600 bg-orange-100 w-11 h-11 rounded-2xl">
-                  <i class="fa-solid fa-robot" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <p class="font-bold text-slate-800">IsyaratOK AI</p>
-                  <p class="text-xs text-slate-500"><span class="inline-block w-2 h-2 mr-1 rounded-full bg-emerald-500"></span> Siap menemani belajar</p>
-                </div>
-              </div>
-              <p class="p-4 mt-5 text-sm leading-relaxed border rounded-tl-sm rounded-2xl border-orange-200/80 bg-orange-50 text-slate-700">
-                “Apa perbedaan BISINDO dan SIBI?”
-              </p>
-              <div class="flex items-center gap-2 mt-4 text-xs font-semibold text-orange-600">
-                <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Jawaban belajar yang mudah dipahami
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
