@@ -452,6 +452,7 @@ body {
     background-color 0.25s ease,
     color 0.25s ease,
     filter 0.25s ease;
+  /* filter: invert(1); */
 }
 
 body.a11y-grayscale * {
@@ -488,16 +489,11 @@ body.a11y-underline-links .accessibility-item {
 }
 
 .accessibility-float {
-  position: fixed;
-  right: 1.5rem;
-  bottom: 1.5rem;
-  z-index: 70;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  flex-direction: row-reverse;
-  gap: 0.75rem;
-  pointer-events: none;
+  position: fixed !important;
+  right: 1.25rem !important;
+  bottom: 1.25rem !important;
+  z-index: 9999 !important;
+  transform: none !important;
 }
 
 .accessibility-toggle,
@@ -507,7 +503,7 @@ body.a11y-underline-links .accessibility-item {
 
 .accessibility-toggle {
   position: relative;
-  z-index: 2;
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -758,4 +754,15 @@ body.a11y-underline-links .accessibility-item {
   .stat-flip-back {
     display: none;
   }
+}
+
+/* Jangan gunakan filter langsung pada body karena merusak position: fixed */
+body.negative-contrast {
+  filter: none !important;
+}
+
+/* Terapkan efek hanya ke konten halaman */
+body.negative-contrast #main-content,
+body.negative-contrast footer {
+  filter: invert(1) hue-rotate(180deg);
 }
