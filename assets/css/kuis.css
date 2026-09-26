@@ -1,0 +1,8 @@
+#shell .screen.hidden { display: none; }
+.kursor-tarik { cursor: grab; }
+.kursor-tarik:active { cursor: grabbing; }
+.ui-draggable-dragging { transition: none !important; z-index: 50; }
+.bg-card-soft { background-color: #fff7ed; }
+.letter-img { width: 100%; height: 100%; object-fit: contain; }
+.opsi-benar { border-color: #16a34a !important; background-color: #f0fdf4 !important; }
+.opsi-salah { border-color: #dc2626 !important; background-color: #fef2f2 !important; }

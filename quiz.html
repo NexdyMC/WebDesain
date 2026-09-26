@@ -14,26 +14,8 @@
   <!-- Tailwind CSS CDN & Config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
-
-  <!-- not file css external, internal and inline -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    .flash-ok { animation: ok .5s; }
-    .flash-no { animation: no .5s; }
-    @keyframes ok { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03); box-shadow:0 0 0 6px rgba(34,197,94,.35)} }
-    @keyframes no { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
-    .pop { animation: pop .3s; }
-    @keyframes pop { from{transform:scale(.9);opacity:.4} to{transform:scale(1);opacity:1} }
-    #shell .screen.hidden { display: none; }
-    .kursor-tarik { cursor: grab; }
-    .kursor-tarik:active { cursor: grabbing; }
-    /* Transisi bawaan Tailwind terkadang bentrok dengan animasi geser jQuery UI, kita matikan saat dragging */
-    .ui-draggable-dragging { transition: none !important; z-index: 50; }
-      .bg-card-soft { background-color: #fff7ed; }
-  .letter-img { width: 100%; height: 100%; object-fit: contain; }
-  .opsi-benar { border-color: #16a34a !important; background-color: #f0fdf4 !important; }
-  .opsi-salah { border-color: #dc2626 !important; background-color: #fef2f2 !important; }
-  </style>
+  <link rel="stylesheet" href="assets/css/kuis.css">
 </head>
 <body class="font-sans antialiased bg-white text-slate-800 selection:bg-orange-500 selection:text-white">
   <div id="scrollProgressContainer" class="fixed left-0 top-0 z-[60] h-1 w-full bg-transparent pointer-events-none">
@@ -83,311 +65,311 @@
     </div>
   </nav>
 
-  <main id="shell" class="min-h-screen py-10">
+  <main id="shell" class="min-h-screen py-5">
     <section id="quiz-app">
 
-    <!-- Card Mode select -->
-    <div id="menu-screen" class="px-4 py-5 bg-white sm:px-6 sm:py-10 lg:px-8">
-      <div class="w-full max-w-4xl mx-auto">
-        <div class="grid items-start grid-cols-1 gap-6 mb-8 sm:grid-cols-2 lg:gap-8 justify-items-center">
+      <!-- Card Mode select -->
+      <div id="menu-screen" class="bg-white sm:px-6 lg:px-8">
+        <div class="w-full max-w-4xl mx-auto">
+          <div class="grid items-start grid-cols-1 gap-6 mb-8 sm:grid-cols-2 lg:gap-8 justify-items-center">
 
-          <!-- Card 1: Test Pilihan Kata -->
-          <div class="w-full overflow-hidden transition duration-200 bg-white shadow-lg max-w-96 quiz-card rounded-3xl hover:shadow-xl lg:hover:scale-105" data-quiz="pilihan-kata">
+            <!-- Card 1: Test Pilihan Kata -->
+            <div class="w-full overflow-hidden transition duration-200 bg-white shadow-lg max-w-96 quiz-card rounded-3xl hover:shadow-xl lg:hover:scale-105" data-quiz="pilihan-kata">
 
-            <!-- Card Header -->
-            <div class="relative p-10 overflow-hidden text-center bg-orange-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
-              <i class="absolute -translate-y-1/2 fa-solid fa-list-check -right-2 top-1/2 text-8xl text-white/40 rotate-6"></i>
-              <h2 class="relative text-2xl md:text-3xl font-extrabold text-white">Test Pilih Kata</h2>
-              <p class="relative mt-1 italic text-sm md:text-md text-white/90">Kuis Pilihan Ganda Adaptif</p>
+              <!-- Card Header -->
+              <div class="relative p-10 overflow-hidden text-center bg-orange-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
+                <i class="absolute -translate-y-1/2 fa-solid fa-list-check -right-2 top-1/2 text-8xl text-white/40 rotate-6"></i>
+                <h2 class="relative text-2xl md:text-3xl font-extrabold text-white">Test Pilih Kata</h2>
+                <p class="relative mt-1 italic text-sm md:text-md text-white/90">Kuis Pilihan Ganda Adaptif</p>
+              </div>
+
+              <!-- Card Content -->
+              <div class="px-6 pt-6 pb-6 space-y-4">
+                <div class="space-y-2 text-sm font-semibold text-slate-800">
+                  <p class="font-medium">Level Saat Ini</p>
+                  <p class="text-5xl font-extrabold text-neutral-900">Lv. <span class="text-orange-500 level-value" data-level-for="pk">1</span></p>
+                </div>
+                <div class="pb-2">
+                  <div class="flex justify-between mb-2 text-sm font-semibold text-gray-800 md:text-base">
+                    <span>EXP: <span data-exp-for="pk">0</span>/<span data-exp-target-for="pk">30</span></span><span>Score: <span data-score-for="pk">0</span></span>
+                  </div>
+                  <div class="w-full bg-orange-100 rounded-full h-2.5 md:h-3">
+                    <div data-bar-for="pk" class="bg-orange-500 h-2.5 md:h-3 rounded-full w-1/5 shadow-inner transition-all"></div>
+                  </div>
+                </div>
+                <button data-mulai="pilihan-kata" disabled class="w-full bg-orange-500 hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95 shadow-md shadow-orange-500/30">
+                  <i class="text-sm fa-solid fa-play"></i>Mulai latihan
+                </button>
+                <button data-reset="pk" class="w-full border-2 border-orange-500 text-orange-500 hover:bg-orange-50 font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95">
+                  <i class="text-sm fa-solid fa-rotate-left"></i>Reset Level
+                </button>
+              </div>
             </div>
 
-            <!-- Card Content -->
-            <div class="px-6 pt-6 pb-6 space-y-4">
-              <div class="space-y-2 text-sm font-semibold text-slate-800">
-                <p class="font-medium">Level Saat Ini</p>
-                <p class="text-5xl font-extrabold text-neutral-900">Lv. <span class="text-orange-500 level-value" data-level-for="pk">1</span></p>
+            <!-- Card 2: Test Susun Kata -->
+            <div class="w-full overflow-hidden transition duration-200 bg-white shadow-lg max-w-96 quiz-card rounded-3xl hover:shadow-xl lg:hover:scale-105" data-quiz="susun-kata">
+
+              <!-- Card Header -->
+              <div class="relative p-10 overflow-hidden text-center bg-amber-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
+                <i class="absolute -translate-y-1/2 fa-solid fa-puzzle-piece -right-2 top-1/2 text-8xl text-white/40 rotate-6"></i>
+                <h2 class="relative text-2xl md:text-3xl font-extrabold text-white">Test Susun Kata</h2>
+                <p class="relative mt-1 italic text-sm md:text-md text-white/90">Kuis Susun Kata Adaptif</p>
               </div>
-              <div class="pb-2">
-                <div class="flex justify-between mb-2 text-sm font-semibold text-gray-800 md:text-base">
-                  <span>EXP: <span data-exp-for="pk">0</span>/<span data-exp-target-for="pk">30</span></span><span>Score: <span data-score-for="pk">0</span></span>
+
+              <!-- Card Content -->
+              <div class="px-6 pt-6 pb-6 space-y-4">
+                <div class="space-y-2 text-sm font-semibold text-slate-800">
+                  <p class="font-medium">Level Saat Ini</p>
+                  <p class="text-5xl font-extrabold text-neutral-900">Lv. <span class="text-amber-500 level-value" data-level-for="sk">1</span></p>
                 </div>
-                <div class="w-full bg-orange-100 rounded-full h-2.5 md:h-3">
-                  <div data-bar-for="pk" class="bg-orange-500 h-2.5 md:h-3 rounded-full w-1/5 shadow-inner transition-all"></div>
+                <div class="pb-2">
+                  <div class="flex justify-between mb-2 text-sm font-semibold text-gray-800 md:text-base">
+                    <span>EXP: <span data-exp-for="sk">0</span>/<span data-exp-target-for="sk">30</span></span><span>Score: <span data-score-for="sk">0</span></span>
+                  </div>
+                  <div class="w-full bg-amber-100 rounded-full h-2.5 md:h-3">
+                    <div data-bar-for="sk" class="bg-amber-500 h-2.5 md:h-3 rounded-full w-1/5 shadow-inner transition-all"></div>
+                  </div>
                 </div>
+                <button data-mulai="susun-kata" disabled class="w-full text-md px-8 flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98] transition text-white font-semibold py-3.5 rounded-xl shadow-md shadow-amber-200">
+                  <i class="text-sm fa-solid fa-play"></i>Mulai latihan
+                </button>
+                <button data-reset="sk" class="w-full text-md px-8 flex items-center justify-center gap-2 bg-amber-50 hover:bg-amber-100 active:scale-[0.98] transition text-amber-600 font-semibold py-3.5 rounded-xl border border-amber-400">
+                  <i class="fa-solid fa-rotate-left"></i>Reset Level
+                </button>
               </div>
-              <button data-mulai="pilihan-kata" disabled class="w-full bg-orange-500 hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95 shadow-md shadow-orange-500/30">
-                <i class="text-sm fa-solid fa-play"></i>Mulai latihan
-              </button>
-              <button data-reset="pk" class="w-full border-2 border-orange-500 text-orange-500 hover:bg-orange-50 font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95">
-                <i class="text-sm fa-solid fa-rotate-left"></i>Reset Level
-              </button>
             </div>
+
           </div>
-
-          <!-- Card 2: Test Susun Kata -->
-          <div class="w-full overflow-hidden transition duration-200 bg-white shadow-lg max-w-96 quiz-card rounded-3xl hover:shadow-xl lg:hover:scale-105" data-quiz="susun-kata">
-
-            <!-- Card Header -->
-            <div class="relative p-10 overflow-hidden text-center bg-amber-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
-              <i class="absolute -translate-y-1/2 fa-solid fa-puzzle-piece -right-2 top-1/2 text-8xl text-white/40 rotate-6"></i>
-              <h2 class="relative text-2xl md:text-3xl font-extrabold text-white">Test Susun Kata</h2>
-              <p class="relative mt-1 italic text-sm md:text-md text-white/90">Kuis Susun Kata Adaptif</p>
-            </div>
-
-            <!-- Card Content -->
-            <div class="px-6 pt-6 pb-6 space-y-4">
-              <div class="space-y-2 text-sm font-semibold text-slate-800">
-                <p class="font-medium">Level Saat Ini</p>
-                <p class="text-5xl font-extrabold text-neutral-900">Lv. <span class="text-amber-500 level-value" data-level-for="sk">1</span></p>
-              </div>
-              <div class="pb-2">
-                <div class="flex justify-between mb-2 text-sm font-semibold text-gray-800 md:text-base">
-                  <span>EXP: <span data-exp-for="sk">0</span>/<span data-exp-target-for="sk">30</span></span><span>Score: <span data-score-for="sk">0</span></span>
-                </div>
-                <div class="w-full bg-amber-100 rounded-full h-2.5 md:h-3">
-                  <div data-bar-for="sk" class="bg-amber-500 h-2.5 md:h-3 rounded-full w-1/5 shadow-inner transition-all"></div>
-                </div>
-              </div>
-              <button data-mulai="susun-kata" disabled class="w-full text-md px-8 flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98] transition text-white font-semibold py-3.5 rounded-xl shadow-md shadow-amber-200">
-                <i class="text-sm fa-solid fa-play"></i>Mulai latihan
-              </button>
-              <button data-reset="sk" class="w-full text-md px-8 flex items-center justify-center gap-2 bg-amber-50 hover:bg-amber-100 active:scale-[0.98] transition text-amber-600 font-semibold py-3.5 rounded-xl border border-amber-400">
-                <i class="fa-solid fa-rotate-left"></i>Reset Level
-              </button>
-            </div>
-          </div>
-
         </div>
       </div>
-    </div>
 
-    <!-- Card Play Session  -->
-    <div id="play-screen" style="display:none" class="px-4 py-6 bg-white sm:px-6 md:py-20 lg:px-8">
-      <div id="start-screen" class="mx-auto max-w-7xl">
-        <div class="grid items-start grid-cols-1 gap-6 mb-8 lg:gap-8 justify-items-center">
-          
-          
-          <!-- Card 1: Test Pilihan Kata -->
-          <div id="page-game" style="display:none" class="w-full max-w-sm mx-auto overflow-hidden bg-white shadow-lg md:max-w-4xl rounded-3xl">
-            <div class="flex items-center justify-between px-5 py-4 text-white bg-orange-500 shadow-md sm:px-8">
-              <button id="btn-exit-pk" class="flex items-center gap-2 text-xs font-bold transition sm:text-sm hover:opacity-80 active:scale-95">
-                <i class="fa-solid fa-arrow-left"></i>Akhiri Sesi </button>
-              <h2 class="hidden text-base font-extrabold tracking-wide md:block lg:text-lg">Test Pilihan Kata</h2>
-              <div class="flex items-center gap-2 font-bold text-xs sm:text-sm bg-orange-600/40 px-3 py-1.5 rounded-xl border border-orange-400/40">
-                <i class="fa-regular fa-clock"></i> <span id="timer-display-pk">05:00</span>
-              </div>
-            </div>
-            <div class="p-5 space-y-5 sm:p-8 sm:space-y-6">
-              <div class="pb-2">
-                <div class="flex justify-between mb-2 text-sm font-semibold text-gray-800 md:text-base">
-                  <span>Lv. <span id="level-live-pk">1</span> &bull; EXP: <span id="exp-current-pk">0</span>/<span id="exp-target-pk">30</span></span>
-                  <span>Score: <span id="skor-live-pk">0</span></span>
-                </div>
-                <div class="w-full bg-orange-100 rounded-full h-2.5 md:h-3">
-                  <div id="progress-pk" class="bg-orange-500 h-2.5 md:h-3 rounded-full w-1/5 shadow-inner transition-all"></div>
+      <!-- Card Play Session  -->
+      <div id="play-screen" class="hidden bg-white sm:px-6 lg:px-8">
+        <div id="start-screen" class="mx-auto max-w-7xl">
+          <div class="grid items-start grid-cols-1 gap-6 mb-8 lg:gap-8 justify-items-center">
+            
+            
+            <!-- Card 1: Test Pilihan Kata -->
+            <div id="page-game" class="w-full max-w-sm mx-auto overflow-hidden bg-white shadow-lg md:max-w-4xl rounded-3xl">
+              <div class="flex items-center justify-between px-5 py-2 text-white bg-orange-500 shadow-md sm:px-8">
+                <button id="btn-exit-pk" class="flex items-center gap-2 text-xs font-bold transition sm:text-sm hover:opacity-80 active:scale-95">
+                  <i class="fa-solid fa-arrow-left"></i>Akhiri Sesi </button>
+                <h2 class="hidden text-base font-extrabold tracking-wide md:block lg:text-lg">Test Pilihan Kata</h2>
+                <div class="flex items-center gap-2 font-bold text-xs sm:text-sm bg-orange-600/40 px-3 py-1.5 rounded-xl border border-orange-400/40">
+                  <i class="fa-regular fa-clock"></i> <span id="timer-display-pk">05:00</span>
                 </div>
               </div>
-              <div class="grid items-stretch grid-cols-1 gap-4 md:grid-cols-12 md:gap-6">
-                
-                <!-- Main question box -->
-                <div class="md:col-span-6 lg:col-span-7 bg-card-soft border-2 border-orange-400 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-sm min-h-[200px] md:min-h-[340px]">
+              <div class="p-4 space-y-5 sm:p-8 sm:space-y-6">
+                <div class="pb-2">
+                  <div class="flex justify-between mb-2 text-sm font-semibold text-gray-800 md:text-base">
+                    <span>Lv. <span id="level-live-pk">1</span> &bull; EXP: <span id="exp-current-pk">0</span>/<span id="exp-target-pk">30</span></span>
+                    <span>Score: <span id="skor-live-pk">0</span></span>
+                  </div>
+                  <div class="w-full bg-orange-100 rounded-full h-2.5 md:h-3">
+                    <div id="progress-pk" class="bg-orange-500 h-2.5 md:h-3 rounded-full w-1/5 shadow-inner transition-all"></div>
+                  </div>
+                </div>
+                <div class="grid items-stretch grid-cols-1 gap-4 md:grid-cols-12 md:gap-6">
                   
-                  <!-- Sign question image / content -->
-                  <div class="flex items-center justify-center flex-1 py-4">
-                    <div id="soal-gambar-pk" class="inline-flex items-center justify-center w-32 h-32 mb-3 overflow-hidden text-orange-500 border-2 border-orange-400 border-dashed sm:w-40 sm:h-40 bg-orange-100/70 rounded-2xl">
-                      <i class="text-4xl fa-solid fa-hand sm:text-5xl"></i>
+                  <!-- Main question box -->
+                  <div class="md:col-span-6 lg:col-span-7 bg-card-soft border-2 border-orange-400 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-sm min-h-[200px] md:min-h-[340px]">
+                    
+                    <!-- Sign question image / content -->
+                    <div class="flex items-center justify-center flex-1 py-4">
+                      <div id="soal-gambar-pk" class="inline-flex items-center justify-center w-32 h-32 mb-3 overflow-hidden text-orange-500 border-2 border-orange-400 border-dashed sm:w-40 sm:h-40 bg-orange-100/70 rounded-2xl">
+                        <i class="text-4xl fa-solid fa-hand sm:text-5xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="opsi-wrap-pk" class="md:col-span-6 lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-3.5">
+                    
+                    <!-- Opsi A -->
+                    <div class="opsi-pk cursor-pointer border-2 border-orange-400 hover:shadow-md rounded-2xl p-2 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="A">
+                      <div class="flex-1 text-lg font-bold text-gray-800 sm:text-2xl teks-opsi">-</div>
+                    </div>
+                    
+                    <!-- Opsi B -->
+                    <div class="opsi-pk cursor-pointer border-2 border-orange-400 hover:shadow-md rounded-2xl p-2 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="B">
+                      <div class="flex-1 text-lg font-bold text-gray-800 sm:text-2xl teks-opsi">-</div>
+                    </div>
+                    
+                    <!-- Opsi C -->
+                    <div class="opsi-pk cursor-pointer border-2 border-orange-400 hover:shadow-md rounded-2xl p-2 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="C">
+                      <div class="flex-1 text-lg font-bold text-gray-800 sm:text-2xl teks-opsi">-</div>
+                    </div>
+                    
+                    <!-- Opsi D -->
+                    <div class="opsi-pk cursor-pointer border-2 border-orange-400 hover:shadow-md rounded-2xl p-2 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="D">
+                      <div class="flex-1 text-lg font-bold text-gray-800 sm:text-2xl teks-opsi">-</div>
                     </div>
                   </div>
                 </div>
-                <div id="opsi-wrap-pk" class="md:col-span-6 lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-3.5">
-                  
-                  <!-- Opsi A -->
-                  <div class="opsi-pk cursor-pointer border-2 border-orange-400 hover:shadow-md rounded-2xl p-2 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="A">
-                    <div class="flex-1 text-lg font-bold text-gray-800 sm:text-2xl teks-opsi">-</div>
-                  </div>
-                  
-                  <!-- Opsi B -->
-                  <div class="opsi-pk cursor-pointer border-2 border-orange-400 hover:shadow-md rounded-2xl p-2 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="B">
-                    <div class="flex-1 text-lg font-bold text-gray-800 sm:text-2xl teks-opsi">-</div>
-                  </div>
-                  
-                  <!-- Opsi C -->
-                  <div class="opsi-pk cursor-pointer border-2 border-orange-400 hover:shadow-md rounded-2xl p-2 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="C">
-                    <div class="flex-1 text-lg font-bold text-gray-800 sm:text-2xl teks-opsi">-</div>
-                  </div>
-                  
-                  <!-- Opsi D -->
-                  <div class="opsi-pk cursor-pointer border-2 border-orange-400 hover:shadow-md rounded-2xl p-2 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="D">
-                    <div class="flex-1 text-lg font-bold text-gray-800 sm:text-2xl teks-opsi">-</div>
-                  </div>
+              </div>
+            </div>
+            
+            <!-- Card 2: Test Susun Kata -->
+            <div id="page-susun-kata" class="hidden relative flex flex-col w-full max-w-sm overflow-hidden bg-white shadow-2xl md:max-w-4xl rounded-3xl">
+              <div class="bg-[#e78b09] text-white px-5 py-2 flex justify-between items-center z-10">
+                <button id="btn-exit-sk" class="transition-colors hover:text-amber-200">
+                  <i class="text-sm fa-solid fa-arrow-left"></i> <span class="ml-1 text-sm font-medium">Akhiri Sesi</span>
+                </button>
+                <h2 class="hidden text-lg font-bold tracking-wide md:block">Test Susun Kata</h2>
+                <div class="flex items-center gap-2 font-bold text-xs sm:text-sm bg-amber-600/40 px-3 py-1.5 rounded-xl  border-amber-400/40">
+                  <i class="fa-regular fa-clock"></i><span id="timer-display-sk">05:00</span>
                 </div>
               </div>
-            </div>
-          </div>
-          
-          <!-- Card 2: Test Susun Kata -->
-          <div id="page-susun-kata" style="display:none" class="relative flex flex-col w-full max-w-sm overflow-hidden bg-white shadow-2xl md:max-w-4xl rounded-3xl">
-            <div class="bg-[#e78b09] text-white px-5 py-4 flex justify-between items-center z-10">
-              <button id="btn-exit-sk" class="transition-colors hover:text-amber-200">
-                <i class="text-sm fa-solid fa-arrow-left"></i> <span class="ml-1 text-sm font-medium">Akhiri Sesi</span>
-              </button>
-              <h2 class="hidden text-lg font-bold tracking-wide md:block">Test Susun Kata</h2>
-              <div class="flex items-center gap-2 font-bold text-xs sm:text-sm bg-amber-600/40 px-3 py-1.5 rounded-xl  border-amber-400/40">
-                <i class="fa-regular fa-clock"></i><span id="timer-display-sk">05:00</span>
+              <div class="px-6 pt-4 pb-2">
+                <div class="flex justify-between mb-2 text-sm font-medium text-gray-800">
+                  <span>Lv. <span id="level-live-sk">1</span> &bull; EXP: <span id="exp-current-sk">0</span>/<span id="exp-target-sk">30</span></span>
+                  <span>Score: <span id="skor-live-sk">0</span></span>
+                </div>
+                <div class="w-full bg-amber-100 rounded-full h-2.5">
+                  <div id="progress-sk" class="bg-[#e78b09] h-2.5 rounded-full w-1/5 shadow-inner transition-all"></div>
+                </div>
+              </div>
+              <div class="flex flex-col flex-1 px-6 py-4">
+                <div id="soal-target-sk" class="w-full flex flex-wrap gap-2 items-center justify-center py-4 mb-6 shadow-sm bg-amber-50 rounded-xl min-h-[6rem]"></div>
+                <div id="zona-jawaban" class="flex flex-wrap content-start justify-center flex-1 gap-3 transition-all min-h-16">
+                  <span class="m-auto text-sm text-gray-400 placeholder-zona">Susun kartu di sini sesuai urutan di atas</span>
+                </div>
+                <hr class="border-[#e78b09] border-t-2 my-6 w-full opacity-80">
+                <div id="bank-kata" class="flex flex-wrap justify-center gap-3 mb-6"></div>
+                <button id="btn-periksa" class="w-full bg-gray-200 text-gray-400 font-bold text-lg py-3.5 rounded-xl transition-all" disabled>Periksa</button>
               </div>
             </div>
-            <div class="px-6 pt-4 pb-2">
-              <div class="flex justify-between mb-2 text-sm font-medium text-gray-800">
-                <span>Lv. <span id="level-live-sk">1</span> &bull; EXP: <span id="exp-current-sk">0</span>/<span id="exp-target-sk">30</span></span>
-                <span>Score: <span id="skor-live-sk">0</span></span>
-              </div>
-              <div class="w-full bg-amber-100 rounded-full h-2.5">
-                <div id="progress-sk" class="bg-[#e78b09] h-2.5 rounded-full w-1/5 shadow-inner transition-all"></div>
-              </div>
-            </div>
-            <div class="flex flex-col flex-1 px-6 py-4">
-              <div id="soal-target-sk" class="w-full flex flex-wrap gap-2 items-center justify-center py-4 mb-6 shadow-sm bg-amber-50 rounded-xl min-h-[6rem]"></div>
-              <div id="zona-jawaban" class="flex flex-wrap content-start justify-center flex-1 gap-3 transition-all min-h-16">
-                <span class="m-auto text-sm text-gray-400 placeholder-zona">Susun kartu di sini sesuai urutan di atas</span>
-              </div>
-              <hr class="border-[#e78b09] border-t-2 my-6 w-full opacity-80">
-              <div id="bank-kata" class="flex flex-wrap justify-center gap-3 mb-6"></div>
-              <button id="btn-periksa" class="w-full bg-gray-200 text-gray-400 font-bold text-lg py-3.5 rounded-xl transition-all" disabled>Periksa</button>
-          </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Card End Session -->
-    <div id="end-screen" style="display:none" class="px-4 py-6 bg-white sm:px-6 md:pb-20 lg:px-8">
-      <div class="w-full max-w-4xl mx-auto">
-        <div class="grid items-start grid-cols-1 gap-6 mb-8 lg:gap-8 justify-items-center">
+      <!-- Card End Session -->
+      <div id="end-screen" class="hidden bg-white sm:px-6 lg:px-8">
+        <div class="w-full max-w-4xl mx-auto">
+          <div class="grid items-start grid-cols-1 gap-6 mb-8 lg:gap-8 justify-items-center">
 
-          <!-- Card 1: Test Pilihan Kata -->
-          <div id="wrap-end-pk" style="display:none">
-            <div class="w-full max-w-xl overflow-hidden transition duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl hover:scale-105">
-              <div class="relative p-10 overflow-hidden text-center bg-orange-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
-                <i class="absolute -translate-y-1/2 fa-solid fa-list-check -right-2 top-1/2 text-8xl text-white/40 rotate-6"></i>
-                <h2 class="relative text-3xl font-extrabold text-white">Sesi Selesai</h2>
-                <p class="relative mt-1 italic text-md text-white/90">Hasil latihan tersimpan di browser ini.</p>
-              </div>
-              <div class="px-6 pt-6 pb-6 space-y-4">
- 
-                <div class="flex flex-col items-center justify-center mb-2 text-center">
-                  <span id="hasil-benar-pk" class="text-[5rem] font-bold text-gray-900 leading-none tracking-tighter">0</span>
-                  <span class="mt-2 text-base font-semibold text-gray-800">Total Jawaban Benar</span>
-                  <span class="mt-1 text-sm text-gray-500"><span id="hasil-benar-detail-pk">0</span> Benar dari <span id="hasil-total-pk">0</span> soal dijawab</span>
-                  <span class="mt-3 inline-flex items-center gap-1 px-3 py-1 text-xs font-bold text-orange-700 bg-orange-100 rounded-full">
-                    <i class="fa-solid fa-medal"></i> Level tercapai: <span id="hasil-level-pk">1</span>
-                  </span>
+            <!-- Card 1: Test Pilihan Kata -->
+            <div id="wrap-end-pk" class="hidden">
+              <div class="w-full max-w-xl overflow-hidden transition duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl hover:scale-105">
+                <div class="relative p-10 overflow-hidden text-center bg-orange-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
+                  <i class="absolute -translate-y-1/2 fa-solid fa-list-check -right-2 top-1/2 text-8xl text-white/40 rotate-6"></i>
+                  <h2 class="relative text-3xl font-extrabold text-white">Sesi Selesai</h2>
+                  <p class="relative mt-1 italic text-md text-white/90">Hasil latihan tersimpan di browser ini.</p>
                 </div>
- 
-                <div class="grid grid-cols-3 gap-3 my-8">
-                  <div class="flex flex-col items-center justify-center py-3 border-2 border-orange-200 rounded-xl bg-orange-50/50">
-                    <span id="hasil-akurasi-pk" class="text-2xl font-bold text-gray-900">0%</span>
-                    <span class="mt-1 text-xs font-semibold text-gray-800">Akurasi</span>
+                <div class="px-6 pt-6 pb-6 space-y-4">
+  
+                  <div class="flex flex-col items-center justify-center mb-2 text-center">
+                    <span id="hasil-benar-pk" class="text-[5rem] font-bold text-gray-900 leading-none tracking-tighter">0</span>
+                    <span class="mt-2 text-base font-semibold text-gray-800">Total Jawaban Benar</span>
+                    <span class="mt-1 text-sm text-gray-500"><span id="hasil-benar-detail-pk">0</span> Benar dari <span id="hasil-total-pk">0</span> soal dijawab</span>
+                    <span class="mt-3 inline-flex items-center gap-1 px-3 py-1 text-xs font-bold text-orange-700 bg-orange-100 rounded-full">
+                      <i class="fa-solid fa-medal"></i> Level tercapai: <span id="hasil-level-pk">1</span>
+                    </span>
                   </div>
-                  <div class="flex flex-col items-center justify-center py-3 border-2 border-orange-200 rounded-xl bg-orange-50/50">
-                    <span id="hasil-persen-benar-pk" class="text-2xl font-bold text-green-800">0%</span>
-                    <span class="mt-1 text-xs font-semibold text-green-800">Benar</span>
+  
+                  <div class="grid grid-cols-3 gap-3 my-8">
+                    <div class="flex flex-col items-center justify-center py-3 border-2 border-orange-200 rounded-xl bg-orange-50/50">
+                      <span id="hasil-akurasi-pk" class="text-2xl font-bold text-gray-900">0%</span>
+                      <span class="mt-1 text-xs font-semibold text-gray-800">Akurasi</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center py-3 border-2 border-orange-200 rounded-xl bg-orange-50/50">
+                      <span id="hasil-persen-benar-pk" class="text-2xl font-bold text-green-800">0%</span>
+                      <span class="mt-1 text-xs font-semibold text-green-800">Benar</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center py-3 border-2 border-orange-200 rounded-xl bg-orange-50/50">
+                      <span id="hasil-persen-salah-pk" class="text-2xl font-bold text-red-800">0%</span>
+                      <span class="mt-1 text-xs font-semibold text-red-800">Salah</span>
+                    </div>
                   </div>
-                  <div class="flex flex-col items-center justify-center py-3 border-2 border-orange-200 rounded-xl bg-orange-50/50">
-                    <span id="hasil-persen-salah-pk" class="text-2xl font-bold text-red-800">0%</span>
-                    <span class="mt-1 text-xs font-semibold text-red-800">Salah</span>
+  
+                  <div class="py-4 space-y-3">
+                    <button id="btn-retry-pk" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95 shadow-md shadow-orange-500/30">
+                      <i class="fa-solid fa-rotate"></i> Coba Lagi
+                    </button>
+                    <button id="btn-dictionary-pk" class="w-full border-2 border-orange-500 text-orange-500 hover:bg-orange-50 font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95">
+                      <i class="fa-solid fa-house"></i> Kembali ke Halaman Utama
+                    </button>
                   </div>
-                </div>
- 
-                <div class="py-4 space-y-3">
-                  <button id="btn-retry-pk" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95 shadow-md shadow-orange-500/30">
-                    <i class="fa-solid fa-rotate"></i> Coba Lagi
-                  </button>
-                  <button id="btn-dictionary-pk" class="w-full border-2 border-orange-500 text-orange-500 hover:bg-orange-50 font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95">
-                    <i class="fa-solid fa-house"></i> Kembali ke Halaman Utama
-                  </button>
-                </div>
- 
-                <hr class="mx-auto mb-6 border-t-2 border-orange-200">
- 
-                <div class="flex justify-center gap-4 mb-2">
-                  <button class="w-[3.25rem] h-[3.25rem] border-2 border-orange-400 rounded-xl flex items-center justify-center text-orange-400 hover:text-orange-600 hover:bg-orange-50 hover:border-orange-500 transition-all active:scale-90">
-                    <i class="fa-brands fa-whatsapp fa-2xl"></i>
-                  </button>
-                  <button class="w-[3.25rem] h-[3.25rem] border-2 border-orange-400 rounded-xl flex items-center justify-center text-orange-400 hover:text-orange-600 hover:bg-orange-50 hover:border-orange-500 transition-all active:scale-90">
-                    <i class="fa-brands fa-x-twitter fa-2xl"></i>
-                  </button>
-                  <button class="w-[3.25rem] h-[3.25rem] border-2 border-orange-400 rounded-xl flex items-center justify-center text-orange-400 hover:text-orange-600 hover:bg-orange-50 hover:border-orange-500 transition-all active:scale-90">
-                    <i class="fa-brands fa-instagram fa-2xl"></i>
-                  </button>
-                </div>
- 
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2: Test Susun Kata -->
-          <div id="wrap-end-sk" style="display:none">
-            <div class="w-full max-w-xl overflow-hidden transition duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl hover:scale-105">
-              <div class="relative p-10 overflow-hidden text-center bg-amber-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
-                <i class="absolute -translate-y-1/2 fa-solid fa-list-check -right-2 top-1/2 text-8xl text-white/40 rotate-6"></i>
-                <h2 class="relative text-3xl font-extrabold text-white">Sesi Selesai</h2>
-                <p class="relative mt-1 italic text-md text-white/90">Hasil latihan tersimpan di browser ini.</p>
-              </div>
-              <div class="px-6 pt-6 pb-6 space-y-4">
-
-                <div class="flex flex-col items-center justify-center mb-2 text-center">
-                  <span id="hasil-benar-sk" class="text-[5rem] font-bold text-gray-900 leading-none tracking-tighter">0</span>
-                  <span class="mt-2 text-base font-semibold text-gray-800">Total Jawaban Benar</span>
-                  <span class="mt-1 text-sm text-gray-500"><span id="hasil-benar-detail-sk">0</span> Benar dari <span id="hasil-total-sk">0</span> soal dijawab</span>
-                  <span class="mt-3 inline-flex items-center gap-1 px-3 py-1 text-xs font-bold text-amber-700 bg-amber-100 rounded-full">
-                    <i class="fa-solid fa-medal"></i> Level tercapai: <span id="hasil-level-sk">1</span>
-                  </span>
-                </div>
- 
-                <div class="grid grid-cols-3 gap-3 my-8">
-                  <div class="flex flex-col items-center justify-center py-3 border-2 border-orange-200 rounded-xl bg-orange-50/50">
-                    <span id="hasil-akurasi-sk" class="text-2xl font-bold text-gray-900">0%</span>
-                    <span class="mt-1 text-xs font-semibold text-gray-800">Akurasi</span>
+  
+                  <hr class="mx-auto mb-6 border-t-2 border-orange-200">
+  
+                  <div class="flex justify-center gap-4 mb-2">
+                    <button class="w-[3.25rem] h-[3.25rem] border-2 border-orange-400 rounded-xl flex items-center justify-center text-orange-400 hover:text-orange-600 hover:bg-orange-50 hover:border-orange-500 transition-all active:scale-90">
+                      <i class="fa-brands fa-whatsapp fa-2xl"></i>
+                    </button>
+                    <button class="w-[3.25rem] h-[3.25rem] border-2 border-orange-400 rounded-xl flex items-center justify-center text-orange-400 hover:text-orange-600 hover:bg-orange-50 hover:border-orange-500 transition-all active:scale-90">
+                      <i class="fa-brands fa-x-twitter fa-2xl"></i>
+                    </button>
+                    <button class="w-[3.25rem] h-[3.25rem] border-2 border-orange-400 rounded-xl flex items-center justify-center text-orange-400 hover:text-orange-600 hover:bg-orange-50 hover:border-orange-500 transition-all active:scale-90">
+                      <i class="fa-brands fa-instagram fa-2xl"></i>
+                    </button>
                   </div>
-                  <div class="flex flex-col items-center justify-center py-3 border-2 border-orange-200 rounded-xl bg-orange-50/50">
-                    <span id="hasil-persen-benar-sk" class="text-2xl font-bold text-green-800">0%</span>
-                    <span class="mt-1 text-xs font-semibold text-green-800">Benar</span>
-                  </div>
-                  <div class="flex flex-col items-center justify-center py-3 border-2 border-orange-200 rounded-xl bg-orange-50/50">
-                    <span id="hasil-persen-salah-sk" class="text-2xl font-bold text-red-800">0%</span>
-                    <span class="mt-1 text-xs font-semibold text-red-800">Salah</span>
-                  </div>
-                </div>
- 
-                <div class="py-4 space-y-3">
-                  <button id="btn-retry-sk" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95 shadow-md shadow-orange-500/30">
-                    <i class="fa-solid fa-rotate"></i> Coba Lagi
-                  </button>
-                  <button id="btn-dictionary-sk" class="w-full border-2 border-amber-500 text-amber-500 hover:bg-orange-50 font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95">
-                    <i class="fa-solid fa-house"></i> Kembali ke Halaman Utama
-                  </button>
-                </div>
- 
-                <hr class="mx-auto mb-6 border-t-2 border-orange-200">
- 
-                <div class="flex justify-center gap-4 mb-2">
-                  <button class="w-[3.25rem] h-[3.25rem] border-2 border-amber-400 rounded-xl flex items-center justify-center text-amber-400 hover:text-amber-600 hover:bg-amber-50 hover:border-amber-500 transition-all active:scale-90">
-                    <i class="fa-brands fa-whatsapp fa-2xl"></i>
-                  </button>
-                  <button class="w-[3.25rem] h-[3.25rem] border-2 border-amber-400 rounded-xl flex items-center justify-center text-amber-400 hover:text-amber-600 hover:bg-amber-50 hover:border-amber-500 transition-all active:scale-90">
-                    <i class="fa-brands fa-x-twitter fa-2xl"></i>
-                  </button>
-                  <button class="w-[3.25rem] h-[3.25rem] border-2 border-amber-400 rounded-xl flex items-center justify-center text-amber-400 hover:text-amber-600 hover:bg-amber-50 hover:border-amber-500 transition-all active:scale-90">
-                    <i class="fa-brands fa-instagram fa-2xl"></i>
-                  </button>
+  
                 </div>
               </div>
             </div>
-          </div>
 
+            <!-- Card 2: Test Susun Kata -->
+            <div id="wrap-end-sk" class="hidden">
+              <div class="w-full max-w-xl overflow-hidden transition duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl hover:scale-105">
+                <div class="relative p-10 overflow-hidden text-center bg-amber-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
+                  <i class="absolute -translate-y-1/2 fa-solid fa-list-check -right-2 top-1/2 text-8xl text-white/40 rotate-6"></i>
+                  <h2 class="relative text-3xl font-extrabold text-white">Sesi Selesai</h2>
+                  <p class="relative mt-1 italic text-md text-white/90">Hasil latihan tersimpan di browser ini.</p>
+                </div>
+                <div class="px-6 pt-6 pb-6 space-y-4">
+
+                  <div class="flex flex-col items-center justify-center mb-2 text-center">
+                    <span id="hasil-benar-sk" class="text-[5rem] font-bold text-gray-900 leading-none tracking-tighter">0</span>
+                    <span class="mt-2 text-base font-semibold text-gray-800">Total Jawaban Benar</span>
+                    <span class="mt-1 text-sm text-gray-500"><span id="hasil-benar-detail-sk">0</span> Benar dari <span id="hasil-total-sk">0</span> soal dijawab</span>
+                    <span class="mt-3 inline-flex items-center gap-1 px-3 py-1 text-xs font-bold text-amber-700 bg-amber-100 rounded-full">
+                      <i class="fa-solid fa-medal"></i> Level tercapai: <span id="hasil-level-sk">1</span>
+                    </span>
+                  </div>
+  
+                  <div class="grid grid-cols-3 gap-3 my-8">
+                    <div class="flex flex-col items-center justify-center py-3 border-2 border-orange-200 rounded-xl bg-orange-50/50">
+                      <span id="hasil-akurasi-sk" class="text-2xl font-bold text-gray-900">0%</span>
+                      <span class="mt-1 text-xs font-semibold text-gray-800">Akurasi</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center py-3 border-2 border-orange-200 rounded-xl bg-orange-50/50">
+                      <span id="hasil-persen-benar-sk" class="text-2xl font-bold text-green-800">0%</span>
+                      <span class="mt-1 text-xs font-semibold text-green-800">Benar</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center py-3 border-2 border-orange-200 rounded-xl bg-orange-50/50">
+                      <span id="hasil-persen-salah-sk" class="text-2xl font-bold text-red-800">0%</span>
+                      <span class="mt-1 text-xs font-semibold text-red-800">Salah</span>
+                    </div>
+                  </div>
+  
+                  <div class="py-4 space-y-3">
+                    <button id="btn-retry-sk" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95 shadow-md shadow-orange-500/30">
+                      <i class="fa-solid fa-rotate"></i> Coba Lagi
+                    </button>
+                    <button id="btn-dictionary-sk" class="w-full border-2 border-amber-500 text-amber-500 hover:bg-orange-50 font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95">
+                      <i class="fa-solid fa-house"></i> Kembali ke Halaman Utama
+                    </button>
+                  </div>
+  
+                  <hr class="mx-auto mb-6 border-t-2 border-orange-200">
+  
+                  <div class="flex justify-center gap-4 mb-2">
+                    <button class="w-[3.25rem] h-[3.25rem] border-2 border-amber-400 rounded-xl flex items-center justify-center text-amber-400 hover:text-amber-600 hover:bg-amber-50 hover:border-amber-500 transition-all active:scale-90">
+                      <i class="fa-brands fa-whatsapp fa-2xl"></i>
+                    </button>
+                    <button class="w-[3.25rem] h-[3.25rem] border-2 border-amber-400 rounded-xl flex items-center justify-center text-amber-400 hover:text-amber-600 hover:bg-amber-50 hover:border-amber-500 transition-all active:scale-90">
+                      <i class="fa-brands fa-x-twitter fa-2xl"></i>
+                    </button>
+                    <button class="w-[3.25rem] h-[3.25rem] border-2 border-amber-400 rounded-xl flex items-center justify-center text-amber-400 hover:text-amber-600 hover:bg-amber-50 hover:border-amber-500 transition-all active:scale-90">
+                      <i class="fa-brands fa-instagram fa-2xl"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
     </section>
   </main>
   
