@@ -227,3 +227,87 @@ Jika kamu menggunakan layout yang menampilkan poin-poin tujuan (seperti pada met
 Aksesibilitas (Mudah diakses): <i class="fa-solid fa-universal-access"></i>
 Interaktif / Seru (Karena ada kuis & modul): <i class="fa-solid fa-gamepad"></i> atau <i class="fa-solid fa-laptop-code"></i>
 Perkembangan Belajar: <i class="fa-solid fa-chart-line"></i> atau <i class="fa-solid fa-seedling"></i> (melambangkan pertumbuhan/proses belajar dari nol).
+
+
+
+          <!-- Card 2: Test Susun Kata -->
+          <div class="bg-white w-full max-w-sm md:max-w-4xl rounded-3xl shadow-2xl overflow-hidden flex flex-col relative">
+
+            <!-- HEADER -->
+            <div class="bg-[#f97316] text-white px-5 py-4 flex justify-between items-center shadow-sm z-10 relative">
+              <button class="flex items-center gap-2 hover:text-orange-200 transition-colors font-medium">
+                <i class="fa-solid fa-arrow-left"></i> <span class="hidden md:inline">Akhiri Sesi</span>
+              </button>
+              <h1 class="text-lg md:text-2xl font-bold tracking-wide">Cocokkan Isyarat</h1>
+              <div class="flex items-center gap-1.5 md:gap-2 font-medium bg-orange-600 px-2.5 md:px-3 py-1 md:py-1.5 rounded-md text-sm md:text-base">
+                <i class="fa-regular fa-clock"></i> <span class="hidden md:inline">Time:</span> 05:00
+              </div>
+            </div>
+
+            <!-- PROGRESS & STATUS -->
+            <div class="px-6 md:px-8 pt-5 pb-2">
+              <div class="flex justify-between text-gray-800 font-semibold text-sm md:text-base mb-2">
+                <span>Soal: 2/10</span>
+                <span>Score: 10</span>
+              </div>
+              <div class="w-full bg-orange-100 rounded-full h-2.5 md:h-3">
+                <div class="bg-orange-500 h-2.5 md:h-3 rounded-full w-1/5 shadow-inner"></div>
+              </div>
+            </div>
+
+            <!-- AREA UTAMA GAME (Responsive Layouting) -->
+            <div class="flex-1 px-6 md:px-8 py-4 flex flex-col md:flex-row gap-6 md:gap-10">
+
+              <!-- DROP ZONES (Sisi Kanan di Desktop, Posisi Atas di Mobile) -->
+              <!-- Tailwind order-1 di mobile (atas), md:order-2 di desktop (kanan) -->
+              <div class="order-1 md:order-2 w-full md:w-1/2 grid grid-cols-2 md:flex md:flex-col gap-4">
+
+                <div class="zona-drop border-2 border-dashed border-orange-400 rounded-xl md:rounded-2xl flex items-center justify-center bg-orange-50/30 h-16 md:h-[5.5rem] transition-all">
+                  <span class="text-4xl md:text-5xl font-bold text-gray-300 placeholder-text">A</span>
+                </div>
+                <div class="zona-drop border-2 border-dashed border-orange-400 rounded-xl md:rounded-2xl flex items-center justify-center bg-orange-50/30 h-16 md:h-[5.5rem] transition-all">
+                  <span class="text-4xl md:text-5xl font-bold text-gray-300 placeholder-text">B</span>
+                </div>
+                <div class="zona-drop border-2 border-dashed border-orange-400 rounded-xl md:rounded-2xl flex items-center justify-center bg-orange-50/30 h-16 md:h-[5.5rem] transition-all">
+                  <span class="text-4xl md:text-5xl font-bold text-gray-300 placeholder-text">C</span>
+                </div>
+                <div class="zona-drop border-2 border-dashed border-orange-400 rounded-xl md:rounded-2xl flex items-center justify-center bg-orange-50/30 h-16 md:h-[5.5rem] transition-all">
+                  <span class="text-4xl md:text-5xl font-bold text-gray-300 placeholder-text">D</span>
+                </div>
+
+              </div>
+
+              <!-- GARIS PEMBATAS KUNING (Hanya muncul di Mobile) -->
+              <hr class="order-2 md:hidden border-[#f97316] border-t-2 w-11/12 mx-auto opacity-70">
+
+              <!-- DRAGGABLE CARDS (Sisi Kiri di Desktop, Posisi Bawah di Mobile) -->
+              <!-- Tailwind order-3 di mobile (bawah), md:order-1 di desktop (kiri) -->
+              <div class="order-3 md:order-1 w-full md:w-1/2 grid grid-cols-2 md:flex md:flex-col gap-4">
+
+                <div class="kartu-drag kursor-tarik border-2 border-orange-500 bg-orange-50 rounded-xl md:rounded-2xl flex items-center justify-center h-16 md:h-[5.5rem] relative shadow-sm hover:shadow-md transition-shadow">
+                  <i class="fa-solid fa-grip-vertical text-orange-300 absolute left-3 md:left-6 text-lg md:text-xl"></i>
+                  <span class="text-4xl md:text-5xl font-bold text-gray-900 ml-2 md:ml-0">A</span>
+                </div>
+                <div class="kartu-drag kursor-tarik border-2 border-orange-500 bg-orange-50 rounded-xl md:rounded-2xl flex items-center justify-center h-16 md:h-[5.5rem] relative shadow-sm hover:shadow-md transition-shadow">
+                  <i class="fa-solid fa-grip-vertical text-orange-300 absolute left-3 md:left-6 text-lg md:text-xl"></i>
+                  <span class="text-4xl md:text-5xl font-bold text-gray-900 ml-2 md:ml-0">B</span>
+                </div>
+                <div class="kartu-drag kursor-tarik border-2 border-orange-500 bg-orange-50 rounded-xl md:rounded-2xl flex items-center justify-center h-16 md:h-[5.5rem] relative shadow-sm hover:shadow-md transition-shadow">
+                  <i class="fa-solid fa-grip-vertical text-orange-300 absolute left-3 md:left-6 text-lg md:text-xl"></i>
+                  <span class="text-4xl md:text-5xl font-bold text-gray-900 ml-2 md:ml-0">C</span>
+                </div>
+                <div class="kartu-drag kursor-tarik border-2 border-orange-500 bg-orange-50 rounded-xl md:rounded-2xl flex items-center justify-center h-16 md:h-[5.5rem] relative shadow-sm hover:shadow-md transition-shadow">
+                  <i class="fa-solid fa-grip-vertical text-orange-300 absolute left-3 md:left-6 text-lg md:text-xl"></i>
+                  <span class="text-4xl md:text-5xl font-bold text-gray-900 ml-2 md:ml-0">D</span>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- INSTRUKSI -->
+            <p class="text-center text-gray-700 font-semibold text-sm md:text-base mt-4 mb-6 md:my-6">
+              Geser kartu ke area putus-putus untuk menjawab.
+            </p>
+
+          </div>
