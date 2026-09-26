@@ -22,44 +22,44 @@
 <body class="font-sans antialiased bg-white text-slate-800 selection:bg-orange-500">
 
   <!-- Navigation -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 w-full text-white shadow-sm backdrop-blur-md bg-white/20">
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 w-full bg-transparent text-white">
     <div id="scrollProgressContainer" class="fixed left-0 top-0 z-[60] h-1 w-full bg-transparent pointer-events-none">
       <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
     </div>
     <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 md:px-8 lg:h-20">
 
       <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center gap-2 text-lg font-bold tracking-tight shrink-0 sm:gap-2.5 sm:text-xl lg:text-2xl" aria-label="IsyaratOK">
-        <div class="p-1 bg-white rounded-full">
-          <img src="assets/images/Logo.png" alt="IsyaratOK" class="object-contain w-9 h-9" />
+      <a href="index.html" class="flex items-center gap-2.5 text-xl font-extrabold tracking-tight shrink-0 md:text-2xl" aria-label="IsyaratOK">
+        <div class="flex items-center justify-center w-10 h-10">
+          <img src="assets/images/Logo.png" alt="IsyaratOK" class="object-contain w-8 h-8" />
         </div>
-        <span class="text-2xl">Isyarat<span class="text-orange-600">OK</span></span>
+        <span>Isyarat<span class="text-orange-600">OK</span></span>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="items-center hidden gap-5 text-base font-semibold xl:text-md lg:flex" aria-label="Navigasi Utama">
-        <a href="index.html" class="px-2 py-1 rounded-full text-orange-600 border-2 border-orange-600 bg-white whitespace-nowrap" aria-current="page">Beranda</a>
-        <a href="edukasi.html" class="px-2 py-1 rounded-full transition border-2 border-transparent hover:text-orange-600 hover:border-orange-600 hover:bg-white whitespace-nowrap">Edukasi</a>
-        <a href="kosakata.html" class="px-2 py-1 rounded-full transition border-2 border-transparent hover:text-orange-600 hover:border-orange-600 hover:bg-white whitespace-nowrap">Kamus</a>
-        <a href="quiz.html" class="px-2 py-1 rounded-full transition border-2 border-transparent hover:text-orange-600 hover:border-orange-600 hover:bg-white whitespace-nowrap">Quiz</a>
-        <a href="asisten.html" class="px-2 py-1 rounded-full transition border-2 border-transparent hover:text-orange-600 hover:border-orange-600 hover:bg-white whitespace-nowrap">Asisten AI</a>
+      <nav class="items-center hidden gap-2 text-sm font-semibold text-white md:flex" aria-label="Navigasi Utama">
+        <a href="index.html" class="px-3 py-2 text-white transition rounded-full bg-orange-600" aria-current="page">Beranda</a>
+        <a href="edukasi.html" class="px-3 py-2 transition rounded-full hover:bg-white/20 hover:text-white">Edukasi</a>
+        <a href="kosakata.html" class="px-3 py-2 transition rounded-full hover:bg-white/20 hover:text-white">Kamus</a>
+        <a href="quiz.html" class="px-3 py-2 transition rounded-full hover:bg-white/20 hover:text-white">Quiz</a>
+        <a href="asisten.html" class="px-3 py-2 transition rounded-full hover:bg-white/20 hover:text-white">Asisten AI</a>
       </nav>
 
       <!-- Mobile/Tablet Menu Button -->
-      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi" class="relative z-50 flex items-center justify-center w-10 h-10 p-2 transition cursor-pointer shrink-0 rounded-xl hover:text-orange-600 hover:bg-white/80 lg:hidden focus:outline-none">
+      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi" class="relative z-50 flex items-center justify-center w-10 h-10 p-2 transition cursor-pointer shrink-0 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 md:hidden focus:outline-none">
         <i id="iconOpen" class="absolute text-xl transition-all duration-300 ease-in-out scale-100 rotate-0 opacity-100 fa-solid fa-bars"></i>
         <i id="iconClose" class="absolute text-xl transition-all duration-300 ease-in-out scale-75 -rotate-90 opacity-0 fa-solid fa-x"></i>
       </button>
     </div>
 
     <!-- Mobile/Tablet Navigation Drawer -->
-    <nav id="mobileMenu" class="hidden absolute top-full left-0 right-0 max-h-[calc(100vh-4rem)] overflow-y-auto px-4 py-4 sm:px-6 border-b border-orange-100 shadow-lg bg-white/20 lg:hidden" aria-label="Menu Mobile">
-      <div class="flex flex-col space-y-2 font-medium sm:space-y-2.5">
-        <a href="index.html" class="px-3  text-orange-600 bg-white rounded-lg py-2.5">Beranda</a>
-        <a href="edukasi.html" class="px-3 transition rounded-lg py-2.5 hover:bg-white hover:text-orange-600">Edukasi</a>
-        <a href="kosakata.html" class="px-3 transition rounded-lg py-2.5 hover:bg-white hover:text-orange-600">Kamus</a>
-        <a href="quiz.html" class="px-3 transition rounded-lg py-2.5 hover:bg-white hover:text-orange-600">Quiz</a>
-        <a href="asisten.html" class="px-3 transition rounded-lg py-2.5 hover:bg-white hover:text-orange-600">Asisten AI</a>
+    <nav id="mobileMenu" class="hidden absolute top-full left-0 right-0 max-h-[calc(100vh-4rem)] overflow-y-auto px-6 pt-2 pb-6 border-b border-orange-100 bg-white/95 md:hidden" aria-label="Menu Mobile">
+      <div class="flex flex-col space-y-2.5 font-medium text-slate-700">
+        <a href="index.html" class="px-3 py-2 font-bold text-white rounded-lg bg-orange-600" aria-current="page">Beranda</a>
+        <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Edukasi</a>
+        <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Kamus</a>
+        <a href="quiz.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Quiz</a>
+        <a href="asisten.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Asisten AI</a>
       </div>
     </nav>
   </header>
@@ -697,7 +697,6 @@
         </div>
       </div>
     </section>
-<<<<<<< HEAD
 
     <!-- FAQ & Testimonials -->
     <section id="faq" class="px-4 py-20 overflow-hidden bg-slate-50 sm:px-6 md:py-28 lg:px-8">
@@ -800,8 +799,6 @@
         </div>
       </div>
     </section>
-=======
->>>>>>> 00e29d79038d30d7136d5d57eb56a60af0bff13c
   </main>
 
   <!-- Mode Accessibility -->
@@ -899,7 +896,6 @@
 
         <!-- Col : Navigation -->
         <div class="md:col-span-3">
-<<<<<<< HEAD
           <h3 class="mb-4 text-sm font-bold tracking-wider uppercase text-amber-200">Navigasi Utama</h3>
           <ul class="text-sm text-orange-100 space-y-2.5">
             <li><a href="index.html" class="transition-colors hover:text-white">Beranda</a></li>
@@ -907,15 +903,6 @@
             <li><a href="kosakata.html" class="transition-colors hover:text-white">Kamus Kosakata</a></li>
             <li><a href="quiz.html" class="transition-colors hover:text-white">Kuis Interaktif</a></li>
             <li><a href="index.html#isyarat-angka" class="transition-colors hover:text-white">Statistik Isyarat</a></li>
-=======
-          <h3 class="mb-4 text-md font-bold tracking-wider uppercase text-white">Navigasi Utama</h3>
-          <ul class="text-sm text-white space-y-2.5">
-            <li><a href="index.html" class="transition-colors hover:underline">Beranda</a></li>
-            <li><a href="edukasi.html" class="transition-colors hover:underline">Modul Edukasi</a></li>
-            <li><a href="kosakata.html" class="transition-colors hover:underline">Kamus Kosakata</a></li>
-            <li><a href="#quiz" class="transition-colors hover:underline">Kuis Interaktif</a></li>
-            <li><a href="index.html#isyarat-angka" class="transition-colors hover:underline">Statistik Isyarat</a></li>
->>>>>>> 00e29d79038d30d7136d5d57eb56a60af0bff13c
           </ul>
         </div>
 

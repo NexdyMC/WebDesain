@@ -59,20 +59,16 @@ $(function () {
     }
   });
 
+  const navbar = document.getElementById("navbar");
 
-  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    const updateNavbar = function () {
+      navbar.classList.toggle("navbar-scrolled", window.scrollY > 24);
+    };
 
-  window.addEventListener('scroll', () => {
-    
-    const heroHeight = window.innerHeight; 
-    if (window.scrollY >= heroHeight) {
-      navbar.classList.remove('bg-white/20', 'text-white');
-      navbar.classList.add('bg-white/80', 'text-slate-800', 'shadow-md');
-    } else {
-      navbar.classList.add('bg-white/0', 'text-white');
-      navbar.classList.remove('bg-white/80', 'text-slate-800', 'shadow-md');
-    }
-  });
+    updateNavbar();
+    window.addEventListener("scroll", updateNavbar, { passive: true });
+  }
 
   function initScrollProgress() {
     const progressBar = document.getElementById("scrollProgressBar");

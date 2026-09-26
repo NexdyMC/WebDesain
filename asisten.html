@@ -15,7 +15,7 @@
 
 </head>
 <body class="font-sans antialiased bg-white text-slate-800 selection:bg-orange-500 selection:text-white">
-  <div id="scrollProgressContainer" class="fixed left-0 top-16 z-[60] h-1 w-full bg-transparent pointer-events-none md:top-20">
+  <div id="scrollProgressContainer" class="fixed left-0 top-0 z-[60] h-1 w-full bg-transparent pointer-events-none">
     <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
   </div>
 
@@ -28,15 +28,15 @@
         <span>Isyarat<span class="text-orange-600">OK</span></span>
       </a>
 
-      <nav class="items-center hidden text-sm font-semibold gap-7 text-slate-600 md:flex" aria-label="Navigasi Utama">
-        <a href="index.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Beranda</a>
-        <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Edukasi</a>
-        <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Kamus</a>
-        <a href="quiz.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Quiz</a>
-        <a href="asisten.html" class="py-1 text-orange-600 border-b-2 border-orange-600" aria-current="page">Asisten AI</a>
+      <nav class="items-center hidden gap-2 text-sm font-semibold text-slate-600 md:flex" aria-label="Navigasi Utama">
+        <a href="index.html" class="px-3 py-2 transition rounded-full hover:bg-slate-100 hover:text-slate-900">Beranda</a>
+        <a href="edukasi.html" class="px-3 py-2 transition rounded-full hover:bg-slate-100 hover:text-slate-900">Edukasi</a>
+        <a href="kosakata.html" class="px-3 py-2 transition rounded-full hover:bg-slate-100 hover:text-slate-900">Kamus</a>
+        <a href="quiz.html" class="px-3 py-2 transition rounded-full hover:bg-slate-100 hover:text-slate-900">Quiz</a>
+        <a href="asisten.html" class="px-3 py-2 text-white transition rounded-full bg-orange-600" aria-current="page">Asisten AI</a>
       </nav>
 
-      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi" class="p-2 transition rounded-xl text-slate-700 hover:text-orange-600 hover:bg-orange-50 md:hidden focus:outline-none">
+      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi" class="p-2 transition rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 md:hidden focus:outline-none">
         <svg id="iconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         <svg id="iconClose" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
       </button>
@@ -44,11 +44,11 @@
 
     <nav id="mobileMenu" class="hidden px-6 pt-2 pb-6 border-b border-orange-100 bg-white/95 md:hidden" aria-label="Menu Mobile">
       <div class="flex flex-col font-medium space-y-2.5 text-slate-700">
-        <a href="index.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Beranda</a>
-        <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Edukasi</a>
-        <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Kamus</a>
-        <a href="quiz.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Quiz</a>
-        <a href="asisten.html" class="px-3 py-2 font-bold text-orange-600 rounded-lg bg-orange-50">Asisten AI</a>
+        <a href="index.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Beranda</a>
+        <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Edukasi</a>
+        <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Kamus</a>
+        <a href="quiz.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Quiz</a>
+        <a href="asisten.html" class="px-3 py-2 font-bold text-white rounded-lg bg-orange-600">Asisten AI</a>
       </div>
     </nav>
   </header>

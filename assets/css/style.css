@@ -8,6 +8,43 @@
   }
 }
 
+#navbar {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease,
+    backdrop-filter 0.25s ease;
+}
+
+#navbar.navbar-scrolled {
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  background-color: rgba(255, 255, 255, 0.96);
+  color: #334155;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+#navbar.navbar-scrolled nav[aria-label="Navigasi Utama"] {
+  color: #475569;
+}
+
+#navbar.navbar-scrolled nav[aria-label="Navigasi Utama"] > a:not([aria-current="page"]):hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+#navbar.navbar-scrolled #menuBtn {
+  color: #334155;
+}
+
+#navbar.navbar-scrolled #mobileMenu {
+  border-color: rgba(226, 232, 240, 0.9);
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 12px 20px rgba(15, 23, 42, 0.08);
+}
+
 /* 1. CARD INTERACTIVE */
 .card-interactive {
   height: 100%;
