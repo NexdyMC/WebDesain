@@ -25,11 +25,15 @@
     .pop { animation: pop .3s; }
     @keyframes pop { from{transform:scale(.9);opacity:.4} to{transform:scale(1);opacity:1} }
     #shell .screen.hidden { display: none; }
+    .kursor-tarik { cursor: grab; }
+    .kursor-tarik:active { cursor: grabbing; }
+    /* Transisi bawaan Tailwind terkadang bentrok dengan animasi geser jQuery UI, kita matikan saat dragging */
+    .ui-draggable-dragging { transition: none !important; z-index: 50; }
   </style>
 </head>
 <body class="font-sans antialiased bg-white text-slate-800 selection:bg-orange-500 selection:text-white">
 
-  <div id="scrollProgressContainer" class="fixed left-0 top-0 z-[60] h-1 w-full bg-transparent pointer-events-none">
+  <div id="scrollProgressContainer" class="fixed left-0 top-16 z-[60] h-1 w-full bg-transparent pointer-events-none md:top-20">
     <div id="scrollProgressBar" class="h-full w-0 bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] transition-all duration-150 ease-out"></div>
   </div>
 
@@ -46,17 +50,16 @@
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="items-center hidden gap-2 text-sm font-semibold text-slate-600 md:flex" aria-label="Navigasi Utama">
-        <a href="index.html" class="px-3 py-2 transition rounded-full hover:bg-slate-100 hover:text-slate-900">Beranda</a>
-        <a href="edukasi.html" class="px-3 py-2 transition rounded-full hover:bg-slate-100 hover:text-slate-900">Edukasi</a>
-        <a href="kosakata.html" class="px-3 py-2 transition rounded-full hover:bg-slate-100 hover:text-slate-900">Kamus</a>
-        <a href="quiz.html" class="px-3 py-2 text-white transition rounded-full bg-orange-600" aria-current="page">Quiz</a>
-        <a href="asisten.html" class="px-3 py-2 transition rounded-full hover:bg-slate-100 hover:text-slate-900">Asisten AI</a>
+      <nav class="items-center hidden text-sm font-semibold gap-7 text-slate-600 md:flex" aria-label="Navigasi Utama">
+        <a href="index.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Beranda</a>
+        <a href="edukasi.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Edukasi</a>
+        <a href="kosakata.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Kamus</a>
+        <a href="quiz.html" class="py-1 text-orange-600 border-b-2 border-orange-600" aria-current="page">Quiz</a>
+        <a href="asisten.html" class="py-1 transition border-b-2 border-transparent hover:text-orange-600 hover:border-orange-600">Asisten AI</a>
       </nav>
 
       <!-- Mobile Menu Button -->
-      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi"
-        class="p-2 transition rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 md:hidden focus:outline-none">
+      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi" class="p-2 transition rounded-xl text-slate-700 hover:text-orange-600 hover:bg-orange-50 md:hidden focus:outline-none">
         <svg id="iconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h26M4 12h26M4 18h26"></path>
         </svg>
@@ -69,11 +72,11 @@
     <!-- Mobile Navigation Drawer -->
     <nav id="mobileMenu" class="hidden px-6 pt-2 pb-6 border-b border-orange-100 bg-white/95 md:hidden" aria-label="Menu Mobile">
       <div class="flex flex-col font-medium space-y-2.5 text-slate-700">
-        <a href="index.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Beranda</a>
-        <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Edukasi</a>
-        <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Kamus</a>
-        <a href="quiz.html" class="px-3 py-2 font-bold text-white rounded-lg bg-orange-600">Quiz</a>
-        <a href="asisten.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Asisten AI</a>
+        <a href="index.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Beranda</a>
+        <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Edukasi</a>
+        <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Kamus</a>
+        <a href="quiz.html" class="px-3 py-2 font-bold text-orange-600 rounded-lg bg-orange-50">Quiz</a>
+        <a href="asisten.html" class="px-3 py-2 transition rounded-lg hover:bg-orange-50 hover:text-orange-600">Asisten AI</a>
       </div>
     </nav>
   </header>
@@ -86,227 +89,326 @@
     </div>
   </nav>
 
-  <div class="flex items-center justify-center h-16 px-4 bg-orange-400 border-b-2 border-orange-600 sm:px-6 md:px-8 md:h-20">
-    <div class="w-full px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between ">
-        <a href="kosakata.html">Back to kosakata</a>
-        <div class="items-center hidden gap-2 text-lg md:flex font-smallbold text-slate-950">
-          <i class="fa-solid fa-gear" aria-hidden="true"></i>
-          <h2>Latihan Isyarat BSINDO</h2>
-        </div>
-        <button id="btnReset" class="btn-start">Reset Data</button>
-      </div>
-    </div>
-  </div>
-
-
-
   <main id="shell" class="min-h-screen py-10">
 
-    <!-- Card Menu Kuis -->
+    <!-- Card Mode select -->
     <section id="menu-screen" class="px-4 py-5 bg-white sm:px-6 sm:py-10 lg:px-8">
       <div class="max-w-4xl w-full mx-auto">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 items-start justify-items-center mb-8 fade-up-item">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 items-start justify-items-center mb-8">
+
+          <!-- Card 1: Test Pilihan Ganda -->
+          <div class="w-full max-w-96 overflow-hidden duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl hover:scale-105 transition" data-quiz="pilihan-ganda">
+            
+            <!-- Card Header -->
+            <div class="relative p-10 overflow-hidden text-center bg-orange-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
+              <i class="fa-solid fa-list-check absolute -right-2 top-1/2 -translate-y-1/2 text-8xl text-white/40 rotate-6"></i>
+              <h2 class="relative text-3xl font-extrabold text-white">Latihan Huruf Dasar</h2>
+              <p class="relative text-md italic text-white/90 mt-1">Kuis Pilihan Ganda Adaptif</p>
+            </div>
+
+            <!-- Card Content -->
+            <div class="px-6 pt-6 pb-6 space-y-4">
+              <div class="space-y-2 text-sm font-semibold text-slate-800">
+                <p class="font-medium">Level Saat Ini</p>
+                <p class="text-5xl font-extrabold text-neutral-900">Lv. <span class="text-orange-500 level-value">1</span></p>
+              </div>
+              <div class="pb-2">
+                <div class="flex justify-between text-gray-800 font-semibold text-sm md:text-base mb-2">
+                  <span>EXP: 30</span><span>Score: 10</span>
+                </div>
+                <div class="w-full bg-orange-100 rounded-full h-2.5 md:h-3">
+                  <div class="bg-orange-500 h-2.5 md:h-3 rounded-full w-1/5 shadow-inner"></div>
+                </div>
+              </div>
+              <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95 shadow-md shadow-orange-500/30">
+                <i class="text-sm fa-solid fa-play"></i>Mulai latihan
+              </button>
+              <button class="w-full border-2 border-orange-500 text-orange-500 hover:bg-orange-50 font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95">
+                <i class="fa-solid fa-book-open"></i>Daftar Kamus Isyarat
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2: Test Susun Kata -->
+          <div class="w-full max-w-96 overflow-hidden duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl hover:scale-105 transition" data-quiz="susun-kata">
+
+            <!-- Card Header -->
+            <div class="relative p-10 overflow-hidden text-center bg-amber-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
+              <i class="fa-solid fa-puzzle-piece absolute -right-2 top-1/2 -translate-y-1/2 text-8xl text-white/40 rotate-6"></i>
+              <h2 class="relative text-3xl font-extrabold text-white">Test Susun Kata</h2>
+              <p class="relative text-md italic text-white/90 mt-1">Kuis Susun Kata Adaptif</p>
+            </div>
+
+            <!-- Card Content -->
+            <div class="px-6 pt-6 pb-6 space-y-4">
+              <div class="space-y-2 text-sm font-semibold text-slate-800">
+                <p class="font-medium">Level Saat Ini</p>
+                <p class="text-5xl font-extrabold text-neutral-900">Lv. <span class="text-amber-500 level-value">1</span></p>
+              </div>
+              <div class="pb-2">
+                <div class="flex justify-between text-gray-800 font-semibold text-sm md:text-base mb-2">
+                  <span>EXP: 30</span><span>Score: 10</span>
+                </div>
+                <div class="w-full bg-amber-100 rounded-full h-2.5 md:h-3">
+                  <div class="bg-amber-500 h-2.5 md:h-3 rounded-full w-1/5 shadow-inner"></div>
+                </div>
+              </div>
+              <button class="w-full text-md px-8 flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition text-white font-semibold py-3.5 rounded-xl shadow-md shadow-amber-200">
+                <i class="text-sm fa-solid fa-play"></i>Mulai latihan
+              </button>
+              <button class="w-full text-md px-8 flex items-center justify-center gap-2 bg-amber-50 hover:bg-amber-100 active:scale-[0.98] transition text-amber-600 font-semibold py-3.5 rounded-xl border border-amber-400">
+                <i class="fa-solid fa-book-open"></i>Daftar Kamus Isyarat
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Card Play Session  -->
+    <section id="fitur" class="px-4 py-6 bg-white sm:px-6 md:py-20 lg:px-8">
+      <div id="start-screen" class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-6 lg:gap-8 items-start justify-items-center mb-8">
+
+          <!-- Card 1: Test Pilihan Ganda -->
+          <div id="page-game" class="w-full max-w-sm md:max-w-4xl mx-auto bg-white rounded-3xl shadow-lg overflow-hidden">
+            <div class="bg-orange-500 px-5 sm:px-8 py-4 text-white flex justify-between items-center shadow-md">
+              <button id="btn-exit" class="flex items-center gap-2 font-bold text-xs sm:text-sm hover:opacity-80 transition active:scale-95">
+                <i class="fa-solid fa-arrow-left"></i>Akhiri Sesi
+              </button>
+              <h2 class="hidden md:block font-extrabold text-base lg:text-lg tracking-wide">Test Pilihan Ganda</h2>
+              <div class="flex items-center gap-2 font-bold text-xs sm:text-sm bg-orange-600/40 px-3 py-1.5 rounded-xl border border-orange-400/40">
+                <i class="fa-regular fa-clock"></i> <span id="timer-display">05:00</span>
+              </div>
+            </div>
+            <div class="p-5 sm:p-8 space-y-5 sm:space-y-6">
+              <div class="pb-2">
+                <div class="flex justify-between text-gray-800 font-semibold text-sm md:text-base mb-2">
+                  <span>Soal: 2/10</span>
+                  <span>Score: 10</span>
+                </div>
+                <div class="w-full bg-orange-100 rounded-full h-2.5 md:h-3">
+                  <div class="bg-orange-500 h-2.5 md:h-3 rounded-full w-1/5 shadow-inner"></div>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-stretch">
+
+                <!-- Main question box -->
+                <div class="md:col-span-6 lg:col-span-7 bg-card-soft border-2 border-orange-400 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-sm min-h-[200px] md:min-h-[340px]">
+
+                  <!-- Sign question image / content -->
+                  <div class="my-auto py-4 text-center">
+                    <div class="inline-flex items-center justify-center w-20 h-20 sm:w-28 sm:h-28 bg-orange-100/70 border-2 border-dashed border-orange-400 rounded-2xl text-orange-500 mb-3">
+                      <i class="fa-solid fa-hand text-4xl sm:text-5xl"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="md:col-span-6 lg:col-span-5 grid grid-cols-1 gap-3 sm:gap-3.5">
+
+                  <!-- Opsi A -->
+                  <div class="cursor-pointer border-2 border-orange-400 hover:shadow-md rounded-2xl p-3.5 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="A">
+                    <div class="flex-1 text-lg sm:text-2xl font-bold text-gray-800">Isyarat A</div>
+                    <div class="check-icon opacity-100 text-orange-500 text-lg"><i class="fa-solid fa-circle-check"></i></div>
+                  </div>
+
+                  <!-- Opsi B -->
+                  <div class="cursor-pointer border-2 border-orange-400 hover:shadow-md rounded-2xl p-3.5 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="B">
+                    <div class="flex-1 text-lg sm:text-2xl font-bold text-gray-800">Isyarat B</div>
+                    <div class="check-icon opacity-0 text-orange-500 text-lg"><i class="fa-solid fa-circle-check"></i></div>
+                  </div>
+
+                  <!-- Opsi C -->
+                  <div class="cursor-pointer border-2 border-orange-400 hover:shadow-md rounded-2xl p-3.5 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="C">
+                    <div class="flex-1 text-lg sm:text-2xl font-bold text-gray-800">Isyarat C</div>
+                    <div class="check-icon opacity-0 text-orange-500 text-lg"><i class="fa-solid fa-circle-check"></i></div>
+                  </div>
+
+                  <!-- Opsi D -->
+                  <div class="cursor-pointer border-2 border-orange-400 hover:shadow-md rounded-2xl p-3.5 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="D">
+                    <div class="flex-1 text-lg sm:text-2xl font-bold text-gray-800">Isyarat D</div>
+                    <div class="check-icon opacity-0 text-orange-500 text-lg"><i class="fa-solid fa-circle-check"></i></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Test Susun Kata -->
+          <div class="bg-white w-full max-w-sm md:max-w-4xl rounded-3xl shadow-2xl overflow-hidden flex flex-col relative">
+            <div class="bg-[#e78b09] text-white px-5 py-4 flex justify-between items-center z-10">
+              <button class="hover:text-amber-200 transition-colors">
+                <i class="fa-solid fa-arrow-left text-sm"></i> <span class="ml-1 text-sm font-medium">Akhiri Sesi</span>
+              </button>
+              <h2 class="text-lg hidden md:block font-bold tracking-wide">Test Susun Kata</h2>
+              <div class="flex items-center gap-2 font-bold text-xs sm:text-sm bg-amber-600/40 px-3 py-1.5 rounded-xl  border-amber-400/40">
+                <i class="fa-regular fa-clock"></i><span id="timer-display">05:00</span>
+              </div>
+            </div>
+            <div class="px-6 pt-4 pb-2">
+              <div class="flex justify-between text-gray-800 font-medium text-sm mb-2">
+                <span>Soal: 2/10</span><span>Score: 10</span>
+              </div>
+              <div class="w-full bg-amber-100 rounded-full h-2.5">
+                <div class="bg-[#e78b09] h-2.5 rounded-full w-1/5 shadow-inner"></div>
+              </div>
+            </div>
+            <div class="flex-1 flex flex-col px-6 py-4">
+              <div class="w-full bg-amber-50 text-gray-900 font-bold text-lg text-center py-4 rounded-xl mb-6 shadow-sm">Belajar Isyarat</div>
+              <div id="zona-jawaban" class="flex-1 flex flex-wrap justify-center content-start gap-3 min-h-16 transition-all">
+                
+              </div>
+              <hr class="border-[#e78b09] border-t-2 my-6 w-full opacity-80">
+              <div id="bank-kata" class="flex flex-wrap justify-center gap-3 mb-6">
+                <button class="kartu-kata px-5 py-3 bg-white border-2 border-amber-400 text-gray-900 font-bold text-2xl rounded-xl shadow-sm active:scale-95 transition-transform cursor-pointer">A</button>
+                <button class="kartu-kata px-5 py-3 bg-white border-2 border-amber-400 text-gray-900 font-bold text-2xl rounded-xl shadow-sm active:scale-95 transition-transform cursor-pointer">B</button>
+                <button class="kartu-kata px-5 py-3 bg-white border-2 border-amber-400 text-gray-900 font-bold text-2xl rounded-xl shadow-sm active:scale-95 transition-transform cursor-pointer">C</button>
+                <button class="kartu-kata px-5 py-3 bg-white border-2 border-amber-400 text-gray-900 font-bold text-2xl rounded-xl shadow-sm active:scale-95 transition-transform cursor-pointer">D</button>
+                <button class="kartu-kata px-5 py-3 bg-white border-2 border-amber-400 text-gray-900 font-bold text-2xl rounded-xl shadow-sm active:scale-95 transition-transform cursor-pointer">E</button>
+              </div>
+              <button id="btn-periksa" class="w-full bg-gray-200 text-gray-400 font-bold text-lg py-3.5 rounded-xl transition-all" disabled>Periksa</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    
+    <!-- Card End Session -->
+    <section id="finish" class="px-4 py-6 bg-white sm:px-6 md:pb-20 lg:px-8">
+      <div class="max-w-4xl w-full mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 items-start justify-items-center mb-8">
 
           <!-- Card 1: Test Pilihan Ganda -->
           <div>
-            <div class="w-full max-w-xl overflow-hidden duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl hover:scale-105 transition" data-quiz="pilihan-ganda">
+            <div id="result-card" class="w-full max-w-xl overflow-hidden duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl hover:scale-105 transition">
               <div class="relative p-10 overflow-hidden text-center bg-orange-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
                 <i class="fa-solid fa-list-check absolute -right-2 top-1/2 -translate-y-1/2 text-8xl text-white/40 rotate-6"></i>
-                <h2 class="relative text-3xl font-extrabold text-white">Test Pilihan Ganda</h2>
-                <p class="relative text-md italic text-white/90 mt-1">Kuis Pilihan Ganda Adaptif</p>
+                <h2 class="relative text-3xl font-extrabold text-white">Sesi Selesai</h2>
+                <p class="relative text-md italic text-white/90 mt-1">Hasil latihan tersimpan di browser ini.</p>
               </div>
               <div class="px-6 pt-6 pb-6 space-y-4">
-                <div class="space-y-2 text-sm font-semibold text-slate-800">
-                  <p class="font-medium">Level Saat Ini</p>
-                  <p class="text-5xl font-extrabold text-neutral-900">Lv. <span class="text-orange-500 level-value">1</span></p>
+
+                <!-- Area Skor Utama (Disusun Vertikal agar Seimbang) -->
+                <div class="flex flex-col items-center justify-center mb-8 text-center">
+                  <span class="text-[5rem] font-bold text-gray-900 leading-none tracking-tighter">18</span>
+                  <span class="text-gray-800 font-semibold text-base mt-2">Total Jawaban Benar</span>
+                  <span class="text-gray-500 text-sm mt-1">18 Benar dari 26 soal dijawab</span>
                 </div>
-                <div>
-                  <p id="exp-game1" class="text-sm font-semibold text-slate-800">EXP: 0 / 30</p>
-                  <div class="w-full mt-2 overflow-hidden border-2 border-orange-600 rounded-lg">
-                    <div class="h-2 bg-gradient-to-l from-orange-400 to-orange-600 rounded-lg w-[0%]"></div>
+
+                <!-- Kotak Persentase -->
+                <div class="grid grid-cols-3 gap-3 my-8">
+                  <div class="border-2 border-orange-200 rounded-xl py-3 flex flex-col items-center justify-center bg-orange-50/50">
+                    <span class="text-2xl font-bold text-gray-900">70%</span>
+                    <span class="text-xs font-semibold text-gray-800 mt-1">Akurasi</span>
+                  </div>
+                  <div class="border-2 border-orange-200 rounded-xl py-3 flex flex-col items-center justify-center bg-orange-50/50">
+                    <span class="text-2xl font-bold text-green-800">70%</span>
+                    <span class="text-xs font-semibold text-green-800 mt-1">Benar</span>
+                  </div>
+                  <div class="border-2 border-orange-200 rounded-xl py-3 flex flex-col items-center justify-center bg-orange-50/50">
+                    <span class="text-2xl font-bold text-red-800">30%</span>
+                    <span class="text-xs font-semibold text-red-800 mt-1">Salah</span>
                   </div>
                 </div>
-                <button class="w-full text-md px-8 flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 active:scale-[0.98] transition text-white font-semibold py-3.5 rounded-full shadow-md shadow-orange-200">
-                  <i class="text-sm fa-solid fa-play"></i>
-                  Mulai latihan
-                </button>
-                <button class="w-full text-md px-8 flex items-center justify-center gap-2 bg-orange-50 hover:bg-orange-100 active:scale-[0.98] transition text-orange-600 font-semibold py-3.5 rounded-full border border-orange-400">
-                  <i class="fa-solid fa-book-open"></i>
-                  Daftar Kamus Isyarat
-                </button>
+
+                <!-- Tombol Aksi -->
+                <div class="space-y-3 py-4">
+                  <button id="btn-retry" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95 shadow-md shadow-orange-500/30">
+                    <i class="fa-solid fa-rotate"></i> Coba Lagi
+                  </button>
+                  <button id="btn-dictionary" class="w-full border-2 border-orange-500 text-orange-500 hover:bg-orange-50 font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95">
+                    <i class="fa-solid fa-house"></i> Kembali ke Halaman Utama
+                  </button>
+                </div>
+
+                <!-- Garis Pembatas -->
+                <hr class="border-orange-200 border-t-2 mb-6 mx-auto">
+
+                <!-- Tiga Kotak Ikon Bawah (Outline) -->
+                <div class="flex justify-center gap-4 mb-2">
+                  <button class="w-[3.25rem] h-[3.25rem] border-2 border-orange-400 rounded-xl flex items-center justify-center text-orange-400 hover:text-orange-600 hover:bg-orange-50 hover:border-orange-500 transition-all active:scale-90">
+                    <i class="fa-brands fa-whatsapp fa-2xl"></i>
+                  </button>
+                  <button class="w-[3.25rem] h-[3.25rem] border-2 border-orange-400 rounded-xl flex items-center justify-center text-orange-400 hover:text-orange-600 hover:bg-orange-50 hover:border-orange-500 transition-all active:scale-90">
+                    <i class="fa-brands fa-x-twitter fa-2xl"></i>
+                  </button>
+                  <button class="w-[3.25rem] h-[3.25rem] border-2 border-orange-400 rounded-xl flex items-center justify-center text-orange-400 hover:text-orange-600 hover:bg-orange-50 hover:border-orange-500 transition-all active:scale-90">
+                    <i class="fa-brands fa-instagram fa-2xl"></i>
+                  </button>
+                </div>
+
               </div>
             </div>
           </div>
 
           <!-- Card 2: Test Susun Kata -->
           <div>
-            <div class="w-full max-w-xl overflow-hidden duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl hover:scale-105 transition" data-quiz="susun-kata">
+            <div id="result-card" class="w-full max-w-xl overflow-hidden duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl hover:scale-105 transition">
               <div class="relative p-10 overflow-hidden text-center bg-amber-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
-                <i class="fa-solid fa-puzzle-piece absolute -right-2 top-1/2 -translate-y-1/2 text-8xl text-white/40 rotate-6"></i>
-                <h2 class="relative text-3xl font-extrabold text-white">Test Susun Kata</h2>
-                <p class="relative text-md italic text-white/90 mt-1">Kuis Susun Kata Adaptif</p>
+                <i class="fa-solid fa-list-check absolute -right-2 top-1/2 -translate-y-1/2 text-8xl text-white/40 rotate-6"></i>
+                <h2 class="relative text-3xl font-extrabold text-white">Sesi Selesai</h2>
+                <p class="relative text-md italic text-white/90 mt-1">Hasil latihan tersimpan di browser ini.</p>
               </div>
               <div class="px-6 pt-6 pb-6 space-y-4">
-                <div class="space-y-2 text-sm font-semibold text-slate-800">
-                  <p class="font-medium">Level Saat Ini</p>
-                  <p class="text-5xl font-extrabold text-neutral-900">Lv. <span class="text-amber-500 level-value">1</span></p>
+
+                <!-- Area Skor Utama (Disusun Vertikal agar Seimbang) -->
+                <div class="flex flex-col items-center justify-center mb-8 text-center">
+                  <span class="text-[5rem] font-bold text-gray-900 leading-none tracking-tighter">18</span>
+                  <span class="text-gray-800 font-semibold text-base mt-2">Total Jawaban Benar</span>
+                  <span class="text-gray-500 text-sm mt-1">18 Benar dari 26 soal dijawab</span>
                 </div>
-                <div>
-                  <p id="exp-game2" class="text-sm font-semibold text-slate-800">EXP: 0 / 30</p>
-                  <div class="w-full mt-2 overflow-hidden border-2 rounded-lg border-amber-500">
-                    <div class="h-2 bg-gradient-to-l from-amber-400 to-amber-500 rounded-lg w-[0%]"></div>
+
+                <!-- Kotak Persentase (Grid 3 Kolom) -->
+                <div class="grid grid-cols-3 gap-3 my-8">
+                  <div class="border-2 border-orange-200 rounded-xl py-3 flex flex-col items-center justify-center bg-orange-50/50">
+                    <span class="text-2xl font-bold text-gray-900">70%</span>
+                    <span class="text-xs font-semibold text-gray-800 mt-1">Akurasi</span>
+                  </div>
+                  <div class="border-2 border-orange-200 rounded-xl py-3 flex flex-col items-center justify-center bg-orange-50/50">
+                    <span class="text-2xl font-bold text-green-800">70%</span>
+                    <span class="text-xs font-semibold text-green-800 mt-1">Benar</span>
+                  </div>
+                  <div class="border-2 border-orange-200 rounded-xl py-3 flex flex-col items-center justify-center bg-orange-50/50">
+                    <span class="text-2xl font-bold text-red-800">30%</span>
+                    <span class="text-xs font-semibold text-red-800 mt-1">Salah</span>
                   </div>
                 </div>
-                <button class="w-full text-md px-8 flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition text-white font-semibold py-3.5 rounded-full shadow-md shadow-amber-200">
-                  <i class="text-sm fa-solid fa-play"></i>
-                  Mulai latihan
-                </button>
-                <button class="w-full text-md px-8 flex items-center justify-center gap-2 bg-amber-50 hover:bg-amber-100 active:scale-[0.98] transition text-amber-600 font-semibold py-3.5 rounded-full border border-amber-400">
-                  <i class="fa-solid fa-book-open"></i>
-                  Daftar Kamus Isyarat
-                </button>
+
+                <!-- Tombol Aksi -->
+                <div class="space-y-3 py-4">
+                  <button id="btn-retry" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95 shadow-md shadow-orange-500/30">
+                    <i class="fa-solid fa-rotate"></i> Coba Lagi
+                  </button>
+                  <button id="btn-dictionary" class="w-full border-2 border-amber-500 text-amber-500 hover:bg-orange-50 font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95">
+                    <i class="fa-solid fa-house"></i> Kembali ke Halaman Utama
+                  </button>
+                </div>
+
+                <!-- Garis Pembatas -->
+                <hr class="border-orange-200 border-t-2 mb-6 mx-auto">
+
+                <!-- Tiga Kotak Ikon Bawah (Outline) -->
+                <div class="flex justify-center gap-4 mb-2">
+                  <button class="w-[3.25rem] h-[3.25rem] border-2 border-amber-400 rounded-xl flex items-center justify-center text-amber-400 hover:text-amber-600 hover:bg-amber-50 hover:border-amber-500 transition-all active:scale-90">
+                    <i class="fa-brands fa-whatsapp fa-2xl"></i>
+                  </button>
+                  <button class="w-[3.25rem] h-[3.25rem] border-2 border-amber-400 rounded-xl flex items-center justify-center text-amber-400 hover:text-amber-600 hover:bg-amber-50 hover:border-amber-500 transition-all active:scale-90">
+                    <i class="fa-brands fa-x-twitter fa-2xl"></i>
+                  </button>
+                  <button class="w-[3.25rem] h-[3.25rem] border-2 border-amber-400 rounded-xl flex items-center justify-center text-amber-400 hover:text-amber-600 hover:bg-amber-50 hover:border-amber-500 transition-all active:scale-90">
+                    <i class="fa-brands fa-instagram fa-2xl"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
-
-    <!-- Card Start Section  -->
-    <section id="fitur" class="px-4 py-6 bg-white sm:px-6 md:py-20 lg:px-8">
-      <div id="start-screen" class="mx-auto max-w-7xl">
-        <div id="page-game" class="w-full max-w-4xl mx-auto bg-white rounded-3xl shadow-lg overflow-hidden fade-up-item">
-
-          <!-- Orange game header -->
-          <div class="bg-orange-500 px-5 sm:px-8 py-4 text-white flex justify-between items-center shadow-md">
-            <button id="btn-exit" class="flex items-center gap-2 font-bold text-xs sm:text-sm hover:opacity-80 transition active:scale-95">
-              <i class="fa-solid fa-arrow-left"></i>
-              <span>Akhiri Sesi</span>
-            </button>
-
-            <!-- Title shown on tablet/desktop -->
-            <h2 class="hidden md:block font-extrabold text-base lg:text-lg tracking-wide">Test Pilihan Ganda</h2>
-
-            <div class="flex items-center gap-2 font-bold text-xs sm:text-sm bg-orange-600/40 px-3 py-1.5 rounded-xl border border-orange-400/40">
-              <i class="fa-regular fa-clock text-amber-200"></i>
-              <span>Time: <span id="timer-display">05:00</span></span>
-            </div>
-          </div>
-
-          <!-- Game content -->
-          <div class="p-5 sm:p-8 space-y-5 sm:space-y-6">
-            <!-- Question and score information -->
-            <div>
-              <div class="flex justify-between items-center font-bold text-xs sm:text-sm text-gray-900 mb-2">
-                <span>Soal: <span id="current-question">2</span>/10</span>
-                <span>Score: <span id="current-score">10</span></span>
-              </div>
-              <!-- Question progress bar -->
-              <div class="w-full bg-gray-100 rounded-full h-3 overflow-hidden border border-orange-200 p-0.5">
-                <div id="quiz-progress-bar" class="bg-gradient-to-r from-orange-400 to-orange-500 h-full rounded-full w-[20%] transition-all duration-300"></div>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-stretch">
-
-              <!-- Main question box -->
-              <div class="md:col-span-6 lg:col-span-7 bg-card-soft border-2 border-orange-400 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-sm min-h-[200px] md:min-h-[340px]">
-                <div class="flex items-center justify-between border-b border-orange-200/80 pb-3">
-                  <span class="text-xs font-extrabold text-orange-600 uppercase tracking-wider bg-orange-100 px-2.5 py-1 rounded-lg">Pertanyaan #2</span>
-                  <i class="fa-solid fa-hands-asl-interpreting text-orange-400 text-lg"></i>
-                </div>
-
-                <!-- Sign question image / content -->
-                <div class="my-auto py-4 text-center">
-                  <div class="inline-flex items-center justify-center w-20 h-20 sm:w-28 sm:h-28 bg-orange-100/70 border-2 border-dashed border-orange-400 rounded-2xl text-orange-500 mb-3">
-                    <i class="fa-solid fa-hand text-4xl sm:text-5xl"></i>
-                  </div>
-                  <p class="text-sm sm:text-base font-bold text-gray-800">Manakah simbol isyarat yang menunjukkan kata <span class="text-orange-600 underline decoration-orange-400 font-extrabold">"BELAJAR"</span>?</p>
-                </div>
-
-                <div class="text-right">
-                  <span class="text-[11px] text-gray-500 italic"><i class="fa-solid fa-circle-info mr-1"></i> Pilih salah satu jawaban di bawah</span>
-                </div>
-              </div>
-
-              <!-- Answer option boxes: 1 kolom di semua ukuran layar -->
-              <div class="md:col-span-6 lg:col-span-5 grid grid-cols-1 gap-3 sm:gap-3.5">
-
-                <!-- Opsi A -->
-                <div class="option-card cursor-pointer bg-card-soft border-2 border-orange-400 rounded-2xl p-3.5 sm:p-4 flex items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="A">
-                  <div class="w-8 h-8 rounded-xl bg-orange-500 text-white font-extrabold flex items-center justify-center text-sm shrink-0 shadow-sm">A</div>
-                  <div class="flex-1 text-xs sm:text-sm font-bold text-gray-800">Isyarat A</div>
-                  <div class="check-icon opacity-0 text-orange-500 text-sm"><i class="fa-solid fa-circle-check"></i></div>
-                </div>
-
-                <!-- Opsi B -->
-                <div class="option-card cursor-pointer bg-card-soft border-2 border-orange-400 rounded-2xl p-3.5 sm:p-4 flex items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="B">
-                  <div class="w-8 h-8 rounded-xl bg-orange-500 text-white font-extrabold flex items-center justify-center text-sm shrink-0 shadow-sm">B</div>
-                  <div class="flex-1 text-xs sm:text-sm font-bold text-gray-800">Isyarat B</div>
-                  <div class="check-icon opacity-0 text-orange-500 text-sm"><i class="fa-solid fa-circle-check"></i></div>
-                </div>
-
-                <!-- Opsi C -->
-                <div class="option-card cursor-pointer bg-card-soft border-2 border-orange-400 rounded-2xl p-3.5 sm:p-4 flex items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="C">
-                  <div class="w-8 h-8 rounded-xl bg-orange-500 text-white font-extrabold flex items-center justify-center text-sm shrink-0 shadow-sm">C</div>
-                  <div class="flex-1 text-xs sm:text-sm font-bold text-gray-800">Isyarat C</div>
-                  <div class="check-icon opacity-0 text-orange-500 text-sm"><i class="fa-solid fa-circle-check"></i></div>
-                </div>
-
-                <!-- Opsi D -->
-                <div class="option-card cursor-pointer bg-card-soft border-2 border-orange-400 rounded-2xl p-3.5 sm:p-4 flex items-center gap-3 shadow-sm min-h-[64px] md:min-h-[72px] transition hover:border-orange-500 hover:-translate-y-0.5" data-option="D">
-                  <div class="w-8 h-8 rounded-xl bg-orange-500 text-white font-extrabold flex items-center justify-center text-sm shrink-0 shadow-sm">D</div>
-                  <div class="flex-1 text-xs sm:text-sm font-bold text-gray-800">Isyarat D</div>
-                  <div class="check-icon opacity-0 text-orange-500 text-sm"><i class="fa-solid fa-circle-check"></i></div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Card Finish Screen -->
-    <section id="finish" class="px-4 py-6 bg-white sm:px-6 md:pb-20 lg:px-8">
-      <div class="mx-auto max-w-7xl flex justify-center">
-        <div id="end-screen" class="w-full max-w-md bg-white rounded-3xl shadow-lg overflow-hidden">
-
-          <div class="relative p-8 sm:p-10 overflow-hidden text-center bg-orange-500 bg-[radial-gradient(rgba(255,255,255,0.35)_2px,transparent_1.5px)] bg-[length:18px_18px]">
-            <h2 class="relative text-2xl sm:text-3xl font-extrabold text-white">Sesi Selesai</h2>
-            <p class="relative text-sm text-white/90 mt-1 font-semibold">Hasil latihan tersimpan di browser ini.</p>
-          </div>
-
-          <div class="px-6 sm:px-8 pt-7 pb-7 space-y-6">
-            <div class="flex items-stretch justify-between gap-3">
-              <div class="flex-1 text-center">
-                <p class="text-gray-400 text-xs font-bold uppercase tracking-wide">Benar</p>
-                <p class="text-3xl sm:text-4xl font-extrabold text-neutral-900 mt-1">12</p>
-              </div>
-              <div class="flex-1 text-center">
-                <p class="text-gray-400 text-xs font-bold uppercase tracking-wide">Salah</p>
-                <p class="text-3xl sm:text-4xl font-extrabold text-neutral-900 mt-1">12</p>
-              </div>
-              <div class="flex-1 text-center bg-orange-50 rounded-2xl py-2 flex flex-col justify-center border border-orange-200">
-                <p class="text-orange-500 text-xs font-bold uppercase tracking-wide">EXP</p>
-                <p class="text-3xl sm:text-4xl font-extrabold text-orange-500 mt-1">+35</p>
-              </div>
-            </div>
-
-            <button class="w-full text-md px-8 flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 active:scale-[0.98] transition text-white font-semibold py-3.5 rounded-full shadow-md shadow-orange-200">
-              <i class="text-sm fa-solid fa-play"></i>
-              Mulai latihan
-            </button>
-            <button class="w-full text-md px-8 flex items-center justify-center gap-2 bg-orange-50 hover:bg-orange-100 active:scale-[0.98] transition text-orange-600 font-semibold py-3.5 rounded-full border border-orange-400">
-              <i class="fa-solid fa-book-open"></i>
-              Daftar Kamus Isyarat
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- Footer -->
@@ -378,144 +480,76 @@
   
   <!-- jQuery & Main Script -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
   <script src="assets/js/script.js"></script>
-
-  <!-- Quiz Game Script -->
   <script>
-    $(function () {
+    $(document).ready(function() {
 
-      function ScreenGame(screen) {
-        const dataScreen = ["#start-screen", "#play-screen", "#final-screen"];
-        const targetScreen = screen.startsWith("#") ? screen : `#${screen}`;
+      $('.kartu-drag').draggable({
+        revert: "invalid",
+        helper: "clone",
+        cursor: "grabbing",
+        start: function(event, ui) {
 
-        dataScreen.forEach(e => {
-          if (targetScreen === e) {
-            $(e).removeClass("hidden");
-          } else {
-            $(e).addClass("hidden");
-          }
-        });
-      }
-
-      $(".btn-play").on("click", function () { mulai(); });
-      $(".btn-final").on("click", function () { ScreenGame("final-screen"); });
-      $(".btn-start").on("click", function () { refreshHome(); ScreenGame("start-screen"); });
-
-      const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map(h => ({
-        huruf: h,
-        src: `assets/images/bisindo/${h}.png`
-      }));
-
-      const TOTAL = 10;    // jumlah soal
-      const NUM_OPTS = 4;  // jumlah pilihan jawaban
-      let state = { no: 0, score: 0, answer: "", locked: false };
-
-      function randItem(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-      function shuffle(arr) {
-        const a = arr.slice();
-        for (let i = a.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [a[i], a[j]] = [a[j], a[i]];
+          let ukuranAsliLebar = $(this).outerWidth();
+          let ukuranAsliTinggi = $(this).outerHeight();
+          $(this).css("opacity", "0.5");
+          ui.helper.addClass("shadow-2xl z-50 flex items-center justify-center")
+            .css({
+              "width": ukuranAsliLebar + "px",
+              "height": ukuranAsliTinggi + "px",
+              "transform": "scale(1.05)"
+            });
+        },
+        stop: function(event, ui) {
+          $(this).css("opacity", "1");
         }
-        return a;
-      }
-      function nextSoal(soal, jawaban, sebenarnya) {
-        state.answer = sebenarnya;
-        state.locked = false;
-        $("#card").removeClass("flash-ok flash-no");
+      });
 
-        $("#soalIcon").html(
-          `<img src="${soal.src}" alt="Isyarat huruf ${soal.huruf}" class="object-contain h-40 pop"
-                onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'text-orange-500 pop',innerHTML:'<i class=\\'fa-solid fa-hand fa-8x\\'></i>'}))">`
-        );
+      $('.zona-drop').droppable({
+        accept: ".kartu-drag",
+        hoverClass: "bg-orange-100 border-solid border-orange-500 scale-105",
 
-        $("#opsi").html(jawaban.map(j =>
-          `<button class="relative flex items-center justify-center py-4 text-2xl font-bold transition border-2 border-orange-300 opsi bg-orange-50 hover:bg-orange-100 rounded-xl" data-val="${j}">
-             ${j}
-           </button>`
-        ).join(""));
-      }
+        drop: function(event, ui) {
+          let kartuDilepas = ui.draggable;
+          let zona = $(this);
+          zona.find('.placeholder-text').hide();
+          zona.removeClass('border-dashed bg-orange-50/30 scale-105').addClass('border-solid border-orange-500 bg-white p-0 overflow-hidden');
+          kartuDilepas.detach();
+          kartuDilepas.removeClass('border-2 rounded-xl md:rounded-2xl shadow-sm').addClass('w-full h-full border-0');
+          zona.append(kartuDilepas);
+          kartuDilepas.draggable('disable');
+        }
+      });
 
-      function buatSoal() {
-        const item = randItem(ALPHABET);
-        const pengecoh = shuffle(ALPHABET.filter(h => h !== item)).slice(0, NUM_OPTS - 1);
-        const pilihan = shuffle([item, ...pengecoh]).map(h => h.huruf);
+    });
 
-        nextSoal(item, pilihan, item.huruf);
-        $("#qNo").text(state.no + 1);
-        $("#bar").css("width", (state.no / TOTAL * 100) + "%");
-      }
+    $(document).ready(function() {
+      const zonaJawaban = $('#zona-jawaban');
+      const bankKata = $('#bank-kata');
+      const btnPeriksa = $('#btn-periksa');
 
-      function tandai($el, benar) {
-        $el.removeClass("border-orange-300 bg-orange-50 hover:bg-orange-100")
-           .addClass(benar ? "border-green-500 bg-green-100" : "border-red-500 bg-red-100");
-      }
-
-      function jawab($el) {
-        if (state.locked) return;
-        state.locked = true;
-        const benar = $el.data("val") === state.answer;
-        if (benar) {
-          state.score++;
-          tandai($el, true);
-          $("#card").addClass("flash-ok");
+      function validasiTombol() {
+        if (zonaJawaban.children('.kartu-kata').length > 0) {
+          btnPeriksa.prop('disabled', false)
+            .removeClass('bg-gray-200 text-gray-400')
+            .addClass('bg-amber-500 text-white shadow-md active:scale-95');
         } else {
-          tandai($el, false);
-          tandai($(".opsi").filter(function () { return $(this).data("val") === state.answer; }), true);
-          $("#card").addClass("flash-no");
+          btnPeriksa.prop('disabled', true)
+            .removeClass('bg-amber-500 text-white shadow-md active:scale-95')
+            .addClass('bg-gray-200 text-gray-400');
         }
-        $("#qScore").text(state.score);
-        state.no++;
-        setTimeout(function () {
-          if (state.no >= TOTAL) selesai(); else buatSoal();
-        }, benar ? 700 : 1200);
       }
 
-      function mulai() {
-        state = { no: 0, score: 0, answer: "", locked: false };
-        $("#qScore").text(0);
-        $("#qTotal").text(TOTAL);
-        ScreenGame("play-screen");
-        buatSoal();
-      }
-
-      function selesai() {
-        let best = parseInt(localStorage.getItem("isyaratBest") || "0");
-        if (state.score > best) { best = state.score; localStorage.setItem("isyaratBest", best); }
-        let lv = parseInt(localStorage.getItem("isyaratLv") || "1");
-        const naik = state.score >= 8;
-        if (naik) { lv++; localStorage.setItem("isyaratLv", lv); }
-        $("#rScore").text(state.score);
-        $("#rTotal").text(TOTAL);
-        $("#rMsg").text(naik ? "Hebat! Level naik ke " + lv + " 🚀" : "Skor 8 atau lebih untuk naik level. Coba lagi 💪");
-        refreshHome();
-        ScreenGame("final-screen");
-      }
-
-      function refreshHome() {
-        $("#levelText").text(localStorage.getItem("isyaratLv") || "1");
-        $("#bestText").text(localStorage.getItem("isyaratBest") || "0");
-      }
-
-      $("#opsi").on("click", ".opsi", function () { jawab($(this)); });
-
-      $("#btnReset").on("click", function () {
-        if (confirm("Reset level dan skor terbaik?")) {
-          localStorage.removeItem("isyaratLv");
-          localStorage.removeItem("isyaratBest");
-          refreshHome();
+      $(document).on('click', '.kartu-kata', function() {
+        let kartu = $(this);
+        if (kartu.parent().attr('id') === 'bank-kata') {
+          kartu.detach().appendTo(zonaJawaban);
+        } else {
+          kartu.detach().appendTo(bankKata);
         }
+        validasiTombol();
       });
-
-      // shortcut keyboard 1-3
-      $(document).on("keydown", function (e) {
-        if ($("#play-screen").hasClass("hidden")) return;
-        const n = parseInt(e.key);
-        if (n >= 1 && n <= NUM_OPTS) $("#opsi .opsi").eq(n - 1).trigger("click");
-      });
-
-      refreshHome();
-      ScreenGame("start-screen");
     });
   </script>
 </body>
