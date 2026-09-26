@@ -1,0 +1,30 @@
+{
+  "alfabet": [
+    { "huruf": "A", "gambar": "assets/images/BISINDO/A - wall white.jpg" },
+    { "huruf": "B", "gambar": "assets/images/BISINDO/B - wall white.jpg" },
+    { "huruf": "C", "gambar": "assets/images/BISINDO/C - wall white.jpg" },
+    { "huruf": "D", "gambar": "assets/images/BISINDO/D - wall white.jpg" },
+    { "huruf": "E", "gambar": "assets/images/BISINDO/E - wall white.jpg" },
+    { "huruf": "F", "gambar": "assets/images/BISINDO/F - wall white.jpg" },
+    { "huruf": "G", "gambar": "assets/images/BISINDO/G - wall white.jpg" },
+    { "huruf": "H", "gambar": "assets/images/BISINDO/H - wall white.jpg" },
+    { "huruf": "I", "gambar": "assets/images/BISINDO/I - wall white.jpg" },
+    { "huruf": "J", "gambar": "assets/images/BISINDO/J - wall white.jpg" },
+    { "huruf": "K", "gambar": "assets/images/BISINDO/K - wall white.jpg" },
+    { "huruf": "L", "gambar": "assets/images/BISINDO/L - wall white.jpg" },
+    { "huruf": "M", "gambar": "assets/images/BISINDO/M - wall white.jpg" },
+    { "huruf": "N", "gambar": "assets/images/BISINDO/N - wall white.jpg" },
+    { "huruf": "O", "gambar": "assets/images/BISINDO/O - wall white.jpg" },
+    { "huruf": "P", "gambar": "assets/images/BISINDO/P - wall white.jpg" },
+    { "huruf": "Q", "gambar": "assets/images/BISINDO/Q - wall white.jpg" },
+    { "huruf": "R", "gambar": "assets/images/BISINDO/R - wall white.jpg" },
+    { "huruf": "S", "gambar": "assets/images/BISINDO/S - wall white.jpg" },
+    { "huruf": "T", "gambar": "assets/images/BISINDO/T - wall white.jpg" },
+    { "huruf": "U", "gambar": "assets/images/BISINDO/U - wall white.jpg" },
+    { "huruf": "V", "gambar": "assets/images/BISINDO/V - wall white.jpg" },
+    { "huruf": "W", "gambar": "assets/images/BISINDO/W - wall white.jpg" },
+    { "huruf": "X", "gambar": "assets/images/BISINDO/X - wall white.jpg" },
+    { "huruf": "Y", "gambar": "assets/images/BISINDO/Y - wall white.jpg" },
+    { "huruf": "Z", "gambar": "assets/images/BISINDO/Z - wall white.jpg" }
+  ]
+}
