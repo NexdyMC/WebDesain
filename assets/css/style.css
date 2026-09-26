@@ -1,8 +1,8 @@
 @layer base {
   @font-face {
-    font-family: 'MccidFslFont2'; /* This name is used in the config */
+    font-family: "MccidFslFont2"; /* This name is used in the config */
     /* Adjust the url() path to the folder where the font is stored */
-    src: url('../fonts/MccidFslFont2-Regular.ttf') format('truetype');
+    src: url("../fonts/MccidFslFont2-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
   }
@@ -30,7 +30,9 @@
   color: #475569;
 }
 
-#navbar.navbar-scrolled nav[aria-label="Navigasi Utama"] > a:not([aria-current="page"]):hover {
+#navbar.navbar-scrolled
+  nav[aria-label="Navigasi Utama"]
+  > a:not([aria-current="page"]):hover {
   background-color: #f1f5f9;
   color: #0f172a;
 }
@@ -157,19 +159,50 @@
 }
 
 .assistant-chat-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   overscroll-behavior: contain;
 }
 
 .assistant-message-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.625rem;
   min-width: 0;
   width: 100%;
 }
 
+.assistant-message-row.justify-end {
+  justify-content: flex-end;
+}
+
+.assistant-message-row.justify-end .assistant-message-bubble {
+  margin-left: auto;
+}
+
 .assistant-message-bubble {
   min-width: 0;
-  max-width: 85%;
+  max-width: min(85%, 34rem);
   overflow-wrap: anywhere;
+  word-break: break-word;
   white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .assistant-chat {
+    height: clamp(24rem, 68dvh, 38rem);
+  }
+
+  .assistant-chat-area {
+    gap: 0.85rem;
+    padding-inline: 0.75rem;
+  }
+
+  .assistant-message-bubble {
+    max-width: min(86%, 26rem);
+  }
 }
 
 .kosakata-card.filter-reveal {
