@@ -2,8 +2,10 @@
   "use strict";
 
   const GROQ_ENDPOINT = "/api/chat";
+
+  // 1. SYSTEM PROMPT DIPERBARUI dengan aturan format ketat
   const SYSTEM_PROMPT =
-    "Kamu adalah Asisten IsyaratOK. Jawab dalam bahasa Indonesia yang ramah, ringkas, dan mudah dipahami. Fokus pada BISINDO, SIBI, budaya Tuli, etika komunikasi, dan strategi belajar. Jika tidak yakin, katakan dengan jujur dan jangan mengarang.";
+    "Kamu adalah Asisten IsyaratOK. Jawab dalam bahasa Indonesia yang ramah, ringkas, dan mudah dipahami. Fokus pada BISINDO, SIBI, budaya Tuli, etika komunikasi, dan strategi belajar. Jika tidak yakin, katakan dengan jujur dan jangan mengarang. ATURAN KETAT FORMATTING: 1. DILARANG KERAS membuat tabel. Gunakan daftar (bullet points) jika harus merincikan data. 2. DILARANG menggunakan format teks tebal (bold) menggunakan bintang atau garis bawah. Gunakan teks biasa saja.";
 
   const $chatArea = $("#chatArea");
   const $chatInput = $("#chatInput");
@@ -33,7 +35,7 @@
       class: isUser
         ? "max-w-[80%] rounded-2xl rounded-br-sm bg-slate-900 px-4 py-2.5 text-sm leading-relaxed text-white"
         : "bubble-bot max-w-[80%] rounded-2xl rounded-bl-sm bg-white px-4 py-2.5 text-sm leading-relaxed text-neutral-800 shadow-sm",
-      text: message,
+      text: message, // Karena menggunakan 'text', HTML tabel otomatis tidak akan dirender
     });
 
     if (!isUser) {
@@ -87,13 +89,14 @@
         );
       }
 
-      const detail = typeof payload.error === "string"
-        ? payload.error
-        : payload.error && payload.error.message
-          ? payload.error.message
-        : response.status === 404
-          ? "Endpoint Groq atau model tidak ditemukan. Pastikan server.mjs terbaru sedang berjalan dan GROQ_MODEL valid."
-          : `Permintaan Groq gagal (${response.status}).`;
+      const detail =
+        typeof payload.error === "string"
+          ? payload.error
+          : payload.error && payload.error.message
+            ? payload.error.message
+            : response.status === 404
+              ? "Endpoint Groq atau model tidak ditemukan. Pastikan server.mjs terbaru sedang berjalan dan GROQ_MODEL valid."
+              : `Permintaan Groq gagal (${response.status}).`;
       throw new Error(detail);
     }
 
@@ -107,9 +110,19 @@
       throw new Error("Groq mengembalikan jawaban kosong.");
     }
 
+    // 2. PROSES SANITASI JAWABAN AI
+    let cleanAnswer = answer.trim();
+
+    // Menghapus format tebal (**teks** menjadi teks)
+    cleanAnswer = cleanAnswer.replace(/\*\*(.*?)\*\*/g, "$1");
+    // Menghapus format tebal alternatif (__teks__ menjadi teks)
+    cleanAnswer = cleanAnswer.replace(/__(.*?)__/g, "$1");
+    // Menghapus format header (# Header menjadi Header)
+    cleanAnswer = cleanAnswer.replace(/###?\s?(.*)/g, "$1");
+
     conversation.push({ role: "user", content: question });
-    conversation.push({ role: "assistant", content: answer.trim() });
-    return answer.trim();
+    conversation.push({ role: "assistant", content: cleanAnswer });
+    return cleanAnswer;
   }
 
   async function submitQuestion(question) {
