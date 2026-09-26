@@ -152,6 +152,26 @@
   transform: translateX(0.25rem);
 }
 
+.assistant-chat {
+  height: clamp(20rem, 72dvh, 42rem);
+}
+
+.assistant-chat-area {
+  overscroll-behavior: contain;
+}
+
+.assistant-message-row {
+  min-width: 0;
+  width: 100%;
+}
+
+.assistant-message-bubble {
+  min-width: 0;
+  max-width: 85%;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
 .kosakata-card.filter-reveal {
   animation: catalogCardReveal 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: var(--filter-delay, 0ms);
