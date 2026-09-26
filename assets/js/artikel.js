@@ -7,6 +7,13 @@ $(function () {
       title: "Alfabet BISINDO (A - Z)",
       lead: "Fondasi utama pembentukan ejaan jari (fingerspelling) untuk mengeja nama dan istilah baru.",
       duration: "26 Materi Huruf",
+      outcomes: [
+        "Mengenali bentuk dan arah telapak untuk huruf A sampai Z.",
+        "Mengeja nama sendiri dengan urutan huruf yang jelas.",
+        "Menjaga posisi tangan tetap stabil di area yang mudah terlihat.",
+      ],
+      practice:
+        "Pilih nama sendiri atau nama benda di sekitarmu. Eja huruf demi huruf di depan cermin, lalu ulangi tanpa melihat contoh.",
       sections: [
         [
           "Materi Detail",
@@ -35,6 +42,13 @@ $(function () {
       title: "Isyarat Angka (0 - 10)",
       lead: "Panduan visual bentuk jari tangan untuk membilang angka 0 sampai 10 secara teratur.",
       duration: "11 Materi Angka",
+      outcomes: [
+        "Mengenali bentuk tangan untuk angka 0 sampai 10.",
+        "Membedakan bentuk angka yang hanya berbeda pada posisi jari.",
+        "Menyampaikan angka dengan tangan berada di bidang pandang.",
+      ],
+      practice:
+        "Ambil 6 benda di sekitarmu. Tunjukkan jumlahnya secara acak dari 0 sampai 10, lalu cek kembali bentuk tangan pada kamus.",
       sections: [
         [
           "Materi Detail",
@@ -55,6 +69,13 @@ $(function () {
       title: "Kombinasi Bilangan & Waktu",
       lead: "Mempelajari cara menyebutkan jam, umur, nomor telepon, dan nominal angka dalam percakapan.",
       duration: "8 Materi Lanjutan",
+      outcomes: [
+        "Mengelompokkan angka sesuai konteks, seperti waktu, umur, atau jumlah.",
+        "Menyampaikan angka bertingkat dengan tempo yang mudah diikuti.",
+        "Memastikan konteks pembicaraan jelas sebelum menyebutkan bilangan.",
+      ],
+      practice:
+        "Latih tiga informasi yang sering dipakai, misalnya jam bertemu, umur, dan jumlah belanja. Sampaikan satu per satu dengan jeda yang jelas.",
       sections: [
         [
           "Materi Detail",
@@ -76,6 +97,13 @@ $(function () {
       title: "Salam & Ungkapan Sopan",
       lead: "Kuasai gestur salam pembuka, terima kasih, permohonan maaf, dan permohonan tolong yang santun.",
       duration: "12 Kosakata Kunci",
+      outcomes: [
+        "Memulai dan menutup interaksi dengan sapaan yang sesuai.",
+        "Menggunakan ungkapan terima kasih, maaf, dan tolong pada konteksnya.",
+        "Memadukan gerakan yang jelas dengan ekspresi dan kontak mata yang wajar.",
+      ],
+      practice:
+        "Susun percakapan singkat: menyapa, meminta bantuan, mengucapkan terima kasih, lalu berpamitan. Berlatihlah bergantian dengan teman.",
       sections: [
         [
           "Materi Detail",
@@ -100,6 +128,13 @@ $(function () {
       title: "Percakapan & Kalimat Tanya",
       lead: "Membentuk kalimat tanya, ekspresi alis/wajah (non-manual markers), dan dialog praktis.",
       duration: "10 Topik Dialog",
+      outcomes: [
+        "Membedakan pertanyaan dan pernyataan melalui konteks serta ekspresi wajah.",
+        "Menggunakan gerak alis dan kepala untuk membantu memperjelas maksud.",
+        "Memberi jeda agar lawan bicara punya waktu untuk merespons.",
+      ],
+      practice:
+        "Buat dialog dua giliran tentang kegiatan hari ini. Ajukan satu pertanyaan, tunggu respons, lalu pastikan kembali jika ada bagian yang belum dipahami.",
       sections: [
         [
           "Materi Detail",
@@ -129,6 +164,13 @@ $(function () {
       title: "Keluarga & Relasi Sosial",
       lead: "Mengenal isyarat untuk Ayah, Ibu, Kakak, Adik, Kakek, Nenek, dan Teman akrab.",
       duration: "9 Isyarat Keluarga",
+      outcomes: [
+        "Mengenali kosakata dasar untuk anggota keluarga dan teman.",
+        "Menghubungkan kosakata dengan hubungan yang ingin dijelaskan.",
+        "Menyusun deskripsi singkat tentang keluarga atau relasi sosial.",
+      ],
+      practice:
+        "Buat peta keluarga sederhana. Pilih tiga orang, sebutkan relasinya, lalu ceritakan satu aktivitas yang biasa dilakukan bersama.",
       sections: [
         [
           "Materi Detail",
@@ -153,6 +195,13 @@ $(function () {
       title: "Dunia Hewan & Alam",
       lead: "Meniru ciri khas gerak dan karakteristik hewan seperti Kucing (kumis), Burung (sayap), dan Ikan.",
       duration: "10 Isyarat Hewan",
+      outcomes: [
+        "Mengenali kosakata hewan yang sering dijumpai.",
+        "Menghubungkan kosakata hewan dengan ciri atau habitatnya.",
+        "Menceritakan hewan menggunakan deskripsi sederhana.",
+      ],
+      practice:
+        "Pilih satu hewan dari kartu gambar atau lingkungan sekitar. Peragakan kosakatanya, lalu jelaskan warna, ukuran, atau tempat hidupnya.",
       sections: [
         [
           "Materi Detail",
@@ -177,6 +226,13 @@ $(function () {
       title: "Warna & Benda di Rumah",
       lead: "Mempelajari isyarat warna (Merah, Kuning, Hijau, Biru) serta benda sehari-hari (Buku, Meja, Rumah).",
       duration: "12 Kosakata Visual",
+      outcomes: [
+        "Mengenali beberapa kosakata warna dan benda di sekitar rumah.",
+        "Menggabungkan deskripsi warna dengan benda yang dimaksud.",
+        "Menggunakan benda nyata untuk membantu latihan dan mengingat kosakata.",
+      ],
+      practice:
+        "Pilih tiga benda di ruanganmu. Deskripsikan warna dan nama bendanya, lalu minta teman menebak benda yang kamu maksud.",
       sections: [
         [
           "Materi Detail",
@@ -216,12 +272,24 @@ $(function () {
     })
     .join("");
   $("#articleContent").html(
-    `${content}<div class="article-callout"><strong>Catatan penting:</strong> ${module.callout}</div>`,
+    `${content}
+      <section class="article-learning" aria-labelledby="articleLearningTitle">
+        <h2 id="articleLearningTitle">Setelah mempelajari modul ini</h2>
+        <ul class="article-outcomes">
+          ${module.outcomes.map((outcome) => `<li>${outcome}</li>`).join("")}
+        </ul>
+      </section>
+      <section class="article-practice" aria-labelledby="articlePracticeTitle">
+        <h2 id="articlePracticeTitle">Latihan singkat</h2>
+        <p>${module.practice}</p>
+      </section>
+      <div class="article-callout"><strong>Catatan penting:</strong> ${module.callout}</div>
+      <p class="article-variation-note">BISINDO berkembang di komunitas Tuli dan dapat memiliki variasi daerah. Gunakan materi ini sebagai pengantar, lalu konfirmasikan bentuk isyarat dengan komunitas atau pengajar Tuli setempat.</p>`,
   );
   $("#articleTips").html(
     module.tips
       .map(function (tip) {
-        return `<li class="flex items-start gap-2"><i class="mt-1 text-orange-500 fa-solid fa-circle-check" aria-hidden="true"></i><span>${tip}</span></li>`;
+        return `<li>${tip}</li>`;
       })
       .join(""),
   );

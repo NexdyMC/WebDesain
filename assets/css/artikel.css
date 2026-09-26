@@ -61,6 +61,57 @@ body {
   background: #f8fafc;
 }
 
+.article-content .article-learning,
+.article-content .article-practice {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  background: #f8fafc;
+}
+
+.article-content .article-learning h2,
+.article-content .article-practice h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.article-content .article-outcomes {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.article-content .article-outcomes li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.article-content .article-outcomes li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #f97316;
+  content: "";
+}
+
+.article-content .article-variation-note {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.article-content .article-practice p {
+  margin-top: 0.65rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .article-meta {
     transform: none;
