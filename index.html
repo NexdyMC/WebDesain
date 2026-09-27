@@ -5,12 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IsyaratOK - Belajar Bahasa Isyarat Interaktif &amp; Inklusif</title>
   
-  <!-- Google Fonts & Font Awesome Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Meta SEO & Open Graph -->
+  <meta name="description" content="Katalog modul edukasi bahasa isyarat BISINDO interaktif. Pelajari abjad A-Z, angka 0-10, ungkapan harian, dan uji pemahaman lewat kuis interaktif." />
+  <meta property="og:title" content="IsyaratOK - Modul Edukasi Bahasa Isyarat Lengkap" />
+  <meta property="og:description" content="Modul pembelajaran terstruktur dari dasar hingga mahir untuk segala usia." />
+  <meta property="og:image" content="https://isyarat-ok.netlify.app/assets/images/banner.png" />
+  <meta property="og:url" content="https://isyarat-ok.netlify.app/edukasi.html" />
+  <meta property="og:type" content="website" />
   
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- Tailwind CSS CDN & Config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
@@ -46,7 +57,7 @@
       </nav>
 
       <!-- Mobile/Tablet Menu Button -->
-      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi" class="relative z-50 flex items-center justify-center w-10 h-10 p-2 transition cursor-pointer shrink-0 rounded-xl text-white hover:text-slate-900 hover:bg-white/80 md:hidden focus:outline-none">
+      <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Buka menu navigasi" class="relative z-50 flex items-center justify-center w-10 h-10 p-2 transition cursor-pointer shrink-0 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 md:hidden focus:outline-none">
         <i id="iconOpen" class="absolute text-xl transition-all duration-300 ease-in-out scale-100 rotate-0 opacity-100 fa-solid fa-bars"></i>
         <i id="iconClose" class="absolute text-xl transition-all duration-300 ease-in-out scale-75 -rotate-90 opacity-0 fa-solid fa-x"></i>
       </button>
@@ -66,6 +77,8 @@
   
   <!-- Main Content -->
   <main id="main-content">
+
+    <!-- Hero Section -->
     <section class="relative flex justify-center w-full h-[calc(100vh-20px)] lg:h-screen overflow-hidden">
       <div class="absolute inset-0">
         <img src="assets/images/hero-section.webp" alt="Belajar bahasa isyarat dengan empati" class="object-cover object-right w-full h-full md:object-center">
@@ -93,7 +106,6 @@
           </div>
         </div>
       </div>
-
       <div class="absolute bottom-0 left-0 z-10 w-full leading-none">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full" preserveAspectRatio="none">
           <path fill="#ffffff" d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z"></path>
@@ -118,7 +130,7 @@
           </div>
 
           <div class="fade-up-item" style="--delay: 180ms;">
-            <p class="mb-4 text-sm font-bold tracking-[0.25em] text-orange-600 uppercase">Tentang Kami</p>
+            <p class="mb-4 text-sm font-bold tracking-[0.25em] text-orange-600 uppercase">Tentang </p>
             <h2 class="max-w-2xl text-4xl font-extrabold leading-tight tracking-tight text-slate-800 sm:text-5xl">
               Bahasa yang menghubungkan, <span class="text-orange-600">bukan membatasi.</span>
             </h2>

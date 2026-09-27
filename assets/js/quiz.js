@@ -412,12 +412,12 @@ $(function() {
   
   // ================= INIT =================
   SectionScreen('menu-screen', null);
-  $.getJSON('data.json', function(data) {
+  $.getJSON('data/quiz.json', function(data) {
     ALFABET = data.alfabet;
     muatProgress();
     perbaruiMenu();
     $('[data-mulai]').prop('disabled', false);
   }).fail(function() {
-    console.error('Gagal memuat data.json. Pastikan file ini diakses lewat server lokal (bukan dibuka langsung sebagai file://).');
+    console.error('Gagal memuat data/quiz.json. Pastikan file ini diakses lewat server lokal (bukan dibuka langsung sebagai file://).');
   });
 });

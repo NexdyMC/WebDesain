@@ -156,15 +156,15 @@
       render(filtered);
     }
 
-    // Ambil data via AJAX dari data.json
-    $.ajax({ url: './data.json', dataType: 'json' })
+    // Ambil data via AJAX dari data/quiz.json
+    $.ajax({ url: './data/quiz.json', dataType: 'json' })
       .done(function (data) {
         DATA = data;
         items = flatten(DATA);
         applyFilter();
       })
       .fail(function () {
-        $('#resultCount').text('Gagal memuat data.json');
+        $('#resultCount').text('Gagal memuat data/quiz.json');
       });
 
     $('#searchInput').on('input', applyFilter);

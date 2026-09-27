@@ -270,9 +270,9 @@
       var GAME_DATA = null;
 
       function fetchData() {
-        $("#data-status").text("Memuat data.json…");
+        $("#data-status").text("Memuat data/quiz.json…");
         $.ajax({
-          url: "data.json",
+          url: "data/quiz.json",
           dataType: "json",
           cache: false,
         }).done(function(res) {
@@ -280,7 +280,7 @@
           $("#data-status").text("");
           $("#btn-mulai").prop("disabled", false);
         }).fail(function() {
-          $("#data-status").html("Gagal memuat data.json.<br>Jalankan lewat server lokal (bukan dibuka langsung sebagai file), contoh: <code>python3 -m http.server</code>, lalu buka game8.html dari http://localhost.", );
+          $("#data-status").html("Gagal memuat data/quiz.json.<br>Jalankan lewat server lokal (bukan dibuka langsung sebagai file), contoh: <code>python3 -m http.server</code>, lalu buka game8.html dari http://localhost.", );
           $("#btn-mulai").prop("disabled", true);
         });
       }
