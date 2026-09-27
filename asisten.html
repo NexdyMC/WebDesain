@@ -109,9 +109,9 @@
           </div>
 
           <!-- Area chat -->
-          <div id="chatArea" class="assistant-chat-area flex-1 min-h-0 px-3 py-4 space-y-4 overflow-y-auto bg-orange-50/40 sm:px-5 sm:py-5">
+          <div id="chatArea" class="flex-1 min-h-0 px-3 py-4 space-y-4 overflow-y-auto assistant-chat-area bg-orange-50/40 sm:px-5 sm:py-5">
 
-            <div class="assistant-message-row flex items-end gap-2">
+            <div class="flex items-end gap-2 assistant-message-row">
               <div class="flex items-center justify-center bg-orange-500 rounded-full w-7 h-7 shrink-0">
                 <i class="fa-solid fa-hands text-white text-[10px]"></i>
               </div>
@@ -125,11 +125,11 @@
               <button class="px-3 text-xs font-medium text-orange-600 transition bg-white border border-orange-300 rounded-full quick-reply py-1.5 hover:bg-orange-100">Tips menghafal isyarat</button>
             </div>
 
-            <div id="typingIndicator" class="hidden items-end gap-2">
+            <div id="typingIndicator" class="items-end hidden gap-2">
               <div class="flex items-center justify-center bg-orange-500 rounded-full w-7 h-7 shrink-0">
                 <i class="fa-solid fa-hands text-white text-[10px]"></i>
               </div>
-              <div class="assistant-message-bubble flex items-center gap-1 px-4 py-3 bg-white shadow-sm bubble-bot">
+              <div class="flex items-center gap-1 px-4 py-3 bg-white shadow-sm assistant-message-bubble bubble-bot">
                 <span class="typing-dot"></span>
                 <span class="typing-dot"></span>
                 <span class="typing-dot"></span>
@@ -140,10 +140,7 @@
           <!-- Input -->
           <div class="px-4 py-3 bg-white border-t shrink-0 border-neutral-200">
             <div class="flex items-center gap-2">
-              <button class="flex items-center justify-center w-10 h-10 text-orange-500 transition rounded-full hover:bg-orange-50 shrink-0">
-                <i class="fa-solid fa-microphone"></i>
-              </button>
-              <input id="chatInput" type="text" placeholder="Tulis pertanyaanmu..." class="flex-1 min-w-0 px-4 text-sm rounded-full bg-neutral-100 py-2.5 text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-orange-300">
+              <textarea id="chatInput" placeholder="Tulis pertanyaanmu..." class="flex-1 min-w-0 px-4 text-sm rounded-full bg-neutral-100 py-2.5 text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-orange-300"></textarea>
               <button id="btnSend" class="flex items-center justify-center w-10 h-10 text-white transition bg-orange-500 rounded-full hover:bg-orange-600 active:scale-95 shrink-0">
                 <i class="text-sm fa-solid fa-paper-plane"></i>
               </button>

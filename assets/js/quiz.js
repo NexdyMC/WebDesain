@@ -306,12 +306,12 @@ $(function () {
 
   function buatElemenKartu(item, tipe) {
     const $el = $('<button type="button"></button>')
-      .addClass('kartu-kata tema-border flex items-center justify-center px-4 py-3 sm:px-5 sm:py-3 text-gray-900 transition-transform bg-white border-2 shadow-sm cursor-pointer rounded-xl active:scale-95')
+      .addClass('kartu-kata tema-border flex items-center justify-center px-2 py-3 sm:px-5 sm:py-3 text-gray-900 transition-transform bg-white border-2 shadow-sm cursor-pointer rounded-xl active:scale-95')
       .attr('data-huruf', item.key);
     if (tipe === 'gambar') {
-      $el.append('<img src="' + item.image + '" alt="' + item.key + '" class="object-contain w-10 h-10 sm:w-12 sm:h-12">');
+      $el.append('<img src="' + item.image + '" alt="' + item.key + '" class="object-contain w-12 h-12 sm:w-16 sm:h-16 rounded-md">');
     } else {
-      $el.append('<span class="text-xl font-bold sm:text-2xl">' + item.key + '</span>');
+      $el.append('<span class="text-2xl font-bold sm:text-3xl">' + item.key + '</span>');
     }
     return $el;
   }
@@ -327,7 +327,7 @@ $(function () {
     const $target = $('#soal-target-sk').empty();
     soal.target.forEach(h => {
       if (soal.tipeSoal === 'gambar') {
-        $target.append('<img src="' + h.image + '" alt="' + h.key + '" class="object-contain w-12 h-12 p-1 bg-white border rounded-lg sm:w-16 sm:h-16 tema-border">');
+        $target.append('<img src="' + h.image + '" alt="' + h.key + '" class="object-contain w-14 h-14 p-1 bg-white border rounded-lg sm:w-16 sm:h-16 tema-border">');
       } else {
         $target.append('<span class="flex items-center justify-center w-12 h-12 text-2xl font-extrabold bg-white border rounded-lg sm:w-16 sm:h-16 sm:text-3xl tema-border tema-text">' + h.key + '</span>');
       }
