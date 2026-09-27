@@ -4,17 +4,20 @@ $(function () {
   const KONFIG = {
     expBenar: 5,
     expSalah: 5,
-    poinDasarBenar: 100,   // poin dasar tiap jawaban benar
-    batasWaktuIdeal: 15,   // detik - batas waktu ideal untuk dapat bonus penuh
-    poinPerDetik: 10       // bonus/potongan poin per detik dari batas ideal
+    poinDasarBenar: 100,
+    batasWaktuIdeal: 15,
+    poinPerDetik: 10
   };
 
-  let ALFABET = [];   // dari data.json -> [{huruf, gambar}, ...]
-  let LEVELS = [];     // dari level.json -> [{level, jenis, huruf:[...], exp}, ...]
+  let KOSAKATA = {};    // dari assets/data/quiz.json -> { BISINDO: { Alphabet: [{key, image}, ...] }, SIBI: { ... } }
+  let LEVELS = [];      // dari assets/data/level.json -> [{level, sistem, jenis, soal:[...], exp}, ...]
 
+  let sistemAktif = 'BISINDO'; // 'BISINDO' | 'SIBI' - toggle global, cuma bisa diganti di menu-screen
+
+  // state disimpan per mode (pk/sk) DAN per sistem (BISINDO/SIBI) supaya progres tiap sistem terpisah
   let state = {
-    pk: buatStateAwal(),
-    sk: buatStateAwal()
+    pk: { BISINDO: buatStateAwal(), SIBI: buatStateAwal() },
+    sk: { BISINDO: buatStateAwal(), SIBI: buatStateAwal() }
   };
 
   function buatStateAwal() {
@@ -25,6 +28,13 @@ $(function () {
       terkunci: false, aktif: false,
       soalSekarang: null
     };
+  }
+
+  // helper: ambil state mode ('pk'/'sk') untuk sistem yang SEDANG berjalan pada mode itu.
+  // Selama main, sistem terkunci ke sistem yang dipakai saat sesi dimulai (disimpan di s.sistemSesi),
+  // supaya toggle di menu-screen (yang memang disembunyikan saat main) tidak pernah mengubah sesi berjalan.
+  function S(mode) {
+    return state[mode][sistemAktif];
   }
 
   // ================= UTIL =================
@@ -38,67 +48,103 @@ $(function () {
   }
   function randomInt(n) { return Math.floor(Math.random() * n); }
 
-  // ================= DATA LEVEL (dari level.json, dengan fallback rumus kalau level belum ada di JSON) =================
+  // ================= DATA KOSAKATA (assets/data/quiz.json) =================
+  function daftarKosakata(sistem, jenis) {
+    return (KOSAKATA[sistem] && KOSAKATA[sistem][jenis]) ? KOSAKATA[sistem][jenis] : [];
+  }
+  function cariItem(sistem, jenis, key) {
+    return daftarKosakata(sistem, jenis).find(x => x.key === key);
+  }
+
+  // ================= DATA LEVEL (assets/data/level.json, dengan fallback rumus kalau level belum ada di JSON) =================
   function hitungExpTargetFallback(level) {
     return 30 + 5 * Math.floor((level - 1) / 2);
   }
-  function hitungJendelaFallback(level) {
-    if (!ALFABET.length) return [];   // <-- tambahan: cegah crash saat data belum siap
-    const mulai = ((level - 1) * 3) % 26;
+  function hitungJendelaFallback(sistem, jenis, level) {
+    const daftar = daftarKosakata(sistem, jenis);
+    if (!daftar.length) return []; // data belum siap saat pertama kali load - jangan sampai crash
+    const mulai = ((level - 1) * 3) % daftar.length;
     const hasil = [];
-    for (let i = 0; i < 5; i++) hasil.push(ALFABET[(mulai + i) % 26].huruf);
+    for (let i = 0; i < 5; i++) hasil.push(daftar[(mulai + i) % daftar.length].key);
     return hasil;
   }
-  function ambilDataLevel(level) {
-    const ada = LEVELS.find(l => l.level === level);
+  function ambilDataLevel(sistem, level) {
+    const jenis = 'Alphabet'; // baru satu jenis yang aktif untuk sekarang
+    const ada = LEVELS.find(l => l.sistem === sistem && l.level === level && l.jenis === jenis);
     if (ada) return ada;
-    // fallback: level di luar daftar level.json, tetap dihitung otomatis (unlimited)
-    return { level: level, jenis: 'Alphabet', huruf: hitungJendelaFallback(level), exp: hitungExpTargetFallback(level) };
+    // fallback: level di luar daftar assets/data/level.json, tetap dihitung otomatis (unlimited)
+    return { level: level, sistem: sistem, jenis: jenis, soal: hitungJendelaFallback(sistem, jenis, level), exp: hitungExpTargetFallback(level) };
   }
-  function hurufKeObjekGambar(hurufArr) {
-    return hurufArr.map(h => ALFABET.find(a => a.huruf === h)).filter(Boolean);
+  function hurufKeObjekGambar(sistem, jenis, hurufArr) {
+    return hurufArr.map(k => cariItem(sistem, jenis, k)).filter(Boolean);
   }
-  function expDibutuhkan(level) {
-    return ambilDataLevel(level).exp;
+  function expDibutuhkan(sistem, level) {
+    return ambilDataLevel(sistem, level).exp;
   }
 
   // ================= LOCAL STORAGE (key: "kuis") =================
   function SaveLocalStorage() {
-    const data = [
-      { mode: 'pilih kata', level: state.pk.level, exp: state.pk.exp, score: state.pk.score },
-      { mode: 'susun kata', level: state.sk.level, exp: state.sk.exp, score: state.sk.score }
-    ];
+    const data = [];
+    ['pk', 'sk'].forEach(mode => {
+      ['BISINDO', 'SIBI'].forEach(sis => {
+        const s = state[mode][sis];
+        data.push({
+          mode: mode === 'pk' ? 'pilih kata' : 'susun kata',
+          sistem: sis,
+          level: s.level, exp: s.exp, score: s.score
+        });
+      });
+    });
     localStorage.setItem('kuis', JSON.stringify(data));
   }
   function LoadLocalStorage() {
     try {
       const data = JSON.parse(localStorage.getItem('kuis'));
       if (Array.isArray(data)) {
-        const pk = data.find(d => d.mode === 'pilih kata');
-        const sk = data.find(d => d.mode === 'susun kata');
-        if (pk) { state.pk.level = pk.level || 1; state.pk.exp = pk.exp || 0; state.pk.score = pk.score || 0; }
-        if (sk) { state.sk.level = sk.level || 1; state.sk.exp = sk.exp || 0; state.sk.score = sk.score || 0; }
+        data.forEach(d => {
+          const mode = d.mode === 'pilih kata' ? 'pk' : (d.mode === 'susun kata' ? 'sk' : null);
+          if (mode && state[mode][d.sistem]) {
+            state[mode][d.sistem].level = d.level || 1;
+            state[mode][d.sistem].exp = d.exp || 0;
+            state[mode][d.sistem].score = d.score || 0;
+          }
+        });
       }
     } catch (e) { /* localStorage kosong/rusak, pakai default */ }
   }
 
   function perbaruiMenu() {
-    $('[data-level-for="pk"]').text(state.pk.level);
-    $('[data-exp-for="pk"]').text(state.pk.exp);
-    $('[data-exp-target-for="pk"]').text(expDibutuhkan(state.pk.level));
-    $('[data-score-for="pk"]').text(state.pk.score);
-    $('[data-bar-for="pk"]').css('width', persenExpBar(state.pk) + '%');
+    const pk = S('pk'), sk = S('sk');
+    $('[data-level-for="pk"]').text(pk.level);
+    $('[data-exp-for="pk"]').text(pk.exp);
+    $('[data-exp-target-for="pk"]').text(expDibutuhkan(sistemAktif, pk.level));
+    $('[data-score-for="pk"]').text(pk.score);
+    $('[data-bar-for="pk"]').css('width', persenExpBar(sistemAktif, pk) + '%');
 
-    $('[data-level-for="sk"]').text(state.sk.level);
-    $('[data-exp-for="sk"]').text(state.sk.exp);
-    $('[data-exp-target-for="sk"]').text(expDibutuhkan(state.sk.level));
-    $('[data-score-for="sk"]').text(state.sk.score);
-    $('[data-bar-for="sk"]').css('width', persenExpBar(state.sk) + '%');
+    $('[data-level-for="sk"]').text(sk.level);
+    $('[data-exp-for="sk"]').text(sk.exp);
+    $('[data-exp-target-for="sk"]').text(expDibutuhkan(sistemAktif, sk.level));
+    $('[data-score-for="sk"]').text(sk.score);
+    $('[data-bar-for="sk"]').css('width', persenExpBar(sistemAktif, sk) + '%');
   }
-  function persenExpBar(s) {
-    const butuh = expDibutuhkan(s.level);
+  function persenExpBar(sistem, s) {
+    const butuh = expDibutuhkan(sistem, s.level);
     return Math.max(4, Math.min(100, Math.round((s.exp / butuh) * 100)));
   }
+
+  // ================= TOGGLE SISTEM (BISINDO / SIBI) - global, cuma ada di menu-screen =================
+  $('.sistem-toggle-btn').on('click', function () {
+    const pilihan = $(this).data('sistem');
+    if (pilihan === sistemAktif) return;
+    sistemAktif = pilihan;
+
+    $('.sistem-toggle-btn').removeClass('bg-white shadow text-gray-900').addClass('text-gray-500');
+    $(this).removeClass('text-gray-500').addClass('bg-white shadow text-gray-900');
+
+    $('#quiz-app').toggleClass('theme-sibi', sistemAktif === 'SIBI');
+
+    perbaruiMenu();
+  });
 
   // ================= SectionScreen: satu-satunya jalur ganti layar =================
   // idHalaman = 'menu-screen' | 'play-screen' | 'end-screen' (3 screen di dalam satu <section>)
@@ -121,55 +167,57 @@ $(function () {
     if (idHalaman === 'menu-screen') perbaruiMenu();
   }
 
-  // ================= STOPWATCH (hitung maju dari 0, dipakai sebagai total waktu sesi) =================
-  function RunStopwatch(jenis) {
-    const s = state[jenis];
+  // ================= STOPWATCH =================
+  function RunStopwatch(mode) {
+    const s = S(mode);
     clearInterval(s.timerId);
     s.aktif = true;
     s.waktuBerjalan = 0;
-    perbaruiTampilanWaktu(jenis);
+    perbaruiTampilanWaktu(mode);
     s.timerId = setInterval(function () {
       s.waktuBerjalan++;
-      perbaruiTampilanWaktu(jenis);
+      perbaruiTampilanWaktu(mode);
     }, 1000);
   }
-  function HentikanStopwatch(jenis) {
-    clearInterval(state[jenis].timerId);
+  function HentikanStopwatch(mode) {
+    clearInterval(S(mode).timerId);
   }
   function formatWaktu(total) {
     const m = Math.floor(total / 60).toString().padStart(2, '0');
     const dt = Math.floor(total % 60).toString().padStart(2, '0');
     return m + ':' + dt;
   }
-  function perbaruiTampilanWaktu(jenis) {
-    $(jenis === 'pk' ? '#timer-display-pk' : '#timer-display-sk').text(formatWaktu(state[jenis].waktuBerjalan));
+  function perbaruiTampilanWaktu(mode) {
+    $(mode === 'pk' ? '#timer-display-pk' : '#timer-display-sk').text(formatWaktu(S(mode).waktuBerjalan));
   }
 
   // ================= PERHITUNGAN SKOR (bonus kecepatan menjawab) =================
-  // Skor = Poin Dasar Benar + ((Batas Waktu Ideal - Waktu Stopwatch) x Poin per Detik), minimal bonus 0
   function MathScore(benar, waktuJawabDetik) {
     if (!benar) return 0;
     const bonus = Math.max(0, (KONFIG.batasWaktuIdeal - waktuJawabDetik) * KONFIG.poinPerDetik);
     return KONFIG.poinDasarBenar + bonus;
   }
 
-  // ================= PILIHAN KATA (satu soal per saat, berjalan terus sampai sesi diakhiri) =================
-  function buatSatuSoalPK(level) {
-    const dataLevel = ambilDataLevel(level);
-    const jendela = hurufKeObjekGambar(dataLevel.huruf);
+  // ================= PILIHAN KATA =================
+  function buatSatuSoalPK(sistem, level) {
+    const dataLevel = ambilDataLevel(sistem, level);
+    const jendela = hurufKeObjekGambar(sistem, dataLevel.jenis, dataLevel.soal);
     const benar = jendela[randomInt(jendela.length)];
-    let kandidat = acak(jendela.filter(h => h.huruf !== benar.huruf));
+    let kandidat = acak(jendela.filter(h => h.key !== benar.key));
     let distraktor = kandidat.slice(0, 3);
-    while (distraktor.length < 3) {
-      const c = ALFABET[randomInt(ALFABET.length)];
-      if (c.huruf !== benar.huruf && !distraktor.find(d => d.huruf === c.huruf)) distraktor.push(c);
+    const semua = daftarKosakata(sistem, dataLevel.jenis);
+    while (distraktor.length < 3 && semua.length) {
+      const c = semua[randomInt(semua.length)];
+      if (c.key !== benar.key && !distraktor.find(d => d.key === c.key)) distraktor.push(c);
     }
     const opsi = acak([benar].concat(distraktor));
-    return { jenis: dataLevel.jenis, gambar: benar.gambar, jawaban: benar.huruf, opsi: opsi.map(o => o.huruf) };
+    const tipeSoal = Math.random() < 0.5 ? 'gambar' : 'teks';
+    const tipeJawaban = tipeSoal === 'gambar' ? 'teks' : 'gambar';
+    return { jenis: dataLevel.jenis, tipeSoal: tipeSoal, tipeJawaban: tipeJawaban, benar: benar, opsi: opsi };
   }
 
   function mulaiSesiPK() {
-    const s = state.pk;
+    const s = S('pk');
     s.benar = 0; s.salah = 0; s.dijawab = 0; s.terkunci = false;
     tampilkanSoalBaruPK();
     SectionScreen('play-screen', 'pk');
@@ -177,43 +225,53 @@ $(function () {
   }
 
   function tampilkanSoalBaruPK() {
-    const s = state.pk;
-    s.soalSekarang = buatSatuSoalPK(s.level);
+    const s = S('pk');
+    s.soalSekarang = buatSatuSoalPK(sistemAktif, s.level);
     s.waktuSoalMulai = s.waktuBerjalan;
     perbaruiHudPK();
-    $('#judul-quiz-pk').text(s.soalSekarang.jenis);
-    $('#soal-gambar-pk').html('<img class="letter-img" src="' + s.soalSekarang.gambar + '" alt="isyarat">');
+    const soal = s.soalSekarang;
+    $('#judul-quiz-pk').text(soal.jenis);
+
+    if (soal.tipeSoal === 'gambar') {
+      $('#soal-gambar-pk').html('<img class="letter-img" src="' + soal.benar.image + '" alt="isyarat">');
+    } else {
+      $('#soal-gambar-pk').html('<span class="text-6xl font-extrabold tema-text sm:text-7xl">' + soal.benar.key + '</span>');
+    }
 
     $('.opsi-pk').each(function (i) {
-      const huruf = s.soalSekarang.opsi[i];
-      $(this).attr('data-jawaban', huruf)
-        .removeClass('opsi-benar opsi-salah')
-        .find('.teks-opsi').text('Isyarat ' + huruf);
+      const item = soal.opsi[i];
+      $(this).attr('data-jawaban', item.key).removeClass('opsi-benar opsi-salah');
+      const $isi = $(this).find('.teks-opsi').empty();
+      if (soal.tipeJawaban === 'gambar') {
+        $isi.append('<img src="' + item.image + '" alt="' + item.key + '" class="object-contain w-14 h-14 sm:w-16 sm:h-16">');
+      } else {
+        $isi.text('Isyarat ' + item.key);
+      }
       $(this).find('.check-icon').css('opacity', 0);
     });
     s.terkunci = false;
   }
 
   function perbaruiHudPK() {
-    const s = state.pk;
+    const s = S('pk');
     $('#level-live-pk').text(s.level);
     $('#exp-current-pk').text(s.exp);
-    $('#exp-target-pk').text(expDibutuhkan(s.level));
+    $('#exp-target-pk').text(expDibutuhkan(sistemAktif, s.level));
     $('#skor-live-pk').text(s.score);
-    $('#progress-pk').css('width', persenExpBar(s) + '%');
+    $('#progress-pk').css('width', persenExpBar(sistemAktif, s) + '%');
   }
 
   $(document).on('click', '.opsi-pk', function () {
-    const s = state.pk;
+    const s = S('pk');
     if (s.terkunci || !s.aktif) return;
     s.terkunci = true;
     const soal = s.soalSekarang;
     const dipilih = $(this).attr('data-jawaban');
-    const benar = dipilih === soal.jawaban;
+    const benar = dipilih === soal.benar.key;
 
     $('.opsi-pk').each(function () {
       const h = $(this).attr('data-jawaban');
-      if (h === soal.jawaban) { $(this).addClass('opsi-benar'); $(this).find('.check-icon').css('opacity', 1); }
+      if (h === soal.benar.key) { $(this).addClass('opsi-benar'); $(this).find('.check-icon').css('opacity', 1); }
       else if (h === dipilih && !benar) { $(this).addClass('opsi-salah'); }
     });
 
@@ -225,52 +283,58 @@ $(function () {
     }, 700);
   });
 
-  // ================= SUSUN KATA (satu soal per saat; gambar & teks selalu ditampilkan bersama) =================
-  function buatSatuSoalSK(level) {
-    const dataLevel = ambilDataLevel(level);
-    const jendela = hurufKeObjekGambar(dataLevel.huruf);
-    const panjang = 3 + randomInt(3); // 3..5 huruf
+  // ================= SUSUN KATA =================
+  function buatSatuSoalSK(sistem, level) {
+    const dataLevel = ambilDataLevel(sistem, level);
+    const jendela = hurufKeObjekGambar(sistem, dataLevel.jenis, dataLevel.soal);
+    const panjang = 2 + randomInt(3); // 3..5 huruf
     const dipilih = acak(jendela).slice(0, panjang);
-    const target = dipilih.slice().sort((a, b) => a.huruf.localeCompare(b.huruf));
+    const target = dipilih.slice().sort((a, b) => a.key.localeCompare(b.key));
+    const tipeSoal = Math.random() < 0.5 ? 'gambar' : 'teks';
+    const tipeJawaban = tipeSoal === 'gambar' ? 'teks' : 'gambar';
     const bank = acak(target);
-    return { jenis: dataLevel.jenis, target: target, bank: bank };
+    return { jenis: dataLevel.jenis, tipeSoal: tipeSoal, tipeJawaban: tipeJawaban, target: target, bank: bank };
   }
 
   function mulaiSesiSK() {
-    const s = state.sk;
+    const s = S('sk');
     s.benar = 0; s.salah = 0; s.dijawab = 0; s.terkunci = false;
     tampilkanSoalBaruSK();
     SectionScreen('play-screen', 'sk');
     RunStopwatch('sk');
   }
 
-  function buatElemenKartu(huruf, gambar) {
-    return $('<button type="button"></button>')
-      .addClass('kartu-kata flex flex-col items-center justify-center gap-1 px-3 py-2 sm:px-4 sm:py-3 text-gray-900 transition-transform bg-white border-2 shadow-sm cursor-pointer border-amber-400 rounded-xl active:scale-95')
-      .attr('data-huruf', huruf)
-      .append('<img src="' + gambar + '" alt="' + huruf + '" class="object-contain w-10 h-10 sm:w-12 sm:h-12">')
-      .append('<span class="text-sm font-bold sm:text-base">' + huruf + '</span>');
+  function buatElemenKartu(item, tipe) {
+    const $el = $('<button type="button"></button>')
+      .addClass('kartu-kata tema-border flex items-center justify-center px-4 py-3 sm:px-5 sm:py-3 text-gray-900 transition-transform bg-white border-2 shadow-sm cursor-pointer rounded-xl active:scale-95')
+      .attr('data-huruf', item.key);
+    if (tipe === 'gambar') {
+      $el.append('<img src="' + item.image + '" alt="' + item.key + '" class="object-contain w-10 h-10 sm:w-12 sm:h-12">');
+    } else {
+      $el.append('<span class="text-xl font-bold sm:text-2xl">' + item.key + '</span>');
+    }
+    return $el;
   }
 
   function tampilkanSoalBaruSK() {
-    const s = state.sk;
-    s.soalSekarang = buatSatuSoalSK(s.level);
+    const s = S('sk');
+    s.soalSekarang = buatSatuSoalSK(sistemAktif, s.level);
     s.waktuSoalMulai = s.waktuBerjalan;
     perbaruiHudSK();
-    $('#judul-quiz-sk').text(s.soalSekarang.jenis);
     const soal = s.soalSekarang;
+    $('#judul-quiz-sk').text(soal.jenis);
 
     const $target = $('#soal-target-sk').empty();
     soal.target.forEach(h => {
-      $target.append(
-        $('<div class="flex flex-col items-center gap-1 p-2 bg-white border rounded-lg border-amber-300"></div>')
-          .append('<img src="' + h.gambar + '" alt="' + h.huruf + '" class="object-contain w-12 h-12 sm:w-16 sm:h-16">')
-          .append('<span class="text-xs font-bold text-gray-700 sm:text-sm">' + h.huruf + '</span>')
-      );
+      if (soal.tipeSoal === 'gambar') {
+        $target.append('<img src="' + h.image + '" alt="' + h.key + '" class="object-contain w-12 h-12 p-1 bg-white border rounded-lg sm:w-16 sm:h-16 tema-border">');
+      } else {
+        $target.append('<span class="flex items-center justify-center w-12 h-12 text-2xl font-extrabold bg-white border rounded-lg sm:w-16 sm:h-16 sm:text-3xl tema-border tema-text">' + h.key + '</span>');
+      }
     });
 
     $('#bank-kata').empty();
-    soal.bank.forEach(h => $('#bank-kata').append(buatElemenKartu(h.huruf, h.gambar)));
+    soal.bank.forEach(h => $('#bank-kata').append(buatElemenKartu(h, soal.tipeJawaban)));
 
     $('#zona-jawaban').empty().append('<span class="m-auto text-sm text-gray-400 placeholder-zona">Susun kartu di sini sesuai urutan di atas</span>');
     perbaruiTombolPeriksa();
@@ -278,12 +342,12 @@ $(function () {
   }
 
   function perbaruiHudSK() {
-    const s = state.sk;
+    const s = S('sk');
     $('#level-live-sk').text(s.level);
     $('#exp-current-sk').text(s.exp);
-    $('#exp-target-sk').text(expDibutuhkan(s.level));
+    $('#exp-target-sk').text(expDibutuhkan(sistemAktif, s.level));
     $('#skor-live-sk').text(s.score);
-    $('#progress-sk').css('width', persenExpBar(s) + '%');
+    $('#progress-sk').css('width', persenExpBar(sistemAktif, s) + '%');
   }
 
   function perbaruiTombolPeriksa() {
@@ -291,16 +355,16 @@ $(function () {
     if (isi) {
       $('#btn-periksa').prop('disabled', false)
         .removeClass('bg-gray-200 text-gray-400')
-        .addClass('bg-amber-500 text-white shadow-md active:scale-95');
+        .addClass('tema-solid text-white shadow-md active:scale-95');
     } else {
       $('#btn-periksa').prop('disabled', true)
-        .removeClass('bg-amber-500 text-white shadow-md active:scale-95')
+        .removeClass('tema-solid text-white shadow-md active:scale-95')
         .addClass('bg-gray-200 text-gray-400');
     }
   }
 
   $(document).on('click', '.kartu-kata', function () {
-    if (state.sk.terkunci || !state.sk.aktif) return;
+    if (S('sk').terkunci || !S('sk').aktif) return;
     const $kartu = $(this);
     if ($kartu.parent().attr('id') === 'bank-kata') {
       $('#zona-jawaban .placeholder-zona').remove();
@@ -315,12 +379,12 @@ $(function () {
   });
 
   $('#btn-periksa').on('click', function () {
-    const s = state.sk;
+    const s = S('sk');
     if (s.terkunci || $(this).is(':disabled') || !s.aktif) return;
     s.terkunci = true;
     const soal = s.soalSekarang;
     const susunanUser = $('#zona-jawaban .kartu-kata').map(function () { return $(this).attr('data-huruf'); }).get().join('');
-    const targetString = soal.target.map(h => h.huruf).join('');
+    const targetString = soal.target.map(h => h.key).join('');
     const benar = susunanUser === targetString && susunanUser.length === targetString.length;
 
     $('#zona-jawaban .kartu-kata').addClass(benar ? 'opsi-benar' : 'opsi-salah');
@@ -334,12 +398,11 @@ $(function () {
   });
 
   // ================= EXP / SCORE / LEVEL BERSAMA =================
-  function prosesJawaban(jenis, benar) {
-    const s = state[jenis];
+  function prosesJawaban(mode, benar) {
+    const s = S(mode);
     s.dijawab++;
     const waktuJawab = Math.max(0, s.waktuBerjalan - s.waktuSoalMulai);
-    const tambahanSkor = MathScore(benar, waktuJawab);
-    s.score += tambahanSkor;
+    s.score += MathScore(benar, waktuJawab);
 
     if (benar) {
       s.benar++;
@@ -349,46 +412,46 @@ $(function () {
       s.exp = Math.max(0, s.exp - KONFIG.expSalah);
     }
     // naik level kalau exp cukup - TIDAK memindahkan layar, cuma lanjut ke soal berikutnya dengan huruf level baru
-    while (s.exp >= expDibutuhkan(s.level)) {
-      s.exp -= expDibutuhkan(s.level);
+    while (s.exp >= expDibutuhkan(sistemAktif, s.level)) {
+      s.exp -= expDibutuhkan(sistemAktif, s.level);
       s.level++;
     }
     SaveLocalStorage();
   }
 
   // ================= AKHIR SESI (saat tombol Akhiri Sesi ditekan) =================
-  function selesaikanSesi(jenis) {
-    const s = state[jenis];
-    HentikanStopwatch(jenis);
+  function selesaikanSesi(mode) {
+    const s = S(mode);
+    HentikanStopwatch(mode);
     s.aktif = false;
 
     const totalDijawab = s.dijawab;
     const akurasi = totalDijawab > 0 ? Math.round((s.benar / totalDijawab) * 100) : 0;
     const persenSalah = totalDijawab > 0 ? Math.round((s.salah / totalDijawab) * 100) : 0;
 
-    $('#hasil-benar-' + jenis).text(s.benar);
-    $('#hasil-benar-detail-' + jenis).text(s.benar);
-    $('#hasil-total-' + jenis).text(totalDijawab);
-    $('#hasil-akurasi-' + jenis).text(akurasi + '%');
-    $('#hasil-persen-benar-' + jenis).text(akurasi + '%');
-    $('#hasil-persen-salah-' + jenis).text(persenSalah + '%');
-    $('#hasil-level-' + jenis).text(s.level);
-    $('#hasil-waktu-' + jenis).text(formatWaktu(s.waktuBerjalan));
+    $('#hasil-benar-' + mode).text(s.benar);
+    $('#hasil-benar-detail-' + mode).text(s.benar);
+    $('#hasil-total-' + mode).text(totalDijawab);
+    $('#hasil-akurasi-' + mode).text(akurasi + '%');
+    $('#hasil-persen-benar-' + mode).text(akurasi + '%');
+    $('#hasil-persen-salah-' + mode).text(persenSalah + '%');
+    $('#hasil-level-' + mode).text(s.level);
+    $('#hasil-waktu-' + mode).text(formatWaktu(s.waktuBerjalan));
 
     // Level, EXP, dan Score TETAP tersimpan - dilanjutkan lagi saat mulai sesi berikutnya
     SaveLocalStorage();
 
-    SectionScreen('end-screen', jenis);
+    SectionScreen('end-screen', mode);
   }
 
   // ================= RESET LEVEL =================
   $('[data-reset]').on('click', function () {
-    const jenis = $(this).data('reset'); // 'pk' atau 'sk'
-    const label = jenis === 'pk' ? 'Test Pilih Kata' : 'Test Susun Kata';
-    if (!window.confirm('Yakin ingin mereset Level, EXP, dan Score "' + label + '" kembali ke awal?')) return;
-    state[jenis].level = 1;
-    state[jenis].exp = 0;
-    state[jenis].score = 0;
+    const mode = $(this).data('reset'); // 'pk' atau 'sk'
+    const label = mode === 'pk' ? 'Test Pilih Kata' : 'Test Susun Kata';
+    if (!window.confirm('Yakin ingin mereset Level, EXP, dan Score "' + label + '" (' + sistemAktif + ') kembali ke awal?')) return;
+    S(mode).level = 1;
+    S(mode).exp = 0;
+    S(mode).score = 0;
     SaveLocalStorage();
     perbaruiMenu();
   });
@@ -410,16 +473,16 @@ $(function () {
   // ================= INIT =================
   SectionScreen('menu-screen', null);
   $.when(
-    $.getJSON('data/quiz.json'),
-    $.getJSON('data/level.json')
+    $.getJSON('assets/data/quiz.json'),
+    $.getJSON('assets/data/level.json')
   ).done(function (dataRes, levelRes) {
-    ALFABET = dataRes[0].alfabet;
+    KOSAKATA = dataRes[0];
     LEVELS = levelRes[0].levels;
     LoadLocalStorage();
     perbaruiMenu();
     $('[data-mulai]').prop('disabled', false);
   }).fail(function () {
-    console.error('Gagal memuat data.json / level.json. Pastikan file ini diakses lewat server lokal (bukan dibuka langsung sebagai file://).');
+    console.error('Gagal memuat assets/data/quiz.json / assets/data/level.json. Pastikan file ini diakses lewat server lokal (bukan dibuka langsung sebagai file://).');
   });
 
 });

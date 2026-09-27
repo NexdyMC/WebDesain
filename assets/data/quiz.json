@@ -1,0 +1,62 @@
+{
+  "BISINDO": {
+    "Alphabet": [
+      { "key": "A", "image": "assets/images/bisindo/A - wall white.jpg" },
+      { "key": "B", "image": "assets/images/bisindo/B - wall white.jpg" },
+      { "key": "C", "image": "assets/images/bisindo/C - wall white.jpg" },
+      { "key": "D", "image": "assets/images/bisindo/D - wall white.jpg" },
+      { "key": "E", "image": "assets/images/bisindo/E - wall white.jpg" },
+      { "key": "F", "image": "assets/images/bisindo/F - wall white.jpg" },
+      { "key": "G", "image": "assets/images/bisindo/G - wall white.jpg" },
+      { "key": "H", "image": "assets/images/bisindo/H - wall white.jpg" },
+      { "key": "I", "image": "assets/images/bisindo/I - wall white.jpg" },
+      { "key": "J", "image": "assets/images/bisindo/J - wall white.jpg" },
+      { "key": "K", "image": "assets/images/bisindo/K - wall white.jpg" },
+      { "key": "L", "image": "assets/images/bisindo/L - wall white.jpg" },
+      { "key": "M", "image": "assets/images/bisindo/M - wall white.jpg" },
+      { "key": "N", "image": "assets/images/bisindo/N - wall white.jpg" },
+      { "key": "O", "image": "assets/images/bisindo/O - wall white.jpg" },
+      { "key": "P", "image": "assets/images/bisindo/P - wall white.jpg" },
+      { "key": "Q", "image": "assets/images/bisindo/Q - wall white.jpg" },
+      { "key": "R", "image": "assets/images/bisindo/R - wall white.jpg" },
+      { "key": "S", "image": "assets/images/bisindo/S - wall white.jpg" },
+      { "key": "T", "image": "assets/images/bisindo/T - wall white.jpg" },
+      { "key": "U", "image": "assets/images/bisindo/U - wall white.jpg" },
+      { "key": "V", "image": "assets/images/bisindo/V - wall white.jpg" },
+      { "key": "W", "image": "assets/images/bisindo/W - wall white.jpg" },
+      { "key": "X", "image": "assets/images/bisindo/X - wall white.jpg" },
+      { "key": "Y", "image": "assets/images/bisindo/Y - wall white.jpg" },
+      { "key": "Z", "image": "assets/images/bisindo/Z - wall white.jpg" }
+    ]
+  },
+  "SIBI": {
+    "Alphabet": [
+      { "key": "A", "image": "assets/images/sibi/A - wall white.jpg" },
+      { "key": "B", "image": "assets/images/sibi/B - wall white.jpg" },
+      { "key": "C", "image": "assets/images/sibi/C - wall white.jpg" },
+      { "key": "D", "image": "assets/images/sibi/D - wall white.jpg" },
+      { "key": "E", "image": "assets/images/sibi/E - wall white.jpg" },
+      { "key": "F", "image": "assets/images/sibi/F - wall white.jpg" },
+      { "key": "G", "image": "assets/images/sibi/G - wall white.jpg" },
+      { "key": "H", "image": "assets/images/sibi/H - wall white.jpg" },
+      { "key": "I", "image": "assets/images/sibi/I - wall white.jpg" },
+      { "key": "J", "image": "assets/images/sibi/J - wall white.jpg" },
+      { "key": "K", "image": "assets/images/sibi/K - wall white.jpg" },
+      { "key": "L", "image": "assets/images/sibi/L - wall white.jpg" },
+      { "key": "M", "image": "assets/images/sibi/M - wall white.jpg" },
+      { "key": "N", "image": "assets/images/sibi/N - wall white.jpg" },
+      { "key": "O", "image": "assets/images/sibi/O - wall white.jpg" },
+      { "key": "P", "image": "assets/images/sibi/P - wall white.jpg" },
+      { "key": "Q", "image": "assets/images/sibi/Q - wall white.jpg" },
+      { "key": "R", "image": "assets/images/sibi/R - wall white.jpg" },
+      { "key": "S", "image": "assets/images/sibi/S - wall white.jpg" },
+      { "key": "T", "image": "assets/images/sibi/T - wall white.jpg" },
+      { "key": "U", "image": "assets/images/sibi/U - wall white.jpg" },
+      { "key": "V", "image": "assets/images/sibi/V - wall white.jpg" },
+      { "key": "W", "image": "assets/images/sibi/W - wall white.jpg" },
+      { "key": "X", "image": "assets/images/sibi/X - wall white.jpg" },
+      { "key": "Y", "image": "assets/images/sibi/Y - wall white.jpg" },
+      { "key": "Z", "image": "assets/images/sibi/Z - wall white.jpg" }
+    ]
+  }
+}

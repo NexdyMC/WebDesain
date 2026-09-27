@@ -1,0 +1,24 @@
+{
+  "levels": [
+    { "level": 1, "sistem": "BISINDO", "jenis": "Alphabet", "soal": ["A", "B", "C", "D", "E"], "exp": 30},
+    { "level": 2, "sistem": "BISINDO", "jenis": "Alphabet", "soal": ["D", "E", "F", "G", "H"], "exp": 30},
+    { "level": 3, "sistem": "BISINDO", "jenis": "Alphabet", "soal": ["G", "H", "I", "J", "K"], "exp": 35},
+    { "level": 4, "sistem": "BISINDO", "jenis": "Alphabet", "soal": ["J", "K", "L", "M", "N"], "exp": 35},
+    { "level": 5, "sistem": "BISINDO", "jenis": "Alphabet", "soal": ["M", "N", "O", "P", "Q"], "exp": 40},
+    { "level": 6, "sistem": "BISINDO", "jenis": "Alphabet", "soal": ["P", "Q", "R", "S", "T"], "exp": 40},
+    { "level": 7, "sistem": "BISINDO", "jenis": "Alphabet", "soal": ["S", "T", "U", "V", "W"], "exp": 45},
+    { "level": 8, "sistem": "BISINDO", "jenis": "Alphabet", "soal": ["V", "W", "X", "Y", "Z"], "exp": 45},
+    { "level": 9, "sistem": "BISINDO", "jenis": "Alphabet", "soal": ["Y", "Z", "A", "B", "C"], "exp": 50},
+    { "level": 10, "sistem": "BISINDO", "jenis": "Alphabet", "soal": ["B", "C", "D", "E", "F"], "exp": 50},
+    { "level": 1, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["A", "B", "C", "D", "E"], "exp": 30},
+    { "level": 2, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["D", "E", "F", "G", "H"], "exp": 30},
+    { "level": 3, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["G", "H", "I", "J", "K"], "exp": 35},
+    { "level": 4, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["J", "K", "L", "M", "N"], "exp": 35},
+    { "level": 5, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["M", "N", "O", "P", "Q"], "exp": 40},
+    { "level": 6, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["P", "Q", "R", "S", "T"], "exp": 40},
+    { "level": 7, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["S", "T", "U", "V", "W"], "exp": 45},
+    { "level": 8, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["V", "W", "X", "Y", "Z"], "exp": 45},
+    { "level": 9, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["Y", "Z", "A", "B", "C"], "exp": 50},
+    { "level": 10, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["B", "C", "D", "E", "F"], "exp": 50}
+  ]
+}

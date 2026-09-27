@@ -1,8 +1,36 @@
-#shell .screen.hidden { display: none; }
-.kursor-tarik { cursor: grab; }
-.kursor-tarik:active { cursor: grabbing; }
-.ui-draggable-dragging { transition: none !important; z-index: 50; }
-.bg-card-soft { background-color: #fff7ed; }
 .letter-img { width: 100%; height: 100%; object-fit: contain; }
-.opsi-benar { border-color: #16a34a !important; background-color: #f0fdf4 !important; }
-.opsi-salah { border-color: #dc2626 !important; background-color: #fef2f2 !important; }
+  .opsi-benar { border-color: #16a34a !important; background-color: #f0fdf4 !important; }
+  .opsi-salah { border-color: #dc2626 !important; background-color: #fef2f2 !important; }
+
+  /* ===== Tema warna per kartu - BISINDO (default): Pilih Kata = oranye, Susun Kata = amber ===== */
+  .card-pk .tema-solid        { background-color: #f97316; }
+  .card-pk .tema-outline      { border-color: #f97316; color: #f97316; }
+  .card-pk .tema-text         { color: #f97316; }
+  .card-pk .tema-soft         { background-color: #fff7ed; }
+  .card-pk .tema-border       { border-color: #fb923c; }
+  .card-pk .tema-progress-bg  { background-color: #ffedd5; }
+
+  .card-sk .tema-solid        { background-color: #f59e0b; }
+  .card-sk .tema-outline      { border-color: #f59e0b; color: #f59e0b; }
+  .card-sk .tema-text         { color: #f59e0b; }
+  .card-sk .tema-soft         { background-color: #fffbeb; }
+  .card-sk .tema-border       { border-color: #fbbf24; }
+  .card-sk .tema-progress-bg  { background-color: #fef3c7; }
+
+  /* ===== Tema warna SIBI: Pilih Kata = hijau, Susun Kata = ungu ===== */
+  .theme-sibi .card-pk .tema-solid       { background-color: #16a34a; }
+  .theme-sibi .card-pk .tema-outline     { border-color: #16a34a; color: #16a34a; }
+  .theme-sibi .card-pk .tema-text        { color: #16a34a; }
+  .theme-sibi .card-pk .tema-soft        { background-color: #f0fdf4; }
+  .theme-sibi .card-pk .tema-border      { border-color: #4ade80; }
+  .theme-sibi .card-pk .tema-progress-bg { background-color: #dcfce7; }
+
+  .theme-sibi .card-sk .tema-solid       { background-color: #7e22ce; }
+  .theme-sibi .card-sk .tema-outline     { border-color: #7e22ce; color: #7e22ce; }
+  .theme-sibi .card-sk .tema-text        { color: #7e22ce; }
+  .theme-sibi .card-sk .tema-soft        { background-color: #faf5ff; }
+  .theme-sibi .card-sk .tema-border      { border-color: #c084fc; }
+  .theme-sibi .card-sk .tema-progress-bg { background-color: #f3e8ff; }
+
+  .tema-solid:hover { filter: brightness(0.92); }
+  .tema-timer-badge { background-color: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); }
