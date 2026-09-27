@@ -475,6 +475,25 @@
   outline-offset: 4px;
 }
 
+@media (max-width: 639px) {
+  .stat-flip-card,
+  .stat-flip-inner {
+    min-height: 280px;
+  }
+
+  .stat-flip-card .stat-flip-face {
+    padding: 1.25rem;
+  }
+
+  .stat-flip-front > div:first-child {
+    flex-shrink: 0;
+  }
+
+  .stat-flip-card:first-child .flip-sticker {
+    display: none;
+  }
+}
+
 /* 4. STAT NUMBER */
 .stat-number {
   font-variant-numeric: tabular-nums;
@@ -545,6 +564,22 @@
   }
   50% {
     transform: translateY(-6px) rotate(8deg);
+  }
+}
+
+.hero-scroll-cue-content {
+  animation: hero-scroll-cue-float 1.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes hero-scroll-cue-float {
+  0%,
+  100% {
+    transform: translateY(-3px);
+  }
+
+  50% {
+    transform: translateY(5px);
   }
 }
 
@@ -630,6 +665,7 @@
   .card-interactive,
   .stat-flip-inner,
   .why-heading-icon,
+  .hero-scroll-cue-content,
   .shake-vertical,
   .jello-horizontal,
   .tracking-in-contract,

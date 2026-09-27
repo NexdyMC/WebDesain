@@ -95,17 +95,23 @@
             <p class="text-sm leading-tight md:text-base text-white/90">
               Kebaikan adalah nyanyian indah yang bisa didengar oleh orang tuli, sekaligus bunga indah yang bisa dilihat oleh orang buta.
             </p>
-            <div class="flex flex-col gap-2 md:flex-row">
-              <a href="edukasi.html" class="flex text-sm items-center gap-4 px-3 py-1.5 font-semibold text-white transition-all duration-300 bg-orange-500 border-2 border-orange-500 rounded-full shadow-lg hover:text-orange-600 hover:bg-white md:px-5 md:py-2 text-md lg:text-lg w-fit backdrop-blur-sm">
-                Mulai Pelajari<i class="text-sm fa-arrow-right fa-solid lg:text-3xl"></i>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <a href="edukasi.html" class="group inline-flex w-fit items-center justify-center gap-3 rounded-full border-2 border-orange-500 bg-orange-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-950/20 transition duration-200 hover:-translate-y-0.5 hover:border-orange-400 hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:px-6 sm:text-base">
+                Mulai Pelajari<i class="fa-solid fa-arrow-right transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true"></i>
               </a>
-              <a href="quiz.html" class="flex text-sm items-center gap-4 px-3 py-1.5 font-semibold text-white transition-all duration-300 border-2 border-orange-500 rounded-full shadow-lg md:px-5 md:py-2 text-md lg:text-lg w-fit backdrop-blur-sm hover:bg-white hover:text-orange-600">
-                Tes Kuis<i class="text-sm lg:text-3xl fa-arrow-right fa-solid"></i>
+              <a href="quiz.html" class="group inline-flex w-fit items-center justify-center gap-3 rounded-full border-2 border-white/80 bg-white/10 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/20 backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:px-6 sm:text-base">
+                Coba Kuis Gratis<i class="fa-solid fa-arrow-right transition-transform duration-200" aria-hidden="true"></i>
               </a>
             </div>
           </div>
         </div>
       </div>
+      <a href="#tentang-kami" aria-label="Lihat selengkapnya: gulir ke bagian Tentang Kami" class="absolute bottom-16 left-1/2 z-20 inline-flex min-h-11 -translate-x-1/2 items-center justify-center rounded-full px-3 text-orange-500 transition-colors hover:text-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:bottom-20 lg:bottom-24">
+        <span class="hero-scroll-cue-content inline-flex min-h-11 items-center gap-2 rounded-full bg-orange-500 px-3 py-2 text-white shadow-lg shadow-orange-950/20 sm:px-4">
+          <i class="fa-solid fa-angles-down text-sm sm:text-base" aria-hidden="true"></i>
+          <span class="whitespace-nowrap text-[11px] font-semibold sm:text-xs">Lihat selengkapnya</span>
+        </span>
+      </a>
       <div class="absolute bottom-0 left-0 z-10 w-full leading-none">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full" preserveAspectRatio="none">
           <path fill="#ffffff" d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z"></path>
@@ -393,7 +399,7 @@
         </div>
 
         <!-- Animated Random Number Stats Grid -->
-        <div class="grid grid-cols-2 gap-6 lg:grid-cols-4">
+        <div class="mx-auto grid max-w-md grid-cols-1 gap-5 sm:max-w-none sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           
           <!-- Stat 1: Kosa Kata -->
           <div class="stat-flip-card card-interactive fade-up-item" style="--delay: 100ms;" role="button" tabindex="0" aria-pressed="false" aria-label="Lihat informasi Kosakata Dasar">
@@ -512,12 +518,12 @@
             Pelajari materi terstruktur langkah demi langkah, mulai dari abjad dasar, ungkapan harian, percakapan praktis, hingga kategori ramah anak.
           </p>
         </div>
-        <div class="grid grid-cols-2 gap-6 lg:grid-cols-4">
+        <div class="mx-auto grid max-w-md grid-cols-1 gap-5 sm:max-w-none sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
 
           <!-- Card 1 -->
           <a href="edukasi.html" class="flex flex-col h-full overflow-hidden duration-100 bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-300 fade-up-item">
-            <div class="relative aspect-[4/3] bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white overflow-hidden">
-              <i class="text-6xl transition-transform duration-200 fa-solid fa-font text-white/80 group-hover:scale-110" aria-hidden="true"></i>
+            <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+              <img src="assets/images/test-img.jpeg" alt="Thumbnail sementara modul alfabet" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
               <span class="absolute px-3 py-1 text-xs font-bold tracking-wider text-orange-900 uppercase rounded-full top-3 left-3 bg-white/90 backdrop-blur-xs">Level 1</span>
             </div>
             <div class="flex flex-col flex-1 p-6">
@@ -528,8 +534,8 @@
 
           <!-- Card 2 -->
           <a href="edukasi.html" class="flex flex-col h-full overflow-hidden duration-150 bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 fade-up-item">
-            <div class="relative aspect-[4/3] bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-white overflow-hidden">
-              <i class="text-6xl transition-transform duration-200 fa-solid fa-comments text-white/80 group-hover:scale-110" aria-hidden="true"></i>
+            <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+              <img src="assets/images/test-img.jpeg" alt="Thumbnail sementara modul ungkapan harian" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
               <span class="absolute px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full top-3 left-3 text-amber-950 bg-white/90 backdrop-blur-xs">Level 2</span>
             </div>
             <div class="flex flex-col flex-1 p-6">
@@ -540,8 +546,8 @@
 
           <!-- Card 3 -->
           <a href="edukasi.html" class="flex flex-col h-full overflow-hidden duration-200 bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-300 fade-up-item">
-            <div class="relative aspect-[4/3] bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white overflow-hidden">
-              <i class="text-6xl transition-transform duration-200 fa-solid fa-people-arrows text-white/80 group-hover:scale-110" aria-hidden="true"></i>
+            <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+              <img src="assets/images/test-img.jpeg" alt="Thumbnail sementara modul percakapan praktis" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
               <span class="absolute px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full top-3 left-3 text-emerald-950 bg-white/90 backdrop-blur-xs">Level 3</span>
             </div>
             <div class="flex flex-col flex-1 p-6">
@@ -552,8 +558,8 @@
 
           <!-- Card 4 -->
           <a href="edukasi.html" class="flex flex-col h-full overflow-hidden duration-300 bg-white border shadow-sm group rounded-3xl border-slate-200/80 card-interactive hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 fade-up-item">
-            <div class="relative aspect-[4/3] bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white overflow-hidden">
-              <i class="text-6xl transition-transform duration-200 fa-solid fa-child-reaching text-white/80 group-hover:scale-110" aria-hidden="true"></i>
+            <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+              <img src="assets/images/test-img.jpeg" alt="Thumbnail sementara modul ramah anak" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
               <span class="absolute px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full top-3 left-3 text-indigo-950 bg-white/90 backdrop-blur-xs">Khusus Anak</span>
             </div>
             <div class="flex flex-col flex-1 p-6">

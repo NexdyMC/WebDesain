@@ -38,6 +38,46 @@ $(function () {
     Z: "Z - wall white.jpg",
   };
 
+  const sibiNumberLabels = {
+    0: { name: "Nol", keywords: "0 nol kosong zero" },
+    1: { name: "Satu", keywords: "1 satu one" },
+    2: { name: "Dua", keywords: "2 dua two" },
+    3: { name: "Tiga", keywords: "3 tiga three" },
+    4: { name: "Empat", keywords: "4 empat four" },
+    5: { name: "Lima", keywords: "5 lima five" },
+    6: { name: "Enam", keywords: "6 enam six" },
+    7: { name: "Tujuh", keywords: "7 tujuh seven" },
+    8: { name: "Delapan", keywords: "8 delapan eight" },
+    9: { name: "Sembilan", keywords: "9 sembilan nine" },
+    10: { name: "Sepuluh", keywords: "10 sepuluh ten" },
+  };
+
+  $("#sibiAngkaContainer").html(
+    Object.entries(sibiNumberLabels)
+      .map(function ([number, info]) {
+        const numericValue = Number(number);
+        const imageName =
+          numericValue === 0
+            ? "O - wall white.jpg"
+            : `Angka-${number}-SIBI.webp`;
+        const imagePath =
+          numericValue === 0
+            ? `assets/images/SIBI/${encodeURIComponent(imageName)}`
+            : `assets/images/SIBI_ANGKA/${encodeURIComponent(imageName)}`;
+
+        return `
+          <div role="button" tabindex="0" data-language="sibi" data-category="angka" data-keywords="${info.keywords}" data-desc="Bentuk gestur jari angka ${number} dalam Sistem Isyarat Bahasa Indonesia (SIBI)." data-tips="Ikuti pola jari pada foto dan pastikan telapak tangan menghadap arah yang sesuai." class="flex flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
+              <img src="${imagePath}" alt="Isyarat angka ${number} (${info.name}) dalam SIBI" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+              <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-sky-900 bg-sky-100 rounded-md card-badge">Angka</span>
+            </div>
+            <p class="text-base font-bold text-slate-800 group-hover:text-sky-600 card-title">${number}</p>
+            <span class="text-xs font-medium text-slate-500">${info.name}</span>
+          </div>`;
+      })
+      .join(""),
+  );
+
   $("#sibiAbjadContainer").html(
     Object.entries(sibiLetterImages)
       .map(function ([letter, fileName]) {

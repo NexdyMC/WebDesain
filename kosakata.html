@@ -27,6 +27,7 @@
   <script src="assets/js/tailwind.config.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/kosakata.css" />
+  <link rel="stylesheet" href="assets/css/accessibility.css">
 </head>
 <body class="font-sans antialiased bg-white text-slate-800 selection:bg-orange-500 selection:text-white">
   <div id="scrollProgressContainer" class="fixed left-0 top-0 z-[60] h-1 w-full bg-transparent pointer-events-none">
@@ -658,6 +659,24 @@
         <div class="mb-14 section-category-header fade-up-item">
           <div class="flex items-center gap-3 pb-3 mb-6 border-b border-sky-100">
             <div class="flex items-center justify-center text-white shadow-sm w-9 h-9 bg-sky-500 rounded-xl">
+              <i class="text-sm fa-solid fa-arrow-down-1-9" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-800 sm:text-2xl">Angka / Nomor (0 - 10)</h2>
+              <p class="text-sm leading-relaxed text-slate-500">Bentuk gestur jari untuk bilangan dasar dalam SIBI</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 mb-16 sm:grid-cols-3 md:grid-cols-6 md:gap-4 fade-up-item" id="sibiAngkaContainer">
+        </div>
+        <div class="flex justify-center mb-16 -mt-10">
+          <button type="button" class="items-center hidden gap-2 px-5 text-xs font-bold transition rounded-full show-more-cards py-2.5 text-sky-700 bg-sky-100 hover:bg-sky-200" data-target="sibiAngkaContainer" aria-expanded="false"> Tampilkan Selengkapnya <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="mb-14 section-category-header fade-up-item">
+          <div class="flex items-center gap-3 pb-3 mb-6 border-b border-sky-100">
+            <div class="flex items-center justify-center text-white shadow-sm w-9 h-9 bg-sky-500 rounded-xl">
               <i class="text-sm fa-solid fa-building-columns" aria-hidden="true"></i>
             </div>
             <div>
@@ -789,5 +808,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/kosakata.js"></script>
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/accessibility.js"></script>
 </body>
 </html>
