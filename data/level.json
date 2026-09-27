@@ -1,0 +1,12 @@
+{
+  "levels": [
+    {"level": 1, "jenis": "Alphabet", "huruf": ["A", "B", "C", "D", "E"], "exp": 30}, 
+    {"level": 2, "jenis": "Alphabet", "huruf": ["D", "E", "F", "G", "H"], "exp": 30}, 
+    {"level": 3, "jenis": "Alphabet", "huruf": ["G", "H", "I", "J", "K"], "exp": 35}, 
+    {"level": 4, "jenis": "Alphabet", "huruf": ["J", "K", "L", "M", "N"], "exp": 35}, 
+    {"level": 5, "jenis": "Alphabet", "huruf": ["M", "N", "O", "P", "Q"], "exp": 40}, 
+    {"level": 6, "jenis": "Alphabet", "huruf": ["P", "Q", "R", "S", "T"], "exp": 40}, 
+    {"level": 7, "jenis": "Alphabet", "huruf": ["S", "T", "U", "V", "W"], "exp": 45}, 
+    {"level": 8, "jenis": "Alphabet", "huruf": ["V", "W", "X", "Y", "Z"], "exp": 45}
+  ]
+}
