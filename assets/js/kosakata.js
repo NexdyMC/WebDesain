@@ -10,32 +10,32 @@ $(function () {
   let previousLanguage = "bisindo";
 
   const sibiLetterImages = {
-    A: "A - wall white.jpg",
-    B: "B - wall white.jpg",
-    C: "C - wall white.jpg",
-    D: "D - wall white.jpg",
-    E: "E - wall white.jpg",
-    F: "F - wall white.jpg",
-    G: "G - wall white.jpg",
-    H: "H - wall white.jpg",
-    I: "I - wall white.jpg",
-    J: "J - wall white.jpg",
-    K: "K - wall white.jpg",
-    L: "L - wall white.jpg",
-    M: "M - wall white.jpg",
-    N: "N - wall white.jpg",
-    O: "O - wall white.jpg",
-    P: "P - wall white.jpg",
-    Q: "Q - wall white.jpg",
-    R: "R - wall white.jpg",
-    S: "S - wall white.jpg",
-    T: "T - wall white.jpg",
-    U: "U - wall white.jpg",
-    V: "V - wall white.jpg",
-    W: "W - wall white.jpg",
-    X: "X - wall white.jpg",
-    Y: "Y - wall white.jpg",
-    Z: "Z - wall white.jpg",
+    A: "A - wall white.webp",
+    B: "B - wall white.webp",
+    C: "C - wall white.webp",
+    D: "D - wall white.webp",
+    E: "E - wall white.webp",
+    F: "F - wall white.webp",
+    G: "G - wall white.webp",
+    H: "H - wall white.webp",
+    I: "I - wall white.webp",
+    J: "J - wall white.webp",
+    K: "K - wall white.webp",
+    L: "L - wall white.webp",
+    M: "M - wall white.webp",
+    N: "N - wall white.webp",
+    O: "O - wall white.webp",
+    P: "P - wall white.webp",
+    Q: "Q - wall white.webp",
+    R: "R - wall white.webp",
+    S: "S - wall white.webp",
+    T: "T - wall white.webp",
+    U: "U - wall white.webp",
+    V: "V - wall white.webp",
+    W: "W - wall white.webp",
+    X: "X - wall white.webp",
+    Y: "Y - wall white.webp",
+    Z: "Z - wall white.webp",
   };
 
   const sibiNumberLabels = {
@@ -58,11 +58,11 @@ $(function () {
         const numericValue = Number(number);
         const imageName =
           numericValue === 0
-            ? "O - wall white.jpg"
+            ? "O - wall white.webp"
             : `Angka-${number}-SIBI.webp`;
         const imagePath =
           numericValue === 0
-            ? `assets/images/SIBI/${encodeURIComponent(imageName)}`
+            ? `assets/images/sibi_alfabet/${encodeURIComponent(imageName)}`
             : `assets/images/SIBI_ANGKA/${encodeURIComponent(imageName)}`;
 
         return `
@@ -81,7 +81,7 @@ $(function () {
   $("#sibiAbjadContainer").html(
     Object.entries(sibiLetterImages)
       .map(function ([letter, fileName]) {
-        const imagePath = `assets/images/SIBI/${encodeURIComponent(fileName)}`;
+        const imagePath = `assets/images/sibi_alfabet/${encodeURIComponent(fileName)}`;
         return `
           <div role="button" tabindex="0" data-language="sibi" data-category="abjad" data-keywords="sibi abjad huruf alfabet ${letter.toLowerCase()}" data-desc="Bentuk isyarat huruf ${letter} dalam Sistem Isyarat Bahasa Indonesia (SIBI)." data-tips="Ikuti posisi jari pada foto dan pastikan telapak tangan menghadap arah yang sesuai." class="flex flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
             <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
