@@ -54,7 +54,7 @@
 
     <!-- Mobile/Tablet Navigation Drawer -->
     <nav id="mobileMenu" class="hidden absolute top-full left-0 right-0 max-h-[calc(100vh-4rem)] overflow-y-auto px-6 pt-2 pb-6 border-b border-orange-100 bg-white/95 md:hidden" aria-label="Menu Mobile">
-      <div class="flex flex-col space-y-2.5 font-medium text-slate-700 text-center">
+      <div class="flex flex-col font-medium text-center space-y-2.5 text-slate-700">
         <a href="index.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Beranda</a>
         <a href="edukasi.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Edukasi</a>
         <a href="kosakata.html" class="px-3 py-2 transition rounded-lg hover:bg-slate-100 hover:text-slate-900">Kamus</a>
@@ -81,7 +81,7 @@
       <div id="menu-screen" class="px-4 py-5 bg-white sm:px-6 sm:py-10 lg:px-8">
         <div class="w-full max-w-4xl mx-auto">
           
-          <!-- Toggle Sistem: BISINDO / SIBI (global, satu untuk seluruh halaman) -->
+          <!-- Toggle Sistem: BISINDO / SIBI -->
           <div class="flex justify-center mb-8">
             <div class="inline-flex p-1 bg-gray-100 rounded-full shadow-inner">
               <button type="button" data-sistem="BISINDO" class="px-5 py-2 text-sm font-bold text-gray-900 transition-all bg-white rounded-full shadow sistem-toggle-btn">BISINDO</button>
@@ -110,13 +110,13 @@
                   <div class="flex justify-between mb-2 text-sm font-semibold text-gray-800 md:text-base">
                     <span>EXP: <span data-exp-for="pk">0</span>/<span data-exp-target-for="pk">30</span></span><span>Score: <span data-score-for="pk">0</span></span>
                   </div>
-                  <div class="tema-progress-bg w-full rounded-full h-2.5 md:h-3">
+                  <div class="w-full rounded-full tema-progress-bg h-2.5 md:h-3">
                     <div data-bar-for="pk" class="tema-solid h-2.5 md:h-3 rounded-full w-1/5 shadow-inner transition-all"></div>
                   </div>
                 </div>
-                <button data-mulai="pilihan-kata" disabled class="tema-solid w-full disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95 shadow-md">
+                <button data-mulai="pilihan-kata" disabled class="flex items-center justify-center w-full gap-2 font-bold text-white transition-all shadow-md tema-solid disabled:opacity-50 disabled:cursor-not-allowed py-3.5 rounded-xl active:scale-95">
                   <i class="text-sm fa-solid fa-play"></i>Mulai latihan </button>
-                <button data-reset="pk" class="tema-outline w-full border-2 hover:bg-gray-50 font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95">
+                <button data-reset="pk" class="flex items-center justify-center w-full gap-2 font-bold transition-all border-2 tema-outline hover:bg-gray-50 py-3.5 rounded-xl active:scale-95">
                   <i class="fa-solid fa-rotate-left"></i>Reset Level </button>
               </div>
             </div>
@@ -141,7 +141,7 @@
                   <div class="flex justify-between mb-2 text-sm font-semibold text-gray-800 md:text-base">
                     <span>EXP: <span data-exp-for="sk">0</span>/<span data-exp-target-for="sk">30</span></span><span>Score: <span data-score-for="sk">0</span></span>
                   </div>
-                  <div class="tema-progress-bg w-full rounded-full h-2.5 md:h-3">
+                  <div class="w-full rounded-full tema-progress-bg h-2.5 md:h-3">
                     <div data-bar-for="sk" class="tema-solid h-2.5 md:h-3 rounded-full w-1/5 shadow-inner transition-all"></div>
                   </div>
                 </div>
@@ -166,7 +166,7 @@
                 <button id="btn-exit-pk" class="flex items-center gap-2 text-xs font-bold transition sm:text-sm hover:opacity-80 active:scale-95">
                   <i class="fa-solid fa-arrow-left"></i>Akhiri Sesi </button>
                 <h2 id="judul-quiz-pk" class="hidden text-base font-extrabold tracking-wide md:block lg:text-lg">Alphabet</h2>
-                <div class="tema-timer-badge flex items-center gap-2 font-bold text-xs sm:text-sm px-3 py-1.5 rounded-xl">
+                <div class="flex items-center gap-2 px-3 text-xs font-bold tema-timer-badge sm:text-sm py-1.5 rounded-xl">
                   <i class="fa-solid fa-stopwatch"></i><span id="timer-display-pk">00:00</span>
                 </div>
               </div>
@@ -176,7 +176,7 @@
                     <span>Lv. <span id="level-live-pk">1</span> &bull; EXP: <span id="exp-current-pk">0</span>/<span id="exp-target-pk">30</span></span>
                     <span>Score: <span id="skor-live-pk">0</span></span>
                   </div>
-                  <div class="tema-progress-bg w-full rounded-full h-2.5 md:h-3">
+                  <div class="w-full rounded-full tema-progress-bg h-2.5 md:h-3">
                     <div id="progress-pk" class="tema-solid h-2.5 md:h-3 rounded-full w-1/5 shadow-inner transition-all"></div>
                   </div>
                 </div>
@@ -190,7 +190,7 @@
                       </div>
                     </div>
                   </div>
-                  <div id="opsi-wrap-pk" class="md:col-span-6 lg:col-span-5 grid grid-cols-2 gap-3 lg:grid-cols-2 sm:gap-3.5">
+                  <div id="opsi-wrap-pk" class="grid grid-cols-2 gap-3 md:col-span-6 lg:col-span-5 lg:grid-cols-2 sm:gap-3.5">
                     
                     <!-- Opsi A -->
                     <div class="opsi-pk tema-border cursor-pointer border-2 hover:shadow-md rounded-2xl p-3.5 sm:p-4 flex text-center items-center gap-3 shadow-sm min-h-[64px] md:min-h-[80px] transition hover:-translate-y-0.5" data-option="A">
@@ -224,7 +224,7 @@
                     <i class="text-sm fa-solid fa-arrow-left"></i> <span class="ml-1 text-sm font-medium">Akhiri Sesi</span>
                   </button>
                   <h2 id="judul-quiz-sk" class="hidden text-lg font-bold tracking-wide md:block">Alphabet</h2>
-                  <div class="tema-timer-badge flex items-center gap-2 font-bold text-xs sm:text-sm px-3 py-1.5 rounded-xl">
+                  <div class="flex items-center gap-2 px-3 text-xs font-bold tema-timer-badge sm:text-sm py-1.5 rounded-xl">
                     <i class="fa-solid fa-stopwatch"></i><span id="timer-display-sk">00:00</span>
                   </div>
                 </div>
@@ -233,7 +233,7 @@
                     <span>Lv. <span id="level-live-sk">1</span> &bull; EXP: <span id="exp-current-sk">0</span>/<span id="exp-target-sk">30</span></span>
                     <span>Score: <span id="skor-live-sk">0</span></span>
                   </div>
-                  <div class="tema-progress-bg w-full rounded-full h-2.5">
+                  <div class="w-full rounded-full tema-progress-bg h-2.5">
                     <div id="progress-sk" class="tema-solid h-2.5 rounded-full w-1/5 shadow-inner transition-all"></div>
                   </div>
                 </div>
@@ -243,9 +243,8 @@
                     <span class="m-auto text-sm text-gray-400 placeholder-zona">Susun kartu di sini sesuai urutan di atas</span>
                   </div>
                   <hr class="w-full my-6 border-t-2 tema-border opacity-80">
-                  <div id="bank-kata" class="flex flex-wrap justify-center gap-3 mb-6">
-                  </div>
-                  <button id="btn-periksa" class="w-full bg-gray-200 text-gray-400 font-bold text-lg py-3.5 rounded-xl transition-all" disabled>Periksa</button>
+                  <div id="bank-kata" class="flex flex-wrap justify-center gap-3 mb-6 min-h-16"></div>
+                  <button id="btn-periksa" class="w-full text-lg font-bold text-gray-400 transition-all bg-gray-200 py-3.5 rounded-xl" disabled>Periksa</button>
                 </div>
               </div>
             </div>
@@ -295,9 +294,9 @@
                     </div>
                   </div>
                   <div class="py-4 space-y-3">
-                    <button id="btn-retry-pk" class="tema-solid w-full text-white font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95 shadow-md">
+                    <button id="btn-retry-pk" class="flex items-center justify-center w-full gap-2 font-bold text-white transition-all shadow-md tema-solid py-3.5 rounded-xl active:scale-95">
                       <i class="fa-solid fa-rotate"></i> Coba Lagi </button>
-                    <button id="btn-dictionary-pk" class="tema-outline w-full border-2 hover:bg-gray-50 font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95">
+                    <button id="btn-dictionary-pk" class="flex items-center justify-center w-full gap-2 font-bold transition-all border-2 tema-outline hover:bg-gray-50 py-3.5 rounded-xl active:scale-95">
                       <i class="fa-solid fa-house"></i> Kembali ke Halaman Utama </button>
                   </div>
                 </div>
@@ -341,9 +340,9 @@
                     </div>
                   </div>
                   <div class="py-4 space-y-3">
-                    <button id="btn-retry-sk" class="tema-solid w-full text-white font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95 shadow-md">
+                    <button id="btn-retry-sk" class="flex items-center justify-center w-full gap-2 font-bold text-white transition-all shadow-md tema-solid py-3.5 rounded-xl active:scale-95">
                       <i class="fa-solid fa-rotate"></i> Coba Lagi </button>
-                    <button id="btn-dictionary-sk" class="tema-outline w-full border-2 hover:bg-gray-50 font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all active:scale-95">
+                    <button id="btn-dictionary-sk" class="flex items-center justify-center w-full gap-2 font-bold transition-all border-2 tema-outline hover:bg-gray-50 py-3.5 rounded-xl active:scale-95">
                       <i class="fa-solid fa-house"></i> Kembali ke Halaman Utama </button>
                   </div>
                 </div>

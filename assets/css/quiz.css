@@ -25,12 +25,12 @@
   .theme-sibi .card-pk .tema-border      { border-color: #4ade80; }
   .theme-sibi .card-pk .tema-progress-bg { background-color: #dcfce7; }
 
-  .theme-sibi .card-sk .tema-solid       { background-color: #7e22ce; }
-  .theme-sibi .card-sk .tema-outline     { border-color: #7e22ce; color: #7e22ce; }
-  .theme-sibi .card-sk .tema-text        { color: #7e22ce; }
-  .theme-sibi .card-sk .tema-soft        { background-color: #faf5ff; }
-  .theme-sibi .card-sk .tema-border      { border-color: #c084fc; }
-  .theme-sibi .card-sk .tema-progress-bg { background-color: #f3e8ff; }
+  .theme-sibi .card-sk .tema-solid       { background-color: #0d9488; }
+  .theme-sibi .card-sk .tema-outline     { border-color: #0d9488; color: #0d9488; }
+  .theme-sibi .card-sk .tema-text        { color: #0d9488; }
+  .theme-sibi .card-sk .tema-soft        { background-color: #ecfdf5; }
+  .theme-sibi .card-sk .tema-border      { border-color: #a7f3d0; }
+  .theme-sibi .card-sk .tema-progress-bg { background-color: #d1fae5; }
 
   .tema-solid:hover { filter: brightness(0.92); }
   .tema-timer-badge { background-color: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); }

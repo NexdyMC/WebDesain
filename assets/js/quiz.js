@@ -46,20 +46,23 @@ $(function () {
     }
     return a;
   }
+
   function randomInt(n) { return Math.floor(Math.random() * n); }
 
-  // ================= DATA KOSAKATA (assets/data/quiz.json) =================
+  // ================= DATA KOSAKATA =================
   function daftarKosakata(sistem, jenis) {
     return (KOSAKATA[sistem] && KOSAKATA[sistem][jenis]) ? KOSAKATA[sistem][jenis] : [];
   }
+
   function cariItem(sistem, jenis, key) {
     return daftarKosakata(sistem, jenis).find(x => x.key === key);
   }
 
-  // ================= DATA LEVEL (assets/data/level.json, dengan fallback rumus kalau level belum ada di JSON) =================
+  // ================= DATA LEVEL =================
   function hitungExpTargetFallback(level) {
     return 30 + 5 * Math.floor((level - 1) / 2);
   }
+
   function hitungJendelaFallback(sistem, jenis, level) {
     const daftar = daftarKosakata(sistem, jenis);
     if (!daftar.length) return []; // data belum siap saat pertama kali load - jangan sampai crash
@@ -68,6 +71,7 @@ $(function () {
     for (let i = 0; i < 5; i++) hasil.push(daftar[(mulai + i) % daftar.length].key);
     return hasil;
   }
+
   function ambilDataLevel(sistem, level) {
     const jenis = 'Alphabet'; // baru satu jenis yang aktif untuk sekarang
     const ada = LEVELS.find(l => l.sistem === sistem && l.level === level && l.jenis === jenis);
@@ -75,14 +79,16 @@ $(function () {
     // fallback: level di luar daftar assets/data/level.json, tetap dihitung otomatis (unlimited)
     return { level: level, sistem: sistem, jenis: jenis, soal: hitungJendelaFallback(sistem, jenis, level), exp: hitungExpTargetFallback(level) };
   }
+
   function hurufKeObjekGambar(sistem, jenis, hurufArr) {
     return hurufArr.map(k => cariItem(sistem, jenis, k)).filter(Boolean);
   }
+
   function expDibutuhkan(sistem, level) {
     return ambilDataLevel(sistem, level).exp;
   }
 
-  // ================= LOCAL STORAGE (key: "kuis") =================
+  // ================= LOCAL STORAGE =================
   function SaveLocalStorage() {
     const data = [];
     ['pk', 'sk'].forEach(mode => {
@@ -97,6 +103,7 @@ $(function () {
     });
     localStorage.setItem('kuis', JSON.stringify(data));
   }
+
   function LoadLocalStorage() {
     try {
       const data = JSON.parse(localStorage.getItem('kuis'));
@@ -127,12 +134,13 @@ $(function () {
     $('[data-score-for="sk"]').text(sk.score);
     $('[data-bar-for="sk"]').css('width', persenExpBar(sistemAktif, sk) + '%');
   }
+
   function persenExpBar(sistem, s) {
     const butuh = expDibutuhkan(sistem, s.level);
     return Math.max(4, Math.min(100, Math.round((s.exp / butuh) * 100)));
   }
 
-  // ================= TOGGLE SISTEM (BISINDO / SIBI) - global, cuma ada di menu-screen =================
+  // ================= TOGGLE SISTEM (BISINDO / SIBI) =================
   $('.sistem-toggle-btn').on('click', function () {
     const pilihan = $(this).data('sistem');
     if (pilihan === sistemAktif) return;
@@ -146,9 +154,7 @@ $(function () {
     perbaruiMenu();
   });
 
-  // ================= SectionScreen: satu-satunya jalur ganti layar =================
-  // idHalaman = 'menu-screen' | 'play-screen' | 'end-screen' (3 screen di dalam satu <section>)
-  // modeGame  = 'pk' | 'sk' | null -> menentukan kartu mode mana yang tampil di dalam play-screen/end-screen
+  // ================= SectionScreen =================
   function SectionScreen(idHalaman, modeGame) {
     $('#menu-screen, #play-screen, #end-screen').hide();
     $('#' + idHalaman).show();
@@ -179,19 +185,22 @@ $(function () {
       perbaruiTampilanWaktu(mode);
     }, 1000);
   }
+
   function HentikanStopwatch(mode) {
     clearInterval(S(mode).timerId);
   }
+
   function formatWaktu(total) {
     const m = Math.floor(total / 60).toString().padStart(2, '0');
     const dt = Math.floor(total % 60).toString().padStart(2, '0');
     return m + ':' + dt;
   }
+
   function perbaruiTampilanWaktu(mode) {
     $(mode === 'pk' ? '#timer-display-pk' : '#timer-display-sk').text(formatWaktu(S(mode).waktuBerjalan));
   }
 
-  // ================= PERHITUNGAN SKOR (bonus kecepatan menjawab) =================
+  // ================= PERHITUNGAN SKOR =================
   function MathScore(benar, waktuJawabDetik) {
     if (!benar) return 0;
     const bonus = Math.max(0, (KONFIG.batasWaktuIdeal - waktuJawabDetik) * KONFIG.poinPerDetik);
@@ -219,6 +228,9 @@ $(function () {
   function mulaiSesiPK() {
     const s = S('pk');
     s.benar = 0; s.salah = 0; s.dijawab = 0; s.terkunci = false;
+    $('html, body').animate({
+      scrollTop: $('#play-screen').offset().top
+    }, 50);
     tampilkanSoalBaruPK();
     SectionScreen('play-screen', 'pk');
     RunStopwatch('pk');
@@ -298,6 +310,9 @@ $(function () {
 
   function mulaiSesiSK() {
     const s = S('sk');
+    $('html, body').animate({
+      scrollTop: $('#play-screen').offset().top
+    }, 50);
     s.benar = 0; s.salah = 0; s.dijawab = 0; s.terkunci = false;
     tampilkanSoalBaruSK();
     SectionScreen('play-screen', 'sk');
@@ -306,10 +321,10 @@ $(function () {
 
   function buatElemenKartu(item, tipe) {
     const $el = $('<button type="button"></button>')
-      .addClass('kartu-kata tema-border flex items-center justify-center px-2 py-3 sm:px-5 sm:py-3 text-gray-900 transition-transform bg-white border-2 shadow-sm cursor-pointer rounded-xl active:scale-95')
+      .addClass('kartu-kata tema-border flex items-center justify-center p-3 text-gray-900 transition-transform bg-white border-2 shadow-sm cursor-pointer rounded-xl active:scale-95')
       .attr('data-huruf', item.key);
     if (tipe === 'gambar') {
-      $el.append('<img src="' + item.image + '" alt="' + item.key + '" class="object-contain w-12 h-12 sm:w-16 sm:h-16 rounded-md">');
+      $el.append('<img src="' + item.image + '" alt="' + item.key + '" class="object-contain w-12 h-12 sm:w-14 sm:h-14 rounded-md">');
     } else {
       $el.append('<span class="text-2xl font-bold sm:text-3xl">' + item.key + '</span>');
     }
@@ -419,7 +434,7 @@ $(function () {
     SaveLocalStorage();
   }
 
-  // ================= AKHIR SESI (saat tombol Akhiri Sesi ditekan) =================
+  // ================= AKHIR SESI =================
   function selesaikanSesi(mode) {
     const s = S(mode);
     HentikanStopwatch(mode);
