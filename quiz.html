@@ -6,7 +6,7 @@
   <title>IsyaratOK - Belajar Bahasa Isyarat Interaktif &amp; Inklusif</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
 
   <!-- Google Fonts & Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -156,12 +156,12 @@
       </div>
       
       <!-- Card Play Session  -->
-      <div id="play-screen" style="display:none" class="p-4 bg-white sm:px-6 lg:px-8">
+      <div id="play-screen" class="p-4 bg-white sm:px-6 lg:px-8 hidden">
         <div id="start-screen" class="mx-auto max-w-7xl lg:scale-95">
           <div class="grid items-start grid-cols-1 gap-6 mb-8 lg:gap-8 justify-items-center">
             
             <!-- Card 1: Test Pilihan Kata -->
-            <div id="page-game" class="w-full max-w-sm mx-auto overflow-hidden bg-white shadow-lg card-pk rounded-3xl md:max-w-4xl" style="display:none">
+            <div id="page-game" class="w-full max-w-sm mx-auto overflow-hidden bg-white shadow-lg card-pk rounded-3xl md:max-w-4xl hidden">
               
               <!-- Card Header -->
               <div class="flex items-center justify-between px-5 py-4 text-white shadow-md tema-solid sm:px-8">
@@ -221,7 +221,7 @@
             </div>
             
             <!-- Card 2: Test Susun Kata -->
-            <div id="page-susun-kata" class="relative flex flex-col w-full max-w-sm overflow-hidden bg-white shadow-2xl card-sk rounded-3xl md:max-w-4xl" style="display:none">
+            <div id="page-susun-kata" class="relative flex flex-col w-full max-w-sm overflow-hidden bg-white shadow-2xl card-sk rounded-3xl md:max-w-4xl hidden">
               <div class="flex flex-col w-full mx-auto overflow-hidden bg-white shadow-2xl rounded-3xl">
                 
                 <!-- Card Header -->
@@ -261,12 +261,12 @@
       </div>
       
       <!-- Card End Session -->
-      <div id="end-screen" style="display:none" class="p-4 bg-white sm:px-6 lg:px-8">
+      <div id="end-screen" class="p-4 bg-white sm:px-6 lg:px-8 hidden">
         <div class="w-full max-w-4xl mx-auto">
           <div class="grid items-start grid-cols-1 gap-6 mb-8 lg:gap-8 justify-items-center">
             
             <!-- Card 1: Test Pilihan Kata -->
-            <div id="wrap-end-pk" class="card-pk" style="display:none">
+            <div id="wrap-end-pk" class="card-pk hidden">
               <div class="w-full max-w-xl overflow-hidden transition duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl">
                 
                 <!-- Card Header -->
@@ -316,7 +316,7 @@
             </div>
             
             <!-- Card 2: Test Susun Kata -->
-            <div id="wrap-end-sk" class="card-sk" style="display:none">
+            <div id="wrap-end-sk" class="card-sk hidden">
               <div class="w-full max-w-xl overflow-hidden transition duration-200 bg-white shadow-lg quiz-card rounded-3xl hover:shadow-xl ">
                 
                 <!-- Card Header -->
@@ -438,8 +438,6 @@
   </footer>
 
   <!-- jQuery & Main Script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/script.js"></script>
   <script src="assets/js/quiz.js"></script>

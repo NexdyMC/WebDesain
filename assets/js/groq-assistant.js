@@ -44,7 +44,7 @@
       class: isUser
         ? "assistant-message-bubble rounded-2xl rounded-br-sm bg-slate-900 px-4 py-2.5 text-sm leading-relaxed text-white shadow-sm"
         : "assistant-message-bubble bubble-bot rounded-2xl rounded-bl-sm bg-white px-4 py-2.5 text-sm leading-relaxed text-neutral-800 shadow-sm",
-      text: message, // Karena menggunakan 'text', HTML tabel otomatis tidak akan dirender
+      text: message, // Using text prevents AI responses from rendering HTML.
     });
 
     if (!isUser) {
@@ -119,14 +119,14 @@
       throw new Error("Groq mengembalikan jawaban kosong.");
     }
 
-    // 2. PROSES SANITASI JAWABAN AI
+    // Clean formatting from the AI response.
     let cleanAnswer = answer.trim();
 
-    // Menghapus format tebal (**teks** menjadi teks)
+    // Remove Markdown bold formatting.
     cleanAnswer = cleanAnswer.replace(/\*\*(.*?)\*\*/g, "$1");
-    // Menghapus format tebal alternatif (__teks__ menjadi teks)
+    // Remove alternate Markdown bold formatting.
     cleanAnswer = cleanAnswer.replace(/__(.*?)__/g, "$1");
-    // Menghapus format header (# Header menjadi Header)
+    // Remove Markdown heading markers.
     cleanAnswer = cleanAnswer.replace(/###?\s?(.*)/g, "$1");
 
     conversation.push({ role: "user", content: question });

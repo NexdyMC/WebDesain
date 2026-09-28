@@ -1,6 +1,6 @@
 $(function () {
 
-  // ================= KONFIGURASI =================
+  // ================= CONFIGURATION =================
   const KONFIG = {
     expBenar: 5,
     expSalah: 5,
@@ -9,12 +9,12 @@ $(function () {
     poinPerDetik: 10
   };
 
-  let KOSAKATA = {};    // dari assets/data/quiz.json -> { BISINDO: { Alphabet: [{key, image}, ...] }, SIBI: { ... } }
-  let LEVELS = [];      // dari assets/data/level.json -> [{level, sistem, jenis, soal:[...], exp}, ...]
+  let KOSAKATA = {};    // Loaded from assets/data/quiz.json.
+  let LEVELS = [];      // Loaded from assets/data/level.json.
 
-  let sistemAktif = 'BISINDO'; // 'BISINDO' | 'SIBI' - toggle global, cuma bisa diganti di menu-screen
+  let sistemAktif = 'BISINDO'; // Global selection; it can only change from the menu screen.
 
-  // state disimpan per mode (pk/sk) DAN per sistem (BISINDO/SIBI) supaya progres tiap sistem terpisah
+  // Store progress separately for each mode (pk/sk) and sign system (BISINDO/SIBI).
   let state = {
     pk: { BISINDO: buatStateAwal(), SIBI: buatStateAwal() },
     sk: { BISINDO: buatStateAwal(), SIBI: buatStateAwal() }
@@ -30,14 +30,13 @@ $(function () {
     };
   }
 
-  // helper: ambil state mode ('pk'/'sk') untuk sistem yang SEDANG berjalan pada mode itu.
-  // Selama main, sistem terkunci ke sistem yang dipakai saat sesi dimulai (disimpan di s.sistemSesi),
-  // supaya toggle di menu-screen (yang memang disembunyikan saat main) tidak pernah mengubah sesi berjalan.
+  // Return the mode state for the active sign system.
+  // A session keeps its starting system so menu changes cannot affect an active game.
   function S(mode) {
     return state[mode][sistemAktif];
   }
 
-  // ================= UTIL =================
+  // ================= UTILITIES =================
   function acak(arr) {
     let a = arr.slice();
     for (let i = a.length - 1; i > 0; i--) {
@@ -49,7 +48,7 @@ $(function () {
 
   function randomInt(n) { return Math.floor(Math.random() * n); }
 
-  // ================= DATA KOSAKATA =================
+  // ================= VOCABULARY DATA =================
   function daftarKosakata(sistem, jenis) {
     return (KOSAKATA[sistem] && KOSAKATA[sistem][jenis]) ? KOSAKATA[sistem][jenis] : [];
   }
@@ -58,14 +57,14 @@ $(function () {
     return daftarKosakata(sistem, jenis).find(x => x.key === key);
   }
 
-  // ================= DATA LEVEL =================
+  // ================= LEVEL DATA =================
   function hitungExpTargetFallback(level) {
     return 30 + 5 * Math.floor((level - 1) / 2);
   }
 
   function hitungJendelaFallback(sistem, jenis, level) {
     const daftar = daftarKosakata(sistem, jenis);
-    if (!daftar.length) return []; // data belum siap saat pertama kali load - jangan sampai crash
+    if (!daftar.length) return []; // Data may not be ready during the initial load.
     const mulai = ((level - 1) * 3) % daftar.length;
     const hasil = [];
     for (let i = 0; i < 5; i++) hasil.push(daftar[(mulai + i) % daftar.length].key);
@@ -73,10 +72,10 @@ $(function () {
   }
 
   function ambilDataLevel(sistem, level) {
-    const jenis = 'Alphabet'; // baru satu jenis yang aktif untuk sekarang
+    const jenis = 'Alphabet'; // Only alphabet questions are currently enabled.
     const ada = LEVELS.find(l => l.sistem === sistem && l.level === level && l.jenis === jenis);
     if (ada) return ada;
-    // fallback: level di luar daftar assets/data/level.json, tetap dihitung otomatis (unlimited)
+    // Calculate levels beyond level.json automatically.
     return { level: level, sistem: sistem, jenis: jenis, soal: hitungJendelaFallback(sistem, jenis, level), exp: hitungExpTargetFallback(level) };
   }
 
@@ -117,7 +116,7 @@ $(function () {
           }
         });
       }
-    } catch (e) { /* localStorage kosong/rusak, pakai default */ }
+    } catch (e) { /* Use defaults when local storage is empty or invalid. */ }
   }
 
   function perbaruiMenu() {
@@ -140,7 +139,7 @@ $(function () {
     return Math.max(4, Math.min(100, Math.round((s.exp / butuh) * 100)));
   }
 
-  // ================= TOGGLE SISTEM (BISINDO / SIBI) =================
+  // ================= SIGN SYSTEM TOGGLE =================
   $('.sistem-toggle-btn').on('click', function () {
     const pilihan = $(this).data('sistem');
     if (pilihan === sistemAktif) return;
@@ -154,7 +153,7 @@ $(function () {
     perbaruiMenu();
   });
 
-  // ================= SectionScreen =================
+  // ================= SCREEN SELECTION =================
   function SectionScreen(idHalaman, modeGame) {
     $('#menu-screen, #play-screen, #end-screen').hide();
     $('#' + idHalaman).show();
@@ -200,14 +199,14 @@ $(function () {
     $(mode === 'pk' ? '#timer-display-pk' : '#timer-display-sk').text(formatWaktu(S(mode).waktuBerjalan));
   }
 
-  // ================= PERHITUNGAN SKOR =================
+  // ================= SCORE CALCULATION =================
   function MathScore(benar, waktuJawabDetik) {
     if (!benar) return 0;
     const bonus = Math.max(0, (KONFIG.batasWaktuIdeal - waktuJawabDetik) * KONFIG.poinPerDetik);
     return KONFIG.poinDasarBenar + bonus;
   }
 
-  // ================= PILIHAN KATA =================
+  // ================= WORD CHOICE =================
   function buatSatuSoalPK(sistem, level) {
     const dataLevel = ambilDataLevel(sistem, level);
     const jendela = hurufKeObjekGambar(sistem, dataLevel.jenis, dataLevel.soal);
@@ -295,11 +294,11 @@ $(function () {
     }, 700);
   });
 
-  // ================= SUSUN KATA =================
+  // ================= WORD ORDER =================
   function buatSatuSoalSK(sistem, level) {
     const dataLevel = ambilDataLevel(sistem, level);
     const jendela = hurufKeObjekGambar(sistem, dataLevel.jenis, dataLevel.soal);
-    const panjang = 2 + randomInt(3); // 3..5 huruf
+    const panjang = 2 + randomInt(3); // 3 to 5 letters
     const dipilih = acak(jendela).slice(0, panjang);
     const target = dipilih.slice().sort((a, b) => a.key.localeCompare(b.key));
     const tipeSoal = Math.random() < 0.5 ? 'gambar' : 'teks';
@@ -412,7 +411,7 @@ $(function () {
     }, 800);
   });
 
-  // ================= EXP / SCORE / LEVEL BERSAMA =================
+  // ================= EXPERIENCE, SCORE, AND LEVEL =================
   function prosesJawaban(mode, benar) {
     const s = S(mode);
     s.dijawab++;
@@ -426,7 +425,7 @@ $(function () {
       s.salah++;
       s.exp = Math.max(0, s.exp - KONFIG.expSalah);
     }
-    // naik level kalau exp cukup - TIDAK memindahkan layar, cuma lanjut ke soal berikutnya dengan huruf level baru
+    // Level up without changing screens; continue with questions for the new level.
     while (s.exp >= expDibutuhkan(sistemAktif, s.level)) {
       s.exp -= expDibutuhkan(sistemAktif, s.level);
       s.level++;
@@ -434,7 +433,7 @@ $(function () {
     SaveLocalStorage();
   }
 
-  // ================= AKHIR SESI =================
+  // ================= SESSION END =================
   function selesaikanSesi(mode) {
     const s = S(mode);
     HentikanStopwatch(mode);
@@ -453,15 +452,15 @@ $(function () {
     $('#hasil-level-' + mode).text(s.level);
     $('#hasil-waktu-' + mode).text(formatWaktu(s.waktuBerjalan));
 
-    // Level, EXP, dan Score TETAP tersimpan - dilanjutkan lagi saat mulai sesi berikutnya
+    // Keep level, EXP, and score for the next session.
     SaveLocalStorage();
 
     SectionScreen('end-screen', mode);
   }
 
-  // ================= RESET LEVEL =================
+  // ================= LEVEL RESET =================
   $('[data-reset]').on('click', function () {
-    const mode = $(this).data('reset'); // 'pk' atau 'sk'
+    const mode = $(this).data('reset'); // 'pk' or 'sk'
     const label = mode === 'pk' ? 'Test Pilih Kata' : 'Test Susun Kata';
     if (!window.confirm('Yakin ingin mereset Level, EXP, dan Score "' + label + '" (' + sistemAktif + ') kembali ke awal?')) return;
     S(mode).level = 1;
@@ -471,7 +470,7 @@ $(function () {
     perbaruiMenu();
   });
 
-  // ================= EVENT TOMBOL =================
+  // ================= BUTTON EVENTS =================
   $('[data-mulai="pilihan-kata"]').on('click', mulaiSesiPK);
   $('[data-mulai="susun-kata"]').on('click', mulaiSesiSK);
 
@@ -485,7 +484,7 @@ $(function () {
     SectionScreen('menu-screen', null);
   });
 
-  // ================= INIT =================
+  // ================= INITIALIZATION =================
   SectionScreen('menu-screen', null);
   $.when(
     $.getJSON('assets/data/quiz.json'),

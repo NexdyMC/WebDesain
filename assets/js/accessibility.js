@@ -1,4 +1,3 @@
-// filepath: d:\FEBRI\WebDesain\assets\js\accessibility.js
 (function () {
   "use strict";
 

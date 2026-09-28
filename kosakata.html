@@ -14,7 +14,7 @@
   <meta property="og:type" content="website" />
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
 
   <!-- Google Fonts & Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -94,13 +94,13 @@
       <div class="mx-auto max-w-7xl">
         
         <!-- Hero Header -->
-        <div class="max-w-3xl mx-auto mb-10 text-center fade-up-item" style="--delay: 60ms;">
+        <div class="max-w-3xl mx-auto mb-10 text-center fade-up-item fade-delay-60">
           <h1 class="text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl md:text-5xl"> Eksplorasi <span class="text-transparent bg-orange-500 bg-clip-text">Kamus Isyarat</span></h1>
           <p class="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">Temukan visualisasi bentuk gerakan tangan untuk abjad, angka, dan kosakata sehari-hari. Klik kartu mana saja untuk melihat panduan detailnya.</p>
         </div>
 
         <!-- Search & Filter Card Box -->
-        <div class="max-w-4xl p-6 mx-auto bg-white border shadow-xl rounded-3xl border-slate-100 md:p-8 fade-up-item" style="--delay: 140ms;">
+        <div class="max-w-4xl p-6 mx-auto bg-white border shadow-xl rounded-3xl border-slate-100 md:p-8 fade-up-item fade-delay-140">
           
           <!-- Language Switcher -->
           <div id="languageSwitcher" class="p-1 mb-6 language-switcher rounded-2xl" role="tablist" aria-label="Pilih bahasa isyarat">
@@ -569,42 +569,69 @@
           </div>
         </div>
         <!-- Words Grid -->
-        <div class="grid grid-cols-2 auto-rows-fr gap-4 mb-16 sm:grid-cols-3 md:grid-cols-4 md:gap-5 fade-up-item" id="kataContainer">
+        <div class="grid grid-cols-2 auto-rows-fr gap-3 mb-16 sm:grid-cols-3 md:grid-cols-6 md:gap-4 fade-up-item" id="kataContainer">
           <!-- Word 1: Saya -->
-          <div role="button" tabindex="0" data-category="kata" data-keywords="saya aku diri sendiri me i" data-desc="Bentuk isyarat untuk kata Saya dalam BISINDO." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-4 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
-            <div class="relative mb-3 overflow-hidden rounded-xl aspect-square bg-slate-50">
+          <div role="button" tabindex="0" data-category="kata" data-keywords="saya aku diri sendiri me i" data-desc="Bentuk isyarat untuk kata Saya dalam BISINDO." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
               <img src="assets/images/bisindo_kosakata/Saya.webp" alt="Isyarat kata Saya" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
               <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Kata ganti</span>
             </div>
-            <p class="text-base font-bold text-slate-800 group-hover:text-emerald-600 card-title">Saya</p>
-            <span class="text-xs text-slate-500">Kata ganti orang pertama</span>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-emerald-600 card-title">Saya</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Kata ganti orang pertama</span>
           </div>
           <!-- Word 2: Terima Kasih -->
-          <div role="button" tabindex="0" data-category="kata" data-keywords="terima kasih makasih thanks thank you" data-desc="Bentuk isyarat untuk ungkapan Terima Kasih dalam BISINDO." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-4 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
-            <div class="relative mb-3 overflow-hidden rounded-xl aspect-square bg-slate-50">
+          <div role="button" tabindex="0" data-category="kata" data-keywords="terima kasih makasih thanks thank you" data-desc="Bentuk isyarat untuk ungkapan Terima Kasih dalam BISINDO." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
               <img src="assets/images/bisindo_kosakata/Terima-Kasih.webp" alt="Isyarat kata Terima Kasih" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
               <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Ungkapan</span>
             </div>
-            <p class="text-base font-bold text-slate-800 group-hover:text-emerald-600 card-title">Terima Kasih</p>
-            <span class="text-xs text-slate-500">Apresiasi &amp; santun</span>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-emerald-600 card-title">Terima Kasih</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Apresiasi &amp; santun</span>
           </div>
           <!-- Word 3: Tuli -->
-          <div role="button" tabindex="0" data-category="kata" data-keywords="tuli tunarungu deaf gangguan pendengaran" data-desc="Bentuk isyarat untuk kata Tuli dalam BISINDO." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-4 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
-            <div class="relative mb-3 overflow-hidden rounded-xl aspect-square bg-slate-50">
+          <div role="button" tabindex="0" data-category="kata" data-keywords="tuli tunarungu deaf gangguan pendengaran" data-desc="Bentuk isyarat untuk kata Tuli dalam BISINDO." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
               <img src="assets/images/bisindo_kosakata/Tuli.webp" alt="Isyarat kata Tuli" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
               <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Identitas</span>
             </div>
-            <p class="text-base font-bold text-slate-800 group-hover:text-emerald-600 card-title">Tuli</p>
-            <span class="text-xs text-slate-500">Identitas komunitas</span>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-emerald-600 card-title">Tuli</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Identitas komunitas</span>
           </div>
           <!-- Word 4: Umur -->
-          <div role="button" tabindex="0" data-category="kata" data-keywords="umur usia berapa tahun age" data-desc="Bentuk isyarat untuk kata Umur dalam BISINDO." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-4 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
-            <div class="relative mb-3 overflow-hidden rounded-xl aspect-square bg-slate-50">
+          <div role="button" tabindex="0" data-category="kata" data-keywords="umur usia berapa tahun age" data-desc="Bentuk isyarat untuk kata Umur dalam BISINDO." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
               <img src="assets/images/bisindo_kosakata/Umur.webp" alt="Isyarat kata Umur" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
               <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Keterangan</span>
             </div>
-            <p class="text-base font-bold text-slate-800 group-hover:text-emerald-600 card-title">Umur</p>
-            <span class="text-xs text-slate-500">Keterangan usia</span>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-emerald-600 card-title">Umur</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Keterangan usia</span>
+          </div>
+          <!-- Word 5: Mereka -->
+          <div role="button" tabindex="0" data-category="kata" data-keywords="mereka orang-orang mereka semua they them" data-desc="Bentuk isyarat untuk kata Mereka dalam BISINDO." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
+              <img src="assets/images/bisindo_kosakata/mereka.webp" alt="Isyarat kata Mereka" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+              <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Kata ganti</span>
+            </div>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-emerald-600 card-title">Mereka</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Kata ganti orang ketiga</span>
+          </div>
+          <!-- Word 6: Nama -->
+          <div role="button" tabindex="0" data-category="kata" data-keywords="nama identitas name" data-desc="Bentuk isyarat untuk kata Nama dalam BISINDO." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
+              <img src="assets/images/bisindo_kosakata/nama.webp" alt="Isyarat kata Nama" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+              <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Identitas</span>
+            </div>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-emerald-600 card-title">Nama</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Identitas diri</span>
+          </div>
+          <!-- Word 7: Sama-Sama -->
+          <div role="button" tabindex="0" data-category="kata" data-keywords="sama-sama sama sama kembali welcome you're welcome" data-desc="Bentuk isyarat untuk ungkapan Sama-Sama dalam BISINDO." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-emerald-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
+              <img src="assets/images/bisindo_kosakata/sama-sama.webp" alt="Isyarat kata Sama-Sama" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+              <span class="absolute top-2 right-2 px-2.5 py-0.5 text-[10px] font-bold text-emerald-900 bg-emerald-100 rounded-md card-badge">Ungkapan</span>
+            </div>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-emerald-600 card-title">Sama-Sama</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Balasan terima kasih</span>
           </div>
         </div>
         <div class="flex justify-center mb-16 -mt-10">
@@ -647,6 +674,80 @@
         </div>
         <div class="flex justify-center mb-16 -mt-10">
           <button type="button" class="items-center hidden gap-2 px-5 text-xs font-bold transition rounded-full show-more-cards py-2.5 text-sky-700 bg-sky-100 hover:bg-sky-200" data-target="sibiAbjadContainer" aria-expanded="false"> Tampilkan Selengkapnya <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="mb-14 section-category-header fade-up-item">
+          <div class="flex items-center gap-3 pb-3 mb-6 border-b border-sky-100">
+            <div class="flex items-center justify-center text-white shadow-sm w-9 h-9 bg-sky-500 rounded-xl">
+              <i class="text-sm fa-solid fa-comments" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-800 sm:text-2xl">Kosakata Isyarat Harian SIBI</h2>
+              <p class="text-sm leading-relaxed text-slate-500">Koleksi kosakata harian dalam Sistem Isyarat Bahasa Indonesia.</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 auto-rows-fr gap-3 mb-16 sm:grid-cols-3 md:grid-cols-6 md:gap-4 fade-up-item" id="sibiKataContainer">
+          <div role="button" tabindex="0" data-language="sibi" data-category="kata" data-keywords="saya aku diri sendiri me i" data-desc="Bentuk isyarat untuk kata Saya dalam SIBI." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
+              <img src="assets/images/bisindo_kosakata/Saya.webp" alt="Isyarat kata Saya dalam SIBI" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+              <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-sky-900 bg-sky-100 rounded-md card-badge">Kata ganti</span>
+            </div>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-sky-600 card-title">Saya</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Kata ganti orang pertama</span>
+          </div>
+          <div role="button" tabindex="0" data-language="sibi" data-category="kata" data-keywords="terima kasih makasih thanks thank you" data-desc="Bentuk isyarat untuk ungkapan Terima Kasih dalam SIBI." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
+              <img src="assets/images/bisindo_kosakata/Terima-Kasih.webp" alt="Isyarat kata Terima Kasih dalam SIBI" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+              <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-sky-900 bg-sky-100 rounded-md card-badge">Ungkapan</span>
+            </div>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-sky-600 card-title">Terima Kasih</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Apresiasi &amp; santun</span>
+          </div>
+          <div role="button" tabindex="0" data-language="sibi" data-category="kata" data-keywords="tuli tunarungu deaf gangguan pendengaran" data-desc="Bentuk isyarat untuk kata Tuli dalam SIBI." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
+              <img src="assets/images/bisindo_kosakata/Tuli.webp" alt="Isyarat kata Tuli dalam SIBI" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+              <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-sky-900 bg-sky-100 rounded-md card-badge">Identitas</span>
+            </div>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-sky-600 card-title">Tuli</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Identitas komunitas</span>
+          </div>
+          <div role="button" tabindex="0" data-language="sibi" data-category="kata" data-keywords="umur usia berapa tahun age" data-desc="Bentuk isyarat untuk kata Umur dalam SIBI." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
+              <img src="assets/images/bisindo_kosakata/Umur.webp" alt="Isyarat kata Umur dalam SIBI" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+              <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-sky-900 bg-sky-100 rounded-md card-badge">Keterangan</span>
+            </div>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-sky-600 card-title">Umur</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Keterangan usia</span>
+          </div>
+          <div role="button" tabindex="0" data-language="sibi" data-category="kata" data-keywords="mereka orang-orang mereka semua they them" data-desc="Bentuk isyarat untuk kata Mereka dalam SIBI." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
+              <img src="assets/images/bisindo_kosakata/mereka.webp" alt="Isyarat kata Mereka dalam SIBI" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+              <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-sky-900 bg-sky-100 rounded-md card-badge">Kata ganti</span>
+            </div>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-sky-600 card-title">Mereka</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Kata ganti orang ketiga</span>
+          </div>
+          <div role="button" tabindex="0" data-language="sibi" data-category="kata" data-keywords="nama identitas name" data-desc="Bentuk isyarat untuk kata Nama dalam SIBI." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
+              <img src="assets/images/bisindo_kosakata/nama.webp" alt="Isyarat kata Nama dalam SIBI" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+              <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-sky-900 bg-sky-100 rounded-md card-badge">Identitas</span>
+            </div>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-sky-600 card-title">Nama</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Identitas diri</span>
+          </div>
+          <div role="button" tabindex="0" data-language="sibi" data-category="kata" data-keywords="sama-sama sama sama kembali welcome you're welcome" data-desc="Bentuk isyarat untuk ungkapan Sama-Sama dalam SIBI." data-tips="Perhatikan posisi dan gerakan tangan pada gambar." class="flex h-full flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
+            <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
+              <img src="assets/images/bisindo_kosakata/sama-sama.webp" alt="Isyarat kata Sama-Sama dalam SIBI" class="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105" />
+              <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-sky-900 bg-sky-100 rounded-md card-badge">Ungkapan</span>
+            </div>
+            <p class="text-base font-extrabold text-slate-800 group-hover:text-sky-600 card-title">Sama-Sama</p>
+            <span class="text-[11px] font-medium text-slate-500 truncate">Balasan terima kasih</span>
+          </div>
+        </div>
+        <div class="flex justify-center mb-16 -mt-10">
+          <button type="button" class="items-center hidden gap-2 px-5 text-xs font-bold transition rounded-full show-more-cards py-2.5 text-sky-700 bg-sky-100 hover:bg-sky-200" data-target="sibiKataContainer" aria-expanded="false"> Tampilkan Selengkapnya <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
           </button>
         </div>
         <div id="sibiNoResultsMessage" class="hidden max-w-md p-10 mx-auto my-12 text-center bg-white border shadow-sm border-slate-100 rounded-3xl">

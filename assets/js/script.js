@@ -505,7 +505,7 @@ $(function () {
           }
         }
       } else if (rect.top > winHeight * 0.95) {
-        // Sebelum masuk / scroll kembali ke atas: twibbon kembali diam di kiri
+        // Keep the ribbon at the left before entering or after scrolling back up.
         if (isRevealed) {
           isRevealed = false;
           ribbonBg.classList.remove("translate-x-0");

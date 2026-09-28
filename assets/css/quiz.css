@@ -2,7 +2,7 @@
   .opsi-benar { border-color: #16a34a !important; background-color: #f0fdf4 !important; }
   .opsi-salah { border-color: #dc2626 !important; background-color: #fef2f2 !important; }
 
-  /* ===== Tema warna per kartu - BISINDO (default): Pilih Kata = oranye, Susun Kata = amber ===== */
+  /* BISINDO card colors: orange for word choice and amber for word order. */
   .card-pk .tema-solid        { background-color: #f97316; }
   .card-pk .tema-outline      { border-color: #f97316; color: #f97316; }
   .card-pk .tema-text         { color: #f97316; }
@@ -17,7 +17,7 @@
   .card-sk .tema-border       { border-color: #fbbf24; }
   .card-sk .tema-progress-bg  { background-color: #fef3c7; }
 
-  /* ===== Tema warna SIBI: Pilih Kata = hijau, Susun Kata = ungu ===== */
+  /* SIBI card colors: green for word choice and teal for word order. */
   .theme-sibi .card-pk .tema-solid       { background-color: #16a34a; }
   .theme-sibi .card-pk .tema-outline     { border-color: #16a34a; color: #16a34a; }
   .theme-sibi .card-pk .tema-text        { color: #16a34a; }
