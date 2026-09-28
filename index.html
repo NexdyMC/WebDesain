@@ -3,20 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IsyaratOK - Belajar Bahasa Isyarat Interaktif &amp; Inklusif</title>
+  <title>Beranda - IsyaratOK</title>
   
   <!-- Meta SEO & Open Graph -->
   <meta name="description" content="Katalog modul edukasi bahasa isyarat BISINDO interaktif. Pelajari abjad A-Z, angka 0-10, ungkapan harian, dan uji pemahaman lewat kuis interaktif." />
   <meta property="og:title" content="IsyaratOK - Modul Edukasi Bahasa Isyarat Lengkap" />
   <meta property="og:description" content="Modul pembelajaran terstruktur dari dasar hingga mahir untuk segala usia." />
-  <meta property="og:image" content="https://isyarat-ok.netlify.app/assets/images/banner.png" />
-  <meta property="og:url" content="https://isyarat-ok.netlify.app/edukasi.html" />
   <meta property="og:type" content="website" />
   
   <!-- Favicon -->
   <link rel="icon" href="assets/images/logo.png" type="image/png">
 
-  <!-- Google Fonts & Font Awesome Icons -->
+  <!-- Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -80,6 +78,8 @@
 
     <!-- Hero Section -->
     <section class="relative flex justify-center w-full h-[calc(100vh-20px)] lg:h-screen overflow-hidden">
+      
+      <!-- Image Hero Section -->
       <div class="absolute inset-0">
         <img src="assets/images/hero-section.webp" alt="Belajar bahasa isyarat dengan empati" class="object-cover object-right w-full h-full md:object-center">
         <div class="absolute inset-0 bg-slate-900/40"></div>
@@ -112,15 +112,15 @@
           <span class="whitespace-nowrap text-[11px] font-semibold sm:text-xs">Lihat selengkapnya</span>
         </span>
       </a>
+
+      <!-- gelombang -->
       <div class="absolute bottom-0 left-0 z-10 w-full leading-none">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full" preserveAspectRatio="none">
-          <path fill="#ffffff" d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z"></path>
-        </svg>
+        <img src="assets/images/gelombang.webp" alt="">
       </div>
     </section>
 
     <!-- About Us -->
-    <section class="relative px-4 py-20 overflow-hidden bg-white sm:px-6 md:py-28 lg:px-8" id="tentang-kami">
+    <section id="tentang-kami" class="relative px-4 py-20 overflow-hidden bg-white sm:px-6 md:py-28 lg:px-8">
       <div class="relative mx-auto max-w-7xl">
         <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
           <div class="relative w-full max-w-lg mx-auto lg:mx-0 fade-up-item fade-delay-80">
@@ -707,7 +707,6 @@
               </span>
             </div>
           </a>
-
         </div>
 
         <!-- CTA to Full Dictionary -->
@@ -721,7 +720,7 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="px-4 py-16 bg-white sm:px-6 md:py-28 lg:px-8">
+    <section id="faq" class="px-4 py-16 bg-white sm:px-6 md:py-20 lg:px-8">
       <div class="flex flex-col items-center mx-auto max-w-7xl">
         <div class="text-center mb-14 fade-up-item fade-delay-60">
           <div class="flex items-center justify-center gap-2 heading-icon-layout sm:gap-4">
@@ -733,9 +732,9 @@
           </p>
         </div>
 
-        <div class="w-full max-w-2xl border-t border-slate-300 fade-up-item fade-delay-140">
-          <details class="py-5 border-b border-slate-300 group">
-            <summary class="flex items-center justify-between gap-6 text-base font-bold list-none cursor-pointer text-slate-800">
+        <div class="flex flex-col gap-4 w-full max-w-2xl fade-up-item fade-delay-140">
+          <details class="px-6 py-4 transition-colors group rounded-[28px] bg-orange-50 hover:bg-orange-100/70">
+            <summary class="flex items-center justify-between gap-4 font-bold list-none cursor-pointer text-slate-900">
               Apa itu IsyaratOK?
               <i class="text-sm transition-transform duration-300 fa-solid fa-chevron-down text-slate-700 group-open:rotate-180" aria-hidden="true"></i>
             </summary>
@@ -744,7 +743,7 @@
             </p>
           </details>
 
-          <details class="px-6 py-4 transition-colors group rounded-[28px] bg-orange-50 open:bg-orange-100/70 hover:bg-orange-100/70">
+          <details class="px-6 py-4 transition-colors group rounded-[28px] bg-orange-50 hover:bg-orange-100/70">
             <summary class="flex items-center justify-between gap-4 font-bold list-none cursor-pointer text-slate-900">
               Bahasa isyarat apa yang dipelajari di IsyaratOK?
               <i class="text-sm transition-transform duration-300 fa-solid fa-chevron-down text-slate-700 group-open:rotate-180" aria-hidden="true"></i>
@@ -754,7 +753,7 @@
             </p>
           </details>
 
-          <details class="px-6 py-4 transition-colors group rounded-[28px] bg-orange-50 open:bg-orange-100/70 hover:bg-orange-100/70">
+          <details class="px-6 py-4 transition-colors group rounded-[28px] bg-orange-50 hover:bg-orange-100/70">
             <summary class="flex items-center justify-between gap-4 font-bold list-none cursor-pointer text-slate-900">
               Apakah IsyaratOK cocok untuk pemula?
               <i class="text-sm transition-transform duration-300 fa-solid fa-chevron-down text-slate-700 group-open:rotate-180" aria-hidden="true"></i>
@@ -764,7 +763,7 @@
             </p>
           </details>
 
-          <details class="px-6 py-4 transition-colors group rounded-[28px] bg-orange-50 open:bg-orange-100/70 hover:bg-orange-100/70">
+          <details class="px-6 py-4 transition-colors group rounded-[28px] bg-orange-50 hover:bg-orange-100/70">
             <summary class="flex items-center justify-between gap-4 font-bold list-none cursor-pointer text-slate-900">
               Apa saja yang bisa dilakukan di IsyaratOK?
               <i class="text-sm transition-transform duration-300 fa-solid fa-chevron-down text-slate-700 group-open:rotate-180" aria-hidden="true"></i>
@@ -774,8 +773,8 @@
             </p>
           </details>
 
-          <details class="px-6 py-4 transition-colors group rounded-[28px] bg-orange-50 open:bg-orange-100/70 hover:bg-orange-100/70">
-            <summary class="flex items-center justify-between gap-4 font-bold list-none cursor-pointer text-slate-900 [&::-webkit-details-marker]:hidden">
+          <details class="px-6 py-4 transition-colors group rounded-[28px] bg-orange-50 hover:bg-orange-100/70">
+            <summary class="flex items-center justify-between gap-4 font-bold list-none cursor-pointer text-slate-900">
               Apakah IsyaratOK hanya ditujukan untuk penyandang disabilitas?
               <i class="text-sm transition-transform duration-300 fa-solid fa-chevron-down text-slate-700 group-open:rotate-180" aria-hidden="true"></i>
             </summary>
@@ -783,60 +782,6 @@
               <strong>Tidak.</strong> IsyaratOK ditujukan bagi <em>siapa saja</em> yang ingin mempelajari bahasa isyarat dan membangun komunikasi yang lebih inklusif dengan <strong>Komunitas Tuli</strong>.
             </p>
           </details>
-        </div>
-      </div>
-
-      <div id="testimoni" class="max-w-6xl pt-16 mx-auto mt-20 border-t border-slate-200">
-        <div class="flex flex-col justify-between gap-5 mb-8 sm:flex-row sm:items-end">
-          <div>
-            <p class="mb-3 text-sm font-bold tracking-[0.25em] text-orange-600 uppercase">Cerita dari pembelajar</p>
-            <h2 class="text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl">Belajar terasa lebih dekat.</h2>
-          </div>
-          <i class="text-4xl text-orange-200 fa-solid fa-quote-right" aria-hidden="true"></i>
-        </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <figure class="overflow-hidden bg-white border shadow-sm border-slate-200/80 rounded-3xl fade-up-item fade-delay-200">
-            <div class="h-20 bg-gradient-to-br from-orange-100 via-amber-50 to-white"></div>
-            <div class="px-6 pb-6">
-              <div class="flex items-end justify-between -mt-8">
-                <div class="flex items-center justify-center w-16 h-16 text-lg font-extrabold text-white bg-orange-500 border-4 border-white rounded-full shadow-sm">N</div>
-                <div class="flex gap-0.5 pb-2 text-sm text-emerald-500" aria-label="Rating 5 dari 5">
-                  <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-              <figcaption class="mt-3 text-base font-bold text-slate-800">Nadia</figcaption>
-              <p class="mt-1 text-xs text-slate-500">Pembelajar pemula</p>
-              <blockquote class="mt-5 text-sm leading-relaxed text-slate-600">“Materinya singkat dan visualnya membantu saya berani mulai belajar dari dasar.”</blockquote>
-            </div>
-          </figure>
-          <figure class="overflow-hidden bg-white border shadow-sm border-slate-200/80 rounded-3xl fade-up-item fade-delay-260">
-            <div class="h-20 bg-gradient-to-br from-sky-100 via-indigo-50 to-white"></div>
-            <div class="px-6 pb-6">
-              <div class="flex items-end justify-between -mt-8">
-                <div class="flex items-center justify-center w-16 h-16 text-lg font-extrabold text-white border-4 border-white rounded-full shadow-sm bg-sky-500">R</div>
-                <div class="flex gap-0.5 pb-2 text-sm text-emerald-500" aria-label="Rating 5 dari 5">
-                  <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-              <figcaption class="mt-3 text-base font-bold text-slate-800">Raka</figcaption>
-              <p class="mt-1 text-xs text-slate-500">Mahasiswa</p>
-              <blockquote class="mt-5 text-sm leading-relaxed text-slate-600">“Saya jadi lebih paham bahwa komunikasi yang inklusif dimulai dari sikap yang sederhana.”</blockquote>
-            </div>
-          </figure>
-          <figure class="overflow-hidden bg-white border shadow-sm border-slate-200/80 rounded-3xl fade-up-item fade-delay-320">
-            <div class="h-20 bg-gradient-to-br from-emerald-100 via-teal-50 to-white"></div>
-            <div class="px-6 pb-6">
-              <div class="flex items-end justify-between -mt-8">
-                <div class="flex items-center justify-center w-16 h-16 text-lg font-extrabold text-white border-4 border-white rounded-full shadow-sm bg-emerald-500">S</div>
-                <div class="flex gap-0.5 pb-2 text-sm text-emerald-500" aria-label="Rating 5 dari 5">
-                  <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-              <figcaption class="mt-3 text-base font-bold text-slate-800">Sinta</figcaption>
-              <p class="mt-1 text-xs text-slate-500">Pengajar</p>
-              <blockquote class="mt-5 text-sm leading-relaxed text-slate-600">“Belajar kosakata terasa lebih menyenangkan karena bisa langsung melihat contohnya.”</blockquote>
-            </div>
-          </figure>
         </div>
       </div>
     </section>
