@@ -2,23 +2,27 @@
 <html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beranda - IsyaratOK</title>
-  
   <!-- Meta SEO & Open Graph -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Katalog modul edukasi bahasa isyarat BISINDO interaktif. Pelajari abjad A-Z, angka 0-10, ungkapan harian, dan uji pemahaman lewat kuis interaktif." />
   <meta property="og:title" content="IsyaratOK - Modul Edukasi Bahasa Isyarat Lengkap" />
   <meta property="og:description" content="Modul pembelajaran terstruktur dari dasar hingga mahir untuk segala usia." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://isyarat-ok.netlify.app/">
+  <link rel="canonical" href="https://isyarat-ok.netlify.app/">
+  <title>Beranda - IsyaratOK</title>
   
+
   <!-- Favicon -->
   <link rel="icon" href="assets/images/logo.png" type="image/png">
 
   <!-- Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css">
 
   <!-- Tailwind CSS CDN & Config -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -40,7 +44,7 @@
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-2.5 text-xl font-extrabold tracking-tight shrink-0 md:text-2xl" aria-label="IsyaratOK">
         <div class="flex items-center justify-center w-10 h-10">
-          <img src="assets/images/logo.png" alt="IsyaratOK" class="object-contain w-8 h-8" />
+          <img src="assets/images/logo.png" alt="IsyaratOK" class="object-contain" width="32" height="32" />
         </div>
         <span>Isyarat<span class="text-orange-600">OK</span></span>
       </a>
@@ -81,7 +85,7 @@
       
       <!-- Image Hero Section -->
       <div class="absolute inset-0">
-        <img src="assets/images/hero-section.webp" alt="Belajar bahasa isyarat dengan empati" class="object-cover object-right w-full h-full md:object-center">
+        <img src="assets/images/hero-section.webp" alt="Belajar bahasa isyarat dengan empati" class="object-cover object-right w-full h-full md:object-center" width="1920" height="1088">
         <div class="absolute inset-0 bg-slate-900/40"></div>
       </div>
 
@@ -115,7 +119,7 @@
 
       <!-- gelombang -->
       <div class="absolute bottom-0 left-0 z-10 w-full leading-none">
-        <img src="assets/images/gelombang.webp" alt="" class="block w-full h-auto">
+        <img src="assets/images/gelombang.webp" alt="" width="1440" height="120" class="block w-full h-auto">
       </div>
     </section>
 
@@ -126,7 +130,7 @@
           <div class="relative w-full max-w-lg mx-auto lg:mx-0 fade-up-item fade-delay-80">
             <div class="absolute inset-0 translate-x-3 translate-y-3 bg-orange-100 rounded-[2rem]"></div>
             <div class="relative overflow-hidden border-4 border-white shadow-xl rounded-[2rem] aspect-[4/5]">
-              <img src="assets/images/about-community.webp" alt="Komunitas belajar bahasa isyarat bersama" class="object-cover w-full h-full">
+              <img src="assets/images/about-community.webp" alt="Komunitas belajar bahasa isyarat bersama" class="object-cover w-full h-full" width="720" height="894">
             </div>
             <div class="absolute flex items-center gap-3 px-4 py-3 border border-orange-100 shadow-lg top-8 -right-2 sm:-right-5 rounded-2xl bg-orange-50">
               <span class="flex items-center justify-center w-10 h-10 text-white bg-orange-600 rounded-full">
@@ -142,7 +146,7 @@
 
           <div class="fade-up-item fade-delay-180">
             <p class="mb-4 text-sm font-bold tracking-[0.25em] text-orange-600 uppercase">Tentang Kami</p>
-            <h2 class="max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+            <h2 class="max-w-2xl text-2xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
               Bahasa yang menghubungkan, <span class="text-orange-600">bukan membatasi.</span>
             </h2>
             <p class="max-w-xl mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
@@ -154,28 +158,28 @@
         <div class="grid gap-10 mt-24 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
           <div class="fade-up-item fade-delay-260">
             <p class="mb-3 text-sm font-bold tracking-[0.25em] text-orange-600 uppercase">Kenapa kami ada</p>
-            <h3 class="text-2xl font-extrabold leading-tight text-slate-800 sm:text-4xl">
+            <h3 class="text-2xl font-bold leading-tight text-slate-800 sm:text-4xl">
               Membuka akses, <span class="text-orange-600">satu langkah</span> demi satu.
             </h3>
           </div>
 
           <div class="border-t border-orange-200">
             <div class="grid gap-4 py-6 border-b border-orange-200 sm:grid-cols-[4rem_1fr] sm:gap-8 fade-up-item fade-delay-340">
-              <span class="text-2xl font-extrabold text-orange-500">01</span>
+              <span class="text-2xl font-bold text-orange-500">01</span>
               <div>
                 <h4 class="text-xl font-bold text-slate-800">Mulai dari hal yang mudah</h4>
                 <p class="mt-2 leading-relaxed text-slate-600">Materi visual yang sederhana membantu siapa pun berani memulai tanpa merasa tertinggal.</p>
               </div>
             </div>
             <div class="grid gap-4 py-6 border-b border-orange-200 sm:grid-cols-[4rem_1fr] sm:gap-8 fade-up-item fade-delay-420">
-              <span class="text-2xl font-extrabold text-orange-500">02</span>
+              <span class="text-2xl font-bold text-orange-500">02</span>
               <div>
                 <h4 class="text-xl font-bold text-slate-800">Tumbuh melalui pemahaman</h4>
                 <p class="mt-2 leading-relaxed text-slate-600">Kurikulum terstruktur membuat proses belajar terasa jelas, konsisten, dan menyenangkan.</p>
               </div>
             </div>
             <div class="grid gap-4 py-6 sm:grid-cols-[4rem_1fr] sm:gap-8 fade-up-item fade-delay-500">
-              <span class="text-2xl font-extrabold text-orange-500">03</span>
+              <span class="text-2xl font-bold text-orange-500">03</span>
               <div>
                 <h4 class="text-xl font-bold text-slate-800">Terhubung dengan lebih banyak orang</h4>
                 <p class="mt-2 leading-relaxed text-slate-600">Karena komunikasi yang inklusif menciptakan ruang yang lebih ramah untuk semua.</p>
@@ -344,12 +348,7 @@
 
     <!-- Cultural Quote Section -->
     <section id="cultural-quote" class="relative w-full px-5 overflow-hidden text-white py-14 sm:px-10 sm:py-20 md:py-28 lg:px-16">
-      <div id="culturalQuoteRibbonBg"
-          class="ribbon-shadow absolute inset-0 bg-orange-600 -translate-x-full transition-transform duration-[1100ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] will-change-transform
-                  [clip-path:none]
-                  md:[clip-path:polygon(0%_0%,100%_0%,calc(100%-6.5rem)_50%,100%_100%,0%_100%)]
-                  lg:[clip-path:polygon(0%_0%,100%_0%,calc(100%-8rem)_50%,100%_100%,0%_100%)]">
-      </div>
+      <div id="culturalQuoteRibbonBg" class="ribbon-shadow absolute inset-0 bg-orange-600 -translate-x-full transition-transform duration-[1100ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] will-change-transform [clip-path:none] lg:[clip-path:polygon(0%_0%,100%_0%,calc(100%-8rem)_50%,100%_100%,0%_100%)]"></div>
 
       <!-- Content Container (Fades & slides in smoothly alongside the ribbon) -->
       <div id="culturalQuoteContent" class="relative z-10 max-w-4xl mx-auto text-center opacity-0 -translate-x-8 transition-all duration-[1000ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] delay-200 will-change-transform">
@@ -410,7 +409,7 @@
                 <div class="flex items-center justify-center w-16 h-16 mx-auto mb-5 text-2xl text-white rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 shadow-orange-500/20">
                   <i class="fa-solid fa-book-bookmark" aria-hidden="true"></i>
                 </div>
-                <p class="mb-2 text-4xl font-extrabold tracking-tight text-orange-600 sm:text-3xl stat-number animated-random-number" data-target="800" data-suffix="+" data-delay="60" data-duration="1400" aria-label="800 lebih">800+</p>
+                <p class="mb-2 text-4xl font-bold tracking-tight text-orange-600 sm:text-3xl stat-number animated-random-number" data-target="800" data-suffix="+" data-delay="60" data-duration="1400" aria-label="800 lebih">800+</p>
                 <h3 class="text-base font-bold text-slate-800">Kosakata Dasar</h3>
                 <p class="mt-1 text-xs text-slate-500">Panduan digital terverifikasi</p>
                 <span class="inline-flex items-center gap-1.5 mt-3 text-[11px] font-medium text-orange-600 bg-orange-50 px-2.5 py-1 rounded-full">
@@ -435,7 +434,7 @@
                 <div class="flex items-center justify-center w-16 h-16 mx-auto mb-5 text-2xl text-white shadow-md rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-500 shadow-amber-500/20">
                   <i class="fa-solid fa-scroll" aria-hidden="true"></i>
                 </div>
-                <p class="mb-2 text-4xl font-extrabold tracking-tight text-amber-600 sm:text-3xl stat-number animated-random-number" data-target="100" data-suffix="+" data-delay="120" data-duration="1400" aria-label="100 lebih">100+</p>
+                <p class="mb-2 text-4xl font-bold tracking-tight text-amber-600 sm:text-3xl stat-number animated-random-number" data-target="100" data-suffix="+" data-delay="120" data-duration="1400" aria-label="100 lebih">100+</p>
                 <h3 class="text-base font-bold text-slate-800">Tahun Sejarah</h3>
                 <p class="mt-1 text-xs text-slate-500">Perjuangan hak &amp; budaya Tuli</p>
                 <span class="inline-flex items-center gap-1.5 mt-3 text-[11px] font-medium text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full">
@@ -460,7 +459,7 @@
                 <div class="flex items-center justify-center w-16 h-16 mx-auto mb-5 text-2xl text-white rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-500 shadow-emerald-500/20">
                   <i class="fa-solid fa-hands-holding-child" aria-hidden="true"></i>
                 </div>
-                <p class="mb-2 text-4xl font-extrabold tracking-tight text-emerald-600 sm:text-3xl stat-number animated-random-number" data-target="300" data-suffix="+" data-delay="180" data-duration="1400" aria-label="300 lebih">300+</p>
+                <p class="mb-2 text-4xl font-bold tracking-tight text-emerald-600 sm:text-3xl stat-number animated-random-number" data-target="300" data-suffix="+" data-delay="180" data-duration="1400" aria-label="300 lebih">300+</p>
                 <h3 class="text-base font-bold text-slate-800">Juru Bahasa Isyarat</h3>
                 <p class="mt-1 text-xs text-slate-500">Mendukung akses siaran &amp; acara</p>
                 <span class="inline-flex items-center gap-1.5 mt-3 text-[11px] font-medium text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
@@ -485,7 +484,7 @@
                 <div class="flex items-center justify-center w-16 h-16 mx-auto mb-5 text-2xl text-white shadow-md rounded-2xl bg-gradient-to-tr from-orange-500 to-amber-600 shadow-orange-500/20">
                   <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                 </div>
-                <p class="mb-2 text-4xl font-extrabold tracking-tight text-orange-600 sm:text-3xl stat-number animated-random-number" data-target="50" data-suffix="+" data-delay="240" data-duration="1400" aria-label="50 lebih">50+</p>
+                <p class="mb-2 text-4xl font-bold tracking-tight text-orange-600 sm:text-3xl stat-number animated-random-number" data-target="50" data-suffix="+" data-delay="240" data-duration="1400" aria-label="50 lebih">50+</p>
                 <h3 class="text-base font-bold text-slate-800">Komunitas Daerah</h3>
                 <p class="mt-1 text-xs text-slate-500">Tersebar dari Sabang sampai Merauke</p>
                 <span class="inline-flex items-center gap-1.5 mt-3 text-[11px] font-medium text-orange-600 bg-orange-50 px-2.5 py-1 rounded-full">
@@ -603,7 +602,7 @@
           <!-- Word 1: Halo -->
           <a href="kamus.html" class="flex flex-col h-full p-3 sm:p-3.5 bg-white border shadow-sm border-slate-200/80 rounded-2xl card-interactive hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-300 group gesture-card fade-up-item transition-all duration-200">
             <div class="relative w-full mb-3 overflow-hidden border aspect-square rounded-xl bg-slate-50 border-slate-100">
-              <img src="assets/images/bisindo_alfabet/H - wall white.webp" alt="Gestur tangan Halo" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+              <img src="assets/images/bisindo/alphabet/H - wall white.webp" alt="Gestur tangan Halo" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" width="160" height="160">
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-800 bg-white/95 rounded-md shadow-sm backdrop-blur-sm">Sapaan</span>
               <span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-semibold uppercase rounded bg-slate-900/70 text-white backdrop-blur-sm">BISINDO</span>
             </div>
@@ -621,7 +620,7 @@
           <!-- Word 2: Terima Kasih -->
           <a href="kamus.html" class="flex flex-col h-full p-3 sm:p-3.5 bg-white border shadow-sm border-slate-200/80 rounded-2xl card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 group gesture-card fade-up-item transition-all duration-200">
             <div class="relative w-full mb-3 overflow-hidden border aspect-square rounded-xl bg-slate-50 border-slate-100">
-              <img src="assets/images/bisindo_alfabet/T - wall white.webp" alt="Gestur tangan Terima Kasih" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+              <img src="assets/images/bisindo/alphabet/T - wall white.webp" alt="Gestur tangan Terima Kasih" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" width="160" height="160">
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-800 bg-white/95 rounded-md shadow-sm backdrop-blur-sm">Ungkapan</span>
               <span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-semibold uppercase rounded bg-slate-900/70 text-white backdrop-blur-sm">BISINDO</span>
             </div>
@@ -639,7 +638,7 @@
           <!-- Word 3: Sama-Sama -->
           <a href="kamus.html" class="flex flex-col h-full p-3 sm:p-3.5 bg-white border shadow-sm border-slate-200/80 rounded-2xl card-interactive hover:shadow-xl hover:shadow-amber-500/10 hover:border-amber-300 group gesture-card fade-up-item transition-all duration-200">
             <div class="relative w-full mb-3 overflow-hidden border aspect-square rounded-xl bg-slate-50 border-slate-100">
-              <img src="assets/images/bisindo_alfabet/S - wall white.webp" alt="Gestur tangan Sama-Sama" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+              <img src="assets/images/bisindo/alphabet/S - wall white.webp" alt="Gestur tangan Sama-Sama" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" width="160" height="160" />
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-amber-800 bg-white/95 rounded-md shadow-sm backdrop-blur-sm">Ungkapan</span>
               <span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-semibold uppercase rounded bg-slate-900/70 text-white backdrop-blur-sm">BISINDO</span>
             </div>
@@ -657,7 +656,7 @@
           <!-- Word 4: Maaf -->
           <a href="kamus.html" class="flex flex-col h-full p-3 sm:p-3.5 bg-white border shadow-sm border-slate-200/80 rounded-2xl card-interactive hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-300 group gesture-card fade-up-item transition-all duration-200">
             <div class="relative w-full mb-3 overflow-hidden border aspect-square rounded-xl bg-slate-50 border-slate-100">
-              <img src="assets/images/bisindo_alfabet/M - wall white.webp" alt="Gestur tangan Maaf" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+              <img src="assets/images/bisindo/alphabet/M - wall white.webp" alt="Gestur tangan Maaf" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" width="160" height="160"/>
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-orange-800 bg-white/95 rounded-md shadow-sm backdrop-blur-sm">Ungkapan</span>
               <span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-semibold uppercase rounded bg-slate-900/70 text-white backdrop-blur-sm">BISINDO</span>
             </div>
@@ -675,7 +674,7 @@
           <!-- Word 5: Tolong -->
           <a href="kamus.html" class="flex flex-col h-full p-3 sm:p-3.5 bg-white border shadow-sm border-slate-200/80 rounded-2xl card-interactive hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-300 group gesture-card fade-up-item transition-all duration-200">
             <div class="relative w-full mb-3 overflow-hidden border aspect-square rounded-xl bg-slate-50 border-slate-100">
-              <img src="assets/images/bisindo_alfabet/T - wall white.webp" alt="Gestur tangan Tolong" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+              <img src="assets/images/bisindo/alphabet/T - wall white.webp" alt="Gestur tangan Tolong" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" width="160" height="160" />
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-emerald-800 bg-white/95 rounded-md shadow-sm backdrop-blur-sm">Bantuan</span>
               <span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-semibold uppercase rounded bg-slate-900/70 text-white backdrop-blur-sm">BISINDO</span>
             </div>
@@ -693,7 +692,7 @@
           <!-- Word 6: Teman -->
           <a href="kamus.html" class="flex flex-col h-full p-3 sm:p-3.5 bg-white border shadow-sm border-slate-200/80 rounded-2xl card-interactive hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 group gesture-card fade-up-item transition-all duration-200">
             <div class="relative w-full mb-3 overflow-hidden border aspect-square rounded-xl bg-slate-50 border-slate-100">
-              <img src="assets/images/bisindo_alfabet/X - wall white.webp" alt="Gestur tangan Teman" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+              <img src="assets/images/bisindo/alphabet/X - wall white.webp" alt="Gestur tangan Teman" loading="lazy" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" width="160" height="160" />
               <span class="absolute top-1.5 right-1.5 px-2 py-0.5 text-[10px] font-bold text-indigo-800 bg-white/95 rounded-md shadow-sm backdrop-blur-sm">Sosial</span>
               <span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 text-[9px] font-semibold uppercase rounded bg-slate-900/70 text-white backdrop-blur-sm">BISINDO</span>
             </div>
@@ -854,7 +853,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="relative overflow-hidden text-white bg-orange-600">
+  <footer class="relative overflow-hidden text-white bg-[#ea580c]">
     <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
       <path class="fill-footer-color-2" d="M0 80 C60 60 110 60 170 130 C260 240 350 340 450 330 C560 320 620 190 720 190 C800 190 850 250 900 245 C970 240 1010 165 1075 165 C1150 165 1220 300 1290 320 C1340 335 1400 280 1440 290 L1440 600 L0 600 Z" />
       <path class="fill-footer-color-3" d="M0 355 C100 355 230 450 345 458 C480 465 600 330 750 328 C880 326 980 395 1085 385 C1200 375 1290 280 1355 280 C1400 280 1425 300 1440 290 L1440 600 L0 600 Z" />
@@ -867,54 +866,54 @@
         <div class="md:col-span-5">
           <a href="index.html" class="flex items-center mb-4 text-2xl font-extrabold tracking-tight text-white gap-2.5 group" aria-label="IsyaratOK Footer">
             <div class="flex items-center justify-center w-10 h-10 bg-white rounded-full">
-              <img src="assets/images/logo.png" alt="" class="object-contain w-8 h-8" />
+              <img src="assets/images/logo.png" alt="" class="object-contain w-8 h-8" width="32" height="32"/>
             </div>
             <span>Isyarat<span class="text-orange-200">OK</span></span>
           </a>
-          <p class="max-w-md mb-6 text-sm leading-relaxed text-white"> Platform edukasi bahasa isyarat interaktif yang dirancang inklusif untuk semua usia. Bersama membangun masyarakat yang ramah dan saling memahami. </p>
+          <p class="max-w-md mb-6 text-sm leading-relaxed text-white/80"> Platform edukasi bahasa isyarat interaktif yang dirancang inklusif untuk semua usia. Bersama membangun masyarakat yang ramah dan saling memahami. </p>
           <div class="flex space-x-3">
-            <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-            <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-            <a href="#" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Youtube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+            <a href="#twitter" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Twitter IsyaratOK"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+            <a href="#instagram" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="Instagram IsyaratOK"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#youtube" class="flex items-center justify-center text-white transition-all duration-200 border shadow-sm w-9 h-9 bg-white/15 border-white/20 rounded-xl hover:bg-white hover:text-orange-600" aria-label="YouTube IsyaratOK"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
           </div>
         </div>
 
         <!-- Col : Navigation -->
         <div class="md:col-span-3">
           <h3 class="mb-4 font-bold tracking-wider text-white uppercase text-md">Navigasi Utama</h3>
-          <ul class="text-sm text-white space-y-2.5">
-            <li><a href="index.html" class="transition-colors hover:underline">Beranda</a></li>
-            <li><a href="edukasi.html" class="transition-colors hover:underline">Edukasi</a></li>
-            <li><a href="kamus.html" class="transition-colors hover:underline">Kamus</a></li>
-            <li><a href="quiz.html" class="transition-colors hover:underline">Quiz</a></li>
-            <li><a href="asisten.html" class="transition-colors hover:underline">Asisten AI</a></li>
+          <ul class="text-sm text-white/80 space-y-2.5">
+            <li><a href="index.html" class="transition-colors hover:text-white">Beranda</a></li>
+            <li><a href="edukasi.html" class="transition-colors hover:text-white">Edukasi</a></li>
+            <li><a href="kosakata.html" class="transition-colors hover:text-white">Kamus</a></li>
+            <li><a href="quiz.html" class="transition-colors hover:text-white">Quiz</a></li>
+            <li><a href="asisten.html" class="transition-colors hover:text-white">Asisten AI</a></li>
           </ul>
         </div>
 
         <!-- Col : Contact -->
         <div class="md:col-span-4" id="kontak">
           <h3 class="mb-4 font-bold tracking-wider text-white uppercase text-md">Hubungi Kami</h3>
-          <div class="space-y-3 text-sm text-white">
+          <div class="space-y-3 text-sm text-white/80">
             <div class="flex items-center gap-3">
-              <i class="text-white fa-solid fa-location-dot" aria-hidden="true"></i>
+              <i class="text-white/80 fa-solid fa-location-dot" aria-hidden="true"></i>
               <span>Indonesia &mdash; Untuk Seluruh Nusantara</span>
             </div>
             <div class="flex items-center gap-3">
-              <i class="text-white fas fa-envelope" aria-hidden="true"></i>
+              <i class="text-white/80 fas fa-envelope" aria-hidden="true"></i>
               <span>isyaratok@gmail.id</span>
             </div>
-            <p class="pt-2 text-xs leading-relaxed text-white"> Mendukung pembelajaran BISINDO dan SIBI yang inklusif di sekolah &amp; ruang publik. </p>
+            <p class="pt-2 text-xs leading-relaxed text-white/80"> Mendukung pembelajaran BISINDO dan SIBI yang inklusif di sekolah &amp; ruang publik. </p>
           </div>
         </div>
       </div>
 
       <!-- Copyright Bar -->
-      <div class="flex flex-col items-center justify-between gap-4 pt-8 mt-12 text-xs text-white border-t border-white/20 sm:flex-row">
+      <div class="flex flex-col items-center justify-between gap-4 pt-8 mt-12 text-xs text-white/80 border-t border-white/20 sm:flex-row">
         <p>&copy; <span id="footer-year">2026</span> IsyaratOK. Seluruh hak cipta dilindungi.</p>
         <div class="flex space-x-6">
-          <a href="#" class="transition-colors hover:text-white">Kebijakan Privasi</a>
-          <a href="#" class="transition-colors hover:text-white">Aksesibilitas</a>
-          <a href="#" class="transition-colors hover:text-white">Ketentuan Layanan</a>
+          <a href="#privasi" class="transition-colors hover:text-white">Kebijakan Privasi</a>
+          <a href="#aksesibilitas" class="transition-colors hover:text-white">Aksesibilitas</a>
+          <a href="#ketentuan" class="transition-colors hover:text-white">Ketentuan Layanan</a>
         </div>
       </div>
     </div>
