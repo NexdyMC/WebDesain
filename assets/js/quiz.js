@@ -244,7 +244,7 @@ $(function () {
     $('#judul-quiz-pk').text(soal.jenis);
 
     if (soal.tipeSoal === 'gambar') {
-      $('#soal-gambar-pk').html('<img class="letter-img" src="' + soal.benar.image + '" alt="isyarat">');
+      $('#soal-gambar-pk').html('<img class="letter-img" src="' + soal.benar.image + '" alt="isyarat" width="64" height="64">');
     } else {
       $('#soal-gambar-pk').html('<span class="text-6xl font-extrabold tema-text sm:text-7xl">' + soal.benar.key + '</span>');
     }
@@ -254,7 +254,7 @@ $(function () {
       $(this).attr('data-jawaban', item.key).removeClass('opsi-benar opsi-salah');
       const $isi = $(this).find('.teks-opsi').empty();
       if (soal.tipeJawaban === 'gambar') {
-        $isi.append('<img src="' + item.image + '" alt="' + item.key + '" class="object-contain w-14 h-14 sm:w-16 sm:h-16">');
+        $isi.append('<img src="' + item.image + '" alt="' + item.key + '" class="object-contain w-14 h-14 sm:w-16 sm:h-16" width="64" height="64">');
       } else {
         $isi.text('Isyarat ' + item.key);
       }
@@ -323,7 +323,7 @@ $(function () {
       .addClass('kartu-kata tema-border flex items-center justify-center p-3 text-gray-900 transition-transform bg-white border-2 shadow-sm cursor-pointer rounded-xl active:scale-95')
       .attr('data-huruf', item.key);
     if (tipe === 'gambar') {
-      $el.append('<img src="' + item.image + '" alt="' + item.key + '" class="object-contain w-12 h-12 sm:w-14 sm:h-14 rounded-md">');
+      $el.append('<img src="' + item.image + '" alt="' + item.key + '" class="object-contain w-12 h-12 sm:w-14 sm:h-14 rounded-md" width="64" height="64">');
     } else {
       $el.append('<span class="text-2xl font-bold sm:text-3xl">' + item.key + '</span>');
     }
@@ -341,7 +341,7 @@ $(function () {
     const $target = $('#soal-target-sk').empty();
     soal.target.forEach(h => {
       if (soal.tipeSoal === 'gambar') {
-        $target.append('<img src="' + h.image + '" alt="' + h.key + '" class="object-contain w-14 h-14 p-1 bg-white border rounded-lg sm:w-16 sm:h-16 tema-border">');
+        $target.append('<img src="' + h.image + '" alt="' + h.key + '" class="object-contain w-14 h-14 p-1 bg-white border rounded-lg sm:w-16 sm:h-16 tema-border" width="64" height="64">');
       } else {
         $target.append('<span class="flex items-center justify-center w-12 h-12 text-2xl font-extrabold bg-white border rounded-lg sm:w-16 sm:h-16 sm:text-3xl tema-border tema-text">' + h.key + '</span>');
       }
