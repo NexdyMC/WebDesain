@@ -6,6 +6,33 @@ $(function () {
   const $iconOpen = $("#iconOpen");
   const $iconClose = $("#iconClose");
 
+  const faqDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? 0
+    : 240;
+
+  $("#faq details > summary").on("click", function (event) {
+    event.preventDefault();
+
+    const details = this.parentElement;
+    const $answer = $(this).next("p");
+    const shouldOpen = details.dataset.faqOpen !== "true";
+    details.dataset.faqOpen = String(shouldOpen);
+    $answer.stop(true, true);
+
+    if (shouldOpen) {
+      $answer.hide();
+      details.open = true;
+      $answer.slideDown(faqDuration);
+      return;
+    }
+
+    $answer.slideUp(faqDuration, function () {
+      if (details.dataset.faqOpen === "false") {
+        details.open = false;
+      }
+    });
+  });
+
   function toggleMobileMenu(isOpen) {
     const isCurrentlyOpen =
       $mobileMenu.is(":visible") && !$mobileMenu.hasClass("hidden");

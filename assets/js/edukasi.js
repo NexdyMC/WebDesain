@@ -105,7 +105,7 @@ $(function () {
       $card.data("desc") ||
       "Pelajari materi ini secara bertahap dan terstruktur.";
     const curriculum = $card.find("template.curriculum-details").html() || "";
-    const actionUrl = $card.data("action-url") || "kosakata.html";
+    const actionUrl = $card.data("action-url") || "kamus.html";
     const actionText = $card.data("action-text") || "Buka Kamus Terkait &rarr;";
 
     $modalTitle.text(title);

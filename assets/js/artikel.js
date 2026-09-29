@@ -35,7 +35,7 @@ $(function () {
         "Gunakan nama sendiri sebagai latihan pertama.",
         "Berhenti sejenak di setiap huruf agar bentuknya jelas.",
       ],
-      dictionary: "kosakata.html?bahasa=bisindo&kategori=abjad",
+      dictionary: "kamus.html?bahasa=bisindo&kategori=abjad",
     },
     "angka-dasar": {
       badge: "Level 1: Angka",
@@ -62,7 +62,7 @@ $(function () {
         "Bandingkan posisi ibu jari pada angka 6 sampai 9.",
         "Ulangi angka secara acak, bukan hanya berurutan.",
       ],
-      dictionary: "kosakata.html?bahasa=bisindo&kategori=angka",
+      dictionary: "kamus.html?bahasa=bisindo&kategori=angka",
     },
     "bilangan-waktu": {
       badge: "Level 2: Angka",
@@ -89,7 +89,7 @@ $(function () {
         "Ucapkan konteksnya sebelum memberi angka.",
         "Ulangi pola puluhan dengan tempo stabil.",
       ],
-      dictionary: "kosakata.html?bahasa=bisindo&kategori=angka",
+      dictionary: "kamus.html?bahasa=bisindo&kategori=angka",
       quiz: "quiz.html",
     },
     "salam-ungkapan": {
@@ -121,7 +121,7 @@ $(function () {
         "Gunakan gerakan yang tidak terlalu cepat.",
         "Praktikkan dalam dialog pendek.",
       ],
-      dictionary: "kosakata.html?bahasa=bisindo&kategori=kata",
+      dictionary: "kamus.html?bahasa=bisindo&kategori=kata",
     },
     percakapan: {
       badge: "Level 3: Ungkapan",
@@ -156,7 +156,7 @@ $(function () {
         "Gunakan ekspresi wajah yang sesuai.",
         "Latihan berpasangan akan lebih efektif.",
       ],
-      dictionary: "kosakata.html?bahasa=bisindo&kategori=kata",
+      dictionary: "kamus.html?bahasa=bisindo&kategori=kata",
       quiz: "quiz.html",
     },
     keluarga: {
@@ -188,7 +188,7 @@ $(function () {
         "Sebutkan nama anggota keluarga satu per satu.",
         "Latih dengan kalimat pendek.",
       ],
-      dictionary: "kosakata.html?bahasa=bisindo&kategori=kata",
+      dictionary: "kamus.html?bahasa=bisindo&kategori=kata",
     },
     hewan: {
       badge: "Khusus Anak",
@@ -219,7 +219,7 @@ $(function () {
         "Kelompokkan hewan berdasarkan habitat.",
         "Buat kuis tebak hewan bersama teman.",
       ],
-      dictionary: "kosakata.html?bahasa=bisindo&kategori=kata",
+      dictionary: "kamus.html?bahasa=bisindo&kategori=kata",
     },
     "warna-benda": {
       badge: "Khusus Anak",
@@ -250,7 +250,7 @@ $(function () {
         "Gunakan benda dengan warna berbeda.",
         "Ulangi kosakata saat melakukan aktivitas harian.",
       ],
-      dictionary: "kosakata.html?bahasa=bisindo&kategori=kata",
+      dictionary: "kamus.html?bahasa=bisindo&kategori=kata",
     },
   };
 
