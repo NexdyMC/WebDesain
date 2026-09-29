@@ -62,8 +62,8 @@ $(function () {
             : `Angka-${number}-SIBI.webp`;
         const imagePath =
           numericValue === 0
-            ? `assets/images/sibi_alfabet/${encodeURIComponent(imageName)}`
-            : `assets/images/SIBI_ANGKA/${encodeURIComponent(imageName)}`;
+            ? `assets/images/sibi/alphabet/${encodeURIComponent(imageName)}`
+            : `assets/images/sibi/angka/${encodeURIComponent(imageName)}`;
 
         return `
           <div role="button" tabindex="0" data-language="sibi" data-category="angka" data-keywords="${info.keywords}" data-desc="Bentuk gestur jari angka ${number} dalam Sistem Isyarat Bahasa Indonesia (SIBI)." data-tips="Ikuti pola jari pada foto dan pastikan telapak tangan menghadap arah yang sesuai." class="flex flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
@@ -81,7 +81,7 @@ $(function () {
   $("#sibiAbjadContainer").html(
     Object.entries(sibiLetterImages)
       .map(function ([letter, fileName]) {
-        const imagePath = `assets/images/sibi_alfabet/${encodeURIComponent(fileName)}`;
+        const imagePath = `assets/images/sibi/alphabet/${encodeURIComponent(fileName)}`;
         return `
           <div role="button" tabindex="0" data-language="sibi" data-category="abjad" data-keywords="sibi abjad huruf alfabet ${letter.toLowerCase()}" data-desc="Bentuk isyarat huruf ${letter} dalam Sistem Isyarat Bahasa Indonesia (SIBI)." data-tips="Ikuti posisi jari pada foto dan pastikan telapak tangan menghadap arah yang sesuai." class="flex flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
             <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
