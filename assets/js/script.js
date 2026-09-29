@@ -6,7 +6,8 @@ $(function () {
   const $iconOpen = $("#iconOpen");
   const $iconClose = $("#iconClose");
 
-  const faqDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  const faqDuration = window.matchMedia("(prefers-reduced-motion: reduce)")
+    .matches
     ? 0
     : 240;
 
@@ -47,16 +48,23 @@ $(function () {
           $(this).css("display", "");
         });
       $menuBtn.attr("aria-expanded", "true");
-      $iconOpen.removeClass("opacity-100 rotate-0 scale-100").addClass("opacity-0 -rotate-90 scale-75");
-      $iconClose.removeClass("opacity-0 rotate-90 scale-75").addClass("opacity-100 rotate-0 scale-100");
-
+      $iconOpen
+        .removeClass("opacity-100 rotate-0 scale-100")
+        .addClass("opacity-0 -rotate-90 scale-75");
+      $iconClose
+        .removeClass("opacity-0 rotate-90 scale-75")
+        .addClass("opacity-100 rotate-0 scale-100");
     } else {
       $mobileMenu.stop(true, true).slideUp(180, function () {
         $(this).addClass("hidden").css("display", "");
       });
       $menuBtn.attr("aria-expanded", "false");
-      $iconOpen.removeClass("opacity-0 -rotate-90 scale-75").addClass("opacity-100 rotate-0 scale-100");
-      $iconClose.removeClass("opacity-100 rotate-0 scale-100").addClass("opacity-0 rotate-90 scale-75");
+      $iconOpen
+        .removeClass("opacity-0 -rotate-90 scale-75")
+        .addClass("opacity-100 rotate-0 scale-100");
+      $iconClose
+        .removeClass("opacity-100 rotate-0 scale-100")
+        .addClass("opacity-0 rotate-90 scale-75");
     }
   }
 
