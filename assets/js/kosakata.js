@@ -10,32 +10,32 @@ $(function () {
   let previousLanguage = "bisindo";
 
   const sibiLetterImages = {
-    A: "A - wall white.webp",
-    B: "B - wall white.webp",
-    C: "C - wall white.webp",
-    D: "D - wall white.webp",
-    E: "E - wall white.webp",
-    F: "F - wall white.webp",
-    G: "G - wall white.webp",
-    H: "H - wall white.webp",
-    I: "I - wall white.webp",
-    J: "J - wall white.webp",
-    K: "K - wall white.webp",
-    L: "L - wall white.webp",
-    M: "M - wall white.webp",
-    N: "N - wall white.webp",
-    O: "O - wall white.webp",
-    P: "P - wall white.webp",
-    Q: "Q - wall white.webp",
-    R: "R - wall white.webp",
-    S: "S - wall white.webp",
-    T: "T - wall white.webp",
-    U: "U - wall white.webp",
-    V: "V - wall white.webp",
-    W: "W - wall white.webp",
-    X: "X - wall white.webp",
-    Y: "Y - wall white.webp",
-    Z: "Z - wall white.webp",
+    A: "A.webp",
+    B: "B.webp",
+    C: "C.webp",
+    D: "D.webp",
+    E: "E.webp",
+    F: "F.webp",
+    G: "G.webp",
+    H: "H.webp",
+    I: "I.webp",
+    J: "J.webp",
+    K: "K.webp",
+    L: "L.webp",
+    M: "M.webp",
+    N: "N.webp",
+    O: "O.webp",
+    P: "P.webp",
+    Q: "Q.webp",
+    R: "R.webp",
+    S: "S.webp",
+    T: "T.webp",
+    U: "U.webp",
+    V: "V.webp",
+    W: "W.webp",
+    X: "X.webp",
+    Y: "Y.webp",
+    Z: "Z.webp",
   };
 
   const sibiNumberLabels = {
@@ -58,7 +58,7 @@ $(function () {
         const numericValue = Number(number);
         const imageName =
           numericValue === 0
-            ? "O - wall white.webp"
+            ? "O.webp"
             : `Angka-${number}-SIBI.webp`;
         const imagePath =
           numericValue === 0
