@@ -3,8 +3,7 @@ img {
   height: auto;
 }
 
-a:has(> i[class*="fa-"]),
-button:has(> i[class*="fa-"]) {
+:where(a:has(> i[class*="fa-"]), button:has(> i[class*="fa-"])) {
   display: inline-flex;
   align-items: center;
   max-width: 100%;
