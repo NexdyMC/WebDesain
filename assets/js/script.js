@@ -136,6 +136,27 @@ $(function () {
     "(prefers-reduced-motion: reduce)",
   ).matches;
 
+  const backToTop = document.getElementById("backToTop");
+  if (backToTop) {
+    const updateBackToTop = function () {
+      const isVisible = window.scrollY > 400;
+      backToTop.classList.toggle("opacity-0", !isVisible);
+      backToTop.classList.toggle("translate-y-2", !isVisible);
+      backToTop.classList.toggle("pointer-events-none", !isVisible);
+      backToTop.setAttribute("aria-hidden", String(!isVisible));
+      backToTop.tabIndex = isVisible ? 0 : -1;
+    };
+
+    updateBackToTop();
+    window.addEventListener("scroll", updateBackToTop, { passive: true });
+    backToTop.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    });
+  }
+
   function initScrollCue() {
     const scrollCue = document.getElementById("scrollCue");
     const heroSection = document.getElementById("hero");
