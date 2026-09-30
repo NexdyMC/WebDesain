@@ -135,56 +135,6 @@ i[class*="fa-"] {
   --delay: 500ms;
 }
 
-/* 3. REALISTIC CULTURAL QUOTE RIBBON */
-.quote-ribbon {
-  isolation: isolate;
-  overflow: hidden;
-  border-radius: 1.75rem;
-  background: linear-gradient(
-    108deg,
-    #9a3412 0%,
-    #ea580c 18%,
-    #f97316 48%,
-    #c2410c 100%
-  );
-  box-shadow:
-    0 20px 28px rgba(124, 45, 18, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.28),
-    inset 0 -2px 0 rgba(124, 45, 18, 0.18);
-}
-
-.quote-ribbon::before {
-  position: absolute;
-  inset: -45% 35% -45% -10%;
-  z-index: 0;
-  content: "";
-  background: linear-gradient(
-    105deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.22) 44%,
-    rgba(255, 255, 255, 0.04) 58%,
-    transparent 74%
-  );
-  transform: rotate(-5deg);
-}
-
-.quote-ribbon::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: clamp(4rem, 10vw, 8rem);
-  z-index: 0;
-  content: "";
-  background: linear-gradient(
-    100deg,
-    rgba(124, 45, 18, 0.08),
-    rgba(124, 45, 18, 0.45)
-  );
-  clip-path: polygon(28% 0, 100% 0, 100% 100%, 28% 100%, 0 50%);
-  opacity: 0.9;
-}
-
 .ribbon-shadow {
   box-shadow:
     0 18px 30px rgba(124, 45, 18, 0.28),
@@ -192,24 +142,6 @@ i[class*="fa-"] {
     inset 0 1px 0 rgba(255, 255, 255, 0.22),
     inset 0 -3px 0 rgba(124, 45, 18, 0.18);
   filter: drop-shadow(0 16px 14px rgba(124, 45, 18, 0.24));
-}
-
-.assistant-prompt {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0;
-  text-align: left;
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.assistant-prompt:hover,
-.assistant-prompt:focus-visible {
-  color: #ea580c;
-  transform: translateX(0.25rem);
 }
 
 .back-to-top {
@@ -224,7 +156,6 @@ i[class*="fa-"] {
 .assistant-chat-input {
   appearance: none;
   -webkit-appearance: none;
-  resize: none !important;
 }
 
 .assistant-chat-input::-webkit-resizer {
@@ -232,17 +163,7 @@ i[class*="fa-"] {
   background: transparent;
 }
 
-.assistant-chat-area {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  overscroll-behavior: contain;
-}
-
 .assistant-message-row {
-  display: flex;
-  align-items: flex-end;
-  gap: 0.625rem;
   min-width: 0;
   width: 100%;
 }
@@ -261,7 +182,6 @@ i[class*="fa-"] {
   overflow-wrap: anywhere;
   word-break: break-word;
   white-space: pre-wrap;
-  line-height: 1.6;
 }
 
 @media (max-width: 640px) {
@@ -278,8 +198,6 @@ i[class*="fa-"] {
     flex: 1 1 auto;
     min-height: 0;
     max-height: none;
-    gap: 0.75rem;
-    padding-inline: 0.75rem;
   }
 
   .assistant-message-bubble {
@@ -316,152 +234,6 @@ i[class*="fa-"] {
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
-  }
-}
-
-.assistant-typing {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.assistant-typing span {
-  width: 0.35rem;
-  height: 0.35rem;
-  border-radius: 9999px;
-  background: #fb923c;
-  animation: assistantTyping 1s ease-in-out infinite;
-}
-
-.assistant-typing span:nth-child(2) {
-  animation-delay: 0.15s;
-}
-
-.assistant-typing span:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-@keyframes assistantTyping {
-  0%,
-  60%,
-  100% {
-    opacity: 0.35;
-    transform: translateY(0);
-  }
-  30% {
-    opacity: 1;
-    transform: translateY(-0.2rem);
-  }
-}
-
-/* 4. HERO ENTRANCE ANIMATION */
-.hero-copy,
-.hero-visual-wrap,
-.hero-actions,
-.hero-title,
-.hero-subtitle,
-.hero-visual {
-  opacity: 0;
-  will-change: transform, opacity, filter;
-}
-
-.hero-copy {
-  animation: heroReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards;
-}
-
-.hero-title {
-  animation: heroTitleIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
-}
-
-.hero-subtitle {
-  animation: heroTextIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.38s forwards;
-}
-
-.hero-actions {
-  animation: heroTextIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.52s forwards;
-}
-
-.hero-visual-wrap {
-  animation: heroVisualWrapIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.28s forwards;
-}
-
-.hero-visual {
-  animation: heroCardIn 1.05s cubic-bezier(0.22, 1, 0.36, 1) 0.42s forwards;
-}
-
-@keyframes heroReveal {
-  0% {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes heroTitleIn {
-  0% {
-    opacity: 0;
-    transform: translateY(36px) scale(0.96);
-    filter: blur(8px);
-  }
-  55% {
-    opacity: 1;
-    transform: translateY(-6px) scale(1.01);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes heroTextIn {
-  0% {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes heroVisualWrapIn {
-  0% {
-    opacity: 0;
-    transform: translateX(36px) scale(0.94) rotate(2deg);
-    filter: blur(8px);
-  }
-  60% {
-    opacity: 1;
-    transform: translateX(-4px) scale(1.02) rotate(-1deg);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0) scale(1) rotate(0deg);
-    filter: blur(0);
-  }
-}
-
-@keyframes heroCardIn {
-  0% {
-    opacity: 0;
-    transform: translateY(18px) scale(0.98);
-    box-shadow: 0 0 0 rgba(249, 115, 22, 0);
-  }
-  65% {
-    opacity: 1;
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 30px 60px rgba(249, 115, 22, 0.2);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    box-shadow: 0 26px 50px rgba(249, 115, 22, 0.18);
   }
 }
 
@@ -683,22 +455,6 @@ i[class*="fa-"] {
   }
 }
 
-/* 7. SCROLL CUE - Fix: simplify from 14 keyframes and remove the -webkit- prefix */
-.shake-vertical {
-  animation: shake-vertical 2s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes shake-vertical {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-7px);
-  }
-}
-
 /* 8. HEADING TEXT ANIMATION - Fix: remove duplicate @-webkit-keyframes */
 .tracking-in-contract {
   animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
@@ -718,35 +474,6 @@ i[class*="fa-"] {
   }
 }
 
-/* 9. JELLO CARD ANIMATION - Fix: remove duplicate @-webkit-keyframes */
-.jello-horizontal {
-  animation: jello-horizontal 0.9s both;
-}
-
-@keyframes jello-horizontal {
-  0% {
-    transform: scale3d(1, 1, 1);
-  }
-  30% {
-    transform: scale3d(1.25, 0.75, 1);
-  }
-  40% {
-    transform: scale3d(0.75, 1.25, 1);
-  }
-  50% {
-    transform: scale3d(1.15, 0.85, 1);
-  }
-  65% {
-    transform: scale3d(0.95, 1.05, 1);
-  }
-  75% {
-    transform: scale3d(1.05, 0.95, 1);
-  }
-  100% {
-    transform: scale3d(1, 1, 1);
-  }
-}
-
 /* 11. SCROLL-DRIVEN QUOTE REVEAL */
 .scroll-word {
   display: inline;
@@ -758,7 +485,6 @@ i[class*="fa-"] {
 
 /* 10. REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
-  .fade-in,
   .fade-up-item,
   .kosakata-card.filter-reveal,
   .catalog-control-reveal,
@@ -766,8 +492,6 @@ i[class*="fa-"] {
   .stat-flip-inner,
   .why-heading-icon,
   .hero-scroll-cue-content,
-  .shake-vertical,
-  .jello-horizontal,
   .tracking-in-contract,
   .scroll-word {
     opacity: 1 !important;

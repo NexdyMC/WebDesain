@@ -1,36 +1,70 @@
-.letter-img { width: 100%; height: 100%; object-fit: contain; }
-  .opsi-benar { border-color: #16a34a !important; background-color: #f0fdf4 !important; }
-  .opsi-salah { border-color: #dc2626 !important; background-color: #fef2f2 !important; }
+.opsi-benar {
+  border-color: #16a34a !important;
+  background-color: #f0fdf4 !important;
+}
+.opsi-salah {
+  border-color: #dc2626 !important;
+  background-color: #fef2f2 !important;
+}
 
-  /* BISINDO card colors */
-  .card-pk .tema-solid        { background-color: #f97316; }
-  .card-pk .tema-outline      { border-color: #f97316; color: #f97316; }
-  .card-pk .tema-text         { color: #f97316; }
-  .card-pk .tema-soft         { background-color: #fff7ed; }
-  .card-pk .tema-border       { border-color: #fb923c; }
-  .card-pk .tema-progress-bg  { background-color: #ffedd5; }
+/* BISINDO card colors */
+.card-pk .tema-solid,
+.card-sk .tema-solid {
+  background-color: #f97316;
+}
+.card-pk .tema-outline,
+.card-sk .tema-outline {
+  border-color: #f97316;
+  color: #f97316;
+}
+.card-pk .tema-text,
+.card-sk .tema-text {
+  color: #f97316;
+}
+.card-pk .tema-soft,
+.card-sk .tema-soft {
+  background-color: #fff7ed;
+}
+.card-pk .tema-border,
+.card-sk .tema-border {
+  border-color: #fb923c;
+}
+.card-pk .tema-progress-bg,
+.card-sk .tema-progress-bg {
+  background-color: #ffedd5;
+}
 
-  .card-sk .tema-solid        { background-color: #f97316; }
-  .card-sk .tema-outline      { border-color: #f97316; color: #f97316; }
-  .card-sk .tema-text         { color: #f97316; }
-  .card-sk .tema-soft         { background-color: #fff7ed; }
-  .card-sk .tema-border       { border-color: #fb923c; }
-  .card-sk .tema-progress-bg  { background-color: #ffedd5; }
+/* SIBI card colors */
+.theme-sibi .card-pk .tema-solid,
+.theme-sibi .card-sk .tema-solid {
+  background-color: #f59e0b;
+}
+.theme-sibi .card-pk .tema-outline,
+.theme-sibi .card-sk .tema-outline {
+  border-color: #f59e0b;
+  color: #f59e0b;
+}
+.theme-sibi .card-pk .tema-text,
+.theme-sibi .card-sk .tema-text {
+  color: #f59e0b;
+}
+.theme-sibi .card-pk .tema-soft,
+.theme-sibi .card-sk .tema-soft {
+  background-color: #fffbeb;
+}
+.theme-sibi .card-pk .tema-border,
+.theme-sibi .card-sk .tema-border {
+  border-color: #fbbf24;
+}
+.theme-sibi .card-pk .tema-progress-bg,
+.theme-sibi .card-sk .tema-progress-bg {
+  background-color: #fef3c7;
+}
 
-  /* SIBI card colors */
-  .theme-sibi .card-pk .tema-solid       { background-color: #f59e0b; }
-  .theme-sibi .card-pk .tema-outline     { border-color: #f59e0b; color: #f59e0b; }
-  .theme-sibi .card-pk .tema-text        { color: #f59e0b; }
-  .theme-sibi .card-pk .tema-soft        { background-color: #fffbeb; }
-  .theme-sibi .card-pk .tema-border      { border-color: #fbbf24; }
-  .theme-sibi .card-pk .tema-progress-bg { background-color: #fef3c7; }
-
-  .theme-sibi .card-sk .tema-solid       { background-color: #f59e0b; }
-  .theme-sibi .card-sk .tema-outline     { border-color: #f59e0b; color: #f59e0b; }
-  .theme-sibi .card-sk .tema-text        { color: #f59e0b; }
-  .theme-sibi .card-sk .tema-soft        { background-color: #fffbeb; }
-  .theme-sibi .card-sk .tema-border      { border-color: #fbbf24; }
-  .theme-sibi .card-sk .tema-progress-bg { background-color: #fef3c7; }
-
-  .tema-solid:hover { filter: brightness(0.92); }
-  .tema-timer-badge { background-color: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); }
+.tema-solid:hover {
+  filter: brightness(0.92);
+}
+.tema-timer-badge {
+  background-color: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
