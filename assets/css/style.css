@@ -16,9 +16,8 @@ i[class*="fa-"] {
 }
 
 @media (max-width: 720px) and (max-height: 1640px) {
-  a:not([aria-label]):has(> i[class*="fa-"]) > i[class*="fa-"],
-  button:not([aria-label]):has(> i[class*="fa-"]) > i[class*="fa-"] {
-    display: none;
+  i[class*="fa-"] {
+    display: none !important;
   }
 }
 
