@@ -27,6 +27,15 @@
     $chatArea.scrollTop($chatArea[0].scrollHeight);
   }
 
+  function resizeChatInput() {
+    const inputElement = $chatInput[0];
+    inputElement.style.height = "auto";
+    inputElement.style.height = `${Math.min(inputElement.scrollHeight, 128)}px`;
+  }
+
+  resizeChatInput();
+  $chatInput.on("input", resizeChatInput);
+
   function addMessage(message, isUser) {
     const $row = $(
       '<div class="assistant-message-row flex items-end gap-2"></div>',
@@ -133,6 +142,7 @@
 
     addMessage(cleanQuestion, true);
     $chatInput.val("");
+    resizeChatInput();
 
     setLoading(true);
     try {
@@ -157,7 +167,7 @@
   });
 
   $chatInput.on("keydown", function (event) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
       event.preventDefault();
       submitQuestion($chatInput.val());
     }
@@ -167,5 +177,6 @@
     conversation.splice(1);
     $chatArea.find("> .flex").not(":first").not(".flex-wrap").remove();
     $chatInput.val("").trigger("focus");
+    resizeChatInput();
   });
 })();

@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="assets/css/accessibility.css">
 
 </head>
-<body class="font-sans antialiased bg-white text-slate-800 selection:bg-orange-500 selection:text-white">
+  <body class="assistant-page font-sans antialiased bg-white text-slate-800 selection:bg-orange-500 selection:text-white">
 
   <!-- Navigation -->
   <header class="sticky top-0 z-50 border-b shadow-sm border-orange-100/70 backdrop-blur-md bg-white/95">
@@ -79,10 +79,10 @@
   </nav>
 
   <!-- Main Content -->
-  <main class="px-4 py-5 bg-white sm:px-6 sm:py-10 lg:px-8">
-    <section class="px-4 py-5 bg-white">
+  <main class="px-4 py-2 bg-white sm:px-6 sm:py-10 lg:px-8">
+    <section class="px-4 py-1 bg-white sm:py-5">
       <div class="flex flex-col items-center py-3 mx-auto max-w-7xl sm:grid-cols-3 sm:gap-0 sm:py-2">
-        <div class="flex flex-col items-center py-20 text-center delay-75 fade-up-item" >
+        <div class="flex flex-col items-center py-2 text-center delay-75 fade-up-item sm:py-2">
           <h1 class="text-3xl font-extrabold leading-tight tracking-tight text-slate-800 sm:text-5xl">
             Tanya apa saja tentang <span class="text-orange-600">bahasa isyarat</span>
           </h1>
@@ -93,7 +93,7 @@
         <div class="assistant-chat max-w-4xl w-full bg-white rounded-[2rem] shadow-xl overflow-hidden flex flex-col border border-orange-100 fade-up-item delay-150">
 
           <!-- Header chat -->
-          <div class="relative flex items-center gap-3 px-6 py-5 bg-orange-500 dot-pattern shrink-0">
+          <div class="relative flex items-center gap-3 px-4 py-3 bg-orange-500 dot-pattern shrink-0 sm:px-6 sm:py-5">
             <div class="flex items-center justify-center bg-white rounded-full shadow-md w-11 h-11 shrink-0">
               <i class="text-lg text-orange-500 fa-solid fa-hands"></i>
             </div>
@@ -103,7 +103,7 @@
                 <span class="inline-block bg-green-300 rounded-full w-1.5 h-1.5"></span> Online, siap membantu
               </p>
             </div>
-            <button id="btnReset" title="Reset percakapan" class="flex items-center justify-center text-white transition rounded-full w-9 h-9 bg-white/20 hover:bg-white/30 shrink-0">
+            <button id="btnReset" type="button" aria-label="Reset percakapan" title="Reset percakapan" class="flex items-center justify-center text-white transition rounded-full w-11 h-11 bg-white/20 hover:bg-white/30 shrink-0">
               <i class="text-sm fa-solid fa-rotate-right"></i>
             </button>
           </div>
@@ -120,9 +120,9 @@
             </div>
 
             <div class="flex flex-wrap gap-2 pl-9">
-              <button class="px-3 text-xs font-medium text-orange-600 transition bg-white border border-orange-300 rounded-full quick-reply py-1.5 hover:bg-orange-100">Apa itu BSINDO?</button>
-              <button class="px-3 text-xs font-medium text-orange-600 transition bg-white border border-orange-300 rounded-full quick-reply py-1.5 hover:bg-orange-100">Cara mulai latihan</button>
-              <button class="px-3 text-xs font-medium text-orange-600 transition bg-white border border-orange-300 rounded-full quick-reply py-1.5 hover:bg-orange-100">Tips menghafal isyarat</button>
+              <button type="button" class="min-h-11 px-4 py-2.5 text-sm font-medium text-orange-700 transition bg-white border border-orange-300 rounded-full quick-reply hover:bg-orange-100">Apa itu BSINDO?</button>
+              <button type="button" class="min-h-11 px-4 py-2.5 text-sm font-medium text-orange-700 transition bg-white border border-orange-300 rounded-full quick-reply hover:bg-orange-100">Cara mulai latihan</button>
+              <button type="button" class="min-h-11 px-4 py-2.5 text-sm font-medium text-orange-700 transition bg-white border border-orange-300 rounded-full quick-reply hover:bg-orange-100">Tips menghafal isyarat</button>
             </div>
 
             <div id="typingIndicator" class="items-end hidden gap-2">
@@ -139,9 +139,9 @@
 
           <!-- Input -->
           <div class="px-4 py-3 bg-white border-t shrink-0 border-neutral-200">
-            <div class="flex items-center gap-2">
-              <textarea id="chatInput" placeholder="Tulis pertanyaanmu..." class="flex-1 min-w-0 px-4 text-sm rounded-full bg-neutral-100 py-2.5 text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-orange-300"></textarea>
-              <button id="btnSend" class="flex items-center justify-center w-10 h-10 text-white transition bg-orange-500 rounded-full hover:bg-orange-600 active:scale-95 shrink-0">
+            <div class="flex items-end gap-2">
+              <textarea id="chatInput" rows="1" aria-label="Tulis pertanyaan kepada Asisten Isyarat" placeholder="Tulis pertanyaanmu..." class="assistant-chat-input flex-1 min-w-0 min-h-11 max-h-32 resize-none overflow-y-auto px-4 py-3 text-sm leading-5 rounded-2xl bg-neutral-100 text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-orange-300"></textarea>
+              <button id="btnSend" type="button" aria-label="Kirim pesan" class="flex items-center justify-center w-11 h-11 text-white transition bg-orange-500 rounded-full hover:bg-orange-600 active:scale-95 shrink-0">
                 <i class="text-sm fa-solid fa-paper-plane"></i>
               </button>
             </div>

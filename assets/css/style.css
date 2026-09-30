@@ -1,4 +1,7 @@
-img { max-width: 100%; height: auto; }
+img {
+  max-width: 100%;
+  height: auto;
+}
 #navbar {
   transition:
     background-color 0.25s ease,
@@ -73,19 +76,45 @@ img { max-width: 100%; height: auto; }
   transform: translate3d(0, 0, 0);
 }
 
-.fade-delay-60 { --delay: 60ms; }
-.fade-delay-80 { --delay: 80ms; }
-.fade-delay-100 { --delay: 100ms; }
-.fade-delay-140 { --delay: 140ms; }
-.fade-delay-150 { --delay: 150ms; }
-.fade-delay-180 { --delay: 180ms; }
-.fade-delay-200 { --delay: 200ms; }
-.fade-delay-260 { --delay: 260ms; }
-.fade-delay-300 { --delay: 300ms; }
-.fade-delay-320 { --delay: 320ms; }
-.fade-delay-340 { --delay: 340ms; }
-.fade-delay-420 { --delay: 420ms; }
-.fade-delay-500 { --delay: 500ms; }
+.fade-delay-60 {
+  --delay: 60ms;
+}
+.fade-delay-80 {
+  --delay: 80ms;
+}
+.fade-delay-100 {
+  --delay: 100ms;
+}
+.fade-delay-140 {
+  --delay: 140ms;
+}
+.fade-delay-150 {
+  --delay: 150ms;
+}
+.fade-delay-180 {
+  --delay: 180ms;
+}
+.fade-delay-200 {
+  --delay: 200ms;
+}
+.fade-delay-260 {
+  --delay: 260ms;
+}
+.fade-delay-300 {
+  --delay: 300ms;
+}
+.fade-delay-320 {
+  --delay: 320ms;
+}
+.fade-delay-340 {
+  --delay: 340ms;
+}
+.fade-delay-420 {
+  --delay: 420ms;
+}
+.fade-delay-500 {
+  --delay: 500ms;
+}
 
 /* 3. REALISTIC CULTURAL QUOTE RIBBON */
 .quote-ribbon {
@@ -168,6 +197,17 @@ img { max-width: 100%; height: auto; }
   height: clamp(20rem, 72dvh, 42rem);
 }
 
+.assistant-chat-input {
+  appearance: none;
+  -webkit-appearance: none;
+  resize: none !important;
+}
+
+.assistant-chat-input::-webkit-resizer {
+  display: none;
+  background: transparent;
+}
+
 .assistant-chat-area {
   display: flex;
   flex-direction: column;
@@ -206,7 +246,10 @@ img { max-width: 100%; height: auto; }
   }
 
   .assistant-chat-area {
-    gap: 0.85rem;
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+    gap: 0.75rem;
     padding-inline: 0.75rem;
   }
 
