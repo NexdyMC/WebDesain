@@ -34,6 +34,14 @@ $(function () {
     });
   });
 
+  const contactSuccess = document.getElementById("contactSuccess");
+  if (
+    contactSuccess &&
+    new URLSearchParams(window.location.search).get("contact-submitted") === "1"
+  ) {
+    contactSuccess.classList.remove("hidden");
+  }
+
   function toggleMobileMenu(isOpen) {
     const isCurrentlyOpen =
       $mobileMenu.is(":visible") && !$mobileMenu.hasClass("hidden");

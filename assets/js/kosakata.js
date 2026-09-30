@@ -56,10 +56,7 @@ $(function () {
     Object.entries(sibiNumberLabels)
       .map(function ([number, info]) {
         const numericValue = Number(number);
-        const imageName =
-          numericValue === 0
-            ? "O.webp"
-            : `Angka-${number}-SIBI.webp`;
+        const imageName = numericValue === 0 ? "o.webp" : `${number}.webp`;
         const imagePath =
           numericValue === 0
             ? `assets/images/sibi/alphabet/${encodeURIComponent(imageName)}`
@@ -81,7 +78,7 @@ $(function () {
   $("#sibiAbjadContainer").html(
     Object.entries(sibiLetterImages)
       .map(function ([letter, fileName]) {
-        const imagePath = `assets/images/sibi/alphabet/${encodeURIComponent(fileName)}`;
+        const imagePath = `assets/images/sibi/alphabet/${encodeURIComponent(fileName.toLowerCase())}`;
         return `
           <div role="button" tabindex="0" data-language="sibi" data-category="abjad" data-keywords="sibi abjad huruf alfabet ${letter.toLowerCase()}" data-desc="Bentuk isyarat huruf ${letter} dalam Sistem Isyarat Bahasa Indonesia (SIBI)." data-tips="Ikuti posisi jari pada foto dan pastikan telapak tangan menghadap arah yang sesuai." class="flex flex-col p-3 text-center bg-white border shadow-sm cursor-pointer border-slate-100 rounded-2xl card-interactive hover:shadow-lg hover:border-sky-300 kosakata-card group">
             <div class="relative mb-2.5 overflow-hidden rounded-xl aspect-square bg-slate-50">
