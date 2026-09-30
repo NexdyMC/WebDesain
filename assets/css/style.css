@@ -2,6 +2,19 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+a:has(> i[class*="fa-"]),
+button:has(> i[class*="fa-"]) {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  white-space: normal;
+}
+
+i[class*="fa-"] {
+  flex: 0 0 auto;
+}
+
 #navbar {
   transition:
     background-color 0.25s ease,
