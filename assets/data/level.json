@@ -11,9 +11,11 @@
     { "level": 9, "sistem": "BISINDO", "jenis": "Alphabet", "soal": ["Y", "Z", "A", "B", "C"], "exp": 50},
     { "level": 10, "sistem": "BISINDO", "jenis": "Alphabet", "soal": ["B", "C", "D", "E", "F"], "exp": 50},
     { "level": 11, "sistem": "BISINDO", "jenis": "Angka", "soal": ["1", "2", "3", "4", "5"], "exp": 55},
-    { "level": 12, "sistem": "BISINDO", "jenis": "Angka", "soal": ["6", "7", "8", "9", "10"], "exp": 55},
-    { "level": 13, "sistem": "BISINDO", "jenis": "Kosakata", "soal": ["mereka", "nama", "sama-sama", "saya", "terima-kasih"], "exp": 60},
-    { "level": 14, "sistem": "BISINDO", "jenis": "Kosakata", "soal": ["terima-kasih", "saya", "terima-kasih", "tuli", "umur"], "exp": 60},
+    { "level": 12, "sistem": "BISINDO", "jenis": "Angka", "soal": ["1", "2", "3", "4", "5"], "exp": 55},
+    { "level": 13, "sistem": "BISINDO", "jenis": "Angka", "soal": ["6", "7", "8", "9", "10"], "exp": 55},
+    { "level": 14, "sistem": "BISINDO", "jenis": "Angka", "soal": ["6", "7", "8", "9", "10"], "exp": 55},
+    { "level": 15, "sistem": "BISINDO", "jenis": "Kosakata", "soal": ["mereka", "nama", "sama-sama", "saya", "terima-kasih"], "exp": 60},
+    { "level": 16, "sistem": "BISINDO", "jenis": "Kosakata", "soal": ["terima-kasih", "saya", "terima-kasih", "tuli", "umur"], "exp": 60},
 
     { "level": 1, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["A", "B", "C", "D", "E"], "exp": 30},
     { "level": 2, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["D", "E", "F", "G", "H"], "exp": 30},
@@ -26,8 +28,10 @@
     { "level": 9, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["Y", "Z", "A", "B", "C"], "exp": 50},
     { "level": 10, "sistem": "SIBI", "jenis": "Alphabet", "soal": ["B", "C", "D", "E", "F"], "exp": 50},
     { "level": 11, "sistem": "SIBI", "jenis": "Angka", "soal": ["1", "2", "3", "4", "5"], "exp": 50},
-    { "level": 12, "sistem": "SIBI", "jenis": "Angka", "soal": ["6", "7", "8", "9", "10"], "exp": 50},
-    { "level": 13, "sistem": "SIBI", "jenis": "Kosakata", "soal": ["mereka", "nama", "sama-sama", "saya", "terima-kasih"], "exp": 60},
-    { "level": 14, "sistem": "SIBI", "jenis": "Kosakata", "soal": ["terima-kasih", "saya", "terima-kasih", "tuli", "umur"], "exp": 60}
+    { "level": 12, "sistem": "SIBI", "jenis": "Angka", "soal": ["1", "2", "3", "4", "5"], "exp": 50},
+    { "level": 13, "sistem": "SIBI", "jenis": "Angka", "soal": ["6", "7", "8", "9", "10"], "exp": 50},
+    { "level": 14, "sistem": "SIBI", "jenis": "Angka", "soal": ["6", "7", "8", "9", "10"], "exp": 50},
+    { "level": 15, "sistem": "SIBI", "jenis": "Kosakata", "soal": ["mereka", "nama", "sama-sama", "saya", "terima-kasih"], "exp": 60},
+    { "level": 16, "sistem": "SIBI", "jenis": "Kosakata", "soal": ["terima-kasih", "saya", "terima-kasih", "tuli", "umur"], "exp": 60}
   ]
 }
