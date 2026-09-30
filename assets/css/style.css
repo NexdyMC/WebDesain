@@ -15,12 +15,9 @@ i[class*="fa-"] {
   flex: 0 0 auto;
 }
 
-@media (max-width: 767px) {
-  a:has(> i[class*="fa-"]) > i[class*="fa-"],
-  button:not([aria-label]):has(> i[class*="fa-"]) > i[class*="fa-"],
-  li > i[class*="fa-"],
-  .heading-icon-layout > i[class*="fa-"],
-  .why-heading-icon {
+@media (max-width: 720px) and (max-height: 1640px) {
+  a:not([aria-label]):has(> i[class*="fa-"]) > i[class*="fa-"],
+  button:not([aria-label]):has(> i[class*="fa-"]) > i[class*="fa-"] {
     display: none;
   }
 }
@@ -469,7 +466,6 @@ i[class*="fa-"] {
   }
 }
 
-/* 3. STAT FLIP CARD - Fix: remove the hardcoded 280px height */
 .stat-flip-card {
   position: relative;
   min-height: 260px;
