@@ -15,6 +15,16 @@ i[class*="fa-"] {
   flex: 0 0 auto;
 }
 
+@media (max-width: 767px) {
+  a:has(> i[class*="fa-"]) > i[class*="fa-"],
+  button:not([aria-label]):has(> i[class*="fa-"]) > i[class*="fa-"],
+  li > i[class*="fa-"],
+  .heading-icon-layout > i[class*="fa-"],
+  .why-heading-icon {
+    display: none;
+  }
+}
+
 #navbar {
   transition:
     background-color 0.25s ease,
